@@ -1,0 +1,6 @@
+framework module Pods_TrainMe {
+  umbrella header "Pods-TrainMe-umbrella.h"
+
+  export *
+  module * { export * }
+}
