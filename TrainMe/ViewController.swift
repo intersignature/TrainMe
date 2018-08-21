@@ -10,8 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var signupBtn: UIButton!
+    @IBOutlet weak var facebookSignupBtn: UIButton!
+    @IBOutlet weak var loginBtn: UIButton!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        signupBtn.layer.cornerRadius = 17
+        facebookSignupBtn.layer.cornerRadius = 17
+        loginBtn.layer.cornerRadius = 17
         // Do any additional setup after loading the view, typically from a nib.
     }
 

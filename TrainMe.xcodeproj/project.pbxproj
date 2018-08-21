@@ -9,7 +9,20 @@
 /* Begin PBXBuildFile section */
 		4F541E892DFA99967B2E7B65 /* Pods_TrainMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05703BEEA1300794C374882 /* Pods_TrainMeUITests.framework */; };
 		696D7F7C78288D0987CA153C /* Pods_TrainMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A39929C094749B12C461F47 /* Pods_TrainMeTests.framework */; };
+		B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C3212BFB18001B43B1 /* LoginViewController.swift */; };
 		B224A061212BC92900DA7E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B224A060212BC92800DA7E47 /* GoogleService-Info.plist */; };
+		B25A8115212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
+		B25A8116212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
+		B25A8117212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
+		B25A8118212BD61600073C68 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */; };
+		B25A8119212BD61600073C68 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */; };
+		B25A811A212BD61600073C68 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */; };
+		B25A811B212BD61600073C68 /* NotoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */; };
+		B25A811C212BD61600073C68 /* NotoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */; };
+		B25A811D212BD61600073C68 /* NotoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */; };
+		B25A811E212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
+		B25A811F212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
+		B25A8120212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
 		B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */; };
 		B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC55212BC5D5009A3712 /* ViewController.swift */; };
 		B2B8BC59212BC5D5009A3712 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B8BC57212BC5D5009A3712 /* Main.storyboard */; };
@@ -46,7 +59,12 @@
 		55C4A3547D6419CECA40BE2B /* Pods-TrainMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMeTests/Pods-TrainMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		6A39929C094749B12C461F47 /* Pods_TrainMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05703BEEA1300794C374882 /* Pods_TrainMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20E30C3212BFB18001B43B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B224A060212BC92800DA7E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Medium.ttf"; sourceTree = "<group>"; };
+		B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Black.ttf"; sourceTree = "<group>"; };
+		B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Light.ttf"; sourceTree = "<group>"; };
 		B2B8BC50212BC5D5009A3712 /* TrainMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2B8BC55212BC5D5009A3712 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +132,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B25A8110212BD53B00073C68 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */,
+				B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */,
+				B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */,
+				B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		B2B8BC47212BC5D5009A3712 = {
 			isa = PBXGroup;
 			children = (
@@ -141,11 +170,13 @@
 			children = (
 				B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */,
 				B2B8BC55212BC5D5009A3712 /* ViewController.swift */,
+				B20E30C3212BFB18001B43B1 /* LoginViewController.swift */,
 				B2B8BC57212BC5D5009A3712 /* Main.storyboard */,
 				B2B8BC5A212BC5D7009A3712 /* Assets.xcassets */,
 				B2B8BC5C212BC5D7009A3712 /* LaunchScreen.storyboard */,
 				B2B8BC5F212BC5D7009A3712 /* Info.plist */,
 				B224A060212BC92800DA7E47 /* GoogleService-Info.plist */,
+				B25A8110212BD53B00073C68 /* fonts */,
 			);
 			path = TrainMe;
 			sourceTree = "<group>";
@@ -276,10 +307,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25A811E212BD61600073C68 /* NotoSans-Light.ttf in Resources */,
+				B25A8118212BD61600073C68 /* NotoSans-Bold.ttf in Resources */,
 				B2B8BC5E212BC5D7009A3712 /* LaunchScreen.storyboard in Resources */,
 				B224A061212BC92900DA7E47 /* GoogleService-Info.plist in Resources */,
 				B2B8BC5B212BC5D7009A3712 /* Assets.xcassets in Resources */,
+				B25A811B212BD61600073C68 /* NotoSans-Black.ttf in Resources */,
 				B2B8BC59212BC5D5009A3712 /* Main.storyboard in Resources */,
+				B25A8115212BD61600073C68 /* NotoSans-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +322,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25A811F212BD61600073C68 /* NotoSans-Light.ttf in Resources */,
+				B25A8119212BD61600073C68 /* NotoSans-Bold.ttf in Resources */,
+				B25A811C212BD61600073C68 /* NotoSans-Black.ttf in Resources */,
+				B25A8116212BD61600073C68 /* NotoSans-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +333,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25A8120212BD61600073C68 /* NotoSans-Light.ttf in Resources */,
+				B25A811A212BD61600073C68 /* NotoSans-Bold.ttf in Resources */,
+				B25A811D212BD61600073C68 /* NotoSans-Black.ttf in Resources */,
+				B25A8117212BD61600073C68 /* NotoSans-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */,
 				B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */,
 				B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */,
 			);
