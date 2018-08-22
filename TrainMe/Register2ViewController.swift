@@ -1,35 +1,53 @@
 //
-//  RegisterViewController.swift
+//  Register2ViewController.swift
 //  TrainMe
 //
-//  Created by Sirichai Binchai on 21/8/2561 BE.
+//  Created by Sirichai Binchai on 22/8/2561 BE.
 //  Copyright © 2561 Sirichai Binchai. All rights reserved.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class Register2ViewController: UIViewController {
 
+    @IBOutlet weak var text: UILabel!
+    var str = String()
     
-    @IBOutlet weak var fullnameView: UIView!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var verifyPasswordView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fullnameView.layer.cornerRadius = 17
-        nextBtn.layer.cornerRadius = 17
         // Do any additional setup after loading the view.
+        
+//        text.text = str
+        
+        emailView.layer.cornerRadius = 17
+        passwordView.layer.cornerRadius = 17
+        verifyPasswordView.layer.cornerRadius = 17
+        nextBtn.layer.cornerRadius = 17
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let register2Vc = segue.destination as? Register2ViewController {
-            register2Vc.str = "dfgDFGDFG"
+        if let register3Vc = segue.destination as? Register3ViewController {
+            
         }
+    }
+    
+    func backTrainsition(segueId: String) {
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromLeft
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        self.dismiss(animated: false, completion: nil)
     }
     
     func nextTransition(segueId: String) {
@@ -43,13 +61,12 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func backBtnAction(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        backTrainsition(segueId: "Register2ToRegister")
     }
     
     @IBAction func nextBtnAction(_ sender: UIButton) {
-        nextTransition(segueId: "RegisterToRegister2")
+        nextTransition(segueId: "Register2ToRegister3")
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
