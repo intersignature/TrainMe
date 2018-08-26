@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  NotificationTabTrainerViewController.swift
 //  TrainMe
 //
 //  Created by Sirichai Binchai on 26/8/2561 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class NotificationTabTrainerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
