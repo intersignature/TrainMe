@@ -11,6 +11,9 @@ pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Messaging'
 pod 'Alamofire'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
+pod 'GooglePlacePicker'
 
   target 'TrainMeTests' do
     inherit! :search_paths

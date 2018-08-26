@@ -13,6 +13,7 @@
 		B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */; };
 		B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */; };
 		B224A061212BC92900DA7E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B224A060212BC92800DA7E47 /* GoogleService-Info.plist */; };
+		B23BA09B213270CD0014B13B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23BA09A213270CD0014B13B /* MainViewController.swift */; };
 		B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B8A8D212D16F400C59074 /* Register2ViewController.swift */; };
 		B25A8115212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
 		B25A8116212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
@@ -67,6 +68,7 @@
 		B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B224A060212BC92800DA7E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B23BA09A213270CD0014B13B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B24B8A8D212D16F400C59074 /* Register2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register2ViewController.swift; sourceTree = "<group>"; };
 		B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Medium.ttf"; sourceTree = "<group>"; };
 		B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				B25A8110212BD53B00073C68 /* fonts */,
 				B24B8A8D212D16F400C59074 /* Register2ViewController.swift */,
 				B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */,
+				B23BA09A213270CD0014B13B /* MainViewController.swift */,
 			);
 			path = TrainMe;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				B2B8BC4D212BC5D5009A3712 /* Frameworks */,
 				B2B8BC4E212BC5D5009A3712 /* Resources */,
 				3711B05C8BFC5FC6B43B5A4E /* [CP] Embed Pods Frameworks */,
+				5A66EBACFB4C3BBFB9DCD82C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -382,7 +386,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -391,7 +395,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -399,6 +403,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A66EBACFB4C3BBFB9DCD82C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6CFCB23AB0EA22E3DE1B1787 /* [CP] Check Pods Manifest.lock */ = {
@@ -451,6 +477,7 @@
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
 				B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */,
 				B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */,
+				B23BA09B213270CD0014B13B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
