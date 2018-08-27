@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SidebarViewController: UIViewController {
+class SidebarTrainerViewController: UIViewController {
 
     @IBOutlet weak var profileImg: UIImageView!
     

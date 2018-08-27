@@ -323,7 +323,7 @@
                                 <rect key="frame" x="42" y="335.66666666666669" width="330" height="53"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user2" translatesAutoresizingMaskIntoConstraints="NO" id="ukD-rr-jfD">
-                                        <rect key="frame" x="8" y="13" width="37" height="26"/>
+                                        <rect key="frame" x="8" y="10" width="37" height="33"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l07-HW-UEe">
                                         <rect key="frame" x="53" y="5" width="3" height="42"/>
@@ -341,7 +341,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ukD-rr-jfD" secondAttribute="bottom" constant="14" id="4Hu-DJ-nnE"/>
+                                    <constraint firstAttribute="bottom" secondItem="ukD-rr-jfD" secondAttribute="bottom" constant="10" id="4Hu-DJ-nnE"/>
                                     <constraint firstItem="l07-HW-UEe" firstAttribute="leading" secondItem="ukD-rr-jfD" secondAttribute="trailing" constant="8" id="6ju-ft-Cxu"/>
                                     <constraint firstItem="P1T-Fs-CrO" firstAttribute="leading" secondItem="l07-HW-UEe" secondAttribute="trailing" constant="8" id="7Vt-bw-MXt"/>
                                     <constraint firstAttribute="height" constant="53" id="8Ki-Og-AUG"/>
@@ -350,7 +350,7 @@
                                     <constraint firstItem="l07-HW-UEe" firstAttribute="top" secondItem="cxi-Pe-muT" secondAttribute="top" constant="5" id="ZtM-gA-BrX"/>
                                     <constraint firstAttribute="bottom" secondItem="P1T-Fs-CrO" secondAttribute="bottom" constant="12" id="abA-AZ-qqJ"/>
                                     <constraint firstAttribute="bottom" secondItem="l07-HW-UEe" secondAttribute="bottom" constant="6" id="eIM-21-JkW"/>
-                                    <constraint firstItem="ukD-rr-jfD" firstAttribute="top" secondItem="cxi-Pe-muT" secondAttribute="top" constant="13" id="fjQ-eC-DJV"/>
+                                    <constraint firstItem="ukD-rr-jfD" firstAttribute="top" secondItem="cxi-Pe-muT" secondAttribute="top" constant="10" id="fjQ-eC-DJV"/>
                                     <constraint firstAttribute="trailing" secondItem="P1T-Fs-CrO" secondAttribute="trailing" constant="5" id="zup-ap-KN8"/>
                                 </constraints>
                             </view>
@@ -805,10 +805,10 @@ TrainMe’s Privacy Policy</string>
             </objects>
             <point key="canvasLocation" x="3348" y="928"/>
         </scene>
-        <!--Sidebar View Controller-->
+        <!--Sidebar Trainer View Controller-->
         <scene sceneID="08G-PF-GMG">
             <objects>
-                <viewController id="N6X-sN-wqg" customClass="SidebarViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="N6X-sN-wqg" customClass="SidebarTrainerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p3c-p1-I3f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
