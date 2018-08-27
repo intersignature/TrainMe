@@ -14,6 +14,7 @@ pod 'Alamofire'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'GooglePlacePicker'
+pod 'SWRevealViewController' 
 
   target 'TrainMeTests' do
     inherit! :search_paths

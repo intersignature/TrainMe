@@ -14,10 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var facebookSignupBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -22,10 +22,6 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let register2Vc = segue.destination as? Register2ViewController {
             register2Vc.str = "dfgDFGDFG"

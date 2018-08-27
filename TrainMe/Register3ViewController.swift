@@ -13,9 +13,18 @@ class Register3ViewController: UIViewController {
 //    @IBOutlet weak var dateOfBirthTf: UITextField!
 //    private var datePicker: UIDatePicker!
     
+    @IBOutlet weak var weightView: UIView!
+    @IBOutlet weak var heightView: UIView!
+    @IBOutlet weak var genderView: UIView!
+    @IBOutlet weak var submitBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        weightView.layer.cornerRadius = 17
+        heightView.layer.cornerRadius = 17
+        genderView.layer.cornerRadius = 17
+        submitBtn.layer.cornerRadius = 17
 //        dateOfBirthTf.layer.cornerRadius = 17
 //
 //        datePicker = UIDatePicker()
@@ -40,11 +49,7 @@ class Register3ViewController: UIViewController {
 //        dateOfBirthTf.text = dateFormatter.string(from: datePicker.date)
 ////        view.endEditing(true)
 //    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
+
     func backTrainsition(segueId: String) {
         let transition = CATransition()
         transition.duration = 0.3

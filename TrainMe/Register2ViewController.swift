@@ -29,10 +29,6 @@ class Register2ViewController: UIViewController {
         verifyPasswordView.layer.cornerRadius = 17
         nextBtn.layer.cornerRadius = 17
     }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let register3Vc = segue.destination as? Register3ViewController {

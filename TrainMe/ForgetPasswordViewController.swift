@@ -9,10 +9,6 @@
 import UIKit
 
 class ForgetPasswordViewController: UIViewController {
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var sendBtn: UIButton!

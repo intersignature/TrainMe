@@ -10,9 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
