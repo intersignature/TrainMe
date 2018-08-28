@@ -8,23 +8,47 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+extension UIViewController{
+    func HideKeyboard() {
+        let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(Tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+class RegisterViewController: UIViewController, UITextFieldDelegate{
 
     
+    @IBOutlet weak var fullnameTf: UITextField!
     @IBOutlet weak var fullnameView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
+    var userProfile: UserProfile = UserProfile()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fullnameView.layer.cornerRadius = 17
         nextBtn.layer.cornerRadius = 17
+        
+        self.fullnameTf.delegate = self
+        
+        self.HideKeyboard()
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        fullnameTf.resignFirstResponder()
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let register2Vc = segue.destination as? Register2ViewController {
-            register2Vc.str = "dfgDFGDFG"
+            register2Vc.userProfile = self.userProfile
+            
         }
     }
     
@@ -43,7 +67,19 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func nextBtnAction(_ sender: UIButton) {
-        nextTransition(segueId: "RegisterToRegister2")
+        if fullnameTf.text == "" {
+            createAlert(alertTitle: "Please enter your fullname", alertMessage: "")
+            return
+        } else {
+            self.userProfile.fullName = fullnameTf.text!
+            nextTransition(segueId: "RegisterToRegister2")
+        }
+    }
+    
+    func createAlert(alertTitle: String, alertMessage: String) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

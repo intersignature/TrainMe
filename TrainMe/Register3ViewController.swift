@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Register3ViewController: UIViewController {
+class Register3ViewController: UIViewController, UITextFieldDelegate {
 
 //    @IBOutlet weak var dateOfBirthTf: UITextField!
 //    private var datePicker: UIDatePicker!
@@ -17,6 +17,22 @@ class Register3ViewController: UIViewController {
     @IBOutlet weak var heightView: UIView!
     @IBOutlet weak var genderView: UIView!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
+    @IBOutlet weak var dayOfBirthTf: UITextField!
+    @IBOutlet weak var monthOfBirthTf: UITextField!
+    @IBOutlet weak var yearOfBirthTf: UITextField!
+    @IBOutlet weak var weightTf: UITextField!
+    @IBOutlet weak var heightTf: UITextField!
+    @IBOutlet weak var maleBtn: UIButton!
+    @IBOutlet weak var femaleBtn: UIButton!
+    @IBOutlet weak var noneBtn: UIButton!
+    
+    var userProfile: UserProfile = UserProfile()
+    var checkGender: Int = -1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +41,18 @@ class Register3ViewController: UIViewController {
         heightView.layer.cornerRadius = 17
         genderView.layer.cornerRadius = 17
         submitBtn.layer.cornerRadius = 17
+        maleBtn.layer.cornerRadius = 5
+        femaleBtn.layer.cornerRadius = 5
+        noneBtn.layer.cornerRadius = 5
+        
+        self.dayOfBirthTf.delegate = self
+        self.monthOfBirthTf.delegate = self
+        self.yearOfBirthTf.delegate = self
+        self.weightTf.delegate = self
+        self.heightTf.delegate = self
+        
+        self.HideKeyboard()
+        print(self.userProfile.getData())
 //        dateOfBirthTf.layer.cornerRadius = 17
 //
 //        datePicker = UIDatePicker()
@@ -37,7 +65,8 @@ class Register3ViewController: UIViewController {
 //        dateOfBirthTf.inputView = datePicker
         // Do any additional setup after loading the view.
     }
-
+    
+    
 //    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
 //        view.endEditing(true)
 //    }
@@ -49,7 +78,16 @@ class Register3ViewController: UIViewController {
 //        dateOfBirthTf.text = dateFormatter.string(from: datePicker.date)
 ////        view.endEditing(true)
 //    }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dayOfBirthTf.resignFirstResponder()
+        monthOfBirthTf.resignFirstResponder()
+        yearOfBirthTf.resignFirstResponder()
+        weightTf.resignFirstResponder()
+        heightTf.resignFirstResponder()
+        return true
+    }
+    
     func backTrainsition(segueId: String) {
         let transition = CATransition()
         transition.duration = 0.3
@@ -63,6 +101,87 @@ class Register3ViewController: UIViewController {
     @IBAction func backBtnAction(_ sender: UIButton) {
         backTrainsition(segueId: "Register3ToRegister2")
     }
+    
+    @IBAction func maleBtnAction(_ sender: UIButton) {
+        maleBtn.backgroundColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
+        maleBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
+        
+        femaleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
+        femaleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        
+        noneBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
+        noneBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        
+        checkGender = 1
+    }
+    
+    
+    @IBAction func femaleBtnAction(_ sender: UIButton) {
+        maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
+        maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        
+        femaleBtn.backgroundColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
+        femaleBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
+        
+        noneBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
+        noneBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        
+        checkGender = 2
+    }
+    
+    
+    @IBAction func noneBtnAction(_ sender: UIButton) {
+        maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
+        maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        
+        femaleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
+        femaleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        
+        noneBtn.backgroundColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
+        noneBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
+        
+        checkGender = -1
+    }
+    
+
+    @IBAction func submitBtnAction(_ sender: UIButton) {
+        
+        if dayOfBirthTf.text == "" && monthOfBirthTf.text == "" && yearOfBirthTf.text == "" {
+            
+            createAlert(alertTitle: "Please enter your date of birth", alertMessage: "")
+        } else {
+            userProfile.dateOfBirth = "\(String(describing: dayOfBirthTf.text!))/\(String(describing: monthOfBirthTf.text!))/\(String(describing: yearOfBirthTf.text!))"
+        }
+        
+        if weightTf.text == "" {
+            userProfile.weight = "-1"
+        } else {
+            userProfile.weight = weightTf.text!
+        }
+        
+        if heightTf.text == "" {
+            userProfile.height = "-1"
+        } else {
+            userProfile.height = heightTf.text!
+        }
+        
+        if checkGender == -1 {
+            userProfile.gender = "-1"
+        } else if checkGender == 1 {
+            userProfile.gender = "male"
+        } else if checkGender == 2 {
+            userProfile.gender = "female"
+        }
+        
+        print(userProfile.getData())
+    }
+    
+    func createAlert(alertTitle: String, alertMessage: String) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

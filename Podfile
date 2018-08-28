@@ -14,7 +14,10 @@ pod 'Alamofire'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'GooglePlacePicker'
-pod 'SWRevealViewController' 
+pod 'SWRevealViewController'
+pod 'FBSDKLoginKit'
+pod 'FacebookCore'
+pod 'FacebookLogin'
 
   target 'TrainMeTests' do
     inherit! :search_paths
