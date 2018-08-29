@@ -465,19 +465,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmT-va-NKq">
-                                                <rect key="frame" x="132" y="82" width="150" height="49.666666666666657"/>
+                                                <rect key="frame" x="132" y="82" width="150" height="49.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="36"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgw-b6-r2c">
-                                                <rect key="frame" x="51.999999999999993" y="147.66666666666666" width="96.333333333333314" height="20.333333333333343"/>
+                                                <rect key="frame" x="51.999999999999993" y="147.33333333333334" width="96.333333333333314" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV9-rX-ggJ">
-                                                <rect key="frame" x="167" y="173" width="80" height="30"/>
+                                                <rect key="frame" x="167" y="172.66666666666666" width="80" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="JLe-8q-F6e"/>
                                                 </constraints>
@@ -486,7 +486,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BOx-Ip-s6A">
-                                                <rect key="frame" x="77" y="173" width="80" height="30"/>
+                                                <rect key="frame" x="77" y="172.66666666666666" width="80" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="Mqg-mT-odg"/>
                                                 </constraints>
@@ -495,7 +495,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pG-EV-y0k">
-                                                <rect key="frame" x="42" y="224" width="330" height="54"/>
+                                                <rect key="frame" x="42" y="223.66666666666666" width="330" height="53.999999999999972"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-Cu-vgF">
                                                         <rect key="frame" x="8" y="13" width="27" height="27"/>
@@ -511,7 +511,7 @@
                                                         <rect key="frame" x="54" y="11" width="271" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQP-gz-aHM">
                                                         <rect key="frame" x="301" y="19" width="21" height="22"/>
@@ -539,7 +539,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RX2-Jy-43T">
-                                                <rect key="frame" x="42" y="299" width="330" height="57"/>
+                                                <rect key="frame" x="42" y="298.66666666666669" width="330" height="57"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="height" translatesAutoresizingMaskIntoConstraints="NO" id="R0c-Ef-5dQ">
                                                         <rect key="frame" x="8" y="13" width="26" height="30"/>
@@ -555,7 +555,7 @@
                                                         <rect key="frame" x="53" y="11" width="272" height="34"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH5-gg-d8t">
                                                         <rect key="frame" x="296" y="16" width="26" height="26"/>
@@ -583,7 +583,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPP-0y-6FT">
-                                                <rect key="frame" x="42" y="377" width="330" height="46"/>
+                                                <rect key="frame" x="42" y="376.66666666666669" width="330" height="46"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mq5-dA-aeN">
                                                         <rect key="frame" x="256" y="8" width="50" height="30"/>
@@ -629,7 +629,7 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvY-Vv-ttb">
-                                                <rect key="frame" x="257" y="173" width="80" height="30"/>
+                                                <rect key="frame" x="257" y="172.66666666666666" width="80" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="uhS-WY-8G3"/>
                                                 </constraints>
@@ -638,7 +638,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFv-lP-VuM">
-                                                <rect key="frame" x="42" y="460" width="330" height="11"/>
+                                                <rect key="frame" x="42" y="459.66666666666669" width="330" height="11"/>
                                                 <string key="text">By signing up, you agree to TrainMe’s Terms
 of Service</string>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="8"/>
@@ -646,7 +646,7 @@ of Service</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xf-5A-kyG">
-                                                <rect key="frame" x="42" y="487" width="330" height="33"/>
+                                                <rect key="frame" x="42" y="486.66666666666669" width="330" height="33.000000000000057"/>
                                                 <string key="text">To learn more about how TrainMe collects, uses,
 shares and protect your personal data please read
 TrainMe’s Privacy Policy</string>
@@ -655,7 +655,7 @@ TrainMe’s Privacy Policy</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGr-rM-ONm">
-                                                <rect key="frame" x="92" y="556" width="230" height="32"/>
+                                                <rect key="frame" x="92" y="555.66666666666663" width="230" height="32"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="NvX-Jw-YVe"/>
@@ -903,6 +903,9 @@ TrainMe’s Privacy Policy</string>
                                 <rect key="frame" x="47" y="491" width="97" height="31"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Logout" image="logout"/>
+                                <connections>
+                                    <action selector="logoutBtnAction:" destination="N6X-sN-wqg" eventType="touchUpInside" id="efx-P6-cxB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
@@ -929,7 +932,10 @@ TrainMe’s Privacy Policy</string>
                         <viewLayoutGuide key="safeArea" id="6Mi-u6-KD4"/>
                     </view>
                     <connections>
+                        <outlet property="emailLb" destination="eNY-c4-Tbs" id="IG8-Hu-AEA"/>
+                        <outlet property="nameLb" destination="n5m-Hn-cJA" id="6hs-fS-Ylm"/>
                         <outlet property="profileImg" destination="gVH-mN-Wbb" id="cak-jm-WEL"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="LogoutSeg" customClass="SWRevealViewControllerSeguePushController" id="g7V-sT-ulc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DP2-Oh-MYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1123,7 +1129,7 @@ TrainMe’s Privacy Policy</string>
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Fyd-1L-8H1" kind="show" id="6DS-RV-aUq"/>
+                                    <action selector="LoginBtnAction:" destination="7zK-XC-fXd" eventType="touchUpInside" id="J6Q-oc-Jzc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpC-aU-N9I">
@@ -1159,9 +1165,12 @@ TrainMe’s Privacy Policy</string>
                         <viewLayoutGuide key="safeArea" id="kv9-IX-XaO"/>
                     </view>
                     <connections>
+                        <outlet property="emailTf" destination="H6c-6T-DPa" id="6AP-8i-yGD"/>
                         <outlet property="emailView" destination="yMU-5Z-VB7" id="9Ql-zK-u9k"/>
                         <outlet property="loginBtn" destination="ldZ-p4-mPq" id="7E8-LF-tyb"/>
+                        <outlet property="passwordTf" destination="Tqd-FH-rT3" id="uKz-jP-2HT"/>
                         <outlet property="passwordView" destination="vvv-wk-Gn9" id="fMA-gh-mRP"/>
+                        <segue destination="Fyd-1L-8H1" kind="show" identifier="LoginToMain" id="CLL-yx-EIm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRD-dM-JKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1243,6 +1252,9 @@ TrainMe’s Privacy Policy</string>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendBtnAction:" destination="kPu-q5-D4F" eventType="touchUpInside" id="sei-Tn-v6e"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1265,6 +1277,7 @@ TrainMe’s Privacy Policy</string>
                         <viewLayoutGuide key="safeArea" id="MxQ-Or-vv3"/>
                     </view>
                     <connections>
+                        <outlet property="emailTf" destination="mas-yo-NIf" id="Uf8-nu-hlh"/>
                         <outlet property="emailView" destination="Hxa-t5-sJH" id="lRp-At-OYD"/>
                         <outlet property="sendBtn" destination="WqS-dg-zQO" id="3Jf-21-4Pd"/>
                     </connections>

@@ -65,8 +65,11 @@ class ViewController: UIViewController {
                 print(err)
                 return
             }
-            self.fetchFacebookUser()
-        
+//            if !self.checkProfileInfo() {
+//                self.fetchFacebookUser()
+//            }
+            self.checkProfileInfo()
+            
 //            print(Auth.auth().currentUser?.email)
 //            print(Auth.auth().currentUser?.displayName) //-> fullname
 //            print(Auth.auth().currentUser?.photoURL)
@@ -75,8 +78,19 @@ class ViewController: UIViewController {
         }
     }
     
+    func checkProfileInfo() {
+        let userID = Auth.auth().currentUser?.uid
+        Database.database().reference().child("user").child(userID!).observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.childrenCount == 0 {
+                self.fetchFacebookUser()
+            } else {
+                self.performSegue(withIdentifier: "WelcomeToMain", sender: nil)
+            }
+//            self.fetchFacebookUser()
+        }
+    }
+    
     fileprivate func fetchFacebookUser() {
-        
         let graphRequestConnection = GraphRequestConnection()
         let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, email, name, picture.type(large),gender,birthday"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: .defaultVersion)
         graphRequestConnection.add(graphRequest) { (httpResponse, result) in
@@ -90,6 +104,7 @@ class ViewController: UIViewController {
                 self.gender = json["gender"].string
                 self.dateOfBirth = json["birthday"].string
                 guard let profilePictureUrl = json["picture"]["data"]["url"].string else {return}
+                print(json["picture"].string )
                 guard let url = URL(string: profilePictureUrl) else {return}
                 
                 URLSession.shared.dataTask(with: url, completionHandler: { (data, response, err) in
@@ -116,11 +131,10 @@ class ViewController: UIViewController {
     }
     
     fileprivate func saveUserIntoFirebase() {
-        let fileName = Auth.auth().currentUser?.uid
         guard let profilePicture = self.profilePicture else {return}
         guard let uploadData = UIImageJPEGRepresentation(profilePicture, 0.7) else {return}
         
-        Storage.storage().reference().child("Profile Image").child(fileName!+".jpg").putData(uploadData, metadata: nil) { (metadata, err) in
+        Storage.storage().reference().child("profile").child((Auth.auth().currentUser?.uid)!).child("imageProfile"+".jpg").putData(uploadData, metadata: nil) { (metadata, err) in
             if let err = err {
                 print(err)
                 return
@@ -129,23 +143,31 @@ class ViewController: UIViewController {
             print("Successfully saved profile image into firebase storage!")
             
             
-            let profileImageUrlRef = Storage.storage().reference().child("Profile Image/\(Auth.auth().currentUser!.uid).jpg")
+            let profileImageUrlRef = Storage.storage().reference().child("profile").child((Auth.auth().currentUser?.uid)!).child("imageProfile"+".jpg")
             profileImageUrlRef.downloadURL(completion: { (url, err) in
                 if let err = err {
                     print(err)
                     return
                 }
-
-                let profileImageUrl = url!.absoluteString
                 
                 guard let uid = Auth.auth().currentUser?.uid else {return}
                 let dictionaryValues = ["role": "trainer",
                                         "dateOfBirth": self.dateOfBirth,
                                         "weight": "-1",
                                         "height": "-1",
-                                        "gender": self.gender,
-                                        "profileImageUrl": profileImageUrl]
+                                        "gender": self.gender]
                 let values = [uid: dictionaryValues]
+                
+                let profileChangeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                profileChangeRequest?.photoURL = url
+                profileChangeRequest?.commitChanges(completion: { (err) in
+                    if let err = err {
+                        print(err)
+                        return
+                    }
+                    print("displaynameaa: \(Auth.auth().currentUser?.displayName)")
+                    print("displaynameaa: \(Auth.auth().currentUser?.photoURL?.absoluteString)")
+                })
                 
                 Database.database().reference().child("user").updateChildValues(values, withCompletionBlock: { (err, reference) in
                     if let err = err {
@@ -156,6 +178,8 @@ class ViewController: UIViewController {
                     
                     self.performSegue(withIdentifier: "WelcomeToMain", sender: nil)
                 })
+                
+                
             })
             
         }

@@ -188,9 +188,21 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         
         Auth.auth().createUser(withEmail: self.email!, password: self.password!) { (user, err) in
             if let err = err {
-                print(err)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
+            
+            let profileChangeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            profileChangeRequest?.displayName = self.userProfile.fullName
+            profileChangeRequest?.commitChanges(completion: { (err) in
+                if let err = err {
+                    print(err)
+                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                    return
+                }
+                print("displayname: \(Auth.auth().currentUser?.displayName)")
+                print("photoname: \(Auth.auth().currentUser?.photoURL?.absoluteString)")
+            })
             print("Create user with email success!")
             self.addProfileToDatabase()
             
@@ -203,8 +215,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
                                 "dateOfBirth": self.userProfile.dateOfBirth,
                                 "weight": self.userProfile.weight,
                                 "height": self.userProfile.height,
-                                "gender": self.userProfile.gender,
-                                "profileImageUrl": "-1"]
+                                "gender": self.userProfile.gender]
         let values = [uid: dictionaryValues]
         Database.database().reference().child("user").updateChildValues(values) { (err, reference) in
             if let err = err {

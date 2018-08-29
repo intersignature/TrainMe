@@ -7,18 +7,60 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseStorage
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+            }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
+}
 
 class SidebarTrainerViewController: UIViewController {
 
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var nameLb: UILabel!
+    @IBOutlet weak var emailLb: UILabel!
+    @IBAction func logoutBtnAction(_ sender: UIButton) {
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "LogoutSeg", sender: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setProfileImageRound()
+
+        print(Auth.auth().currentUser?.displayName)
+        print(Auth.auth().currentUser?.photoURL?.absoluteString)
+        
+        nameLb.text = Auth.auth().currentUser?.displayName
+        emailLb.text = Auth.auth().currentUser?.email
+        
+        if Auth.auth().currentUser?.photoURL != nil {
+            profileImg.downloaded(from: (Auth.auth().currentUser?.photoURL)!)
+        } else {
+            // profileImg.downloaded(from: (Auth.auth().currentUser?.photoURL)!) -> use default image link
+        }
         // Do any additional setup after loading the view.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
