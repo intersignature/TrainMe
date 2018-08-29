@@ -119,6 +119,7 @@
                         <outlet property="facebookSignupBtn" destination="jgI-ib-5hP" id="RhJ-tt-7hF"/>
                         <outlet property="loginBtn" destination="kXd-qk-rHd" id="kVt-fT-Gfb"/>
                         <outlet property="signupBtn" destination="F9h-NA-RNr" id="uBJ-y1-ZYp"/>
+                        <segue destination="Fyd-1L-8H1" kind="show" identifier="WelcomeToMain" id="8lr-Mx-SRS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -222,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ti-Sr-ukP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="161"/>
+            <point key="canvasLocation" x="996" y="159"/>
         </scene>
         <!--Register2 View Controller-->
         <scene sceneID="Slj-aI-AqY">
@@ -482,7 +483,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BOx-Ip-s6A">
                                                 <rect key="frame" x="77" y="173" width="80" height="30"/>
@@ -491,7 +492,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pG-EV-y0k">
                                                 <rect key="frame" x="42" y="224" width="330" height="54"/>
@@ -634,7 +635,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFv-lP-VuM">
                                                 <rect key="frame" x="42" y="460" width="330" height="11"/>
@@ -745,6 +746,7 @@ TrainMe’s Privacy Policy</string>
                         <outlet property="weightTf" destination="HcM-TH-rzq" id="vPQ-Wf-hXj"/>
                         <outlet property="weightView" destination="7pG-EV-y0k" id="Kfw-eh-N53"/>
                         <outlet property="yearOfBirthTf" destination="vvY-Vv-ttb" id="dex-Et-L87"/>
+                        <segue destination="Fyd-1L-8H1" kind="show" identifier="Register3ToMain" id="Nqu-3d-ibE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhR-pY-4Vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -786,7 +788,7 @@ TrainMe’s Privacy Policy</string>
         <!--Pick your place-->
         <scene sceneID="3aO-BX-3F8">
             <objects>
-                <viewController id="1n9-FR-rJU" customClass="BookTabTrainerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1n9-FR-rJU" customClass="BookTabTrainerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHo-pd-ztY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1164,7 +1166,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRD-dM-JKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="953.97301349325346"/>
+            <point key="canvasLocation" x="136" y="954"/>
         </scene>
         <!--Forget Password View Controller-->
         <scene sceneID="9V5-pF-02D">
@@ -1461,6 +1463,7 @@ TrainMe’s Privacy Policy</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Nqu-3d-ibE"/>
         <segue reference="5EB-bI-2rw"/>
         <segue reference="GhO-HN-2gJ"/>
     </inferredMetricsTieBreakers>

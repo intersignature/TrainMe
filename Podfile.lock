@@ -32,6 +32,9 @@ PODS:
   - Firebase/Messaging (5.6.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.1.0)
+  - Firebase/Storage (5.6.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.0)
   - FirebaseAnalytics (5.1.1):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.2)
@@ -60,6 +63,9 @@ PODS:
     - FirebaseInstanceID (~> 3.0)
     - GoogleUtilities/Reachability (~> 5.2)
     - Protobuf (~> 3.1)
+  - FirebaseStorage (3.0.0):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleAppMeasurement (5.1.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
     - GoogleUtilities/MethodSwizzler (~> 5.2.0)
@@ -100,6 +106,7 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.6.1)
+  - SwiftyJSON (4.1.0)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
@@ -111,9 +118,11 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
+  - Firebase/Storage
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - SwiftyJSON
   - SWRevealViewController
 
 SPEC REPOS:
@@ -132,6 +141,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstanceID
     - FirebaseMessaging
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleMaps
     - GooglePlacePicker
@@ -141,6 +151,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - SwiftyJSON
     - SWRevealViewController
 
 SPEC CHECKSUMS:
@@ -158,6 +169,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
   FirebaseMessaging: f67b3719f520ee200da0e20ce577fe2bce0c01d0
+  FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleAppMeasurement: f7507b39b70ad0bd80b3d81518b2f43868974307
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlacePicker: 59ea44db173c58486ad6123993e81feefcbce9c3
@@ -167,8 +179,9 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 89bef2235ece386ee8819aa4cfee010d2c26e875
+PODFILE CHECKSUM: 60745a2126bd86516aebb71116c06d9a58185a1e
 
 COCOAPODS: 1.5.3

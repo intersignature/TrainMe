@@ -52,6 +52,8 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let register3Vc = segue.destination as? Register3ViewController {
             register3Vc.userProfile = self.userProfile
+            register3Vc.email = emailTf.text
+            register3Vc.password = passwordTf.text
         }
     }
     

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class Register3ViewController: UIViewController, UITextFieldDelegate {
 
@@ -31,6 +33,10 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var noneBtn: UIButton!
     
     var userProfile: UserProfile = UserProfile()
+    var email: String?
+    var password: String?
+    
+    
     var checkGender: Int = -1
     
     
@@ -53,6 +59,8 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         
         self.HideKeyboard()
         print(self.userProfile.getData())
+        print(self.email)
+        print(self.password)
 //        dateOfBirthTf.layer.cornerRadius = 17
 //
 //        datePicker = UIDatePicker()
@@ -149,6 +157,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         if dayOfBirthTf.text == "" && monthOfBirthTf.text == "" && yearOfBirthTf.text == "" {
             
             createAlert(alertTitle: "Please enter your date of birth", alertMessage: "")
+            return
         } else {
             userProfile.dateOfBirth = "\(String(describing: dayOfBirthTf.text!))/\(String(describing: monthOfBirthTf.text!))/\(String(describing: yearOfBirthTf.text!))"
         }
@@ -173,7 +182,38 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
             userProfile.gender = "female"
         }
         
-        print(userProfile.getData())
+        print(self.userProfile.getData())
+        print(self.email!)
+        print(self.password!)
+        
+        Auth.auth().createUser(withEmail: self.email!, password: self.password!) { (user, err) in
+            if let err = err {
+                print(err)
+                return
+            }
+            print("Create user with email success!")
+            self.addProfileToDatabase()
+            
+        }
+    }
+    
+    func addProfileToDatabase() {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let dictionaryValues = ["role": "trainer",
+                                "dateOfBirth": self.userProfile.dateOfBirth,
+                                "weight": self.userProfile.weight,
+                                "height": self.userProfile.height,
+                                "gender": self.userProfile.gender,
+                                "profileImageUrl": "-1"]
+        let values = [uid: dictionaryValues]
+        Database.database().reference().child("user").updateChildValues(values) { (err, reference) in
+            if let err = err {
+                print(err)
+                return
+            }
+            print("Successfully save user info into firebase database!")
+            self.performSegue(withIdentifier: "Register3ToMain", sender: nil)
+        }
     }
     
     func createAlert(alertTitle: String, alertMessage: String) {

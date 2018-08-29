@@ -10,6 +10,7 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Messaging'
+pod 'Firebase/Storage'
 pod 'Alamofire'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
@@ -18,7 +19,7 @@ pod 'SWRevealViewController'
 pod 'FBSDKLoginKit'
 pod 'FacebookCore'
 pod 'FacebookLogin'
-
+pod 'SwiftyJSON'
   target 'TrainMeTests' do
     inherit! :search_paths
     # Pods for testing
