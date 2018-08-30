@@ -104,7 +104,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
             createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
             return
         }
-        if !isValidEmail(testStr: emailTf.text!) {
+        if !(emailTf.text?.isValidEmail())! {
             createAlert(alertTitle: NSLocalizedString("please_enter_your_valid_email", comment: ""), alertMessage: "")
             return
         }
@@ -132,13 +132,6 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
-    }
-    
-    func isValidEmail(testStr:String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: testStr)
     }
     
     override func didReceiveMemoryWarning() {

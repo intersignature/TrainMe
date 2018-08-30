@@ -176,7 +176,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         
         checkGender = -1
     }
-    
 
     @IBAction func submitBtnAction(_ sender: UIButton) {
         
@@ -211,10 +210,16 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         print(self.userProfile.getData())
         print(self.email!)
         print(self.password!)
-        
+        self.view.showBlurLoader()
+        self.createUserWithEmail()
+    }
+    
+    func createUserWithEmail() {
         Auth.auth().createUser(withEmail: self.email!, password: self.password!) { (user, err) in
             if let err = err {
+                self.view.removeBluerLoader()
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                
                 return
             }
             
@@ -223,6 +228,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
             profileChangeRequest?.commitChanges(completion: { (err) in
                 if let err = err {
                     print(err)
+                    self.view.removeBluerLoader()
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     return
                 }
@@ -231,7 +237,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
             })
             print("Create user with email success!")
             self.addProfileToDatabase()
-            
         }
     }
     
@@ -246,9 +251,11 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         Database.database().reference().child("user").updateChildValues(values) { (err, reference) in
             if let err = err {
                 print(err)
+                self.view.removeBluerLoader()
                 return
             }
             print("Successfully save user info into firebase database!")
+            self.view.removeBluerLoader()
             self.performSegue(withIdentifier: "Register3ToMain", sender: nil)
         }
     }
@@ -263,7 +270,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 
     /*

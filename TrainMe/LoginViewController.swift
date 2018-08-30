@@ -57,12 +57,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func LoginBtnAction(_ sender: UIButton) {
+        if self.emailTf.text == "" || self.passwordTf.text == "" {
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
+            return
+        }
+        if !(self.emailTf.text?.isValidEmail())! {
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_valid_email", comment: ""), alertMessage: "")
+            return
+        }
+        self.view.showBlurLoader()
         Auth.auth().signIn(withEmail: emailTf.text!, password: passwordTf.text!) { (result, err) in
             if let err = err {
                 print(err)
-                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+               self.view.removeBluerLoader()
+//                self.dismiss(animated: false, completion: nil)
+                self.createAlert(alertTitle:
+                    err.localizedDescription, alertMessage: "")
                 return
             }
+            self.view.removeBluerLoader()
             self.performSegue(withIdentifier: "LoginToMain", sender: nil)
         
         }

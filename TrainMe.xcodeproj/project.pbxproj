@@ -18,6 +18,7 @@
 		B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */; };
 		B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */; };
 		B24144B221371ACF00F8315B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B24144B421371ACF00F8315B /* Localizable.strings */; };
+		B24144B72137F94D00F8315B /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24144B62137F94D00F8315B /* extension.swift */; };
 		B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B8A8D212D16F400C59074 /* Register2ViewController.swift */; };
 		B25A8115212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
 		B25A8116212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
@@ -83,6 +84,7 @@
 		B24144AF2137182E00F8315B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		B24144B321371ACF00F8315B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B24144B521371AD100F8315B /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B24144B62137F94D00F8315B /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		B24B8A8D212D16F400C59074 /* Register2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register2ViewController.swift; sourceTree = "<group>"; };
 		B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Medium.ttf"; sourceTree = "<group>"; };
 		B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				B2307ED12135142E000CB3AB /* UserProfile.swift */,
+				B24144B62137F94D00F8315B /* extension.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */,
+				B24144B72137F94D00F8315B /* extension.swift in Sources */,
 				B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */,
 				B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */,
 				B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */,

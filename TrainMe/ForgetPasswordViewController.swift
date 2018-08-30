@@ -47,11 +47,14 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     @IBAction func sendBtnAction(_ sender: UIButton) {
+        self.view.showBlurLoader()
         Auth.auth().sendPasswordReset(withEmail: emailTf.text!) { (err) in
             if let err = err {
+                self.view.removeBluerLoader()
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
+            self.view.removeBluerLoader()
             self.createAlert(alertTitle: NSLocalizedString("send_email_for_reset_password_success", comment: ""), alertMessage: "")
         }
     }

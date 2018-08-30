@@ -8,17 +8,6 @@
 
 import UIKit
 
-extension UIViewController{
-    func HideKeyboard() {
-        let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        view.addGestureRecognizer(Tap)
-    }
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
 class RegisterViewController: UIViewController, UITextFieldDelegate{
 
     

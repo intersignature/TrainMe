@@ -53,10 +53,12 @@ class ViewController: UIViewController {
     @objc func handleSignInWithFacebook() {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .email, .userBirthday, .userGender], viewController: self) { (result) in
+            
             switch result {
                 case .success(grantedPermissions: _, declinedPermissions: _, token: _):
                     print("Success login with facebook")
                     print()
+                    self.view.showBlurLoader()
                     self.signIntoFirebase()
 //                    self.performSegue(withIdentifier: "WelcomeToMain", sender: nil)
                 case .failed(let err):
@@ -94,6 +96,8 @@ class ViewController: UIViewController {
             if snapshot.childrenCount == 0 {
                 self.fetchFacebookUser()
             } else {
+//                self.dismiss(animated: false, completion: nil)
+                self.view.removeBluerLoader()
                 self.performSegue(withIdentifier: "WelcomeToMain", sender: nil)
             }
 //            self.fetchFacebookUser()
@@ -185,7 +189,8 @@ class ViewController: UIViewController {
                         return
                     }
                     print("Successfully saved user info into firebase database!")
-                    
+                    self.view.removeBluerLoader()
+//                    self.dismiss(animated: false, completion: nil)
                     self.performSegue(withIdentifier: "WelcomeToMain", sender: nil)
                 })
                 
