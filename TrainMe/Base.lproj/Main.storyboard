@@ -944,9 +944,15 @@ TrainMe’s Privacy Policy</string>
                         <viewLayoutGuide key="safeArea" id="6Mi-u6-KD4"/>
                     </view>
                     <connections>
+                        <outlet property="becomeATrainerBtn" destination="m2Y-K7-2WS" id="CWJ-pE-QIR"/>
+                        <outlet property="creditcardBtn" destination="Hyx-wN-iz9" id="Ssg-WO-fV6"/>
                         <outlet property="emailLb" destination="eNY-c4-Tbs" id="IG8-Hu-AEA"/>
+                        <outlet property="helpBtn" destination="pCm-Ru-1p5" id="TQT-tG-04r"/>
+                        <outlet property="logoutBtn" destination="WRj-hY-53J" id="VDe-Ap-H7p"/>
                         <outlet property="nameLb" destination="n5m-Hn-cJA" id="6hs-fS-Ylm"/>
                         <outlet property="profileImg" destination="gVH-mN-Wbb" id="cak-jm-WEL"/>
+                        <outlet property="settingsBtn" destination="TYV-tv-ck5" id="XlC-JB-0Aj"/>
+                        <outlet property="userProfileBtn" destination="PPu-cg-uMS" id="e7T-Mq-rIR"/>
                         <segue destination="BYZ-38-t0r" kind="custom" identifier="LogoutSeg" customClass="SWRevealViewControllerSeguePushController" id="g7V-sT-ulc"/>
                     </connections>
                 </viewController>

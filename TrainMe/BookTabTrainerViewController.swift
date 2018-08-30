@@ -17,6 +17,7 @@ class BookTabTrainerViewController: UIViewController {
         super.viewDidLoad()
 
         initSideMenu()
+        self.title = NSLocalizedString("pick_your_place", comment: "")
         
         // Do any additional setup after loading the view.
     }

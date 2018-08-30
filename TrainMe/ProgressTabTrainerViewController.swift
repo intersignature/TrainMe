@@ -17,13 +17,13 @@ class ProgressTabTrainerViewController: UIViewController {
         super.viewDidLoad()
 
         initSideMenu()
+        self.title = NSLocalizedString("progress", comment: "")
         // Do any additional setup after loading the view.
     }
 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupNavigationStyle()
     }
 

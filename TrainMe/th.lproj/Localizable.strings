@@ -49,3 +49,15 @@
 //
 "send_email_for_reset_password_success" = "Send email for reset password successfully!";
 "please_enter_your_fullname" = "กรุณากรอกชื่อและนามสกุลของท่าน";
+//
+"user_profile" = "     User Profile";
+"credit_card_paypal" = "     Credit card / Paypal";
+"help" = "     Help";
+"settings" = "     Settings";
+"become_a_trainer" = "     Become a trainer";
+"logout" = "     ออกจากระบบ";
+//
+"pick_your_place" = "เลือกสถานที่";
+"progress" = "สถานะ";
+"course" = "คอร์ส";
+"notification" = "การแจ้งเตือน";

@@ -17,7 +17,7 @@ class CourseTabTrainerViewController: UIViewController {
         super.viewDidLoad()
         
         initSideMenu()
-
+        self.title = NSLocalizedString("course", comment: "")
         // Do any additional setup after loading the view.
     }
     

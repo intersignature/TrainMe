@@ -36,6 +36,14 @@ class SidebarTrainerViewController: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var emailLb: UILabel!
+    @IBOutlet weak var userProfileBtn: UIButton!
+    @IBOutlet weak var creditcardBtn: UIButton!
+    @IBOutlet weak var helpBtn: UIButton!
+    @IBOutlet weak var settingsBtn: UIButton!
+    @IBOutlet weak var becomeATrainerBtn: UIButton!
+    @IBOutlet weak var logoutBtn: UIButton!
+    
+    
     @IBAction func logoutBtnAction(_ sender: UIButton) {
         try! Auth.auth().signOut()
         performSegue(withIdentifier: "LogoutSeg", sender: nil)
@@ -52,6 +60,8 @@ class SidebarTrainerViewController: UIViewController {
         nameLb.text = Auth.auth().currentUser?.displayName
         emailLb.text = Auth.auth().currentUser?.email
         
+        setLocalizeText()
+        
         if Auth.auth().currentUser?.photoURL != nil {
             profileImg.downloaded(from: (Auth.auth().currentUser?.photoURL)!)
         } else {
@@ -60,6 +70,14 @@ class SidebarTrainerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func setLocalizeText() {
+        userProfileBtn.setTitle(NSLocalizedString("user_profile", comment: ""), for: .normal)
+        creditcardBtn.setTitle(NSLocalizedString("credit_card_paypal", comment: ""), for: .normal)
+        helpBtn.setTitle(NSLocalizedString("help", comment: ""), for: .normal)
+        settingsBtn.setTitle(NSLocalizedString("settings", comment: ""), for: .normal)
+        becomeATrainerBtn.setTitle(NSLocalizedString("become_a_trainer", comment: ""), for: .normal)
+        logoutBtn.setTitle(NSLocalizedString("logout", comment: ""), for: .normal)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

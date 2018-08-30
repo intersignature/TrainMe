@@ -17,6 +17,7 @@ class NotificationTabTrainerViewController: UIViewController {
         super.viewDidLoad()
 
         initSideMenu()
+        self.title = NSLocalizedString("notification", comment: "")
         // Do any additional setup after loading the view.
     }
 
