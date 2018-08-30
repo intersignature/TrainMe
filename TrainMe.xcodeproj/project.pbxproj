@@ -33,6 +33,7 @@
 		B25A811F212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
 		B25A8120212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
 		B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */; };
+		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
 		B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */; };
 		B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */; };
 		B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC55212BC5D5009A3712 /* ViewController.swift */; };
@@ -91,6 +92,7 @@
 		B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Black.ttf"; sourceTree = "<group>"; };
 		B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Light.ttf"; sourceTree = "<group>"; };
 		B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabTrainerViewController.swift; sourceTree = "<group>"; };
+		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
 		B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTrainerViewController.swift; sourceTree = "<group>"; };
 		B2B8BC50212BC5D5009A3712 /* TrainMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */,
 				B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */,
 				B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */,
+				B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */,
 			);
 			path = TrainMe;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */,
 				B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */,
 				B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */,
+				B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

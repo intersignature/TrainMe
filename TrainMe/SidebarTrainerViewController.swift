@@ -40,7 +40,6 @@ class SidebarTrainerViewController: UIViewController {
     @IBOutlet weak var creditcardBtn: UIButton!
     @IBOutlet weak var helpBtn: UIButton!
     @IBOutlet weak var settingsBtn: UIButton!
-    @IBOutlet weak var becomeATrainerBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
     
     
@@ -75,7 +74,6 @@ class SidebarTrainerViewController: UIViewController {
         creditcardBtn.setTitle(NSLocalizedString("credit_card_paypal", comment: ""), for: .normal)
         helpBtn.setTitle(NSLocalizedString("help", comment: ""), for: .normal)
         settingsBtn.setTitle(NSLocalizedString("settings", comment: ""), for: .normal)
-        becomeATrainerBtn.setTitle(NSLocalizedString("become_a_trainer", comment: ""), for: .normal)
         logoutBtn.setTitle(NSLocalizedString("logout", comment: ""), for: .normal)
     }
     
