@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  TrainMe
+
+  Created by Sirichai Binchai on 30/8/2561 BE.
+  Copyright © 2561 Sirichai Binchai. All rights reserved.
+*/
+"signup_email" = "สมัครผ่านอีเมลล์";
+"signup_facebook" = "Continue with facebook";
+"already_user" = "Already a user?";
+"register" = "สมัคร";
+"full_name" = "ชื่อเต็ม";
+"next" = "Next";
+"please_enter_your_fullname" = "Please enter your fullname";
+"email" = "Email";
+"email_description" = "You'll need to confirm this email later.";
+"password" = "Password";
+"password_description" = "Use at least 8 characters.";
+"verify_password" = "Verify password";
+"verify_password_description" = "Confirm your password.";
+"please_enter_your_email" = "Please enter your email";
+"please_enter_your_valid_email" = "Please enter your valid email";
+"please_enter_your_password" = "Please enter your password";
+"please_enter_your_verify_password" = "Please enter your verify password";
+"please_enter_your_password_at_least_8_characters" = "Please enter your password at least 8 characters";
+"your_password_doesnt_match" = "Your password doesn't match";
+"date_of_birth" = "Date of birth";
+"dd" = "DD";
+"mm" = "MM";
+"yyyy" = "YYYY";
+"weight" = "Weight";
+"height" = "Height";
+"kg" = "Kg";
+"cm" = "Cm";
+"male" = "Male";
+"female" = "Female";
+"none" = "None";
+"term_line1" = "By signing up, you agree to TrainMe’s Terms\nof Service";
+"term_line2" = "To learn more about how TrainMe collects, uses,\nshares and protect your personal data please read\nTrainMe’s Privacy Policy";
+"submit" = "Submit";
+"please_enter_your_date_of_birth" = "Please enter your date of birth";
+//
+"login" = "เข้าสู่ระบบ";
+"forget_password" = "Forget password?";
+//
+"recovery_your_account" = "Recovery your account";
+"recovery_your_account_description" = "Enter your email address that you used to register. We'll send you an email to recover your account";
+"send" = "ส่ง";
+//
+"send_email_for_reset_password_success" = "Send email for reset password successfully!";
+"please_enter_your_fullname" = "กรุณากรอกชื่อและนามสกุลของท่าน";

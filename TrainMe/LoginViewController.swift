@@ -17,6 +17,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var emailTf: UITextField!
     @IBOutlet weak var passwordTf: UITextField!
+    @IBOutlet weak var loginLb: UILabel!
+    @IBOutlet weak var forgetPasswordBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +31,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.passwordTf.delegate = self
 
         self.HideKeyboard()
+        self.setLocalizeText()
 
         // Do any additional setup after loading the view.
     }
 
+    func setLocalizeText() {
+        loginBtn.setTitle(NSLocalizedString("login", comment: ""), for: .normal)
+        emailTf.placeholder = NSLocalizedString("email", comment: "")
+        passwordTf.placeholder = NSLocalizedString("password", comment: "")
+        loginLb.text = NSLocalizedString("login", comment: "")
+        forgetPasswordBtn.setTitle(NSLocalizedString("forget_password", comment: ""), for: .normal)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

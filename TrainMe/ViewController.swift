@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     var dateOfBirth: String?
     var profilePicture: UIImage?
     
-
+    @IBOutlet weak var alreadyUser: UILabel!
+    
     @IBOutlet weak var signupBtn: UIButton!
     @IBOutlet weak var facebookSignupBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
@@ -35,9 +36,18 @@ class ViewController: UIViewController {
         facebookSignupBtn.layer.cornerRadius = 17
         loginBtn.layer.cornerRadius = 17
         
+        setLocalizeText()
+        
         facebookSignupBtn.addTarget(self, action: #selector(handleSignInWithFacebook), for: .touchUpInside)
         // Do any additional setup after loading the view, typically from a nib.
     
+    }
+    
+    func setLocalizeText() {
+        signupBtn.setTitle(NSLocalizedString("signup_email", comment: ""), for: .normal)
+        facebookSignupBtn.setTitle(NSLocalizedString("signup_facebook", comment: ""), for: .normal)
+        loginBtn.setTitle(NSLocalizedString("login", comment: ""), for: .normal)
+        alreadyUser.text = NSLocalizedString("already_user", comment: "")
     }
 
     @objc func handleSignInWithFacebook() {

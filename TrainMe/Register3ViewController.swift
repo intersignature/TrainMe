@@ -32,6 +32,14 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var femaleBtn: UIButton!
     @IBOutlet weak var noneBtn: UIButton!
     
+    @IBOutlet weak var registerLb: UILabel!
+    @IBOutlet weak var dateOfBirthLb: UILabel!
+    @IBOutlet weak var kgLb: UILabel!
+    @IBOutlet weak var cmLb: UILabel!
+    @IBOutlet weak var termLineOneLb: UILabel!
+    @IBOutlet weak var termLineTwoLb: UILabel!
+    
+    
     var userProfile: UserProfile = UserProfile()
     var email: String?
     var password: String?
@@ -61,6 +69,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         print(self.userProfile.getData())
         print(self.email)
         print(self.password)
+        setLocalizeText()
 //        dateOfBirthTf.layer.cornerRadius = 17
 //
 //        datePicker = UIDatePicker()
@@ -74,6 +83,23 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
+    func setLocalizeText() {
+        registerLb.text = NSLocalizedString("register", comment: "")
+        dateOfBirthLb.text = NSLocalizedString("date_of_birth", comment: "")
+        dayOfBirthTf.placeholder = NSLocalizedString("dd", comment: "")
+        monthOfBirthTf.placeholder = NSLocalizedString("mm", comment: "")
+        yearOfBirthTf.placeholder = NSLocalizedString("yyyy", comment: "")
+        weightTf.placeholder = NSLocalizedString("weight", comment: "")
+        kgLb.text = NSLocalizedString("kg", comment: "")
+        heightTf.placeholder = NSLocalizedString("height", comment: "")
+        cmLb.text = NSLocalizedString("cm", comment: "")
+        maleBtn.setTitle(NSLocalizedString("male", comment: ""), for: .normal)
+        femaleBtn.setTitle(NSLocalizedString("female", comment: ""), for: .normal)
+        noneBtn.setTitle(NSLocalizedString("none", comment: ""), for: .normal)
+        termLineOneLb.text = NSLocalizedString("term_line1", comment: "")
+        termLineTwoLb.text = NSLocalizedString("term_line2", comment: "")
+        submitBtn.setTitle(NSLocalizedString("submit", comment: ""), for: .normal)
+    }
     
 //    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
 //        view.endEditing(true)
@@ -156,7 +182,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         
         if dayOfBirthTf.text == "" && monthOfBirthTf.text == "" && yearOfBirthTf.text == "" {
             
-            createAlert(alertTitle: "Please enter your date of birth", alertMessage: "")
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_date_of_birth", comment: ""), alertMessage: "")
             return
         } else {
             userProfile.dateOfBirth = "\(String(describing: dayOfBirthTf.text!))/\(String(describing: monthOfBirthTf.text!))/\(String(describing: yearOfBirthTf.text!))"

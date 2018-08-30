@@ -14,6 +14,8 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var emailTf: UITextField!
+    @IBOutlet weak var recoveryYourAccLb: UILabel!
+    @IBOutlet weak var recoveryYourAccDesLb: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +26,17 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
         self.emailTf.delegate = self
         
         self.HideKeyboard()
+        setLocalizeText()
 
         // Do any additional setup after loading the view.
     }
 
-    
+    func setLocalizeText() {
+        recoveryYourAccLb.text = NSLocalizedString("recovery_your_account", comment: "")
+        recoveryYourAccDesLb.text = NSLocalizedString("recovery_your_account_description", comment: "")
+        emailTf.placeholder = NSLocalizedString("email", comment: "")
+        sendBtn.setTitle(NSLocalizedString("send", comment: ""), for: .normal)
+    }
     @IBAction func backBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -44,7 +52,7 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-            self.createAlert(alertTitle: "Send email for reset password successfully!", alertMessage: "")
+            self.createAlert(alertTitle: NSLocalizedString("send_email_for_reset_password_success", comment: ""), alertMessage: "")
         }
     }
     

@@ -17,6 +17,7 @@
 		B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796B2132CA650082FD1E /* ProgressTabTrainerViewController.swift */; };
 		B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */; };
 		B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */; };
+		B24144B221371ACF00F8315B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B24144B421371ACF00F8315B /* Localizable.strings */; };
 		B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B8A8D212D16F400C59074 /* Register2ViewController.swift */; };
 		B25A8115212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
 		B25A8116212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
@@ -77,6 +78,11 @@
 		B23E796B2132CA650082FD1E /* ProgressTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTabTrainerViewController.swift; sourceTree = "<group>"; };
+		B24144AC2137180A00F8315B /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Main.strings; sourceTree = "<group>"; };
+		B24144AD2137180B00F8315B /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B24144AF2137182E00F8315B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		B24144B321371ACF00F8315B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B24144B521371AD100F8315B /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B24B8A8D212D16F400C59074 /* Register2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register2ViewController.swift; sourceTree = "<group>"; };
 		B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Medium.ttf"; sourceTree = "<group>"; };
 		B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				B2307ED021351417000CB3AB /* models */,
+				B24144B421371ACF00F8315B /* Localizable.strings */,
 				B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */,
 				B2B8BC55212BC5D5009A3712 /* ViewController.swift */,
 				B20E30C3212BFB18001B43B1 /* LoginViewController.swift */,
@@ -328,6 +335,7 @@
 			knownRegions = (
 				en,
 				Base,
+				th,
 			);
 			mainGroup = B2B8BC47212BC5D5009A3712;
 			productRefGroup = B2B8BC51212BC5D5009A3712 /* Products */;
@@ -350,6 +358,7 @@
 				B25A8118212BD61600073C68 /* NotoSans-Bold.ttf in Resources */,
 				B2B8BC5E212BC5D7009A3712 /* LaunchScreen.storyboard in Resources */,
 				B224A061212BC92900DA7E47 /* GoogleService-Info.plist in Resources */,
+				B24144B221371ACF00F8315B /* Localizable.strings in Resources */,
 				B2B8BC5B212BC5D7009A3712 /* Assets.xcassets in Resources */,
 				B25A811B212BD61600073C68 /* NotoSans-Black.ttf in Resources */,
 				B2B8BC59212BC5D5009A3712 /* Main.storyboard in Resources */,
@@ -555,10 +564,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B24144B421371ACF00F8315B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B24144B321371ACF00F8315B /* en */,
+				B24144B521371AD100F8315B /* th */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B2B8BC57212BC5D5009A3712 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B2B8BC58212BC5D5009A3712 /* Base */,
+				B24144AC2137180A00F8315B /* th */,
+				B24144AF2137182E00F8315B /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -567,6 +587,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B2B8BC5D212BC5D7009A3712 /* Base */,
+				B24144AD2137180B00F8315B /* th */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -578,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -638,6 +660,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

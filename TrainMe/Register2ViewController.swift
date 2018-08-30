@@ -18,9 +18,14 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var verifyPasswordView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
+    
     @IBOutlet weak var emailTf: UITextField!
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet weak var verifyPasswordTf: UITextField!
+    @IBOutlet weak var registerLb: UILabel!
+    @IBOutlet weak var emailDescription: UILabel!
+    @IBOutlet weak var passwordDescription: UILabel!
+    @IBOutlet weak var verifyPasswordDescriptionLb: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +44,20 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
         
         self.HideKeyboard()
         
+        setLocalizeText()
+        
         print(self.userProfile.getData())
+    }
+    
+    func setLocalizeText() {
+        registerLb.text = NSLocalizedString("register", comment: "")
+        emailTf.placeholder = NSLocalizedString("email", comment: "")
+        emailDescription.text = NSLocalizedString("email_description", comment: "")
+        passwordTf.placeholder = NSLocalizedString("password", comment: "")
+        passwordDescription.text = NSLocalizedString("password_description", comment: "")
+        verifyPasswordTf.placeholder = NSLocalizedString("verify_password", comment: "")
+        verifyPasswordDescriptionLb.text = NSLocalizedString("verify_password_description", comment: "")
+        nextBtn.setTitle(NSLocalizedString("next", comment: ""), for: .normal)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -83,27 +101,27 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func nextBtnAction(_ sender: UIButton) {
         if emailTf.text == "" {
-            createAlert(alertTitle: "Please enter your email", alertMessage: "")
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
             return
         }
         if !isValidEmail(testStr: emailTf.text!) {
-            createAlert(alertTitle: "Please enter your valid email", alertMessage: "")
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_valid_email", comment: ""), alertMessage: "")
             return
         }
         if passwordTf.text == "" {
-            createAlert(alertTitle: "Please enter your password", alertMessage: "")
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_password", comment: ""), alertMessage: "")
             return
         }
         if verifyPasswordTf.text == "" {
-            createAlert(alertTitle: "Please enter your verify password", alertMessage: "")
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_verify_password", comment: ""), alertMessage: "")
             return
         }
         if (passwordTf.text?.count)! < 8 {
-            createAlert(alertTitle: "Please enter your password at least 8 characters", alertMessage: "")
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_password_at_least_8_characters", comment: ""), alertMessage: "")
             return
         }
         if passwordTf.text! != verifyPasswordTf.text {
-            createAlert(alertTitle: "Your password doesn't match", alertMessage: "")
+            createAlert(alertTitle: NSLocalizedString("your_password_doesnt_match", comment: ""), alertMessage: "")
             return
         } else {
             nextTransition(segueId: "Register2ToRegister3")

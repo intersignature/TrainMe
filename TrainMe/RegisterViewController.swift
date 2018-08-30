@@ -22,6 +22,7 @@ extension UIViewController{
 class RegisterViewController: UIViewController, UITextFieldDelegate{
 
     
+    @IBOutlet weak var registerLb: UILabel!
     @IBOutlet weak var fullnameTf: UITextField!
     @IBOutlet weak var fullnameView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
@@ -37,7 +38,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         self.fullnameTf.delegate = self
         
         self.HideKeyboard()
+        setLocalizeText()
         // Do any additional setup after loading the view.
+    }
+    
+    func setLocalizeText() {
+        registerLb.text = NSLocalizedString("register", comment: "")
+        fullnameTf.placeholder = NSLocalizedString("full_name", comment: "")
+        nextBtn.setTitle(NSLocalizedString("next", comment: ""), for: .normal)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -68,7 +76,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func nextBtnAction(_ sender: UIButton) {
         if fullnameTf.text == "" {
-            createAlert(alertTitle: "Please enter your fullname", alertMessage: "")
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_fullname", comment: ""), alertMessage: "")
             return
         } else {
             self.userProfile.fullName = fullnameTf.text!
