@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 extension UIViewController{
     func HideKeyboard() {
@@ -17,6 +19,12 @@ extension UIViewController{
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func createAlert(alertTitle: String, alertMessage: String) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
 }
 
@@ -59,5 +67,22 @@ extension UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    }
+}
+
+extension Auth {
+    func getRole() {
+        var role: String!
+        let uid = self.currentUser?.uid
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("user").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            role = value?["role"]! as! String
+            print(role)
+        }) { (err) in
+            print(err.localizedDescription)
+        }
     }
 }

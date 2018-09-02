@@ -8,10 +8,17 @@
 
 import UIKit
 import SWRevealViewController
+import FirebaseAuth
+import FirebaseDatabase
+import GoogleMaps
 
-class BookTabTrainerViewController: UIViewController {
+class BookTabTrainerViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
+    @IBOutlet weak var mapContainer: UIView!
+    
+    var googleMapsView: GMSMapView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +26,27 @@ class BookTabTrainerViewController: UIViewController {
         initSideMenu()
         self.title = NSLocalizedString("pick_your_place", comment: "")
         
-        // Do any additional setup after loading the view.
+      
+        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.googleMapsView = GMSMapView(frame: self.mapContainer.frame)
+        self.view.addSubview(self.googleMapsView)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         setupNavigationStyle()
+//        Auth.auth().getRole()
+    }
+    
+    @IBAction func serachAddressBtnAction(_ sender: UIBarButtonItem) {
+//        let searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchBar.delegate = self
+//        self.present(searchController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

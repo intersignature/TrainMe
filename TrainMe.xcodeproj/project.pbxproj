@@ -182,6 +182,41 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		B280D84E21392C6C00A59DB0 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B2B8BC55212BC5D5009A3712 /* ViewController.swift */,
+				B20E30C3212BFB18001B43B1 /* LoginViewController.swift */,
+				B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */,
+				B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */,
+				B280D85221392CB700A59DB0 /* registers */,
+				B280D84F21392C9000A59DB0 /* tabbars */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		B280D84F21392C9000A59DB0 /* tabbars */ = {
+			isa = PBXGroup;
+			children = (
+				B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */,
+				B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */,
+				B23E796B2132CA650082FD1E /* ProgressTabTrainerViewController.swift */,
+				B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */,
+				B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */,
+			);
+			path = tabbars;
+			sourceTree = "<group>";
+		};
+		B280D85221392CB700A59DB0 /* registers */ = {
+			isa = PBXGroup;
+			children = (
+				B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */,
+				B24B8A8D212D16F400C59074 /* Register2ViewController.swift */,
+				B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */,
+			);
+			path = registers;
+			sourceTree = "<group>";
+		};
 		B2B8BC47212BC5D5009A3712 = {
 			isa = PBXGroup;
 			children = (
@@ -207,27 +242,16 @@
 		B2B8BC52212BC5D5009A3712 /* TrainMe */ = {
 			isa = PBXGroup;
 			children = (
+				B280D84E21392C6C00A59DB0 /* controllers */,
 				B2307ED021351417000CB3AB /* models */,
 				B24144B421371ACF00F8315B /* Localizable.strings */,
 				B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */,
-				B2B8BC55212BC5D5009A3712 /* ViewController.swift */,
-				B20E30C3212BFB18001B43B1 /* LoginViewController.swift */,
-				B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */,
-				B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */,
 				B2B8BC57212BC5D5009A3712 /* Main.storyboard */,
 				B2B8BC5A212BC5D7009A3712 /* Assets.xcassets */,
 				B2B8BC5C212BC5D7009A3712 /* LaunchScreen.storyboard */,
 				B2B8BC5F212BC5D7009A3712 /* Info.plist */,
 				B224A060212BC92800DA7E47 /* GoogleService-Info.plist */,
 				B25A8110212BD53B00073C68 /* fonts */,
-				B24B8A8D212D16F400C59074 /* Register2ViewController.swift */,
-				B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */,
-				B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */,
-				B23E796B2132CA650082FD1E /* ProgressTabTrainerViewController.swift */,
-				B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */,
-				B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */,
-				B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */,
-				B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */,
 			);
 			path = TrainMe;
 			sourceTree = "<group>";

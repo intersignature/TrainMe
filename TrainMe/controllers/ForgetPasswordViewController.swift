@@ -30,7 +30,7 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
     }
-
+    
     func setLocalizeText() {
         recoveryYourAccLb.text = NSLocalizedString("recovery_your_account", comment: "")
         recoveryYourAccDesLb.text = NSLocalizedString("recovery_your_account_description", comment: "")
@@ -46,8 +46,17 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
+    
     @IBAction func sendBtnAction(_ sender: UIButton) {
-        self.view.showBlurLoader()
+        if emailTf.text == "" {
+            createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
+        } else {
+            self.view.showBlurLoader()
+            sendRecoveryEmail()
+        }
+    }
+    
+    func sendRecoveryEmail() {
         Auth.auth().sendPasswordReset(withEmail: emailTf.text!) { (err) in
             if let err = err {
                 self.view.removeBluerLoader()
@@ -57,12 +66,6 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
             self.view.removeBluerLoader()
             self.createAlert(alertTitle: NSLocalizedString("send_email_for_reset_password_success", comment: ""), alertMessage: "")
         }
-    }
-    
-    func createAlert(alertTitle: String, alertMessage: String) {
-        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true)
     }
     
     

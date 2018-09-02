@@ -69,10 +69,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().signIn(withEmail: emailTf.text!, password: passwordTf.text!) { (result, err) in
             if let err = err {
                 print(err)
-               self.view.removeBluerLoader()
+                self.view.removeBluerLoader()
 //                self.dismiss(animated: false, completion: nil)
-                self.createAlert(alertTitle:
-                    err.localizedDescription, alertMessage: "")
+                self.createAlert(alertTitle:err.localizedDescription, alertMessage: "")
                 return
             }
             self.view.removeBluerLoader()
@@ -83,12 +82,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func backBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func createAlert(alertTitle: String, alertMessage: String) {
-        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true)
     }
     
     /*
