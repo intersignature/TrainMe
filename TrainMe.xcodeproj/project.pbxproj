@@ -77,6 +77,7 @@
 		B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B224A060212BC92800DA7E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B2307ED12135142E000CB3AB /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		B2309F07213D986D0030EA1C /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23E796B2132CA650082FD1E /* ProgressTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTabTrainerViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		B04EC4B1DC62F2AAC7C15BDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2309F07213D986D0030EA1C /* JVFloatLabeledTextField.framework */,
 				1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */,
 				6A39929C094749B12C461F47 /* Pods_TrainMeTests.framework */,
 				A05703BEEA1300794C374882 /* Pods_TrainMeUITests.framework */,
@@ -448,6 +450,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
@@ -464,6 +467,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",

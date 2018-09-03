@@ -20,6 +20,8 @@ pod 'FBSDKLoginKit'
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'SwiftyJSON'
+pod 'DTTextField'
+
   target 'TrainMeTests' do
     inherit! :search_paths
     # Pods for testing
