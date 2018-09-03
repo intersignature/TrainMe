@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import GoogleMaps
+import GooglePlaces
 
-extension UIViewController{
+extension UIViewController : GMSAutocompleteViewControllerDelegate, GMSMapViewDelegate{
     func HideKeyboard() {
         let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         
@@ -25,6 +27,69 @@ extension UIViewController{
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    public func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+        
+        var street_number: String
+        var route: String
+        var neighborhood: String
+        var locality: String
+        var administrative_area_level_1: String
+        var country: String
+        var postal_code: String
+        var postal_code_suffix: String
+        
+        if let addressLines = place.addressComponents {
+            for field in addressLines {
+                switch field.type {
+                case kGMSPlaceTypeStreetNumber:
+                    street_number = field.name
+                case kGMSPlaceTypeRoute:
+                    route = field.name
+                case kGMSPlaceTypeNeighborhood:
+                    neighborhood = field.name
+                case kGMSPlaceTypeLocality:
+                    locality = field.name
+                case kGMSPlaceTypeAdministrativeAreaLevel1:
+                    administrative_area_level_1 = field.name
+                case kGMSPlaceTypeCountry:
+                    country = field.name
+                case kGMSPlaceTypePostalCode:
+                    postal_code = field.name
+                case kGMSPlaceTypePostalCodeSuffix:
+                    postal_code_suffix = field.name
+                default:
+                    print("Type: \(field.type), Name: \(field.name)")
+                }
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    public func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    public func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    public func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    public func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        print ("MarkerTapped Locations: \(marker.position.latitude), \(marker.position.longitude)\nsnippet: \(marker.snippet)")
+        return true
     }
 }
 

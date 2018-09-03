@@ -10,17 +10,19 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+//'Google Places API for iOS must be initialized via [GMSPlacesClient provideAPIKey:...] prior to use'
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyBmmFylCjctFOcMlTJ3XwM2jvksmONBkqE")
+        GMSPlacesClient.provideAPIKey("AIzaSyBmmFylCjctFOcMlTJ3XwM2jvksmONBkqE")
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

@@ -497,19 +497,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmT-va-NKq">
-                                                <rect key="frame" x="132.33333333333334" y="82" width="150.00000000000003" height="49.333333333333343"/>
+                                                <rect key="frame" x="140.66666666666663" y="82" width="133.33333333333337" height="42"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="36"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgw-b6-r2c">
-                                                <rect key="frame" x="52.000000000000007" y="147.33333333333334" width="96.666666666666686" height="20.666666666666657"/>
+                                                <rect key="frame" x="52.000000000000007" y="140" width="96.666666666666686" height="20.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV9-rX-ggJ">
-                                                <rect key="frame" x="167" y="173" width="80" height="30"/>
+                                                <rect key="frame" x="167" y="165.66666666666666" width="80" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="JLe-8q-F6e"/>
                                                 </constraints>
@@ -518,7 +518,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BOx-Ip-s6A">
-                                                <rect key="frame" x="77" y="173" width="80" height="30"/>
+                                                <rect key="frame" x="77" y="165.66666666666666" width="80" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="Mqg-mT-odg"/>
                                                 </constraints>
@@ -527,26 +527,26 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pG-EV-y0k">
-                                                <rect key="frame" x="42" y="224" width="330" height="54"/>
+                                                <rect key="frame" x="42" y="216.66666666666666" width="330" height="52.999999999999972"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-Cu-vgF">
-                                                        <rect key="frame" x="8" y="13" width="27" height="27"/>
+                                                        <rect key="frame" x="8" y="13" width="27" height="26"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cc6-pO-t3m">
-                                                        <rect key="frame" x="43" y="5" width="3" height="43"/>
+                                                        <rect key="frame" x="43" y="5" width="3" height="42"/>
                                                         <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="3" id="zty-AE-c4t"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weight" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-TH-rzq">
-                                                        <rect key="frame" x="54" y="11" width="271" height="31"/>
+                                                        <rect key="frame" x="54" y="11" width="271" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQP-gz-aHM">
-                                                        <rect key="frame" x="301" y="19" width="21" height="22"/>
+                                                        <rect key="frame" x="302" y="19" width="20" height="21"/>
                                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -571,7 +571,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RX2-Jy-43T">
-                                                <rect key="frame" x="42" y="299" width="330" height="57"/>
+                                                <rect key="frame" x="42" y="290.66666666666669" width="330" height="57"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="height" translatesAutoresizingMaskIntoConstraints="NO" id="R0c-Ef-5dQ">
                                                         <rect key="frame" x="8" y="13" width="26" height="30"/>
@@ -615,7 +615,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPP-0y-6FT">
-                                                <rect key="frame" x="42" y="377" width="330" height="46"/>
+                                                <rect key="frame" x="42" y="368.66666666666669" width="330" height="46"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mq5-dA-aeN">
                                                         <rect key="frame" x="256" y="8" width="50" height="30"/>
@@ -664,7 +664,7 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvY-Vv-ttb">
-                                                <rect key="frame" x="257" y="173" width="80" height="30"/>
+                                                <rect key="frame" x="257" y="165.66666666666666" width="80" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="uhS-WY-8G3"/>
                                                 </constraints>
@@ -673,7 +673,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFv-lP-VuM">
-                                                <rect key="frame" x="42" y="460" width="330" height="11"/>
+                                                <rect key="frame" x="42" y="451.66666666666669" width="330" height="9.3333333333333144"/>
                                                 <string key="text">By signing up, you agree to TrainMe’s Terms
 of Service</string>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="8"/>
@@ -681,7 +681,7 @@ of Service</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xf-5A-kyG">
-                                                <rect key="frame" x="42" y="487" width="330" height="33"/>
+                                                <rect key="frame" x="42" y="477" width="330" height="28"/>
                                                 <string key="text">To learn more about how TrainMe collects, uses,
 shares and protect your personal data please read
 TrainMe’s Privacy Policy</string>
@@ -690,7 +690,7 @@ TrainMe’s Privacy Policy</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGr-rM-ONm">
-                                                <rect key="frame" x="92" y="556" width="230" height="32"/>
+                                                <rect key="frame" x="92" y="541" width="230" height="29"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="NvX-Jw-YVe"/>
@@ -830,7 +830,7 @@ TrainMe’s Privacy Policy</string>
         <!--Pick your place-->
         <scene sceneID="3aO-BX-3F8">
             <objects>
-                <viewController storyboardIdentifier="MainVc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1n9-FR-rJU" customClass="BookTabTrainerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVc" wantsFullScreenLayout="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1n9-FR-rJU" customClass="BookTabTrainerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHo-pd-ztY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
