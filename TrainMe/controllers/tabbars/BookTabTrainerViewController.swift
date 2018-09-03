@@ -13,15 +13,20 @@ import FirebaseDatabase
 import GoogleMaps
 import GooglePlaces
 import GooglePlacePicker
+import CoreLocation
 
-class BookTabTrainerViewController: UIViewController, UISearchBarDelegate {
+class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPlacePickerViewControllerDelegate, CLLocationManagerDelegate {
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        print(place.formattedAddress)
+    }
+    
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var mapContainer: UIView!
     
     var googleMapsView: GMSMapView!
     var placesClient: GMSPlacesClient!
-    
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +37,35 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate {
         placesClient = GMSPlacesClient.shared()
         
         
-//        self.googleMapsView = GMSMapView(frame: self.view.frame)
-//        self.googleMapsView.settings.myLocationButton = true
-//        self.googleMapsView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        self.view.addSubview(self.googleMapsView)
-//        self.googleMapsView.delegate = self
         
-        let config = GMSPlacePickerConfig(viewport: nil)
-        let placePicker = GMSPlacePickerViewController(config: config)
-        present(placePicker, animated: true, completion: nil)
+        self.googleMapsView = GMSMapView(frame: self.view.frame)
+        self.googleMapsView.isMyLocationEnabled = true
+        self.googleMapsView.settings.myLocationButton = true
+        self.googleMapsView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(self.googleMapsView)
+        self.googleMapsView.delegate = self
         
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+//        let config = GMSPlacePickerConfig(viewport: nil)
+//        let placePicker = GMSPlacePickerViewController(config: config)
+//        placePicker.delegate = self
+//        present(placePicker, animated: true, completion: nil)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        
+        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 15.0)
+        
+        self.googleMapsView?.animate(to: camera)
+        
+        //Finally stop updating location otherwise it will come again and again in this delegate
+        self.locationManager.stopUpdatingLocation()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,18 +77,13 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate {
         super.viewWillAppear(animated)
         
         setupNavigationStyle()
-//        Auth.auth().getRole()
     }
     
     @IBAction func serachAddressBtnAction(_ sender: UIBarButtonItem) {
-//        let searchController = UISearchController(searchResultsController: nil)
-//        searchController.searchBar.delegate = self
-//        self.present(searchController, animated: true, completion: nil)
         
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         
-        // Set a filter to return only addresses.
         let filter = GMSAutocompleteFilter()
         filter.type = .noFilter
         autocompleteController.autocompleteFilter = filter
@@ -79,7 +98,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate {
         marker.snippet = place.formattedAddress
         marker.map = googleMapsView
         googleMapsView.animate(toLocation: place.coordinate)
-        googleMapsView.animate(toZoom: 15)
+        googleMapsView.animate(toZoom: 15.0)
         self.dismiss(animated: true, completion: nil)
     }
     
