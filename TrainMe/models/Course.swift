@@ -37,6 +37,7 @@ struct Course {
     }
 
     func getData() -> String{
-        return "key: \(self.key)\ncourse: \(self.course)\ncourseContent: \(self.courseContent)\ncourseType: \(self.courseType)\ntimeOfCourse: \(self.timeOfCourse)\ncourseDuration: \(self.courseDuration)\ncourseLevel: \(self.courseLevel)\ncoursePrice: \(self.coursePrice)\ncourseLanguage: \(self.courseLanguage)\n"
+        
+        return "key: \(self.key)\ncourse: \(self.course)\ncourseContent: \(self.courseContent)\ncourseType: \(self.courseType)\ntimeOfCourse: \(self.timeOfCourse)\ncourseDuration: \(self.courseDuration)\ncourseLevel: \(self.courseLevel)\ncoursePrice: \(self.coursePrice)\ncourseLanguage: \(self.courseLanguage)\n------------------"
     }
 }

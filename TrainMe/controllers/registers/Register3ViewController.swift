@@ -21,8 +21,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    
     @IBOutlet weak var dayOfBirthTf: UITextField!
     @IBOutlet weak var monthOfBirthTf: UITextField!
     @IBOutlet weak var yearOfBirthTf: UITextField!
@@ -31,7 +29,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     @IBOutlet weak var noneBtn: UIButton!
-    
     @IBOutlet weak var registerLb: UILabel!
     @IBOutlet weak var dateOfBirthLb: UILabel!
     @IBOutlet weak var kgLb: UILabel!
@@ -39,14 +36,10 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var termLineOneLb: UILabel!
     @IBOutlet weak var termLineTwoLb: UILabel!
     
-    
     var userProfile: UserProfile = UserProfile()
     var email: String?
     var password: String?
-    
-    
     var checkGender: Int = -1
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,10 +73,10 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
 //        view.addGestureRecognizer(tabGesture)
 //
 //        dateOfBirthTf.inputView = datePicker
-        // Do any additional setup after loading the view.
     }
     
     func setLocalizeText() {
+        
         registerLb.text = NSLocalizedString("register", comment: "")
         dateOfBirthLb.text = NSLocalizedString("date_of_birth", comment: "")
         dayOfBirthTf.placeholder = NSLocalizedString("dd", comment: "")
@@ -114,6 +107,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
 //    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         dayOfBirthTf.resignFirstResponder()
         monthOfBirthTf.resignFirstResponder()
         yearOfBirthTf.resignFirstResponder()
@@ -123,6 +117,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func backTrainsition(segueId: String) {
+        
         let transition = CATransition()
         transition.duration = 0.3
         transition.type = kCATransitionPush
@@ -133,10 +128,12 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backBtnAction(_ sender: UIButton) {
+        
         backTrainsition(segueId: "Register3ToRegister2")
     }
     
     @IBAction func maleBtnAction(_ sender: UIButton) {
+        
         maleBtn.backgroundColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
         maleBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
         
@@ -151,6 +148,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func femaleBtnAction(_ sender: UIButton) {
+        
         maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
         maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
@@ -165,6 +163,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func noneBtnAction(_ sender: UIButton) {
+        
         maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
         maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
@@ -215,6 +214,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func createUserWithEmail() {
+        
         Auth.auth().createUser(withEmail: self.email!, password: self.password!) { (user, err) in
             if let err = err {
                 self.view.removeBluerLoader()
@@ -241,6 +241,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func addProfileToDatabase() {
+        
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let dictionaryValues = ["role": "trainer",
                                 "dateOfBirth": self.userProfile.dateOfBirth,
@@ -262,18 +263,5 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

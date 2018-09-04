@@ -16,21 +16,25 @@ import GooglePlaces
 extension UIViewController : GMSAutocompleteViewControllerDelegate, GMSMapViewDelegate{
     
     func HideKeyboard() {
-        let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         
+        let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(Tap)
     }
+    
     @objc func dismissKeyboard() {
+        
         view.endEditing(true)
     }
     
     func createAlert(alertTitle: String, alertMessage: String) {
+        
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     
     public func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        
         print("Place name: \(place.name)")
         print("Place address: \(place.formattedAddress)")
         print("Place attributions: \(place.attributions)")
@@ -72,23 +76,27 @@ extension UIViewController : GMSAutocompleteViewControllerDelegate, GMSMapViewDe
     }
     
     public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
+        
         print("Error: ", error.localizedDescription)
     }
     
     public func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        
         dismiss(animated: true, completion: nil)
     }
     
     public func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
     public func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     public func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        
         print ("MarkerTapped Locations: \(marker.position.latitude), \(marker.position.longitude)\nsnippet: \(marker.snippet)")
         return true
     }
@@ -96,6 +104,7 @@ extension UIViewController : GMSAutocompleteViewControllerDelegate, GMSMapViewDe
 
 extension UIView{
     func showBlurLoader(){
+        
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
@@ -112,6 +121,7 @@ extension UIView{
     }
     
     func removeBluerLoader(){
+        
         self.subviews.flatMap {  $0 as? UIVisualEffectView }.forEach {
             $0.removeFromSuperview()
         }
@@ -119,16 +129,19 @@ extension UIView{
 }
 
 extension String {
+    
     func isValidEmail() -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
 }
 
 extension UIViewController {
+    
     func setupNavigationStyle() {
+        
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
         self.navigationController?.navigationBar.tintColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
@@ -136,8 +149,35 @@ extension UIViewController {
     }
 }
 
+extension UIImageView {
+    
+    func downloaded(from url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+            }.resume()
+    }
+    
+    func downloaded(from link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
+}
+
 extension Auth {
+    
     func getRole() {
+        
         var role: String!
         let uid = self.currentUser?.uid
         var ref: DatabaseReference!

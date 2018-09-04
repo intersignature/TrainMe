@@ -11,7 +11,6 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var loginBtn: UIButton!
@@ -32,11 +31,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         self.HideKeyboard()
         self.setLocalizeText()
-
-        // Do any additional setup after loading the view.
     }
 
     func setLocalizeText() {
+        
         loginBtn.setTitle(NSLocalizedString("login", comment: ""), for: .normal)
         emailTf.placeholder = NSLocalizedString("email", comment: "")
         passwordTf.placeholder = NSLocalizedString("password", comment: "")
@@ -46,17 +44,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         emailTf.resignFirstResponder()
         passwordTf.resignFirstResponder()
-        
         return true
     }
     
     @IBAction func LoginBtnAction(_ sender: UIButton) {
+        
         if self.emailTf.text == "" || self.passwordTf.text == "" {
             createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
             return
@@ -76,22 +74,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             self.view.removeBluerLoader()
             self.performSegue(withIdentifier: "LoginToMain", sender: nil)
-        
         }
     }
     
     @IBAction func backBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

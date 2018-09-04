@@ -24,24 +24,18 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     @IBOutlet weak var addBtn: UIButton!
     let levelPicker = UIPickerView()
     let typePicker = UIPickerView()
-    
     let levels = ["All level",
                  "Intermediate",
                  "Beginner",
                  "Expert"]
-    
     let types = ["Healthy",
                  "Fit and firm",
                  "Competition"]
-    
-    
     var selectedLevel: String?
     var selectedType: String?
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         courseTf.delegate = self
         courseDetailTv.delegate = self
@@ -64,18 +58,25 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     }
     
     @objc func courseTypeTfAction(textField: DTTextField) {
-        courseTypeTf.text = "Healthy"
-        selectedType = "Healthy"
+        
+        if courseTypeTf.text == "" {
+            courseTypeTf.text = "Healthy"
+            selectedType = "Healthy"
+        }
         levelPicker.tag = 2
     }
     
     @objc func courseLevelTfAction(textField: DTTextField) {
-        courseLevelTf.text = "All level"
-        selectedLevel = "All level"
+        
+        if courseLevelTf.text == "" {
+            courseLevelTf.text = "All level"
+            selectedLevel = "All level"
+        }
         levelPicker.tag = 1
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         courseTf.resignFirstResponder()
         courseTypeTf.resignFirstResponder()
         timeOfCourseTf.resignFirstResponder()
@@ -87,35 +88,42 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        
         courseDetailTv.resignFirstResponder()
         return true
     }
     
     @IBAction func AddBtnAction(_ sender: UIButton) {
+        
         addCourseToDatabase()
     }
     
     @IBAction func cancelBarBtnAction(_ sender: UIBarButtonItem) {
+        
         self.dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         setupNavigationStyle()
     }
     
     func createLevelPicker() {
+        
         levelPicker.delegate = self
         courseLevelTf.inputView = levelPicker
         levelPicker.tag = 1
     }
     
     func createTypePicker() {
+        
         typePicker.delegate = self
         courseTypeTf.inputView = typePicker
         typePicker.tag = 2
     }
     
     func createPickerToolbar() {
+        
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
@@ -126,14 +134,17 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     }
     
     override func dismissKeyboard() {
+        
         view.endEditing(true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
         if levelPicker.tag == 1 {
             return levels.count
         } else {
@@ -142,6 +153,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         if levelPicker.tag == 1 {
             return levels[row]
         } else {
@@ -214,7 +226,5 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
     }
 }

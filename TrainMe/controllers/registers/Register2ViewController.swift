@@ -10,7 +10,6 @@ import UIKit
 
 class Register2ViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var text: UILabel!
     var str = String()
     var userProfile: UserProfile = UserProfile()
     
@@ -18,7 +17,6 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var verifyPasswordView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
-    
     @IBOutlet weak var emailTf: UITextField!
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet weak var verifyPasswordTf: UITextField!
@@ -29,10 +27,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-//        text.text = str
-        
+
         emailView.layer.cornerRadius = 17
         passwordView.layer.cornerRadius = 17
         verifyPasswordView.layer.cornerRadius = 17
@@ -50,6 +45,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setLocalizeText() {
+        
         registerLb.text = NSLocalizedString("register", comment: "")
         emailTf.placeholder = NSLocalizedString("email", comment: "")
         emailDescription.text = NSLocalizedString("email_description", comment: "")
@@ -61,6 +57,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         emailTf.resignFirstResponder()
         passwordTf.resignFirstResponder()
         verifyPasswordTf.resignFirstResponder()
@@ -68,6 +65,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let register3Vc = segue.destination as? Register3ViewController {
             register3Vc.userProfile = self.userProfile
             register3Vc.email = emailTf.text
@@ -76,6 +74,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func backTrainsition(segueId: String) {
+        
         let transition = CATransition()
         transition.duration = 0.3
         transition.type = kCATransitionPush
@@ -86,6 +85,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func nextTransition(segueId: String) {
+        
         let transition = CATransition()
         transition.duration = 0.3
         transition.type = kCATransitionPush
@@ -96,10 +96,12 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backBtnAction(_ sender: UIButton) {
+        
         backTrainsition(segueId: "Register2ToRegister")
     }
     
     @IBAction func nextBtnAction(_ sender: UIButton) {
+        
         if emailTf.text == "" {
             createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
             return
@@ -130,18 +132,5 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

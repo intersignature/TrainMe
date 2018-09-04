@@ -27,27 +27,29 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
         
         self.HideKeyboard()
         setLocalizeText()
-
-        // Do any additional setup after loading the view.
     }
     
     func setLocalizeText() {
+        
         recoveryYourAccLb.text = NSLocalizedString("recovery_your_account", comment: "")
         recoveryYourAccDesLb.text = NSLocalizedString("recovery_your_account_description", comment: "")
         emailTf.placeholder = NSLocalizedString("email", comment: "")
         sendBtn.setTitle(NSLocalizedString("send", comment: ""), for: .normal)
     }
+    
     @IBAction func backBtnAction(_ sender: UIButton) {
+        
         self.dismiss(animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailTf.resignFirstResponder()
         
+        emailTf.resignFirstResponder()
         return true
     }
     
     @IBAction func sendBtnAction(_ sender: UIButton) {
+        
         if emailTf.text == "" {
             createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
         } else {
@@ -57,6 +59,7 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     func sendRecoveryEmail() {
+        
         Auth.auth().sendPasswordReset(withEmail: emailTf.text!) { (err) in
             if let err = err {
                 self.view.removeBluerLoader()
@@ -68,21 +71,7 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

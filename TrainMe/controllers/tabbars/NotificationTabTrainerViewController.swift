@@ -18,7 +18,6 @@ class NotificationTabTrainerViewController: UIViewController {
 
         initSideMenu()
         self.title = NSLocalizedString("notification", comment: "")
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +27,7 @@ class NotificationTabTrainerViewController: UIViewController {
     }
     
     func initSideMenu() {
+        
         if revealViewController() != nil {
             revealViewController().rearViewRevealWidth = 275
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
@@ -39,18 +39,5 @@ class NotificationTabTrainerViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
