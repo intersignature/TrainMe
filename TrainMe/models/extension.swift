@@ -14,6 +14,7 @@ import GoogleMaps
 import GooglePlaces
 
 extension UIViewController : GMSAutocompleteViewControllerDelegate, GMSMapViewDelegate{
+    
     func HideKeyboard() {
         let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         

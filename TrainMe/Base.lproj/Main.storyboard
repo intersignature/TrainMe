@@ -1042,128 +1042,110 @@ TrainMe’s Privacy Policy</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEg-Dv-XlL">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60d-aY-rtK">
-                                                <rect key="frame" x="38" y="25" width="49" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wB-IH-cEv" customClass="DTTextField" customModule="DTTextField">
+                                                <rect key="frame" x="34" y="34" width="346" height="25"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyx-IA-iga">
+                                                <rect key="frame" x="34.000000000000007" y="74" width="104.66666666666669" height="20.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wB-IH-cEv" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="37.666666666666657" y="51" width="340.33333333333337" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SMc-Le-8Tw" customClass="DTTextField" customModule="DTTextField">
+                                                <rect key="frame" x="34" y="225.66666666666669" width="346" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyx-IA-iga">
-                                                <rect key="frame" x="38.000000000000007" y="101" width="104.66666666666669" height="20.666666666666671"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb0-ov-5xg">
-                                                <rect key="frame" x="38.000000000000007" y="280" width="81.666666666666686" height="20.666666666666686"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SMc-Le-8Tw" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="38" y="305.66666666666669" width="338" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course language" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjK-QI-nBj" customClass="DTTextField" customModule="DTTextField">
+                                                <rect key="frame" x="34" y="425.66666666666669" width="346" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ4-WP-j8j">
-                                                <rect key="frame" x="38" y="496" width="130" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjK-QI-nBj" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="38" y="522" width="339" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course duration" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D51-1P-JMx" customClass="DTTextField" customModule="DTTextField">
+                                                <rect key="frame" x="34" y="305.66666666666669" width="346" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" fixedFrame="YES" text="Time of course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYr-m6-ifU">
-                                                <rect key="frame" x="47" y="355.66666666666669" width="114.33333333333331" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joD-UR-735" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="47" y="378" width="149" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course level" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHD-Af-OQl" customClass="DTTextField" customModule="DTTextField">
+                                                <rect key="frame" x="34" y="345.66666666666669" width="346" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D51-1P-JMx" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="219" y="378" width="149" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtd-jz-mZx" customClass="DTTextField" customModule="DTTextField">
+                                                <rect key="frame" x="34" y="385.66666666666669" width="346" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ9-De-Cjc">
-                                                <rect key="frame" x="47" y="424" width="94" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHD-Af-OQl" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="47" y="450" width="149" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aO-IU-9rP">
-                                                <rect key="frame" x="219" y="424" width="98" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtd-jz-mZx" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="219" y="450" width="149" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj4-Sn-l8E">
-                                                <rect key="frame" x="184" y="593" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj4-Sn-l8E">
+                                                <rect key="frame" x="92" y="516" width="230" height="32"/>
+                                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="ZTL-MP-pbP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="AddBtnAction:" destination="Aom-xn-Yh6" eventType="touchUpInside" id="wM1-Q4-1yF"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUH-Z4-ooV">
-                                                <rect key="frame" x="219" y="356" width="122.66666666666663" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-6P-ftp">
-                                                <rect key="frame" x="38" y="129" width="338" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-6P-ftp">
+                                                <rect key="frame" x="34" y="99.666666666666657" width="346" height="111"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="111" id="Lur-Qg-5wM"/>
+                                                </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Time of course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joD-UR-735" customClass="DTTextField" customModule="DTTextField">
+                                                <rect key="frame" x="34" y="265.66666666666669" width="346" height="25"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="SMc-Le-8Tw" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="2Vr-nc-jec"/>
+                                            <constraint firstItem="dtd-jz-mZx" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="3MW-XS-tjg"/>
+                                            <constraint firstItem="D51-1P-JMx" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="5Vj-N9-MHw"/>
+                                            <constraint firstItem="D51-1P-JMx" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="96W-NX-FVo"/>
+                                            <constraint firstItem="7wB-IH-cEv" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="9VW-ZQ-VRz"/>
+                                            <constraint firstItem="joD-UR-735" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="CWE-vx-Ydk"/>
+                                            <constraint firstItem="joD-UR-735" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="EPv-kh-COc"/>
+                                            <constraint firstItem="YHD-Af-OQl" firstAttribute="top" secondItem="D51-1P-JMx" secondAttribute="bottom" constant="15" id="Eb6-sC-Ki9"/>
+                                            <constraint firstItem="7wB-IH-cEv" firstAttribute="top" secondItem="XEg-Dv-XlL" secondAttribute="top" constant="34" id="IfL-Ud-Bn5"/>
+                                            <constraint firstItem="FjK-QI-nBj" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="JdU-O7-ViZ"/>
+                                            <constraint firstItem="kj4-Sn-l8E" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="L0o-fA-gU8"/>
+                                            <constraint firstItem="7wB-IH-cEv" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="M7P-6z-1yx"/>
+                                            <constraint firstItem="FjK-QI-nBj" firstAttribute="top" secondItem="dtd-jz-mZx" secondAttribute="bottom" constant="15" id="NcB-qr-bNb"/>
+                                            <constraint firstItem="dtd-jz-mZx" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="Oc1-r3-Ie1"/>
+                                            <constraint firstItem="8Ml-6P-ftp" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="P7q-px-eR9"/>
+                                            <constraint firstItem="D51-1P-JMx" firstAttribute="top" secondItem="joD-UR-735" secondAttribute="bottom" constant="15" id="T2i-7U-gE5"/>
+                                            <constraint firstItem="kj4-Sn-l8E" firstAttribute="top" secondItem="FjK-QI-nBj" secondAttribute="bottom" constant="65.329999999999998" id="bmS-QI-kkZ"/>
+                                            <constraint firstItem="dtd-jz-mZx" firstAttribute="top" secondItem="YHD-Af-OQl" secondAttribute="bottom" constant="15" id="dC4-Ru-8xE"/>
+                                            <constraint firstItem="SMc-Le-8Tw" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="e3R-gV-Rhp"/>
+                                            <constraint firstItem="Nyx-IA-iga" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="fTr-y8-HOX"/>
+                                            <constraint firstItem="8Ml-6P-ftp" firstAttribute="top" secondItem="Nyx-IA-iga" secondAttribute="bottom" constant="5" id="kiP-aN-Nwf"/>
+                                            <constraint firstItem="Nyx-IA-iga" firstAttribute="top" secondItem="7wB-IH-cEv" secondAttribute="bottom" constant="15" id="mf3-PE-xux"/>
+                                            <constraint firstItem="YHD-Af-OQl" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="n7S-Fd-nFo"/>
+                                            <constraint firstItem="FjK-QI-nBj" firstAttribute="centerX" secondItem="XEg-Dv-XlL" secondAttribute="centerX" id="pN8-8G-ioI"/>
                                             <constraint firstAttribute="height" constant="1000" id="pe2-Fr-FSY"/>
+                                            <constraint firstItem="joD-UR-735" firstAttribute="top" secondItem="SMc-Le-8Tw" secondAttribute="bottom" constant="15" id="xLr-cx-Q2g"/>
+                                            <constraint firstItem="8Ml-6P-ftp" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="xtj-rr-ANA"/>
+                                            <constraint firstItem="YHD-Af-OQl" firstAttribute="leading" secondItem="XEg-Dv-XlL" secondAttribute="leading" constant="34" id="ycL-gQ-JTJ"/>
+                                            <constraint firstItem="SMc-Le-8Tw" firstAttribute="top" secondItem="8Ml-6P-ftp" secondAttribute="bottom" constant="15" id="z4p-7X-w4G"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1194,6 +1176,17 @@ TrainMe’s Privacy Policy</string>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="addBtn" destination="kj4-Sn-l8E" id="MrC-rt-t6R"/>
+                        <outlet property="courseDetailTv" destination="8Ml-6P-ftp" id="i5h-i4-gqA"/>
+                        <outlet property="courseDurationTf" destination="D51-1P-JMx" id="ngT-YA-lO4"/>
+                        <outlet property="courseLanguageTf" destination="FjK-QI-nBj" id="VvE-PJ-nAG"/>
+                        <outlet property="courseLevelTf" destination="YHD-Af-OQl" id="yeB-FM-jiG"/>
+                        <outlet property="coursePriceTf" destination="dtd-jz-mZx" id="R9C-d9-Vsk"/>
+                        <outlet property="courseTf" destination="7wB-IH-cEv" id="cyF-fC-MNN"/>
+                        <outlet property="courseTypeTf" destination="SMc-Le-8Tw" id="b0J-oi-47t"/>
+                        <outlet property="timeOfCourseTf" destination="joD-UR-735" id="El4-Yn-4Ox"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIe-wf-28B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1722,8 +1715,8 @@ TrainMe’s Privacy Policy</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nqu-3d-ibE"/>
-        <segue reference="5EB-bI-2rw"/>
+        <segue reference="8lr-Mx-SRS"/>
+        <segue reference="JoS-ZK-syA"/>
         <segue reference="iOR-r9-omW"/>
     </inferredMetricsTieBreakers>
 </document>
