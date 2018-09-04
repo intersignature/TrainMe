@@ -163,16 +163,31 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     }
 
     func addCourseToDatabase() {
+        
+        let courseName = courseTf.text
+        let courseContent = courseDetailTv.text
+        let courseType = courseTypeTf.text
+        let timeOfCourse = timeOfCourseTf.text
+        let courseDuration = courseDurationTf.text
+        let courseLevel = courseLevelTf.text
+        let coursePrice = coursePriceTf.text
+        let courseLanguage = courseLanguageTf.text
+        
+        if !checkTextfield(course_name: courseName!, course_content: courseContent!, course_type: courseType!, time_of_course: timeOfCourse!, course_duration: courseDuration!, course_level: courseLevel!, course_price: coursePrice!, course_language: courseLanguage!) {
+            return
+        }
+        
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
-        let dictionaryValues = ["course_name": courseTf.text ?? "",
-                                "course_content": courseDetailTv.text ?? "",
-                                "course_type": courseTypeTf.text ?? "",
-                                "time_of_course": timeOfCourseTf.text ?? "",
-                                "course_duration": courseDurationTf.text ?? "",
-                                "course_level": courseLevelTf.text ?? "",
-                                "course_price": coursePriceTf.text ?? "",
-                                "course_language": courseLanguageTf.text ?? ""]
+        let dictionaryValues = ["course_name": courseName,
+                                "course_content": courseContent,
+                                "course_type": courseType,
+                                "time_of_course": timeOfCourse,
+                                "course_duration": courseDuration,
+                                "course_level": courseLevel,
+                                "course_price": coursePrice,
+                                "course_language": courseLanguage]
+        
         Database.database().reference().child("courses").child(uid).childByAutoId().updateChildValues(dictionaryValues) { (err, reference) in
             if let err = err {
                 print(err.localizedDescription)
@@ -181,7 +196,20 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
             }
             print("successfully add course to database")
             self.dismiss(animated: true, completion: nil)
+    
         }
+    }
+    
+    func checkTextfield(course_name: String, course_content: String, course_type: String, time_of_course: String,
+                        course_duration: String, course_level: String, course_price: String, course_language: String) -> Bool {
+        
+        if course_name == "" || course_content == "" || course_type == "" || time_of_course == "" ||
+            course_duration == "" || course_level == "" || course_price == "" || course_language == "" {
+            
+            createAlert(alertTitle: "Please enter in blank field", alertMessage: "")
+            return false
+        }
+        return true
     }
     
     override func didReceiveMemoryWarning() {

@@ -996,15 +996,6 @@ TrainMe’s Privacy Policy</string>
                     <view key="view" contentMode="scaleToFill" id="uhC-dw-boW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqE-Ey-dbU">
-                                <rect key="frame" x="210" y="127" width="11" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tjo-5E-zj9"/>
                     </view>
@@ -1070,7 +1061,7 @@ TrainMe’s Privacy Policy</string>
                                                 <rect key="frame" x="34" y="305.66666666666669" width="346" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course level" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHD-Af-OQl" customClass="DTTextField" customModule="DTTextField">
                                                 <rect key="frame" x="34" y="345.66666666666669" width="346" height="25"/>
@@ -1082,7 +1073,7 @@ TrainMe’s Privacy Policy</string>
                                                 <rect key="frame" x="34" y="385.66666666666669" width="346" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj4-Sn-l8E">
                                                 <rect key="frame" x="92" y="516" width="230" height="32"/>
@@ -1112,7 +1103,7 @@ TrainMe’s Privacy Policy</string>
                                                 <rect key="frame" x="34" y="265.66666666666669" width="346" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
