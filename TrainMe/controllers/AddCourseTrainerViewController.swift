@@ -22,15 +22,23 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     @IBOutlet weak var coursePriceTf: DTTextField!
     @IBOutlet weak var courseLanguageTf: DTTextField!
     @IBOutlet weak var addBtn: UIButton!
+    let levelPicker = UIPickerView()
+    let typePicker = UIPickerView()
     
     let levels = ["All level",
                  "Intermediate",
                  "Beginner",
                  "Expert"]
     
+    let types = ["Healthy",
+                 "Fit and firm",
+                 "Competition"]
+    
+    
     var selectedLevel: String?
-    
-    
+    var selectedType: String?
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -48,10 +56,23 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         self.HideKeyboard()
         createLevelPicker()
+        createTypePicker()
         createPickerToolbar()
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        courseTypeTf.addTarget(self, action: #selector(courseTypeTfAction), for: UIControlEvents.editingDidBegin)
+        courseLevelTf.addTarget(self, action: #selector(courseLevelTfAction), for: UIControlEvents.editingDidBegin)
+    }
+    
+    @objc func courseTypeTfAction(textField: DTTextField) {
+        courseTypeTf.text = "Healthy"
+        selectedType = "Healthy"
+        levelPicker.tag = 2
+    }
+    
+    @objc func courseLevelTfAction(textField: DTTextField) {
+        courseLevelTf.text = "All level"
+        selectedLevel = "All level"
+        levelPicker.tag = 1
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -72,7 +93,6 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     
     @IBAction func AddBtnAction(_ sender: UIButton) {
         addCourseToDatabase()
-        
     }
     
     @IBAction func cancelBarBtnAction(_ sender: UIBarButtonItem) {
@@ -84,9 +104,15 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     }
     
     func createLevelPicker() {
-        let levelPicker = UIPickerView()
         levelPicker.delegate = self
         courseLevelTf.inputView = levelPicker
+        levelPicker.tag = 1
+    }
+    
+    func createTypePicker() {
+        typePicker.delegate = self
+        courseTypeTf.inputView = typePicker
+        typePicker.tag = 2
     }
     
     func createPickerToolbar() {
@@ -96,6 +122,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         toolbar.setItems([doneBtn], animated: false)
         toolbar.isUserInteractionEnabled = true
         courseLevelTf.inputAccessoryView = toolbar
+        courseTypeTf.inputAccessoryView = toolbar
     }
     
     override func dismissKeyboard() {
@@ -107,21 +134,37 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return levels.count
+        if levelPicker.tag == 1 {
+            return levels.count
+        } else {
+            return types.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return levels[row]
+        if levelPicker.tag == 1 {
+            return levels[row]
+        } else {
+            return types[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedLevel = levels[row]
-        courseLevelTf.text = selectedLevel
-        print(selectedLevel)
+        
+        if levelPicker.tag == 1 {
+            selectedLevel = levels[row]
+            courseLevelTf.text = selectedLevel
+            print(selectedLevel)
+        } else {
+            selectedType = types[row]
+            courseTypeTf.text = selectedType
+            print(selectedType)
+        }
     }
 
     func addCourseToDatabase() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
+        
         let dictionaryValues = ["course_name": courseTf.text ?? "",
                                 "course_content": courseDetailTv.text ?? "",
                                 "course_type": courseTypeTf.text ?? "",
@@ -132,15 +175,18 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
                                 "course_language": courseLanguageTf.text ?? ""]
         Database.database().reference().child("courses").child(uid).childByAutoId().updateChildValues(dictionaryValues) { (err, reference) in
             if let err = err {
-                print(err)
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
             print("successfully add course to database")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
 }

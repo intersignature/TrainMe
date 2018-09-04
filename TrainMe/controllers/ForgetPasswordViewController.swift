@@ -39,6 +39,7 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func backBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
