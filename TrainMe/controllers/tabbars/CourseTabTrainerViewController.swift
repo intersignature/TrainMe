@@ -8,10 +8,15 @@
 
 import UIKit
 import SWRevealViewController
+import FirebaseAuth
+import FirebaseDatabase
 
 class CourseTabTrainerViewController: UIViewController {
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
+    var courses: [Course] = []
+    var ref: DatabaseReference!
+    var databaseHandle: DatabaseHandle!
     
     @IBAction func AddButtonAction(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "CourseToAddCourse", sender: nil)
@@ -22,7 +27,42 @@ class CourseTabTrainerViewController: UIViewController {
         
         initSideMenu()
         self.title = NSLocalizedString("course", comment: "")
-        // Do any additional setup after loading the view.
+        
+        ref = Database.database().reference()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        getCourseData()
+    }
+    
+    func getCourseData() {
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("courses").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.courses.removeAll()
+                
+                for courseObjs in snapshot.children.allObjects as! [DataSnapshot] {
+                    let courseObj = courseObjs.value as? [String: AnyObject]
+                    
+                    let course = Course(key: courseObjs.key, course: courseObj?["course_name"] as! String, courseContent: courseObj?["course_content"] as! String, courseType: courseObj?["course_type"] as! String, timeOfCourse: courseObj?["time_of_course"] as! String, courseDuration: courseObj?["course_duration"] as! String, courseLevel: courseObj?["course_level"] as! String, coursePrice: courseObj?["course_price"] as! String, courseLanguage: courseObj?["course_language"] as! String)
+                    self.courses.append(course)
+                    print(courseObjs.key)
+                }
+            }
+            print(snapshot.childrenCount)
+            for i in self.courses{
+                print(i.getData())
+                print("------------------")
+            }
+            
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,16 +85,4 @@ class CourseTabTrainerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
