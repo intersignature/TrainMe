@@ -19,4 +19,19 @@ class AllCourseTrainerTableViewCell: UITableViewCell {
         courseDetail.text = course.courseContent
         timeOfCourseLb.text = course.timeOfCourse
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+//        courseNameLb.showAnimatedSkeleton()
+//        courseDetail.showAnimatedSkeleton()
+//        timeOfCourseLb.showAnimatedSkeleton()
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
 }

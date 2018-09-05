@@ -10,6 +10,7 @@ import UIKit
 import SWRevealViewController
 import FirebaseAuth
 import FirebaseDatabase
+import SkeletonView
 
 class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -20,11 +21,6 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     var databaseHandle: DatabaseHandle!
     private var currentUser: User?
     
-    func createCourse() {
-        let course = Course(key: "a", course: "a", courseContent: "a", courseType: "a", timeOfCourse: "a", courseDuration: "a", courseLevel: "a", coursePrice: "a", courseLanguage: "a")
-        courses.append(course)
-    }
-    
     @IBAction func AddButtonAction(_ sender: UIBarButtonItem) {
         
         self.performSegue(withIdentifier: "CourseToAddCourse", sender: nil)
@@ -33,22 +29,17 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createCourse()
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+        ref = Database.database().reference()
         currentUser = Auth.auth().currentUser
-        
+        getCourseData()
         initSideMenu()
         self.title = NSLocalizedString("course", comment: "")
-        
-        ref = Database.database().reference()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        getCourseData()
+//        tableView.showAnimatedSkeleton()
+//        getCourseData()
     }
     
     func getCourseData() {
@@ -63,7 +54,9 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
                     let course = Course(key: courseObjs.key, course: courseObj?["course_name"] as! String, courseContent: courseObj?["course_content"] as! String, courseType: courseObj?["course_type"] as! String, timeOfCourse: courseObj?["time_of_course"] as! String, courseDuration: courseObj?["course_duration"] as! String, courseLevel: courseObj?["course_level"] as! String, coursePrice: courseObj?["course_price"] as! String, courseLanguage: courseObj?["course_language"] as! String)
                     self.courses.append(course)
                 }
+                self.tableView.reloadData()
             }
+//            self.tableView.stopSkeletonAnimation()
             for i in self.courses{
                 print(i.getData())
             }
@@ -72,7 +65,6 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
             return
         }
-        tableView.reloadData()
     }
     
     @IBAction func courseSegmentValueChanged(_ sender: CustomSegmentedControl) {
@@ -107,6 +99,12 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllCourseTrainerCell") as! AllCourseTrainerTableViewCell
         cell.setDataToTableViewCell(course: course)
+        
+        if cell.courseDetail.isSkeletonActive {
+            cell.courseDetail.stopSkeletonAnimation()
+            cell.courseNameLb.stopSkeletonAnimation()
+            cell.timeOfCourseLb.stopSkeletonAnimation()
+        }
         return cell
     }
     

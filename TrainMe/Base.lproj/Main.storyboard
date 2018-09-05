@@ -1042,6 +1042,9 @@ TrainMe’s Privacy Policy</string>
                                                     <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="jbW-b8-lXQ">
                                                     <rect key="frame" x="30" y="39" width="354" height="38.333333333333343"/>
@@ -1050,6 +1053,9 @@ detail</string>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="if27171489" translatesAutoresizingMaskIntoConstraints="NO" id="V3T-z4-ny5">
                                                     <rect key="frame" x="374" y="14" width="10" height="16"/>
@@ -1063,6 +1069,9 @@ detail</string>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1085,6 +1094,13 @@ detail</string>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WeY-C7-v4Z" id="96M-5u-M1I"/>
+                                    <outlet property="delegate" destination="WeY-C7-v4Z" id="1dO-36-cwQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
