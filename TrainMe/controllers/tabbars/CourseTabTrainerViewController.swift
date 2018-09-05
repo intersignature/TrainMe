@@ -11,13 +11,19 @@ import SWRevealViewController
 import FirebaseAuth
 import FirebaseDatabase
 
-class CourseTabTrainerViewController: UIViewController {
+class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     var courses: [Course] = []
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
     private var currentUser: User?
+    
+    func createCourse() {
+        let course = Course(key: "a", course: "a", courseContent: "a", courseType: "a", timeOfCourse: "a", courseDuration: "a", courseLevel: "a", coursePrice: "a", courseLanguage: "a")
+        courses.append(course)
+    }
     
     @IBAction func AddButtonAction(_ sender: UIBarButtonItem) {
         
@@ -26,6 +32,10 @@ class CourseTabTrainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createCourse()
+        tableView.delegate = self
+        tableView.dataSource = self
         
         currentUser = Auth.auth().currentUser
         
@@ -62,7 +72,13 @@ class CourseTabTrainerViewController: UIViewController {
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
             return
         }
+        tableView.reloadData()
     }
+    
+    @IBAction func courseSegmentValueChanged(_ sender: CustomSegmentedControl) {
+        print(sender.selectedSegmentIndex)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -79,6 +95,19 @@ class CourseTabTrainerViewController: UIViewController {
             menuBtn.target = revealViewController()
             menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(courses.count)
+        return courses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let course = courses[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllCourseTrainerCell") as! AllCourseTrainerTableViewCell
+        cell.setDataToTableViewCell(course: course)
+        return cell
     }
     
     override func didReceiveMemoryWarning() {
