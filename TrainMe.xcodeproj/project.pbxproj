@@ -13,6 +13,7 @@
 		B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */; };
 		B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */; };
 		B20ECAEF213FE4590084E685 /* AllCourseTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20ECAEE213FE4590084E685 /* AllCourseTrainerTableViewCell.swift */; };
+		B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20ECAF02141505F0084E685 /* ViewCourseTrainerViewController.swift */; };
 		B224A061212BC92900DA7E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B224A060212BC92800DA7E47 /* GoogleService-Info.plist */; };
 		B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2307ED12135142E000CB3AB /* UserProfile.swift */; };
 		B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796B2132CA650082FD1E /* ProgressTabTrainerViewController.swift */; };
@@ -45,6 +46,7 @@
 		B2B8BC5E212BC5D7009A3712 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B8BC5C212BC5D7009A3712 /* LaunchScreen.storyboard */; };
 		B2B8BC69212BC5D7009A3712 /* TrainMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC68212BC5D7009A3712 /* TrainMeTests.swift */; };
 		B2B8BC74212BC5D7009A3712 /* TrainMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC73212BC5D7009A3712 /* TrainMeUITests.swift */; };
+		B2BAD9C021417F2200D37D65 /* ViewCourseTrainerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BAD9BF21417F2200D37D65 /* ViewCourseTrainerTableViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,7 @@
 		B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B20ECAEE213FE4590084E685 /* AllCourseTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCourseTrainerTableViewCell.swift; sourceTree = "<group>"; };
+		B20ECAF02141505F0084E685 /* ViewCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerViewController.swift; sourceTree = "<group>"; };
 		B224A060212BC92800DA7E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B2307ED12135142E000CB3AB /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		B2309F07213D986D0030EA1C /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +117,7 @@
 		B2B8BC6F212BC5D7009A3712 /* TrainMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B8BC73212BC5D7009A3712 /* TrainMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainMeUITests.swift; sourceTree = "<group>"; };
 		B2B8BC75212BC5D7009A3712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2BAD9BF21417F2200D37D65 /* ViewCourseTrainerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerTableViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,14 +206,16 @@
 		B280D84E21392C6C00A59DB0 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B20ECAEB213FDE7E0084E685 /* tableviews */,
 				B2B8BC55212BC5D5009A3712 /* ViewController.swift */,
 				B20E30C3212BFB18001B43B1 /* LoginViewController.swift */,
 				B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */,
 				B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */,
+				B23E7DB8213FB5E7005E7F7F /* CustomSegmentedControl.swift */,
+				B20ECAF02141505F0084E685 /* ViewCourseTrainerViewController.swift */,
+				B2BAD9BF21417F2200D37D65 /* ViewCourseTrainerTableViewController.swift */,
 				B280D85221392CB700A59DB0 /* registers */,
 				B280D84F21392C9000A59DB0 /* tabbars */,
-				B23E7DB8213FB5E7005E7F7F /* CustomSegmentedControl.swift */,
+				B20ECAEB213FDE7E0084E685 /* tableviews */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -476,7 +482,6 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -494,7 +499,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -570,6 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */,
+				B2BAD9C021417F2200D37D65 /* ViewCourseTrainerTableViewController.swift in Sources */,
 				B24144B72137F94D00F8315B /* extension.swift in Sources */,
 				B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */,
 				B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */,
@@ -578,6 +583,7 @@
 				B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */,
 				B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
+				B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */,
 				B23E7DB7213ECA5B005E7F7F /* Course.swift in Sources */,
 				B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */,
 				B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */,

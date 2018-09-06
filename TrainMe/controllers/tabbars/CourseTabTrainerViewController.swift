@@ -10,7 +10,6 @@ import UIKit
 import SWRevealViewController
 import FirebaseAuth
 import FirebaseDatabase
-import SkeletonView
 
 class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -39,7 +38,7 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        tableView.showAnimatedSkeleton()
-//        getCourseData()
+        getCourseData()
     }
     
     func getCourseData() {
@@ -100,14 +99,39 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllCourseTrainerCell") as! AllCourseTrainerTableViewCell
         cell.setDataToTableViewCell(course: course)
         
-        if cell.courseDetail.isSkeletonActive {
-            cell.courseDetail.stopSkeletonAnimation()
-            cell.courseNameLb.stopSkeletonAnimation()
-            cell.timeOfCourseLb.stopSkeletonAnimation()
-        }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(courses[indexPath.row].course)
+        performSegue(withIdentifier: "CourseToViewCourseTrainer", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let chooseAlert = UIAlertController(title: "", message: "Would you like to delete this course?", preferredStyle: .actionSheet)
+            chooseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            chooseAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+                self.deleteCourseInFirebase()
+                self.courses.remove(at: indexPath.row)
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+            }))
+            self.present(chooseAlert, animated: true)
+        }
+    }
+    
+    func deleteCourseInFirebase() {
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
