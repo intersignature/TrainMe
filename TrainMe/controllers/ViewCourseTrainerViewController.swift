@@ -16,6 +16,11 @@ class ViewCourseTrainerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func editBtnAction(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "ViewCourseTrainerToEditCourseTrainer", sender: nil)
+    }
+    
+    
     @IBAction func backBtnAction(_ sender: UIBarButtonItem) {
         
         self.dismiss(animated: true, completion: nil)
