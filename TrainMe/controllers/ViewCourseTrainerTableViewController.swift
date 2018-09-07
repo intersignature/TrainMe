@@ -10,8 +10,27 @@ import UIKit
 
 class ViewCourseTrainerTableViewController: UITableViewController {
 
+    var course: Course = Course()
+    @IBOutlet weak var nameLb: UILabel!
+    @IBOutlet weak var contentLb: UILabel!
+    @IBOutlet weak var typeLb: UILabel!
+    @IBOutlet weak var timeOfCourseLb: UILabel!
+    @IBOutlet weak var durationLb: UILabel!
+    @IBOutlet weak var levelLb: UILabel!
+    @IBOutlet weak var priceLb: UILabel!
+    @IBOutlet weak var languageLb: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameLb.text = course.course
+        contentLb.text = course.courseContent
+        typeLb.text = course.courseType
+        timeOfCourseLb.text = course.timeOfCourse
+        durationLb.text = course.courseDuration
+        levelLb.text = course.courseLevel
+        priceLb.text = course.coursePrice
+        languageLb.text = course.courseLanguage
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,7 +53,7 @@ class ViewCourseTrainerTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 8
     }
 
     /*

@@ -10,14 +10,29 @@ import UIKit
 
 class ViewCourseTrainerViewController: UIViewController {
 
+    var course:Course = Course()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(course.courseLevel)
         // Do any additional setup after loading the view.
     }
 
     @IBAction func editBtnAction(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "ViewCourseTrainerToEditCourseTrainer", sender: nil)
+        
+        performSegue(withIdentifier: "ViewCourseTrainerToEditCourseTrainer", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ViewCourseTableViewEmbed") {
+            let childViewController = segue.destination as! ViewCourseTrainerTableViewController
+            childViewController.course = course
+        }
+        if(segue.identifier == "ViewCourseTrainerToEditCourseTrainer") {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! EditCourseViewController
+            containVc.course = course
+        }
     }
     
     

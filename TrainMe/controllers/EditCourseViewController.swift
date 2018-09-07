@@ -8,6 +8,8 @@
 
 import UIKit
 import DTTextField
+import FirebaseAuth
+import FirebaseDatabase
 
 class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -22,6 +24,8 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var courseLanguage: DTTextField!
     @IBOutlet weak var editBtn: UIButton!
     
+    var currentUser: User?
+    var ref: DatabaseReference = DatabaseReference()
     let levelPicker = UIPickerView()
     let typePicker = UIPickerView()
     let levels = ["All level",
@@ -33,9 +37,13 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
                  "Competition"]
     var selectedLevel: String?
     var selectedType: String?
+    var course:Course = Course()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentUser = (Auth.auth().currentUser)!
+        ref = Database.database().reference()
         
         courseName.delegate = self
         courseType.delegate = self
@@ -50,6 +58,15 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
         createLevelPicker()
         createTypePicker()
         createPickerToolbar()
+        
+        courseName.text = course.course
+        courseDetail.text = course.courseContent
+        courseType.text = course.courseType
+        timeOfCourse.text = course.timeOfCourse
+        courseDuration.text = course.courseDuration
+        courseLevel.text = course.courseLevel
+        coursePrice.text = course.coursePrice
+        courseLanguage.text = course.courseLanguage
         
         courseType.addTarget(self, action: #selector(courseTypeTfAction), for: UIControlEvents.editingDidBegin)
         courseLevel.addTarget(self, action: #selector(courseLevelTfAction), for: UIControlEvents.editingDidBegin)
@@ -161,6 +178,55 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
         }
     }
 
+    @IBAction func editBtnAction(_ sender: UIButton) {
+        
+        let courseName = self.courseName.text
+        let courseContent = self.courseDetail.text
+        let courseType = self.courseType.text
+        let timeOfCourse = self.timeOfCourse.text
+        let courseDuration = self.courseDuration.text
+        let courseLevel = self.courseLevel.text
+        let coursePrice = self.coursePrice.text
+        let courseLanguage = self.courseLanguage.text
+
+        if !checkTextfield(course_name: courseName!, course_content: courseContent!, course_type: courseType!, time_of_course: timeOfCourse!, course_duration: courseDuration!, course_level: courseLevel!, course_price: coursePrice!, course_language: courseLanguage!) {
+            return
+        }
+
+        let dictionaryValues = ["course_name": courseName,
+                                "course_content": courseContent,
+                                "course_type": courseType,
+                                "time_of_course": timeOfCourse,
+                                "course_duration": courseDuration,
+                                "course_level": courseLevel,
+                                "course_price": coursePrice,
+                                "course_language": courseLanguage]
+
+        let uid = self.currentUser?.uid
+        ref.child("courses").child(uid!).child(course.key).updateChildValues(dictionaryValues) { (err, ref) in
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+        }
+        print("successfully edit course to database")
+        self.course = Course(key: course.key, course: courseName!, courseContent: courseContent!, courseType: courseType!, timeOfCourse: timeOfCourse!, courseDuration: courseDuration!, courseLevel: courseLevel!, coursePrice: coursePrice!, courseLanguage: courseLanguage!)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func checkTextfield(course_name: String, course_content: String, course_type: String, time_of_course: String,
+                        course_duration: String, course_level: String, course_price: String, course_language: String) -> Bool {
+
+        if course_name == "" || course_content == "" || course_type == "" || time_of_course == "" ||
+            course_duration == "" || course_level == "" || course_price == "" || course_language == "" {
+
+            createAlert(alertTitle: "Please enter in blank field", alertMessage: "")
+            return false
+        }
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

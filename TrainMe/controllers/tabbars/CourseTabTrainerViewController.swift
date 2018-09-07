@@ -19,6 +19,7 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
     private var currentUser: User?
+    var selectedCourse: Course = Course()
     
     @IBAction func AddButtonAction(_ sender: UIBarButtonItem) {
         
@@ -55,7 +56,6 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
                 }
                 self.tableView.reloadData()
             }
-//            self.tableView.stopSkeletonAnimation()
             for i in self.courses{
                 print(i.getData())
             }
@@ -102,9 +102,18 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "CourseToViewCourseTrainer") {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ViewCourseTrainerViewController
+            containVc.course = selectedCourse
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCourse = courses[indexPath.row]
         print(courses[indexPath.row].course)
-        performSegue(withIdentifier: "CourseToViewCourseTrainer", sender: nil)
+        performSegue(withIdentifier: "CourseToViewCourseTrainer", sender: self)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -118,7 +127,7 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
             let chooseAlert = UIAlertController(title: "", message: "Would you like to delete this course?", preferredStyle: .actionSheet)
             chooseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             chooseAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-                self.deleteCourseInFirebase()
+                self.deleteCourseInFirebase(indexPath: indexPath)
                 self.courses.remove(at: indexPath.row)
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -128,8 +137,13 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         }
     }
     
-    func deleteCourseInFirebase() {
+    func deleteCourseInFirebase(indexPath: IndexPath) {
+        print("deleteCourseInFirebase")
+        let uid = currentUser?.uid
         
+        self.ref.child("courses").child(uid!).child(courses[indexPath.row].key).removeValue { (err, ref) in
+            print(err?.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
