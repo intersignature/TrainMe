@@ -38,7 +38,7 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        tableView.showAnimatedSkeleton()
+
         getCourseData()
     }
     
@@ -115,15 +115,32 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         print(courses[indexPath.row].course)
         performSegue(withIdentifier: "CourseToViewCourseTrainer", sender: self)
     }
+//
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        if editingStyle == .delete {
+//
+//            let chooseAlert = UIAlertController(title: "", message: "Would you like to delete this course?", preferredStyle: .actionSheet)
+//            chooseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//            chooseAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+//                self.deleteCourseInFirebase(indexPath: indexPath)
+//                self.courses.remove(at: indexPath.row)
+//                tableView.beginUpdates()
+//                tableView.deleteRows(at: [indexPath], with: .automatic)
+//                tableView.endUpdates()
+//            }))
+//            self.present(chooseAlert, animated: true)
+//        }
+//    }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        if editingStyle == .delete {
-            
+        let deleteBtn = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             let chooseAlert = UIAlertController(title: "", message: "Would you like to delete this course?", preferredStyle: .actionSheet)
             chooseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             chooseAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
@@ -135,6 +152,13 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
             }))
             self.present(chooseAlert, animated: true)
         }
+        
+        let reportBtn = UITableViewRowAction(style: .normal, title: "Report") { (action, indexPath) in
+            print("Report at \(indexPath.row)")
+        }
+        
+        reportBtn.backgroundColor = UIColor.orange
+        return [reportBtn, deleteBtn]
     }
     
     func deleteCourseInFirebase(indexPath: IndexPath) {

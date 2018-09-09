@@ -9,12 +9,14 @@
 import UIKit
 
 class ViewCourseTrainerViewController: UIViewController {
+    
 
     var course:Course = Course()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(course.courseLevel)
+
         // Do any additional setup after loading the view.
     }
 
@@ -27,6 +29,8 @@ class ViewCourseTrainerViewController: UIViewController {
         if (segue.identifier == "ViewCourseTableViewEmbed") {
             let childViewController = segue.destination as! ViewCourseTrainerTableViewController
             childViewController.course = course
+            childViewController.courseKey = course.key
+            print("\(course.courseLanguage)--------")
         }
         if(segue.identifier == "ViewCourseTrainerToEditCourseTrainer") {
             let vc = segue.destination as! UINavigationController
@@ -35,7 +39,12 @@ class ViewCourseTrainerViewController: UIViewController {
         }
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        self.performSegue(withIdentifier: "ViewCourseTableViewEmbed", sender: self)
+    }
+
     @IBAction func backBtnAction(_ sender: UIBarButtonItem) {
         
         self.dismiss(animated: true, completion: nil)
@@ -48,7 +57,7 @@ class ViewCourseTrainerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupNavigationStyle()
+       
     }
 }

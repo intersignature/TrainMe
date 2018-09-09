@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
-class ViewCourseTrainerTableViewController: UITableViewController {
+class ViewCourseTrainerTableViewController: UITableViewController{
 
     var course: Course = Course()
     @IBOutlet weak var nameLb: UILabel!
@@ -19,6 +21,10 @@ class ViewCourseTrainerTableViewController: UITableViewController {
     @IBOutlet weak var levelLb: UILabel!
     @IBOutlet weak var priceLb: UILabel!
     @IBOutlet weak var languageLb: UILabel!
+    
+    var currentUser: User?
+    var ref: DatabaseReference!
+    var courseKey: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +38,39 @@ class ViewCourseTrainerTableViewController: UITableViewController {
         priceLb.text = course.coursePrice
         languageLb.text = course.courseLanguage
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        currentUser = Auth.auth().currentUser
+        ref = Database.database().reference()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        getCourseData()
     }
 
+    func getCourseData() {
+        
+        let userID = currentUser?.uid
+        ref.child("courses").child(userID!).child(courseKey!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            self.course = Course(key: snapshot.key, course: value?["course_name"] as? String ?? "", courseContent: value?["course_content"] as? String ?? "", courseType: value?["course_type"] as? String ?? "", timeOfCourse: value?["time_of_course"] as? String ?? "", courseDuration: value?["course_duration"] as? String ?? "", courseLevel: value?["course_level"] as? String ?? "", coursePrice: value?["course_price"] as? String ?? "", courseLanguage: value?["course_language"] as? String ?? "")
+            self.nameLb.text = self.course.course
+            self.contentLb.text = self.course.courseContent
+            self.typeLb.text = self.course.courseType
+            self.timeOfCourseLb.text = self.course.timeOfCourse
+            self.durationLb.text = self.course.courseDuration
+            self.levelLb.text = self.course.courseLevel
+            self.priceLb.text = self.course.coursePrice
+            self.languageLb.text = self.course.courseLanguage
+            print(self.course.course+"fldsknjikfdji")
+            
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

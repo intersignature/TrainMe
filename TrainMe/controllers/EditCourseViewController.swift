@@ -13,7 +13,6 @@ import FirebaseDatabase
 
 class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    
     @IBOutlet weak var courseName: DTTextField!
     @IBOutlet weak var courseDetail: UITextView!
     @IBOutlet weak var courseType: DTTextField!
@@ -38,6 +37,7 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
     var selectedLevel: String?
     var selectedType: String?
     var course:Course = Course()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +74,10 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     override func viewWillAppear(_ animated: Bool) {
         self.setupNavigationStyle()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
