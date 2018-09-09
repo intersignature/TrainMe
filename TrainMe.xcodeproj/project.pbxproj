@@ -39,6 +39,7 @@
 		B25A8120212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
 		B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */; };
 		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
+		B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */; };
 		B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */; };
 		B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */; };
 		B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC55212BC5D5009A3712 /* ViewController.swift */; };
@@ -47,7 +48,6 @@
 		B2B8BC5E212BC5D7009A3712 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B8BC5C212BC5D7009A3712 /* LaunchScreen.storyboard */; };
 		B2B8BC69212BC5D7009A3712 /* TrainMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC68212BC5D7009A3712 /* TrainMeTests.swift */; };
 		B2B8BC74212BC5D7009A3712 /* TrainMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC73212BC5D7009A3712 /* TrainMeUITests.swift */; };
-		B2BAD9C021417F2200D37D65 /* ViewCourseTrainerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BAD9BF21417F2200D37D65 /* ViewCourseTrainerTableViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
 /* End PBXBuildFile section */
@@ -105,6 +105,7 @@
 		B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Light.ttf"; sourceTree = "<group>"; };
 		B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
+		B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTrainerViewController.swift; sourceTree = "<group>"; };
 		B2B8BC50212BC5D5009A3712 /* TrainMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		B2B8BC6F212BC5D7009A3712 /* TrainMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B8BC73212BC5D7009A3712 /* TrainMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainMeUITests.swift; sourceTree = "<group>"; };
 		B2B8BC75212BC5D7009A3712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2BAD9BF21417F2200D37D65 /* ViewCourseTrainerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerTableViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				B20ECAEE213FE4590084E685 /* AllCourseTrainerTableViewCell.swift */,
+				B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */,
 			);
 			path = tableviews;
 			sourceTree = "<group>";
@@ -214,7 +215,6 @@
 				B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */,
 				B23E7DB8213FB5E7005E7F7F /* CustomSegmentedControl.swift */,
 				B20ECAF02141505F0084E685 /* ViewCourseTrainerViewController.swift */,
-				B2BAD9BF21417F2200D37D65 /* ViewCourseTrainerTableViewController.swift */,
 				B21CCD4A2141CA610013EA56 /* EditCourseViewController.swift */,
 				B280D85221392CB700A59DB0 /* registers */,
 				B280D84F21392C9000A59DB0 /* tabbars */,
@@ -577,7 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */,
-				B2BAD9C021417F2200D37D65 /* ViewCourseTrainerTableViewController.swift in Sources */,
+				B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */,
 				B24144B72137F94D00F8315B /* extension.swift in Sources */,
 				B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */,
 				B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */,
