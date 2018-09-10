@@ -108,6 +108,11 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
             let containVc = vc.topViewController as! ViewCourseTrainerViewController
             containVc.course = selectedCourse
         }
+        if segue.identifier == "ViewCourseToEditCourse" {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! EditCourseViewController
+            containVc.course = selectedCourse
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -153,12 +158,14 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
             self.present(chooseAlert, animated: true)
         }
         
-        let reportBtn = UITableViewRowAction(style: .normal, title: "Report") { (action, indexPath) in
-            print("Report at \(indexPath.row)")
+        let editBtn = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            self.selectedCourse = self.courses[indexPath.row]
+            self.performSegue(withIdentifier: "ViewCourseToEditCourse", sender: self)
+            print("Edit at \(indexPath.row)")
         }
         
-        reportBtn.backgroundColor = UIColor.orange
-        return [reportBtn, deleteBtn]
+        editBtn.backgroundColor = UIColor.blue
+        return [editBtn, deleteBtn]
     }
     
     func deleteCourseInFirebase(indexPath: IndexPath) {

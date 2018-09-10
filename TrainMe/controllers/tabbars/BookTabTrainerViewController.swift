@@ -17,17 +17,15 @@ import CoreLocation
 
 class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPlacePickerViewControllerDelegate, CLLocationManagerDelegate {
     
-    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-        
-        print(place.formattedAddress)
-    }
-
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var mapContainer: UIView!
     
     var googleMapsView: GMSMapView!
     var placesClient: GMSPlacesClient!
     var locationManager = CLLocationManager()
+    var placePicker: GMSPlacePickerViewController!
+    var checkDidSelectPlace = 0
+    var place: GMSPlace!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,17 +41,53 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         self.googleMapsView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(self.googleMapsView)
         self.googleMapsView.delegate = self
-        
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PickYourPlaceToAddSchedulePlace" {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! AddSchedulePlaceViewController
+            self.checkDidSelectPlace = 0
+            containVc.place = place
+        }
+    }
+    
+    @IBAction func bookPlaceTrainerBtnAction(_ sender: UIBarButtonItem) {
+        let config = GMSPlacePickerConfig(viewport: nil)
+        placePicker = GMSPlacePickerViewController(config: config)
+
+        placePicker.setupNavigationStyle()
+        placePicker.delegate = self
+
+        self.present(placePicker, animated: true, completion: nil)
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        checkDidSelectPlace = 0
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func placePicker(_ viewController: GMSPlacePickerViewController, didFailWithError error: Error) {
+        checkDidSelectPlace = 0
+        self.createAlert(alertTitle: error.localizedDescription, alertMessage: "")
+    }
+    
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
         
-//        let config = GMSPlacePickerConfig(viewport: nil)
-//        let placePicker = GMSPlacePickerViewController(config: config)
-//        placePicker.delegate = self
-//        present(placePicker, animated: true, completion: nil)
-        
+        self.place = place
+        checkDidSelectPlace = 1
+        print(place.formattedAddress)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func cancelPlacePickerAction() {
+        print("dasdasdas")
+        //        self.dismiss(animated: true, completion: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -66,6 +100,18 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if checkDidSelectPlace == 1 {
+            print("selected place")
+            performSegue(withIdentifier: "PickYourPlaceToAddSchedulePlace", sender: self)
+        } else if checkDidSelectPlace == 0 {
+            print("not selected place")
+        }
+//        checkDidSelectPlace ?? 0 {print("seleect place")} else {print("not select place")}
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        checkDidSelectPlace = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
