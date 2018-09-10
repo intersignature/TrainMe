@@ -26,11 +26,19 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     var placePicker: GMSPlacePickerViewController!
     var checkDidSelectPlace = 0
     var place: GMSPlace!
+    var bookPlaceDict = [String: [BookPlaceDetail]]()
+    var ref: DatabaseReference!
+    var currentUser: User?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initSideMenu()
+        
+        ref = Database.database().reference()
+        currentUser = Auth.auth().currentUser
+        
         self.title = NSLocalizedString("pick_your_place", comment: "")
         
         placesClient = GMSPlacesClient.shared()
@@ -46,6 +54,36 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        getBookPlaceDict()
+    }
+    
+    func getBookPlaceDict() {
+
+        ref.child("schedule_place_books").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? [String: [String: NSDictionary]]
+            value?.forEach({ (key, eachValue) in
+                var bookPlaceDetails = [BookPlaceDetail]()
+                eachValue.forEach({ (bookPlaceKey, bookPlaceValue) in
+                    let bookPlaceDetail = BookPlaceDetail(key: bookPlaceKey, placeId: bookPlaceValue["place_id"] as! String, startTrainDate: bookPlaceValue["start_train_date"] as! String, startTrainTime: bookPlaceValue["start_train_time"] as! String)
+                    bookPlaceDetails.append(bookPlaceDetail)
+                })
+                self.bookPlaceDict[key] = bookPlaceDetails
+            })
+
+            // MARK: print for test book place data
+//            self.bookPlaceDict.forEach({ (key, bookPlaceDetails) in
+//                print("\(key)")
+//                bookPlaceDetails.forEach({ (bookPlaceDetail) in
+//                    print("\(bookPlaceDetail.getData())\n^^^^^^^^^^^^^^^")
+//                })
+//                print("------------------------")
+//            })
+            
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,10 +138,12 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         if checkDidSelectPlace == 1 {
             print("selected place")
             performSegue(withIdentifier: "PickYourPlaceToAddSchedulePlace", sender: self)
         } else if checkDidSelectPlace == 0 {
+            getBookPlaceDict()
             print("not selected place")
         }
 //        checkDidSelectPlace ?? 0 {print("seleect place")} else {print("not select place")}
