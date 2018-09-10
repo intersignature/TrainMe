@@ -850,16 +850,19 @@ TrainMe’s Privacy Policy</string>
                                                     <constraint firstAttribute="height" constant="170" id="uJv-vQ-1nU"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRD-E6-AX5" customClass="DTTextField" customModule="DTTextField">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRD-E6-AX5" customClass="DTTextField" customModule="DTTextField">
                                                 <rect key="frame" x="34" y="250" width="346" height="30"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="dateTfAction:" destination="mux-XA-y22" eventType="touchUpInside" id="AGd-3Z-Yxn"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-z1-FWP" customClass="DTTextField" customModule="DTTextField">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-z1-FWP" customClass="DTTextField" customModule="DTTextField">
                                                 <rect key="frame" x="34" y="300" width="346" height="30"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pi-q6-0YE">
@@ -872,6 +875,9 @@ TrainMe’s Privacy Policy</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="scheduleBtnAction:" destination="mux-XA-y22" eventType="touchUpInside" id="OT4-A7-GTB"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2238,7 +2244,7 @@ detail</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hNW-x5-lZ1"/>
-        <segue reference="Nqu-3d-ibE"/>
+        <segue reference="CLL-yx-EIm"/>
         <segue reference="5EB-bI-2rw"/>
         <segue reference="iOR-r9-omW"/>
     </inferredMetricsTieBreakers>

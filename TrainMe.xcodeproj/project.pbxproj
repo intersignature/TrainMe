@@ -39,6 +39,7 @@
 		B25A8120212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
 		B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */; };
 		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
+		B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */; };
 		B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */; };
 		B2AB110F214655D900E84321 /* AddSchedulePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */; };
 		B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */; };
@@ -106,6 +107,7 @@
 		B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Light.ttf"; sourceTree = "<group>"; };
 		B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
+		B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceDetail.swift; sourceTree = "<group>"; };
 		B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedulePlaceViewController.swift; sourceTree = "<group>"; };
 		B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTrainerViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				B2307ED12135142E000CB3AB /* UserProfile.swift */,
 				B24144B62137F94D00F8315B /* extension.swift */,
 				B23E7DB6213ECA5B005E7F7F /* Course.swift */,
+				B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				B24144B72137F94D00F8315B /* extension.swift in Sources */,
 				B2AB110F214655D900E84321 /* AddSchedulePlaceViewController.swift in Sources */,
 				B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */,
+				B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */,
 				B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */,
 				B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */,
 				B23E7DB9213FB5E7005E7F7F /* CustomSegmentedControl.swift in Sources */,

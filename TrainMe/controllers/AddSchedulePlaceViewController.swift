@@ -10,6 +10,8 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import DTTextField
+import FirebaseAuth
+import FirebaseDatabase
 
 class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
@@ -23,16 +25,25 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
     @IBOutlet weak var timeTf: DTTextField!
     @IBOutlet weak var scheduleBtn: UIButton!
     
+    var ref: DatabaseReference!
+    var currentUser: User?
+    
+    var datePicker: UIDatePicker!
+    var timePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(place.placeID)
+        print("place id = \(place.placeID)")
         
+        ref = Database.database().reference()
+        currentUser = Auth.auth().currentUser
+
         dateTf.delegate = self
         timeTf.delegate = self
         scheduleBtn.layer.cornerRadius = 5
         self.HideKeyboard()
         
-        placesClient = GMSPlacesClient.shared()
+        self.placesClient = GMSPlacesClient.shared()
         self.googleMapsView = GMSMapView(frame: self.mapContainerView.frame)
         self.googleMapsView.settings.setAllGesturesEnabled(false)
         self.googleMapsView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -45,8 +56,59 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
         
         createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: "", snippet: "")
 
+        setupDatePicker()
+        setupTimePicker()
+        createPickerToolbar()
     }
     
+    func setupDatePicker() {
+        datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: .valueChanged)
+        
+        dateTf.inputView = datePicker
+    }
+    
+    func setupTimePicker() {
+        timePicker = UIDatePicker()
+        timePicker.datePickerMode = .time
+        timePicker.addTarget(self, action: #selector(timeChange(datePicker:)), for: .valueChanged)
+        
+        timeTf.inputView = timePicker
+    }
+    
+    
+    @objc func dateChange(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+    
+        dateTf.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func timeChange(datePicker: UIDatePicker) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        
+        timeTf.text = timeFormatter.string(from: timePicker.date)
+    }
+    
+    @IBAction func dateTfAction(_ sender: DTTextField) {
+        if dateTf.text == "" {
+            print("datetfaction")
+        }
+    }
+    
+    func createPickerToolbar() {
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        toolbar.setItems([doneBtn], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        dateTf.inputAccessoryView = toolbar
+        timeTf.inputAccessoryView = toolbar
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         dateTf.resignFirstResponder()
         timeTf.resignFirstResponder()
@@ -82,5 +144,45 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func scheduleBtnAction(_ sender: UIButton) {
+        
+        let date = dateTf.text ?? ""
+        let time = timeTf.text ?? ""
+        
+
+        if !checkData(date: date, time: time){
+            self.createAlert(alertTitle: "Please fill in the blank", alertMessage: "")
+            return
+        }
+        
+        addScheduleToDatabase(date: date, time: time)
+    }
+    
+    func checkData(date: String, time: String) -> Bool {
+        if date == "" || time == "" {
+            return false
+        }
+        return true
+    }
+    
+    func addScheduleToDatabase(date: String, time: String) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        let dictionaryValues = ["place_id": place.placeID,
+                                "start_train_date": date,
+                                "start_train_time": time]
+        
+        ref.child("schedule_place_books").child(uid).childByAutoId().updateChildValues(dictionaryValues) { (err, ref) in
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            print("successfully add schedule place book to database")
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
