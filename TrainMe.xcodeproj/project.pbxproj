@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F541E892DFA99967B2E7B65 /* Pods_TrainMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05703BEEA1300794C374882 /* Pods_TrainMeUITests.framework */; };
 		696D7F7C78288D0987CA153C /* Pods_TrainMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A39929C094749B12C461F47 /* Pods_TrainMeTests.framework */; };
+		B201C67F2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */; };
 		B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C3212BFB18001B43B1 /* LoginViewController.swift */; };
 		B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */; };
 		B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */; };
@@ -80,6 +81,7 @@
 		55C4A3547D6419CECA40BE2B /* Pods-TrainMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMeTests/Pods-TrainMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		6A39929C094749B12C461F47 /* Pods_TrainMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05703BEEA1300794C374882 /* Pods_TrainMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTrainerMarkerViewController.swift; sourceTree = "<group>"; };
 		B20E30C3212BFB18001B43B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				B280D85221392CB700A59DB0 /* registers */,
 				B280D84F21392C9000A59DB0 /* tabbars */,
 				B20ECAEB213FDE7E0084E685 /* tableviews */,
+				B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */,
 				B23E7DB7213ECA5B005E7F7F /* Course.swift in Sources */,
 				B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */,
+				B201C67F2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift in Sources */,
 				B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */,
 				B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */,
 				B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */,

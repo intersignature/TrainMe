@@ -797,6 +797,29 @@ TrainMe’s Privacy Policy</string>
             </objects>
             <point key="canvasLocation" x="3348" y="-214"/>
         </scene>
+        <!--Show Trainer Marker View Controller-->
+        <scene sceneID="pu7-D6-cXQ">
+            <objects>
+                <viewController id="OWn-O3-pkM" customClass="ShowTrainerMarkerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fOV-ZO-Xzc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BAy-2N-eaN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jq9-4p-RQd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="re2-TR-4r9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="OWn-O3-pkM" id="hPM-3B-Ck7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATT-KF-Tn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5314.4927536231889" y="-240.48913043478262"/>
+        </scene>
         <!--Progress-->
         <scene sceneID="zzY-Cd-dbk">
             <objects>
@@ -987,6 +1010,7 @@ TrainMe’s Privacy Policy</string>
                         <outlet property="mapContainer" destination="HyY-dw-GZm" id="lN7-Nw-0pX"/>
                         <outlet property="menuBtn" destination="hAv-am-G2h" id="Wk1-Oo-6S4"/>
                         <segue destination="PO2-yo-cCW" kind="presentation" identifier="PickYourPlaceToAddSchedulePlace" id="Lfj-aU-iHf"/>
+                        <segue destination="LjK-t8-kUV" kind="presentation" identifier="PickYourPlaceToShowTrainerInMarker" id="CFl-Dl-pmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTf-Be-bpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2225,6 +2249,24 @@ detail</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yN-vL-HH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3342.0289855072465" y="1429.8913043478262"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OmQ-mF-bfW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LjK-t8-kUV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NIB-s4-37S">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OWn-O3-pkM" kind="relationship" relationship="rootViewController" id="aoH-Mt-UVn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Thn-Ao-IrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4407.2463768115949" y="-240.48913043478262"/>
         </scene>
     </scenes>
     <resources>

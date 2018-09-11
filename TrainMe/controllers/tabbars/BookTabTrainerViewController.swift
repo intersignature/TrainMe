@@ -29,6 +29,11 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     var bookPlaceDict = [String: [BookPlaceDetail]]()
     var ref: DatabaseReference!
     var currentUser: User?
+    var placeIdList = [String]()
+    var placeList = [GMSPlace]()
+    var PlaceTrainerIdList = [String: [String]]() // [placeId: [trainerId]]
+    var selectedPlaceId: String!
+    
     
     
     override func viewDidLoad() {
@@ -55,10 +60,40 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         getBookPlaceDict()
+        
+//        bookPlaceDict.forEach { (key, bookDetails) in
+//            print(key)
+//            bookDetails.forEach({ (bookDetail) in
+//                print(bookDetail.getData())
+//            })
+//            print("---")
+//        }
     }
     
+//    func getTrainerIdList() { // [placeId: [trainerId]]
+//        var tempTrainerId = [String]()
+//
+//        placeIdList.forEach { (placeId) in
+//            tempTrainerId = []
+//            bookPlaceDict.forEach({ (trainerId, bookPlaceDetails) in
+//
+//                bookPlaceDetails.forEach({ (bookPlaceDetail) in
+//
+//                    if placeId == bookPlaceDetail.placeId {
+//
+//                        if !tempTrainerId.contains(trainerId){
+//                            tempTrainerId.append(trainerId)
+//                        }
+//                    }
+//                })
+//            })
+//            PlaceTrainerIdList[placeId] = tempTrainerId
+//        }
+//    }
+    
     func getBookPlaceDict() {
-
+//        self.googleMapsView.clear()
+        self.placeIdList = []
         ref.child("schedule_place_books").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? [String: [String: NSDictionary]]
             value?.forEach({ (key, eachValue) in
@@ -70,20 +105,69 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
                 self.bookPlaceDict[key] = bookPlaceDetails
             })
 
-            // MARK: print for test book place data
-//            self.bookPlaceDict.forEach({ (key, bookPlaceDetails) in
+            self.bookPlaceDict.forEach({ (key, bookPlaceDetails) in
 //                print("\(key)")
-//                bookPlaceDetails.forEach({ (bookPlaceDetail) in
+                bookPlaceDetails.forEach({ (bookPlaceDetail) in
 //                    print("\(bookPlaceDetail.getData())\n^^^^^^^^^^^^^^^")
-//                })
+
+                    if !self.placeIdList.contains(bookPlaceDetail.placeId) {
+                        self.placeIdList.append(bookPlaceDetail.placeId)
+                        self.getPlaceDataFromPlaceId(placeId: bookPlaceDetail.placeId)
+                        print(bookPlaceDetail.placeId)
+                    }
+                })
 //                print("------------------------")
-//            })
-            
+            })
+//            self.getTrainerIdList()
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
             return
         }
+    }
+    
+    func getPlaceDataFromPlaceId(placeId: String) {
+        placesClient.lookUpPlaceID(placeId) { (place, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            
+            guard let place = place else {
+                print("No place details for \(placeId)")
+                self.createAlert(alertTitle: "No place details for \(placeId)", alertMessage: "")
+                return
+            }
+            
+            self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: "", snippet: place.placeID)
+            self.placeList.append(place)
+//            print("Place name \(place.name)")
+//            print("Place address \(place.formattedAddress)")
+//            print("Place placeID \(place.placeID)")
+//            print("Place attributions \(place.attributions)")
+//            print("---------")
+
+        }
+
+    }
+    
+    func createMarkerOnMapView(lat: CLLocationDegrees, long: CLLocationDegrees, title: String, snippet: String) {
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        marker.title = title
+        marker.snippet = snippet
+//        marker.setValue(trainerId, forKeyPath: "trainerId")
+//        marker.setValue(trainerId, forUndefinedKey: "trainerId")
+        marker.map = googleMapsView
+    }
+    
+    override func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+//        print(marker.value(forKey: "trainerId") as! String)
+        PlaceTrainerIdList[marker.snippet!]?.forEach({ print("^^^^^\($0)^^^^")})
+        self.selectedPlaceId = marker.snippet
+        performSegue(withIdentifier: "PickYourPlaceToShowTrainerInMarker", sender: self)
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -92,6 +176,11 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
             let containVc = vc.topViewController as! AddSchedulePlaceViewController
             self.checkDidSelectPlace = 0
             containVc.place = place
+        }
+        if segue.identifier == "PickYourPlaceToShowTrainerInMarker" {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ShowTrainerMarkerViewController
+            containVc.placeId = self.selectedPlaceId
         }
     }
     
@@ -119,7 +208,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         
         self.place = place
         checkDidSelectPlace = 1
-        print(place.formattedAddress)
+//        print("^^^^^^^\(place.name)^^^^^^^")
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -157,6 +246,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.googleMapsView.clear()
         setupNavigationStyle()
     }
     
@@ -174,11 +264,12 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     
     override func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
-        googleMapsView.clear()
-        let marker = GMSMarker(position: place.coordinate)
-        marker.title = place.name
-        marker.snippet = place.formattedAddress
-        marker.map = googleMapsView
+//        googleMapsView.clear()
+//        let marker = GMSMarker(position: place.coordinate)
+//        marker.title = place.name
+//        marker.snippet = place.formattedAddress
+//        marker.map = googleMapsView
+        self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: place.name, snippet: place.formattedAddress!)
         googleMapsView.animate(toLocation: place.coordinate)
         googleMapsView.animate(toZoom: 15.0)
         self.dismiss(animated: true, completion: nil)
