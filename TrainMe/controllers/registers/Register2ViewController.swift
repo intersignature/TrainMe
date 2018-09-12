@@ -126,6 +126,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
             createAlert(alertTitle: NSLocalizedString("your_password_doesnt_match", comment: ""), alertMessage: "")
             return
         } else {
+            userProfile.email = self.emailTf.text!
             nextTransition(segueId: "Register2ToRegister3")
         }
     }

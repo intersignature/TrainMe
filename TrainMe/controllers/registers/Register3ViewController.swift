@@ -244,10 +244,13 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let dictionaryValues = ["role": "trainer",
+                                "name": self.userProfile.fullName,
+                                "email": self.userProfile.email,
                                 "dateOfBirth": self.userProfile.dateOfBirth,
                                 "weight": self.userProfile.weight,
                                 "height": self.userProfile.height,
-                                "gender": self.userProfile.gender]
+                                "gender": self.userProfile.gender,
+                                "profileImageUrl": "-1" ]
         let values = [uid: dictionaryValues]
         Database.database().reference().child("user").updateChildValues(values) { (err, reference) in
             if let err = err {

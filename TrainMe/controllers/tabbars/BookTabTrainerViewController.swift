@@ -269,7 +269,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
 //        marker.title = place.name
 //        marker.snippet = place.formattedAddress
 //        marker.map = googleMapsView
-        self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: place.name, snippet: place.formattedAddress!)
+//        self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: place.name, snippet: place.formattedAddress!)
         googleMapsView.animate(toLocation: place.coordinate)
         googleMapsView.animate(toZoom: 15.0)
         self.dismiss(animated: true, completion: nil)

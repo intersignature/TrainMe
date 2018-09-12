@@ -12,24 +12,42 @@ import GooglePlaces
 import FirebaseAuth
 import FirebaseDatabase
 
-class ShowTrainerMarkerViewController: UIViewController {
-
+class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var showTrainerTableView: UITableView!
     var ref: DatabaseReference!
     var currentUser: User?
     var placeId: String!
     var bookPlaceDict = [String: [BookPlaceDetail]]()
     var PlaceTrainerIdList = [String: [String]]()
+    var trainerProfiles = [UserProfile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
         currentUser = Auth.auth().currentUser
-
+        
         getBookPlaceDict()
-
         
         // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (PlaceTrainerIdList[placeId]?.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrainerSelected") as! TrainerSelectedTableViewCell
+        cell.trainerNameLb.text = "dsvdvsdvsdvsdv"
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,9 +72,12 @@ class ShowTrainerMarkerViewController: UIViewController {
                 })
             })
         PlaceTrainerIdList[placeId] = tempTrainerId
-        PlaceTrainerIdList.forEach { (placeId, trainIds) in
-            trainIds.forEach({ print($0) })
+        PlaceTrainerIdList.forEach { (placeId, trainerIds) in
+            trainerIds.forEach({ print($0) })
         }
+        
+        getTrainerInfo()
+        
 
     }
 
@@ -78,6 +99,27 @@ class ShowTrainerMarkerViewController: UIViewController {
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
             return
         }
+    }
+    
+    func getTrainerInfo() {
+
+        PlaceTrainerIdList.forEach { (placeId, trainerIds) in
+            trainerIds.forEach({ (trainerId) in
+                //TODO: get trainer info by trainerId in database
+
+                ref.child("user").child(trainerId).observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    print(value!["name"])
+                }, withCancel: { (err) in
+                    print(err.localizedDescription)
+                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                    return
+                })
+            })
+        }
+        showTrainerTableView.delegate = self
+        showTrainerTableView.dataSource = self
+        showTrainerTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

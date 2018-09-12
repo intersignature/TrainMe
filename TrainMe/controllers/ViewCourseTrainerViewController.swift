@@ -63,7 +63,7 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseDetailTableViewCell") as! CourseDetailTableViewCell
-
+        
         cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
         
         return cell

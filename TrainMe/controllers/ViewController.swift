@@ -118,7 +118,7 @@ class ViewController: UIViewController {
                 self.gender = json["gender"].string
                 self.dateOfBirth = json["birthday"].string
                 guard let profilePictureUrl = json["picture"]["data"]["url"].string else {return}
-                print(json["picture"].string )
+                print(json["picture"].string)
                 guard let url = URL(string: profilePictureUrl) else {return}
                 
                 URLSession.shared.dataTask(with: url, completionHandler: { (data, response, err) in
@@ -164,10 +164,13 @@ class ViewController: UIViewController {
                 
                 guard let uid = Auth.auth().currentUser?.uid else {return}
                 let dictionaryValues = ["role": "trainer",
+                                        "name": self.name,
+                                        "email": self.email,
                                         "dateOfBirth": self.dateOfBirth,
                                         "weight": "-1",
                                         "height": "-1",
-                                        "gender": self.gender]
+                                        "gender": self.gender,
+                                        "profileImageUrl": url?.absoluteString]
                 let values = [uid: dictionaryValues]
                 
                 let profileChangeRequest = Auth.auth().currentUser?.createProfileChangeRequest()

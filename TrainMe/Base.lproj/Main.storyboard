@@ -804,7 +804,55 @@ TrainMe’s Privacy Policy</string>
                     <view key="view" contentMode="scaleToFill" id="fOV-ZO-Xzc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-g0-oho">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrainerSelected" rowHeight="89" id="nMu-N8-30T" customClass="TrainerSelectedTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nMu-N8-30T" id="bQN-8V-XoL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="88.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-pM-gZF">
+                                                    <rect key="frame" x="20" y="13" width="64" height="62"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-Nh-7dY">
+                                                    <rect key="frame" x="129" y="13" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amx-vV-HxW">
+                                                    <rect key="frame" x="129" y="42" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="trainerImg" destination="Syf-pM-gZF" id="20N-cU-H3h"/>
+                                            <outlet property="trainerNameLb" destination="nvE-Nh-7dY" id="x6g-R4-YBJ"/>
+                                            <outlet property="trainerTime" destination="Amx-vV-HxW" id="fuz-DX-aKn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BAy-2N-eaN" firstAttribute="bottom" secondItem="uKR-g0-oho" secondAttribute="bottom" id="MWS-P6-Alu"/>
+                            <constraint firstItem="uKR-g0-oho" firstAttribute="top" secondItem="BAy-2N-eaN" secondAttribute="top" id="SD8-Gc-43N"/>
+                            <constraint firstItem="BAy-2N-eaN" firstAttribute="trailing" secondItem="uKR-g0-oho" secondAttribute="trailing" id="YgH-K0-kM0"/>
+                            <constraint firstItem="uKR-g0-oho" firstAttribute="leading" secondItem="BAy-2N-eaN" secondAttribute="leading" id="oID-nA-CMg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BAy-2N-eaN"/>
                     </view>
                     <navigationItem key="navigationItem" id="jq9-4p-RQd">
@@ -815,6 +863,9 @@ TrainMe’s Privacy Policy</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="showTrainerTableView" destination="uKR-g0-oho" id="gY6-Ic-QeC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATT-KF-Tn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1500,7 +1551,7 @@ detail</string>
                                                     <color key="textColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail asD" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-hg-Il9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail asD" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmf-hg-Il9">
                                                     <rect key="frame" x="130" y="16" width="264" height="37"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1749,7 +1800,7 @@ detail</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovery your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M17-eO-aXd">
-                                <rect key="frame" x="76.666666666666657" y="97" width="261.66666666666674" height="31.333333333333343"/>
+                                <rect key="frame" x="77" y="97" width="261.66666666666669" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="23"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2285,7 +2336,7 @@ detail</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hNW-x5-lZ1"/>
+        <segue reference="IRS-Ta-5Mo"/>
         <segue reference="CLL-yx-EIm"/>
         <segue reference="5EB-bI-2rw"/>
         <segue reference="iOR-r9-omW"/>
