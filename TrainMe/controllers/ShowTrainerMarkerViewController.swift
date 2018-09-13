@@ -46,7 +46,8 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainerSelected") as! TrainerSelectedTableViewCell
-        cell.trainerNameLb.text = "dsvdvsdvsdvsdv"
+        cell.setDataToCell(trainerProfile: trainerProfiles[indexPath.row])
+//        cell.trainerImg.layer.cornerRadius = cell.trainerImg.frame.height / 2
         return cell
     }
 
@@ -55,31 +56,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         // Dispose of any resources that can be recreated.
     }
     
-    func getTrainerIdList() { // [placeId: [trainerId]]
-        var tempTrainerId = [String]()
-        
-            tempTrainerId = []
-            bookPlaceDict.forEach({ (trainerId, bookPlaceDetails) in
-                
-                bookPlaceDetails.forEach({ (bookPlaceDetail) in
-                    
-                    if placeId == bookPlaceDetail.placeId {
-                        
-                        if !tempTrainerId.contains(trainerId){
-                            tempTrainerId.append(trainerId)
-                        }
-                    }
-                })
-            })
-        PlaceTrainerIdList[placeId] = tempTrainerId
-        PlaceTrainerIdList.forEach { (placeId, trainerIds) in
-            trainerIds.forEach({ print($0) })
-        }
-        
-        getTrainerInfo()
-        
-
-    }
+   
 
     func getBookPlaceDict() {
         
@@ -101,25 +78,78 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         }
     }
     
+    func getTrainerIdList() { // [placeId: [trainerId]]
+        var tempTrainerId = [String]()
+        
+        tempTrainerId = []
+        bookPlaceDict.forEach({ (trainerId, bookPlaceDetails) in
+            
+            bookPlaceDetails.forEach({ (bookPlaceDetail) in
+                
+                if placeId == bookPlaceDetail.placeId {
+                    
+                    if !tempTrainerId.contains(trainerId){
+                        tempTrainerId.append(trainerId)
+                    }
+                }
+            })
+        })
+        PlaceTrainerIdList[placeId] = tempTrainerId
+//        var i = tempTrainerId[0]
+//        PlaceTrainerIdList.forEach { (placeId, trainerIds) in
+//            trainerIds.forEach({ print($0) })
+//        }
+        
+        getTrainerInfo()
+        
+        
+    }
+    
     func getTrainerInfo() {
-
+        var trainerProfile = UserProfile()
         PlaceTrainerIdList.forEach { (placeId, trainerIds) in
             trainerIds.forEach({ (trainerId) in
                 //TODO: get trainer info by trainerId in database
 
                 ref.child("user").child(trainerId).observeSingleEvent(of: .value, with: { (snapshot) in
                     let value = snapshot.value as? NSDictionary
-                    print(value!["name"])
+//                    print(value!["name"])
+                    trainerProfile.fullName = value!["name"] as! String
+                    trainerProfile.email = value!["email"] as! String
+                    trainerProfile.dateOfBirth = value!["dateOfBirth"] as! String
+                    trainerProfile.weight = value!["weight"] as! String
+                    trainerProfile.height = value!["height"] as! String
+                    trainerProfile.gender = value!["gender"] as! String
+                    trainerProfile.role = value!["role"] as! String
+                    trainerProfile.profileImageUrl = value!["profileImageUrl"] as! String
+                    self.trainerProfiles.append(trainerProfile)
+                    if self.trainerProfiles.count == self.PlaceTrainerIdList[placeId]?.count {
+                        self.showTrainerTableView.delegate = self
+                        self.showTrainerTableView.dataSource = self
+                        self.showTrainerTableView.reloadData()
+                    }
+//                    print(trainerProfile.email)
                 }, withCancel: { (err) in
                     print(err.localizedDescription)
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     return
                 })
+                
             })
         }
-        showTrainerTableView.delegate = self
-        showTrainerTableView.dataSource = self
-        showTrainerTableView.reloadData()
+        
+//        showTrainerTableView.delegate = self
+//        showTrainerTableView.dataSource = self
+//        showTrainerTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    self.trainerProfiles[indexPath.row].
+//        print(bookPlaceDict[placeId]![indexPath.row].key)
+        print(indexPath.row)
+//        print(PlaceTrainerIdList[0] as! [String])
+        
+        print(PlaceTrainerIdList[placeId]![indexPath.row])
     }
     
     override func viewWillAppear(_ animated: Bool) {
