@@ -21,6 +21,8 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     var bookPlaceDict = [String: [BookPlaceDetail]]()
     var PlaceTrainerIdList = [String: [String]]()
     var trainerProfiles = [UserProfile]()
+    var selectedTrainerId: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainerSelected") as! TrainerSelectedTableViewCell
-        cell.setDataToCell(trainerProfile: trainerProfiles[indexPath.row])
+        cell.setDataToCell(trainerProfile: trainerProfiles.reversed()[indexPath.row])
         return cell
     }
 
@@ -131,8 +133,19 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        selectedTrainerId = PlaceTrainerIdList[placeId]!.reversed()[indexPath.row]
         print(indexPath.row)
-        print(PlaceTrainerIdList[placeId]![indexPath.row])
+        print(PlaceTrainerIdList[placeId]!.reversed()[indexPath.row])
+        performSegue(withIdentifier: "ShowTrainerMarkerToShowCourseTrainerSpecified", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //ShowCourseTrainerSpecifiedViewController
+        if(segue.identifier == "ShowTrainerMarkerToShowCourseTrainerSpecified") {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ShowCourseTrainerSpecifiedViewController
+            containVc.trainerId = self.selectedTrainerId
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -19,6 +19,8 @@
 		B224A061212BC92900DA7E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B224A060212BC92800DA7E47 /* GoogleService-Info.plist */; };
 		B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2307ED12135142E000CB3AB /* UserProfile.swift */; };
 		B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */; };
+		B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */; };
+		B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */; };
 		B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796B2132CA650082FD1E /* ProgressTabTrainerViewController.swift */; };
 		B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */; };
 		B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */; };
@@ -93,6 +95,8 @@
 		B2307ED12135142E000CB3AB /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		B2309F07213D986D0030EA1C /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerSelectedTableViewCell.swift; sourceTree = "<group>"; };
+		B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCourseTrainerSpecifiedViewController.swift; sourceTree = "<group>"; };
+		B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrainerCourseTableViewCell.swift; sourceTree = "<group>"; };
 		B23E796B2132CA650082FD1E /* ProgressTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B23E796D2132CA7A0082FD1E /* CourseTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTabTrainerViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				B20ECAEE213FE4590084E685 /* AllCourseTrainerTableViewCell.swift */,
 				B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */,
 				B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */,
+				B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */,
 			);
 			path = tableviews;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				B280D84F21392C9000A59DB0 /* tabbars */,
 				B20ECAEB213FDE7E0084E685 /* tableviews */,
 				B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */,
+				B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -599,6 +605,7 @@
 				B23E7DB9213FB5E7005E7F7F /* CustomSegmentedControl.swift in Sources */,
 				B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */,
 				B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */,
+				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
 				B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */,
 				B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */,
@@ -611,6 +618,7 @@
 				B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */,
 				B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */,
 				B21CCD4B2141CA610013EA56 /* EditCourseViewController.swift in Sources */,
+				B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */,
 				B20ECAEF213FE4590084E685 /* AllCourseTrainerTableViewCell.swift in Sources */,
 				B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */,
 			);
