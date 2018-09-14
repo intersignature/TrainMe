@@ -29,15 +29,10 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         currentUser = Auth.auth().currentUser
         
         getBookPlaceDict()
-        
-        // Do any additional setup after loading the view.
     }
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,16 +42,12 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainerSelected") as! TrainerSelectedTableViewCell
         cell.setDataToCell(trainerProfile: trainerProfiles[indexPath.row])
-//        cell.trainerImg.layer.cornerRadius = cell.trainerImg.frame.height / 2
         return cell
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-   
 
     func getBookPlaceDict() {
         
@@ -128,7 +119,6 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
                         self.showTrainerTableView.dataSource = self
                         self.showTrainerTableView.reloadData()
                     }
-//                    print(trainerProfile.email)
                 }, withCancel: { (err) in
                     print(err.localizedDescription)
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -137,18 +127,11 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
                 
             })
         }
-        
-//        showTrainerTableView.delegate = self
-//        showTrainerTableView.dataSource = self
-//        showTrainerTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    self.trainerProfiles[indexPath.row].
-//        print(bookPlaceDict[placeId]![indexPath.row].key)
-        print(indexPath.row)
-//        print(PlaceTrainerIdList[0] as! [String])
         
+        print(indexPath.row)
         print(PlaceTrainerIdList[placeId]![indexPath.row])
     }
     

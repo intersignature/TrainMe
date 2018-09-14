@@ -122,9 +122,7 @@ extension UIView{
     
     func removeBluerLoader(){
         
-        self.subviews.flatMap {  $0 as? UIVisualEffectView }.forEach {
-            $0.removeFromSuperview()
-        }
+        self.subviews.compactMap { $0 as? UIVisualEffectView }.forEach {$0.removeFromSuperview() }
     }
 }
 
@@ -174,7 +172,7 @@ extension UIImageView {
     }
 }
 
-extension Auth {
+extension Auth{
     
     func getRole() {
         

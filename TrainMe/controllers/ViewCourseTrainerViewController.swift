@@ -83,6 +83,8 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
             return
         }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

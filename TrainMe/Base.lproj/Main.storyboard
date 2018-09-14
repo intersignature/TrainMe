@@ -816,26 +816,39 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-pM-gZF">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-pM-gZF">
                                                     <rect key="frame" x="25" y="24" width="62" height="62"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="62" id="nZr-kC-RZo"/>
+                                                        <constraint firstAttribute="width" constant="62" id="uu3-Ig-4kS"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Amx-vV-HxW">
-                                                    <rect key="frame" x="129" y="58" width="260" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Amx-vV-HxW">
+                                                    <rect key="frame" x="117" y="61" width="272" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-Nh-7dY">
-                                                    <rect key="frame" x="129" y="30" width="260" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-Nh-7dY">
+                                                    <rect key="frame" x="117" y="26" width="272" height="30"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Syf-pM-gZF" firstAttribute="leading" secondItem="bQN-8V-XoL" secondAttribute="leadingMargin" constant="5" id="d7v-J5-KEv"/>
+                                                <constraint firstItem="nvE-Nh-7dY" firstAttribute="leading" secondItem="Syf-pM-gZF" secondAttribute="trailing" constant="30" id="euN-k5-Tdc"/>
+                                                <constraint firstItem="Amx-vV-HxW" firstAttribute="leading" secondItem="Syf-pM-gZF" secondAttribute="trailing" constant="30" id="f23-Rj-I2d"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Amx-vV-HxW" secondAttribute="trailing" constant="5" id="g7r-Xp-cUr"/>
+                                                <constraint firstItem="nvE-Nh-7dY" firstAttribute="top" secondItem="bQN-8V-XoL" secondAttribute="topMargin" constant="15" id="hFv-5r-1C8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nvE-Nh-7dY" secondAttribute="trailing" constant="5" id="kbs-0N-KdF"/>
+                                                <constraint firstItem="Syf-pM-gZF" firstAttribute="top" secondItem="bQN-8V-XoL" secondAttribute="topMargin" constant="13" id="lGB-E2-xDe"/>
+                                                <constraint firstItem="Amx-vV-HxW" firstAttribute="top" secondItem="nvE-Nh-7dY" secondAttribute="bottom" constant="5" id="s0e-j2-Ymg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Amx-vV-HxW" secondAttribute="bottom" constant="16" id="su1-3O-ecU"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Syf-pM-gZF" secondAttribute="bottom" constant="13" id="syw-T0-oV2"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="trainerImg" destination="Syf-pM-gZF" id="20N-cU-H3h"/>
