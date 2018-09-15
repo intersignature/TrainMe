@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -19,8 +20,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginLb: UILabel!
     @IBOutlet weak var forgetPasswordBtn: UIButton!
     
+    var ref: DatabaseReference!
+    var role = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
         
         emailView.layer.cornerRadius = 17
         passwordView.layer.cornerRadius = 17
@@ -72,12 +78,38 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.createAlert(alertTitle:err.localizedDescription, alertMessage: "")
                 return
             }
-            self.view.removeBluerLoader()
-            self.performSegue(withIdentifier: "LoginToMain", sender: nil)
+            self.getRole()
+            
         }
     }
     
     @IBAction func backBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func getRole() {
+        
+        let uid = Auth.auth().currentUser?.uid
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("user").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            self.role = value?["role"]! as! String
+            
+            print(self.role)
+            
+            self.view.removeBluerLoader()
+            if self.role == "trainer" {
+                self.performSegue(withIdentifier: "LoginToMain", sender: nil)
+            }
+            if self.role == "trainee" {
+                print("1")
+                self.performSegue(withIdentifier: "LoginToMainTrainee", sender: nil)
+            }
+            
+        }) { (err) in
+            print(err.localizedDescription)
+        }
     }
 }

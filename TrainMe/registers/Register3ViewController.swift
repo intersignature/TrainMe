@@ -243,7 +243,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     func addProfileToDatabase() {
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        let dictionaryValues = ["role": "trainer",
+        let dictionaryValues = ["role": "trainee",
                                 "name": self.userProfile.fullName,
                                 "email": self.userProfile.email,
                                 "dateOfBirth": self.userProfile.dateOfBirth,

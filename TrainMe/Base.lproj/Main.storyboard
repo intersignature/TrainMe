@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="162"/>
+            <point key="canvasLocation" x="1043.4782608695652" y="161.41304347826087"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Ngh-BJ-jf6">
@@ -228,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ti-Sr-ukP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="159"/>
+            <point key="canvasLocation" x="1902.8985507246377" y="158.96739130434784"/>
         </scene>
         <!--Register2 View Controller-->
         <scene sceneID="Slj-aI-AqY">
@@ -469,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8z-L6-cmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2485.507246376812" y="160.59782608695653"/>
+            <point key="canvasLocation" x="3392.753623188406" y="160.59782608695653"/>
         </scene>
         <!--Register3 View Controller-->
         <scene sceneID="haW-vx-6hY">
@@ -795,7 +795,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhR-pY-4Vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3348" y="-214"/>
+            <point key="canvasLocation" x="4255.072463768116" y="-214.4021739130435"/>
         </scene>
         <!--Select your trainer-->
         <scene sceneID="pu7-D6-cXQ">
@@ -883,7 +883,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATT-KF-Tn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5314.4927536231889" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="6221.739130434783" y="-240.48913043478262"/>
         </scene>
         <!--Select course-->
         <scene sceneID="yLn-51-CN5">
@@ -897,28 +897,35 @@ TrainMe’s Privacy Policy</string>
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectedTrainerCourse" rowHeight="75" id="egS-E8-ttq" customClass="SelectedTrainerCourseTableViewCell" customModule="TrainMe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="75"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectedTrainerCourse" rowHeight="98" id="egS-E8-ttq" customClass="SelectedTrainerCourseTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="egS-E8-ttq" id="G7w-Z7-anx">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="74.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="97.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05L-VJ-VSl">
-                                                    <rect key="frame" x="33" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05L-VJ-VSl">
+                                                    <rect key="frame" x="25" y="16" width="364" height="21"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XP2-ih-Gte">
-                                                    <rect key="frame" x="33" y="40" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XP2-ih-Gte">
+                                                    <rect key="frame" x="25" y="42" width="364" height="40"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XP2-ih-Gte" secondAttribute="bottom" constant="5" id="5ga-8Q-zYO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XP2-ih-Gte" secondAttribute="trailing" constant="5" id="Ne6-lO-Tak"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="05L-VJ-VSl" secondAttribute="trailing" constant="5" id="X9g-CR-KOi"/>
+                                                <constraint firstItem="XP2-ih-Gte" firstAttribute="leading" secondItem="G7w-Z7-anx" secondAttribute="leadingMargin" constant="5" id="a9w-6F-7hd"/>
+                                                <constraint firstItem="XP2-ih-Gte" firstAttribute="top" secondItem="05L-VJ-VSl" secondAttribute="bottom" constant="5" id="cjY-gx-djz"/>
+                                                <constraint firstItem="05L-VJ-VSl" firstAttribute="leading" secondItem="G7w-Z7-anx" secondAttribute="leadingMargin" constant="5" id="dqS-pl-ypE"/>
+                                                <constraint firstItem="05L-VJ-VSl" firstAttribute="top" secondItem="G7w-Z7-anx" secondAttribute="topMargin" constant="5" id="kMn-Le-ABT"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="courseNameLb" destination="05L-VJ-VSl" id="yM8-lW-d4U"/>
@@ -951,7 +958,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QB4-xi-bbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7285.507246376812" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="8192.753623188406" y="-240.48913043478262"/>
         </scene>
         <!--Progress-->
         <scene sceneID="zzY-Cd-dbk">
@@ -983,7 +990,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwu-Yq-eC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2486" y="1697"/>
+            <point key="canvasLocation" x="3392.753623188406" y="1696.467391304348"/>
         </scene>
         <!--Add schedule-->
         <scene sceneID="EWI-el-ymn">
@@ -1095,7 +1102,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8T-Sn-8fi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4249.275362318841" y="1429.8913043478262"/>
+            <point key="canvasLocation" x="6063.7681159420299" y="1429.8913043478262"/>
         </scene>
         <!--Pick your place-->
         <scene sceneID="3aO-BX-3F8">
@@ -1148,7 +1155,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTf-Be-bpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2486" y="954"/>
+            <point key="canvasLocation" x="3392.753623188406" y="953.804347826087"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="6Z7-di-P48">
@@ -1167,7 +1174,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAF-XO-Y5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3348" y="585"/>
+            <point key="canvasLocation" x="5162.3188405797109" y="584.51086956521749"/>
         </scene>
         <!--Sidebar Trainer View Controller-->
         <scene sceneID="08G-PF-GMG">
@@ -1267,7 +1274,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DP2-Oh-MYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4249" y="585"/>
+            <point key="canvasLocation" x="6060.8695652173919" y="584.51086956521749"/>
         </scene>
         <!--Course-->
         <scene sceneID="oBU-BI-8PT">
@@ -1708,7 +1715,26 @@ detail</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jD4-jv-TV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997" y="954"/>
+            <point key="canvasLocation" x="1902.8985507246377" y="953.804347826087"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="BEC-IE-QMh">
+            <objects>
+                <viewController id="frG-QR-vnD" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VNB-2P-o9B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cNv-w6-2zb"/>
+                    </view>
+                    <connections>
+                        <segue destination="C4e-lZ-zmb" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="OL4-ha-UNQ"/>
+                        <segue destination="tdf-ks-4aQ" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="cLa-SX-zRR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lmX-6T-AUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-213.04347826086959" y="953.804347826087"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="9EV-lV-Qtj">
@@ -1857,11 +1883,12 @@ detail</string>
                         <outlet property="passwordTf" destination="Tqd-FH-rT3" id="uKz-jP-2HT"/>
                         <outlet property="passwordView" destination="vvv-wk-Gn9" id="fMA-gh-mRP"/>
                         <segue destination="Fyd-1L-8H1" kind="show" identifier="LoginToMain" id="CLL-yx-EIm"/>
+                        <segue destination="frG-QR-vnD" kind="show" identifier="LoginToMainTrainee" id="5uZ-b0-AlF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRD-dM-JKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="954"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="953.804347826087"/>
         </scene>
         <!--Forget Password View Controller-->
         <scene sceneID="9V5-pF-02D">
@@ -1882,7 +1909,7 @@ detail</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovery your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M17-eO-aXd">
-                                <rect key="frame" x="77" y="97" width="261.66666666666669" height="31.333333333333343"/>
+                                <rect key="frame" x="76.333333333333343" y="97" width="261.66666666666663" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="23"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1972,7 +1999,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gC4-nD-Ag8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="1697.9010494752624"/>
+            <point key="canvasLocation" x="1043.4782608695652" y="1697.2826086956522"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Owx-M8-X1Q">
@@ -2069,7 +2096,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rm-5D-tfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="161"/>
+            <point key="canvasLocation" x="1904.3478260869567" y="160.59782608695653"/>
         </scene>
         <!--BOOK-->
         <scene sceneID="Fqq-hV-Z9y">
@@ -2088,7 +2115,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3t-Ef-AVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="954"/>
+            <point key="canvasLocation" x="2718.840579710145" y="953.804347826087"/>
         </scene>
         <!--PROGRESS-->
         <scene sceneID="JtW-FM-yBP">
@@ -2107,7 +2134,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecd-cx-Fu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="1697"/>
+            <point key="canvasLocation" x="2718.840579710145" y="1696.467391304348"/>
         </scene>
         <!--COURSE-->
         <scene sceneID="Y6W-m4-4AE">
@@ -2381,7 +2408,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yN-vL-HH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3342.0289855072465" y="1429.8913043478262"/>
+            <point key="canvasLocation" x="5156.521739130435" y="1429.8913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OmQ-mF-bfW">
@@ -2399,7 +2426,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thn-Ao-IrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4407.2463768115949" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="5314.4927536231889" y="-240.48913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nko-Zo-9xW">
@@ -2417,7 +2444,272 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nuy-uG-xhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6376.811594202899" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="7284.057971014493" y="-240.48913043478262"/>
+        </scene>
+        <!--Progress-->
+        <scene sceneID="Zhu-SN-qJY">
+            <objects>
+                <viewController id="j6V-d6-VeN" customClass="ProgressTabTraineeViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s8S-Qz-GK9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Glc-PL-6Yi"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Progress" id="qYU-17-YeB">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="Akt-1F-a1b">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuBtn" destination="Akt-1F-a1b" id="jVY-8Q-pjF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P90-pF-JZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5475" y="954"/>
+        </scene>
+        <!--Notification-->
+        <scene sceneID="jgJ-aA-fKL">
+            <objects>
+                <viewController id="NgK-ga-bFx" customClass="NotificationTabTraineeViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fp2-w2-8Wr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Wss-Yg-tqD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notification" id="z0h-Mb-Jaa">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="C5q-EM-pcQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuBtn" destination="C5q-EM-pcQ" id="6gs-qJ-3J2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQp-9w-Zoj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5475" y="1675"/>
+        </scene>
+        <!--Find your trainer-->
+        <scene sceneID="YBk-Pz-36Y">
+            <objects>
+                <viewController id="ZFt-WJ-Jcz" customClass="FindTabTraineeViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nsX-MT-Ig0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pB-TP-JDg">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ITC-Rd-Nj7" firstAttribute="bottom" secondItem="9pB-TP-JDg" secondAttribute="bottom" id="1xw-2l-FEV"/>
+                            <constraint firstItem="9pB-TP-JDg" firstAttribute="leading" secondItem="ITC-Rd-Nj7" secondAttribute="leading" id="738-5C-IQW"/>
+                            <constraint firstItem="ITC-Rd-Nj7" firstAttribute="trailing" secondItem="9pB-TP-JDg" secondAttribute="trailing" id="HLp-hQ-oku"/>
+                            <constraint firstItem="9pB-TP-JDg" firstAttribute="top" secondItem="ITC-Rd-Nj7" secondAttribute="top" id="pbE-WK-jsB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ITC-Rd-Nj7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Find your trainer" id="EVr-NP-RDX">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="cxN-P3-Sfi">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="3b5-N2-vSf">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuBtn" destination="cxN-P3-Sfi" id="tTC-tW-tpW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTs-gA-906" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5474" y="278"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="y73-1S-sDA">
+            <objects>
+                <tabBarController id="tdf-ks-4aQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QNg-BR-kO7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7tM-74-gVA" kind="relationship" relationship="viewControllers" id="QkO-Sj-qiB"/>
+                        <segue destination="wBK-Qd-uTq" kind="relationship" relationship="viewControllers" id="uid-qV-syP"/>
+                        <segue destination="H5l-x0-Zbf" kind="relationship" relationship="viewControllers" id="cnd-5B-XPd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5l-Av-oHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2242.0289855072465" y="953.804347826087"/>
+        </scene>
+        <!--Sidebar Trainee View Controller-->
+        <scene sceneID="z6T-Bh-XvK">
+            <objects>
+                <viewController id="C4e-lZ-zmb" customClass="SidebarTraineeViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xDo-dO-EFp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-UB-wbf">
+                                <rect key="frame" x="67.666666666666686" y="35" width="140" height="140"/>
+                                <color key="backgroundColor" red="0.27162000870000003" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="pcg-CN-gzB"/>
+                                    <constraint firstAttribute="height" constant="140" id="xTU-85-mGx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1i-et-5gj">
+                                <rect key="frame" x="67" y="190" width="140" height="27.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="e3o-9j-CgK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhv-OY-cxd">
+                                <rect key="frame" x="27" y="221.33333333333334" width="220" height="20.666666666666657"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="7fD-L5-fNP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zO-i1-Lk5">
+                                <rect key="frame" x="47" y="257" width="130" height="33"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
+                                <state key="normal" title="     User Profile" image="user1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odh-GH-79p">
+                                <rect key="frame" x="47" y="305" width="183" height="28"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
+                                <state key="normal" title="     Credit card / Paypal" image="creditCard"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3S-1q-6zc">
+                                <rect key="frame" x="47" y="348" width="83" height="33"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
+                                <state key="normal" title="     Help" image="help"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk1-7l-Xs7">
+                                <rect key="frame" x="47" y="396" width="106" height="33"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
+                                <state key="normal" title="     Settings" image="settings"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep5-Oc-a8J">
+                                <rect key="frame" x="47" y="491" width="97" height="31"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
+                                <state key="normal" title="     Logout" image="logout"/>
+                                <connections>
+                                    <action selector="logoutBtnAction:" destination="C4e-lZ-zmb" eventType="touchUpInside" id="4ZY-hF-HnB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fs-Ng-gWL">
+                                <rect key="frame" x="47" y="444" width="162" height="32"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
+                                <state key="normal" title="     Become a trainer" image="trainer"/>
+                                <connections>
+                                    <action selector="logoutBtnAction:" destination="C4e-lZ-zmb" eventType="touchUpInside" id="v1g-2h-2rr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="odh-GH-79p" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="1oM-JN-ENV"/>
+                            <constraint firstItem="wk1-7l-Xs7" firstAttribute="top" secondItem="y3S-1q-6zc" secondAttribute="bottom" constant="15" id="6HG-88-V1E"/>
+                            <constraint firstItem="LM7-UB-wbf" firstAttribute="top" secondItem="pF1-Sg-dt9" secondAttribute="top" constant="15" id="87x-5Q-e9b"/>
+                            <constraint firstItem="4fs-Ng-gWL" firstAttribute="top" secondItem="wk1-7l-Xs7" secondAttribute="bottom" constant="15" id="D3K-8L-lHk"/>
+                            <constraint firstItem="R1i-et-5gj" firstAttribute="top" secondItem="LM7-UB-wbf" secondAttribute="bottom" constant="15" id="HFu-jP-wFB"/>
+                            <constraint firstItem="Ep5-Oc-a8J" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="Iqk-7Z-X17"/>
+                            <constraint firstItem="Ep5-Oc-a8J" firstAttribute="top" secondItem="4fs-Ng-gWL" secondAttribute="bottom" constant="15" id="Qsf-7S-Zwf"/>
+                            <constraint firstItem="odh-GH-79p" firstAttribute="top" secondItem="8zO-i1-Lk5" secondAttribute="bottom" constant="15" id="QtQ-Vv-DXV"/>
+                            <constraint firstItem="R1i-et-5gj" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="67.5" id="T55-5Y-uuk"/>
+                            <constraint firstItem="Xhv-OY-cxd" firstAttribute="top" secondItem="R1i-et-5gj" secondAttribute="bottom" constant="4" id="Vsb-gX-CyM"/>
+                            <constraint firstItem="8zO-i1-Lk5" firstAttribute="top" secondItem="Xhv-OY-cxd" secondAttribute="bottom" constant="15" id="XCK-cf-PJb"/>
+                            <constraint firstItem="y3S-1q-6zc" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="XU7-mk-Qav"/>
+                            <constraint firstItem="LM7-UB-wbf" firstAttribute="leading" secondItem="xDo-dO-EFp" secondAttribute="leading" constant="67.5" id="iXh-D1-3ug"/>
+                            <constraint firstItem="Xhv-OY-cxd" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="27" id="ijE-1Y-ePO"/>
+                            <constraint firstItem="8zO-i1-Lk5" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="j70-Bp-7Sa"/>
+                            <constraint firstItem="wk1-7l-Xs7" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="nMe-vt-tid"/>
+                            <constraint firstItem="y3S-1q-6zc" firstAttribute="top" secondItem="odh-GH-79p" secondAttribute="bottom" constant="15" id="rxo-5Y-35L"/>
+                            <constraint firstItem="4fs-Ng-gWL" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="yLM-Qj-P8B"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pF1-Sg-dt9"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailLb" destination="Xhv-OY-cxd" id="vKF-eS-n4B"/>
+                        <outlet property="nameLb" destination="R1i-et-5gj" id="pmY-IX-Tbt"/>
+                        <outlet property="profileImg" destination="LM7-UB-wbf" id="gya-Wk-PFj"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="LogoutTraineeSeg" customClass="SWRevealViewControllerSeguePushController" id="CFy-02-wCg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cpr-bN-lFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1239.1304347826087" y="953.804347826087"/>
+        </scene>
+        <!--Find-->
+        <scene sceneID="8TW-RE-fQh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7tM-74-gVA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Find" id="JLE-jU-bs5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="98G-RD-GtC">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZFt-WJ-Jcz" kind="relationship" relationship="rootViewController" id="kYs-gf-v1k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LFx-MS-0gv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4417.391304347826" y="277.98913043478262"/>
+        </scene>
+        <!--Progress-->
+        <scene sceneID="onG-qc-7d1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wBK-Qd-uTq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Progress" id="SBa-bg-uE8"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xrg-JT-MQa">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="j6V-d6-VeN" kind="relationship" relationship="rootViewController" id="YjZ-d4-Wle"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ZF-LU-5JH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4417.391304347826" y="953.804347826087"/>
+        </scene>
+        <!--Notification-->
+        <scene sceneID="QlM-ok-mnq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H5l-x0-Zbf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notification" id="mK6-gf-X06"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bAM-Hz-cZi">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NgK-ga-bFx" kind="relationship" relationship="rootViewController" id="WUi-IP-VjA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TH6-5x-1Xk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4423.188405797102" y="1675.271739130435"/>
         </scene>
     </scenes>
     <resources>
@@ -2431,6 +2723,7 @@ detail</string>
         <image name="mailBlackEnvelopeSymbol" width="34" height="26"/>
         <image name="menu" width="22" height="16"/>
         <image name="settings" width="33" height="33"/>
+        <image name="trainer" width="28" height="32"/>
         <image name="user1" width="33" height="33"/>
         <image name="user2" width="37" height="37"/>
         <image name="weight" width="27" height="26"/>
@@ -2439,6 +2732,7 @@ detail</string>
         <segue reference="IRS-Ta-5Mo"/>
         <segue reference="CLL-yx-EIm"/>
         <segue reference="5EB-bI-2rw"/>
-        <segue reference="iOR-r9-omW"/>
+        <segue reference="GhO-HN-2gJ"/>
+        <segue reference="CFy-02-wCg"/>
     </inferredMetricsTieBreakers>
 </document>

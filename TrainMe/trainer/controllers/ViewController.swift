@@ -163,7 +163,7 @@ class ViewController: UIViewController {
                 }
                 
                 guard let uid = Auth.auth().currentUser?.uid else {return}
-                let dictionaryValues = ["role": "trainer",
+                let dictionaryValues = ["role": "trainee",
                                         "name": self.name,
                                         "email": self.email,
                                         "dateOfBirth": self.dateOfBirth,
