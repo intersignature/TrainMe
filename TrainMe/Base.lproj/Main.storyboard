@@ -2619,9 +2619,6 @@ detail</string>
                                 <rect key="frame" x="47" y="444" width="162" height="32"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Become a trainer" image="trainer"/>
-                                <connections>
-                                    <action selector="logoutBtnAction:" destination="C4e-lZ-zmb" eventType="touchUpInside" id="v1g-2h-2rr"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
