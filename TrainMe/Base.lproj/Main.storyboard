@@ -2520,9 +2520,13 @@ detail</string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="3b5-N2-vSf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="searchAdressBtnAction:" destination="ZFt-WJ-Jcz" id="hT9-Wd-bX9"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapContainer" destination="9pB-TP-JDg" id="141-SO-Xzd"/>
                         <outlet property="menuBtn" destination="cxN-P3-Sfi" id="tTC-tW-tpW"/>
                     </connections>
                 </viewController>
