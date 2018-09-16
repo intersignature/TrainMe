@@ -26,6 +26,7 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
     var ref: DatabaseReference!
     var bookPlaceDict = [String: [BookPlaceDetail]]()
     var placeList = [GMSPlace]()
+    var selectedPlaceId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,9 +123,20 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
         marker.map = googleMapsView
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FindyourTrainerToShowTrainerInMarker" {
+            let  vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ShowTrainerMarkerViewController
+            containVc.placeId = self.selectedPlaceId
+            
+        }
+    }
+    
     override func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
         print(marker.snippet)
+        self.selectedPlaceId = marker.snippet
+        performSegue(withIdentifier: "FindyourTrainerToShowTrainerInMarker", sender: self)
         return true
     }
     
@@ -143,6 +155,7 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.googleMapsView.clear()
         self.setupNavigationStyle()
     }
     
@@ -172,13 +185,19 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     func initSideMenu() {
-        if revealViewController() != nil {
+        if self.revealViewController() != nil {
             
-            revealViewController().rearViewRevealWidth = 275
+            self.revealViewController().rearViewRevealWidth = 275
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            menuBtn.target = revealViewController()
-            menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.menuBtn.target = revealViewController()
+            self.menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.getBookPlaceDict()
     }
 }

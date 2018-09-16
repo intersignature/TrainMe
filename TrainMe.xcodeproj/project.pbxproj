@@ -14,6 +14,7 @@
 		B202BD1E214D712300DE0790 /* FindTabTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD1D214D712300DE0790 /* FindTabTraineeViewController.swift */; };
 		B202BD20214D713600DE0790 /* ProgressTabTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD1F214D713600DE0790 /* ProgressTabTraineeViewController.swift */; };
 		B202BD22214D714900DE0790 /* NotificationTabTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD21214D714900DE0790 /* NotificationTabTraineeViewController.swift */; };
+		B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */; };
 		B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C3212BFB18001B43B1 /* LoginViewController.swift */; };
 		B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */; };
 		B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */; };
@@ -93,6 +94,7 @@
 		B202BD1D214D712300DE0790 /* FindTabTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTabTraineeViewController.swift; sourceTree = "<group>"; };
 		B202BD1F214D713600DE0790 /* ProgressTabTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabTraineeViewController.swift; sourceTree = "<group>"; };
 		B202BD21214D714900DE0790 /* NotificationTabTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTabTraineeViewController.swift; sourceTree = "<group>"; };
+		B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCitizencardViewController.swift; sourceTree = "<group>"; };
 		B20E30C3212BFB18001B43B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		B202BD19214D69C100DE0790 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B202BD23214E887300DE0790 /* sidebar */,
 				B202BD1A214D6A4100DE0790 /* tabbars */,
 			);
 			path = controllers;
@@ -223,12 +226,20 @@
 		B202BD1A214D6A4100DE0790 /* tabbars */ = {
 			isa = PBXGroup;
 			children = (
-				B202BD1B214D6F7300DE0790 /* SidebarTraineeViewController.swift */,
 				B202BD1D214D712300DE0790 /* FindTabTraineeViewController.swift */,
 				B202BD1F214D713600DE0790 /* ProgressTabTraineeViewController.swift */,
 				B202BD21214D714900DE0790 /* NotificationTabTraineeViewController.swift */,
 			);
 			path = tabbars;
+			sourceTree = "<group>";
+		};
+		B202BD23214E887300DE0790 /* sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				B202BD1B214D6F7300DE0790 /* SidebarTraineeViewController.swift */,
+				B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */,
+			);
+			path = sidebar;
 			sourceTree = "<group>";
 		};
 		B20ECAEB213FDE7E0084E685 /* tableviews */ = {
@@ -269,7 +280,6 @@
 			children = (
 				B2B8BC55212BC5D5009A3712 /* ViewController.swift */,
 				B20E30C3212BFB18001B43B1 /* LoginViewController.swift */,
-				B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */,
 				B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */,
 				B23E7DB8213FB5E7005E7F7F /* CustomSegmentedControl.swift */,
 				B20ECAF02141505F0084E685 /* ViewCourseTrainerViewController.swift */,
@@ -298,6 +308,7 @@
 		B280D85221392CB700A59DB0 /* registers */ = {
 			isa = PBXGroup;
 			children = (
+				B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */,
 				B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */,
 				B24B8A8D212D16F400C59074 /* Register2ViewController.swift */,
 				B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */,
@@ -653,6 +664,7 @@
 				B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */,
 				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
+				B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */,
 				B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */,
 				B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */,
 				B23E7DB7213ECA5B005E7F7F /* Course.swift in Sources */,
