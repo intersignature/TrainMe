@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950.7246376811595" y="161.41304347826087"/>
+            <point key="canvasLocation" x="3765.217391304348" y="161.41304347826087"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Ngh-BJ-jf6">
@@ -228,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ti-Sr-ukP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810.144927536232" y="158.96739130434784"/>
+            <point key="canvasLocation" x="4624.6376811594209" y="158.96739130434784"/>
         </scene>
         <!--Register2 View Controller-->
         <scene sceneID="Slj-aI-AqY">
@@ -469,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8z-L6-cmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4300" y="160.59782608695653"/>
+            <point key="canvasLocation" x="6113.04347826087" y="160.59782608695653"/>
         </scene>
         <!--Register3 View Controller-->
         <scene sceneID="haW-vx-6hY">
@@ -795,7 +795,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhR-pY-4Vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5162.3188405797109" y="-214.4021739130435"/>
+            <point key="canvasLocation" x="6976.811594202899" y="-214.4021739130435"/>
         </scene>
         <!--Select your trainer-->
         <scene sceneID="pu7-D6-cXQ">
@@ -883,7 +883,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATT-KF-Tn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7128.985507246377" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="8943.4782608695659" y="-240.48913043478262"/>
         </scene>
         <!--Select course-->
         <scene sceneID="yLn-51-CN5">
@@ -958,7 +958,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QB4-xi-bbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9100" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="10913.04347826087" y="-240.48913043478262"/>
         </scene>
         <!--Progress-->
         <scene sceneID="zzY-Cd-dbk">
@@ -1727,6 +1727,7 @@ detail</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cNv-w6-2zb"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uAB-Tb-YN6"/>
                     <connections>
                         <segue destination="C4e-lZ-zmb" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="OL4-ha-UNQ"/>
                         <segue destination="tdf-ks-4aQ" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="cLa-SX-zRR"/>
@@ -2096,7 +2097,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rm-5D-tfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2811.594202898551" y="160.59782608695653"/>
+            <point key="canvasLocation" x="4626.0869565217399" y="160.59782608695653"/>
         </scene>
         <!--BOOK-->
         <scene sceneID="Fqq-hV-Z9y">
@@ -2426,7 +2427,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thn-Ao-IrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6221.739130434783" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="8036.2318840579719" y="-240.48913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nko-Zo-9xW">
@@ -2444,7 +2445,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nuy-uG-xhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8191.3043478260879" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="10005.797101449276" y="-240.48913043478262"/>
         </scene>
         <!--Progress-->
         <scene sceneID="Zhu-SN-qJY">
@@ -2561,21 +2562,155 @@ detail</string>
                     <view key="view" contentMode="scaleToFill" id="2pK-Xh-WwK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gho-sY-JBL">
+                                <rect key="frame" x="20" y="84" width="374" height="208"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="208" id="UxI-JD-dS9"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign certified true copy and upload to admin for consider to be our trainer." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDV-6G-nIZ">
+                                <rect key="frame" x="20" y="297" width="374" height="41"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbk-rJ-Y9Z">
+                                <rect key="frame" x="92" y="666" width="230" height="30"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="weq-GL-21L"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextBtnAction:" destination="a8h-Qh-6xb" eventType="touchUpInside" id="7FP-bx-HxK"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YDV-6G-nIZ" firstAttribute="leading" secondItem="5ne-YC-iLo" secondAttribute="leading" constant="20" id="5dA-4I-qA7"/>
+                            <constraint firstAttribute="trailing" secondItem="YDV-6G-nIZ" secondAttribute="trailing" constant="20" id="K9U-x0-zNW"/>
+                            <constraint firstItem="gho-sY-JBL" firstAttribute="leading" secondItem="5ne-YC-iLo" secondAttribute="leading" constant="20" id="L9t-qt-Hfi"/>
+                            <constraint firstItem="5ne-YC-iLo" firstAttribute="bottom" secondItem="Bbk-rJ-Y9Z" secondAttribute="bottom" constant="40" id="NrF-0P-Pde"/>
+                            <constraint firstItem="gho-sY-JBL" firstAttribute="centerX" secondItem="2pK-Xh-WwK" secondAttribute="centerX" id="Ola-Hb-sau"/>
+                            <constraint firstItem="5ne-YC-iLo" firstAttribute="trailing" secondItem="gho-sY-JBL" secondAttribute="trailing" constant="20" id="W1U-4Z-aRE"/>
+                            <constraint firstItem="gho-sY-JBL" firstAttribute="top" secondItem="5ne-YC-iLo" secondAttribute="top" constant="20" id="dQp-3R-IlY"/>
+                            <constraint firstItem="YDV-6G-nIZ" firstAttribute="top" secondItem="gho-sY-JBL" secondAttribute="bottom" constant="5" id="ikT-pD-yZp"/>
+                            <constraint firstItem="Bbk-rJ-Y9Z" firstAttribute="centerX" secondItem="2pK-Xh-WwK" secondAttribute="centerX" id="qNF-7h-yDc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5ne-YC-iLo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Citizencard" id="zsh-Ce-qbN">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="H0L-wh-7g7">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="frG-QR-vnD" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="B5A-bf-6ki"/>
+                                <segue destination="frG-QR-vnD" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="jKP-sF-pe6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="citizencardImg" destination="gho-sY-JBL" id="Z26-kl-488"/>
+                        <outlet property="nextBtn" destination="Bbk-rJ-Y9Z" id="qm9-ac-fQy"/>
+                        <segue destination="I4i-Sw-MQE" kind="presentation" identifier="AddCitizencardToAddCertificate" id="LmN-ai-YPs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jao-MZ-c2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-366.66666666666669" y="-354.61956521739131"/>
+        </scene>
+        <!--Add certificate-->
+        <scene sceneID="t2r-55-Jwx">
+            <objects>
+                <viewController id="o31-L2-kzr" customClass="AddCertificateViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S4o-NJ-34N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cbv-FM-Dug">
+                                <rect key="frame" x="87" y="105" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8c-Zx-iEf">
+                                <rect key="frame" x="347" y="176" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="addCertBtnAction:" destination="o31-L2-kzr" eventType="touchUpInside" id="awA-uP-iEm"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ro-qo-GYg">
+                                <rect key="frame" x="87" y="392" width="240" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="34E-A9-hPr">
+                                <rect key="frame" x="0.0" y="424" width="414" height="312"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="certificateCell" rowHeight="124" id="q7t-ld-NtZ" customClass="CertificateTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q7t-ld-NtZ" id="PWi-5l-kZV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="123.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Llz-n8-5pB">
+                                                    <rect key="frame" x="20" y="20" width="156" height="83.333333333333329"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mZY-Je-aZZ">
+                                                    <rect key="frame" x="207" y="13" width="187" height="96"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="certificateImg" destination="Llz-n8-5pB" id="dzt-AX-4eg"/>
+                                            <outlet property="certificateTv" destination="mZY-Je-aZZ" id="0KK-cI-VgE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DIW-mM-PAT">
+                                <rect key="frame" x="87" y="247" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="O5S-Pj-yE4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add certificate" id="pEe-ES-5BH">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="QTt-zK-z6t">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="o31-L2-kzr" id="jeE-6D-inr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addCertBtn" destination="R8c-Zx-iEf" id="EcG-BY-29F"/>
+                        <outlet property="cerificateTableView" destination="34E-A9-hPr" id="oa5-k1-akz"/>
+                        <outlet property="certificateDetailTv" destination="DIW-mM-PAT" id="uVY-H9-Khp"/>
+                        <outlet property="certificateImg" destination="cbv-FM-Dug" id="SNk-n3-Go9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51I-QA-YMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1971.0144927536232" y="-355.43478260869568"/>
         </scene>
         <!--Sidebar Trainee View Controller-->
         <scene sceneID="z6T-Bh-XvK">
@@ -2757,6 +2892,24 @@ detail</string>
             </objects>
             <point key="canvasLocation" x="-1273.913043478261" y="-354.61956521739131"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h5g-4l-ZmD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I4i-Sw-MQE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PSh-Mr-2YM">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o31-L2-kzr" kind="relationship" relationship="rootViewController" id="rAl-TN-3UF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qZ5-TB-uCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816" y="-355"/>
+        </scene>
     </scenes>
     <resources>
         <image name="creditCard" width="34" height="28"/>
@@ -2777,9 +2930,9 @@ detail</string>
     <inferredMetricsTieBreakers>
         <segue reference="Api-oy-w4p"/>
         <segue reference="IRS-Ta-5Mo"/>
-        <segue reference="B5A-bf-6ki"/>
-        <segue reference="CLL-yx-EIm"/>
-        <segue reference="5EB-bI-2rw"/>
+        <segue reference="jKP-sF-pe6"/>
+        <segue reference="8lr-Mx-SRS"/>
+        <segue reference="JoS-ZK-syA"/>
         <segue reference="GhO-HN-2gJ"/>
         <segue reference="CFy-02-wCg"/>
     </inferredMetricsTieBreakers>

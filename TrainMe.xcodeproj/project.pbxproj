@@ -15,6 +15,8 @@
 		B202BD20214D713600DE0790 /* ProgressTabTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD1F214D713600DE0790 /* ProgressTabTraineeViewController.swift */; };
 		B202BD22214D714900DE0790 /* NotificationTabTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD21214D714900DE0790 /* NotificationTabTraineeViewController.swift */; };
 		B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */; };
+		B202BD2921501D3700DE0790 /* AddCertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD2821501D3600DE0790 /* AddCertificateViewController.swift */; };
+		B202BD2C21502AC400DE0790 /* CertificateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD2B21502AC400DE0790 /* CertificateTableViewCell.swift */; };
 		B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C3212BFB18001B43B1 /* LoginViewController.swift */; };
 		B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */; };
 		B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */; };
@@ -95,6 +97,8 @@
 		B202BD1F214D713600DE0790 /* ProgressTabTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabTraineeViewController.swift; sourceTree = "<group>"; };
 		B202BD21214D714900DE0790 /* NotificationTabTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTabTraineeViewController.swift; sourceTree = "<group>"; };
 		B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCitizencardViewController.swift; sourceTree = "<group>"; };
+		B202BD2821501D3600DE0790 /* AddCertificateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateViewController.swift; sourceTree = "<group>"; };
+		B202BD2B21502AC400DE0790 /* CertificateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateTableViewCell.swift; sourceTree = "<group>"; };
 		B20E30C3212BFB18001B43B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 		B202BD19214D69C100DE0790 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B202BD2A21502AA900DE0790 /* tableviews */,
 				B202BD23214E887300DE0790 /* sidebar */,
 				B202BD1A214D6A4100DE0790 /* tabbars */,
 			);
@@ -238,8 +243,17 @@
 			children = (
 				B202BD1B214D6F7300DE0790 /* SidebarTraineeViewController.swift */,
 				B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */,
+				B202BD2821501D3600DE0790 /* AddCertificateViewController.swift */,
 			);
 			path = sidebar;
+			sourceTree = "<group>";
+		};
+		B202BD2A21502AA900DE0790 /* tableviews */ = {
+			isa = PBXGroup;
+			children = (
+				B202BD2B21502AC400DE0790 /* CertificateTableViewCell.swift */,
+			);
+			path = tableviews;
 			sourceTree = "<group>";
 		};
 		B20ECAEB213FDE7E0084E685 /* tableviews */ = {
@@ -650,6 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */,
+				B202BD2C21502AC400DE0790 /* CertificateTableViewCell.swift in Sources */,
 				B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */,
 				B202BD1C214D6F7300DE0790 /* SidebarTraineeViewController.swift in Sources */,
 				B24144B72137F94D00F8315B /* extension.swift in Sources */,
@@ -679,6 +694,7 @@
 				B202BD22214D714900DE0790 /* NotificationTabTraineeViewController.swift in Sources */,
 				B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */,
 				B20ECAEF213FE4590084E685 /* AllCourseTrainerTableViewCell.swift in Sources */,
+				B202BD2921501D3700DE0790 /* AddCertificateViewController.swift in Sources */,
 				B202BD20214D713600DE0790 /* ProgressTabTraineeViewController.swift in Sources */,
 				B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */,
 			);
