@@ -13,9 +13,9 @@ class CertificateTableViewCell: UITableViewCell {
     @IBOutlet weak var certificateImg: UIImageView!
     @IBOutlet weak var certificateTv: UITextView!
     
-    func setDataToCell(certificateImg: UIImage, certificateDetail: String) {
-        self.certificateImg.image = certificateImg
-        self.certificateTv.text = certificateDetail
+    func setDataToCell(certificate: Certificate) {
+        self.certificateImg.image = certificate.certImg
+        self.certificateTv.text = certificate.certDetail
     }
     
     override func awakeFromNib() {

@@ -55,7 +55,6 @@ class ViewController: UIViewController {
             switch result {
                 case .success(grantedPermissions: _, declinedPermissions: _, token: _):
                     print("Success login with facebook")
-                    print()
                     self.view.showBlurLoader()
                     self.signIntoFirebase()
 //                    self.performSegue(withIdentifier: "WelcomeToMain", sender: nil)

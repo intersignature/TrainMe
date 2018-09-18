@@ -17,6 +17,7 @@
 		B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */; };
 		B202BD2921501D3700DE0790 /* AddCertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD2821501D3600DE0790 /* AddCertificateViewController.swift */; };
 		B202BD2C21502AC400DE0790 /* CertificateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD2B21502AC400DE0790 /* CertificateTableViewCell.swift */; };
+		B202BD2F2150B7C300DE0790 /* Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD2E2150B7C300DE0790 /* Certificate.swift */; };
 		B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C3212BFB18001B43B1 /* LoginViewController.swift */; };
 		B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */; };
 		B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */; };
@@ -99,6 +100,7 @@
 		B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCitizencardViewController.swift; sourceTree = "<group>"; };
 		B202BD2821501D3600DE0790 /* AddCertificateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateViewController.swift; sourceTree = "<group>"; };
 		B202BD2B21502AC400DE0790 /* CertificateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateTableViewCell.swift; sourceTree = "<group>"; };
+		B202BD2E2150B7C300DE0790 /* Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Certificate.swift; sourceTree = "<group>"; };
 		B20E30C3212BFB18001B43B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B20E30C5212C1013001B43B1 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B20E30C7212C1B42001B43B1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				B24144B62137F94D00F8315B /* extension.swift */,
 				B23E7DB6213ECA5B005E7F7F /* Course.swift */,
 				B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */,
+				B202BD2E2150B7C300DE0790 /* Certificate.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B202BD2F2150B7C300DE0790 /* Certificate.swift in Sources */,
 				B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */,
 				B202BD2C21502AC400DE0790 /* CertificateTableViewCell.swift in Sources */,
 				B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */,

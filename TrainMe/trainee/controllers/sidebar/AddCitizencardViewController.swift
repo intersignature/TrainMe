@@ -22,6 +22,7 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
         print("---\(String(describing: Auth.auth().currentUser?.displayName))---\(String(describing: Auth.auth().currentUser?.email))---\(String(describing: Auth.auth().currentUser?.uid))")
         
         citizencardImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectCitizenImg)))
+        self.HideKeyboard()
     }
 
     @objc func handleSelectCitizenImg() {
@@ -55,6 +56,7 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
         if(segue.identifier == "AddCitizencardToAddCertificate") {
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! AddCertificateViewController
+            containVc.citizenImg = self.citizencardImg.image
         }
     }
     
