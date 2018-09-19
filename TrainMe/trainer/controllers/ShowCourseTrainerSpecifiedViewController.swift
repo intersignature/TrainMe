@@ -67,6 +67,8 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(selectedCourses.reversed()[indexPath.row].getData())
+        self.selectedCourseIndexPath = indexPath
+        self.performSegue(withIdentifier: "SelectCourseToCourseDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -76,14 +78,14 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
         }
         reportBtn.backgroundColor = UIColor.orange
         
-        let viewBtn = UITableViewRowAction(style: .normal, title: "View") { (action, indexPath) in
-            //SelectCourseToCourseDetail
-            self.selectedCourseIndexPath = indexPath
-            self.performSegue(withIdentifier: "SelectCourseToCourseDetail", sender: self)
-        }
-        viewBtn.backgroundColor = UIColor.blue
-        
-        return [viewBtn, reportBtn]
+//        let viewBtn = UITableViewRowAction(style: .normal, title: "View") { (action, indexPath) in
+//            //SelectCourseToCourseDetail
+//            self.selectedCourseIndexPath = indexPath
+//            self.performSegue(withIdentifier: "SelectCourseToCourseDetail", sender: self)
+//        }
+//        viewBtn.backgroundColor = UIColor.blue
+//
+        return [reportBtn]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
