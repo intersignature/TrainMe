@@ -14,6 +14,7 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
     var trainerId = ""
     var selectedCourses = [Course]()
     var ref: DatabaseReference!
+    var selectedCourseIndexPath: IndexPath!
     
     @IBOutlet weak var selectedTrainerCourseTv: UITableView!
     override func viewDidLoad() {
@@ -66,6 +67,31 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(selectedCourses.reversed()[indexPath.row].getData())
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let reportBtn = UITableViewRowAction(style: .normal, title: "Report") { (action, indexPath) in
+            print(self.selectedCourses.reversed()[indexPath.row].getData())
+        }
+        reportBtn.backgroundColor = UIColor.orange
+        
+        let viewBtn = UITableViewRowAction(style: .normal, title: "View") { (action, indexPath) in
+            //SelectCourseToCourseDetail
+            self.selectedCourseIndexPath = indexPath
+            self.performSegue(withIdentifier: "SelectCourseToCourseDetail", sender: self)
+        }
+        viewBtn.backgroundColor = UIColor.blue
+        
+        return [viewBtn, reportBtn]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "SelectCourseToCourseDetail") {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ViewCourseTrainerByTraineeViewController
+            containVc.course = self.selectedCourses.reversed()[self.selectedCourseIndexPath.row]
+        }
     }
     
     override func didReceiveMemoryWarning() {
