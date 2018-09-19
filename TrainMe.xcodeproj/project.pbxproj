@@ -63,6 +63,7 @@
 		B2B8BC69212BC5D7009A3712 /* TrainMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC68212BC5D7009A3712 /* TrainMeTests.swift */; };
 		B2B8BC74212BC5D7009A3712 /* TrainMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC73212BC5D7009A3712 /* TrainMeUITests.swift */; };
 		B2B9E3572152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */; };
+		B2B9E359215261CA0048E501 /* NewProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E358215261CA0048E501 /* NewProgressViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
 /* End PBXBuildFile section */
@@ -150,6 +151,7 @@
 		B2B8BC73212BC5D7009A3712 /* TrainMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainMeUITests.swift; sourceTree = "<group>"; };
 		B2B8BC75212BC5D7009A3712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerByTraineeViewController.swift; sourceTree = "<group>"; };
+		B2B9E358215261CA0048E501 /* NewProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +231,7 @@
 				B202BD23214E887300DE0790 /* sidebar */,
 				B202BD1A214D6A4100DE0790 /* tabbars */,
 				B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */,
+				B2B9E358215261CA0048E501 /* NewProgressViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */,
 				B201C67F2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift in Sources */,
 				B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */,
+				B2B9E359215261CA0048E501 /* NewProgressViewController.swift in Sources */,
 				B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */,
 				B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */,
 				B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */,
