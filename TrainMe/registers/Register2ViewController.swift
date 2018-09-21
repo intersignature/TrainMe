@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class Register2ViewController: UIViewController, UITextFieldDelegate {
 
@@ -84,20 +85,10 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func nextTransition(segueId: String) {
-        
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        performSegue(withIdentifier: segueId, sender: self)
-    }
-    
     @IBAction func backBtnAction(_ sender: UIButton) {
         
-        backTrainsition(segueId: "Register2ToRegister")
+//        backTrainsition(segueId: "Register2ToRegister")
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func nextBtnAction(_ sender: UIButton) {
@@ -125,9 +116,21 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
         if passwordTf.text! != verifyPasswordTf.text {
             createAlert(alertTitle: NSLocalizedString("your_password_doesnt_match", comment: ""), alertMessage: "")
             return
-        } else {
-            userProfile.email = self.emailTf.text!
-            nextTransition(segueId: "Register2ToRegister3")
+        }
+        Auth.auth().fetchSignInMethods(forEmail: self.emailTf.text!) { signInMethods, error in
+            if ((error) != nil) {
+                print(error?.localizedDescription)
+                return
+            }
+            if signInMethods == nil {
+                print("can regis")
+                self.userProfile.email = self.emailTf.text!
+                self.performSegue(withIdentifier: "Register2ToRegister3", sender: nil)
+            } else {
+                print("can not regis")
+                self.createAlert(alertTitle: "Email is already in use", alertMessage: "")
+                return
+            }
         }
     }
     

@@ -48,17 +48,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
-    func nextTransition(segueId: String) {
-        
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        performSegue(withIdentifier: segueId, sender: self)
-    }
-    
     @IBAction func backBtnAction(_ sender: UIButton) {
         
         self.dismiss(animated: true, completion: nil)
@@ -71,7 +60,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
             return
         } else {
             self.userProfile.fullName = fullnameTf.text!
-            nextTransition(segueId: "RegisterToRegister2")
+            performSegue(withIdentifier: "RegisterToRegister2", sender: self)
         }
     }
     

@@ -115,21 +115,10 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         heightTf.resignFirstResponder()
         return true
     }
-    
-    func backTrainsition(segueId: String) {
-        
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        self.dismiss(animated: false, completion: nil)
-    }
-    
+
     @IBAction func backBtnAction(_ sender: UIButton) {
         
-        backTrainsition(segueId: "Register3ToRegister2")
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func maleBtnAction(_ sender: UIButton) {

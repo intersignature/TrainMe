@@ -15,6 +15,7 @@ import GooglePlaces
 import GooglePlacePicker
 import CoreLocation
 
+
 class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPlacePickerViewControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var menuBtn: UIBarButtonItem!
