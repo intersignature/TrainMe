@@ -62,64 +62,16 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         locationManager.startUpdatingLocation()
         getBookPlaceDict()
         
-//        bookPlaceDict.forEach { (key, bookDetails) in
-//            print(key)
-//            bookDetails.forEach({ (bookDetail) in
-//                print(bookDetail.getData())
-//            })
-//            print("---")
-//        }
     }
     
-//    func getTrainerIdList() { // [placeId: [trainerId]]
-//        var tempTrainerId = [String]()
-//
-//        placeIdList.forEach { (placeId) in
-//            tempTrainerId = []
-//            bookPlaceDict.forEach({ (trainerId, bookPlaceDetails) in
-//
-//                bookPlaceDetails.forEach({ (bookPlaceDetail) in
-//
-//                    if placeId == bookPlaceDetail.placeId {
-//
-//                        if !tempTrainerId.contains(trainerId){
-//                            tempTrainerId.append(trainerId)
-//                        }
-//                    }
-//                })
-//            })
-//            PlaceTrainerIdList[placeId] = tempTrainerId
-//        }
-//    }
-    
     func getBookPlaceDict() {
-//        self.googleMapsView.clear()
-        self.placeIdList = []
+        
         ref.child("schedule_place_books").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? [String: [String: NSDictionary]]
-            value?.forEach({ (key, eachValue) in
-                var bookPlaceDetails = [BookPlaceDetail]()
-                eachValue.forEach({ (bookPlaceKey, bookPlaceValue) in
-                    let bookPlaceDetail = BookPlaceDetail(key: bookPlaceKey, placeId: bookPlaceValue["place_id"] as! String, startTrainDate: bookPlaceValue["start_train_date"] as! String, startTrainTime: bookPlaceValue["start_train_time"] as! String)
-                    bookPlaceDetails.append(bookPlaceDetail)
-                })
-                self.bookPlaceDict[key] = bookPlaceDetails
+            let values = snapshot.value as? [String: [String: NSDictionary]]
+            values?.forEach({ (placeId, eachvalue) in
+                print(placeId)
+                self.getPlaceDataFromPlaceId(placeId: placeId)
             })
-
-            self.bookPlaceDict.forEach({ (key, bookPlaceDetails) in
-//                print("\(key)")
-                bookPlaceDetails.forEach({ (bookPlaceDetail) in
-//                    print("\(bookPlaceDetail.getData())\n^^^^^^^^^^^^^^^")
-
-                    if !self.placeIdList.contains(bookPlaceDetail.placeId) {
-                        self.placeIdList.append(bookPlaceDetail.placeId)
-                        self.getPlaceDataFromPlaceId(placeId: bookPlaceDetail.placeId)
-                        print(bookPlaceDetail.placeId)
-                    }
-                })
-//                print("------------------------")
-            })
-//            self.getTrainerIdList()
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -143,14 +95,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
             
             self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: "", snippet: place.placeID)
             self.placeList.append(place)
-//            print("Place name \(place.name)")
-//            print("Place address \(place.formattedAddress)")
-//            print("Place placeID \(place.placeID)")
-//            print("Place attributions \(place.attributions)")
-//            print("---------")
-
         }
-
     }
     
     func createMarkerOnMapView(lat: CLLocationDegrees, long: CLLocationDegrees, title: String, snippet: String) {

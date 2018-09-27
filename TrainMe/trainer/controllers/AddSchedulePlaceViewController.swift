@@ -80,7 +80,8 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
     
     @objc func dateChange(datePicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.locale = Locale(identifier: "en")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
     
         dateTf.text = dateFormatter.string(from: datePicker.date)
     }
@@ -171,11 +172,10 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
-        let dictionaryValues = ["place_id": place.placeID,
-                                "start_train_date": date,
-                                "start_train_time": time]
+        let scheduleDetailDicVal = ["start_train_date": date,
+                                    "start_train_time": time]
         
-        ref.child("schedule_place_books").child(uid).childByAutoId().updateChildValues(dictionaryValues) { (err, ref) in
+        ref.child("schedule_place_books").child(place.placeID).child(uid).childByAutoId().updateChildValues(scheduleDetailDicVal) { (err, ref) in
             if let err = err {
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")

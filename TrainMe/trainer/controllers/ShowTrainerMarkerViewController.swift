@@ -21,7 +21,14 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     var bookPlaceDict = [String: [BookPlaceDetail]]()
     var PlaceTrainerIdList = [String: [String]]()
     var trainerProfiles = [UserProfile]()
+    var trainerIdList = [String]()
+    var scheduleTimeList = [BookPlaceDetail]()
     var selectedTrainerId: String!
+    var numberOfTrainer = 0
+    
+    var timeList = [String]()
+    var timeListSorted = [Date]()
+    
     
     
     override func viewDidLoad() {
@@ -38,7 +45,8 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (PlaceTrainerIdList[placeId]?.count)!
+        return trainerProfiles.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,17 +61,75 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
 
     func getBookPlaceDict() {
         
-        ref.child("schedule_place_books").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? [String: [String: NSDictionary]]
-            value?.forEach({ (key, eachValue) in
-                var bookPlaceDetails = [BookPlaceDetail]()
-                eachValue.forEach({ (bookPlaceKey, bookPlaceValue) in
-                    let bookPlaceDetail = BookPlaceDetail(key: bookPlaceKey, placeId: bookPlaceValue["place_id"] as! String, startTrainDate: bookPlaceValue["start_train_date"] as! String, startTrainTime: bookPlaceValue["start_train_time"] as! String)
-                    bookPlaceDetails.append(bookPlaceDetail)
+        var tempBookPlaceSchedule: BookPlaceDetail!
+        ref.child("schedule_place_books").child(self.placeId).observeSingleEvent(of: .value, with: { (snapshot) in
+            let values = snapshot.value as? [String: [String: NSDictionary]]
+            self.numberOfTrainer = values?.count ?? 0
+            values?.forEach({ (trainerId, allBookPlaceSchedule) in
+                print("qqqqqq\(trainerId)")
+                self.getTrainerInfo(trainerId: trainerId)
+                self.trainerIdList.append(trainerId)
+                allBookPlaceSchedule.forEach({ (bookPlaceScheduleKey, bookPlaceScheduleValue) in
+                    tempBookPlaceSchedule = BookPlaceDetail()
+                    print(bookPlaceScheduleValue["start_train_date"] as! String)
+                    tempBookPlaceSchedule.key = bookPlaceScheduleKey
+                    tempBookPlaceSchedule.startTrainDate = bookPlaceScheduleValue["start_train_date"] as! String
+                    tempBookPlaceSchedule.startTrainTime = bookPlaceScheduleValue["start_train_time"] as! String
+                    self.scheduleTimeList.append(tempBookPlaceSchedule)
+                    self.timeList.append("\(bookPlaceScheduleValue["start_train_date"] as! String) \(bookPlaceScheduleValue["start_train_time"] as! String)")
                 })
-                self.bookPlaceDict[key] = bookPlaceDetails
             })
-            self.getTrainerIdList()
+            
+            self.showTrainerTableView.delegate = self
+            self.showTrainerTableView.dataSource = self
+            
+            self.scheduleTimeList.forEach({ print($0.getData()) })
+            self.timeList.forEach({ print($0) })
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
+    }
+
+    func getTrainerInfo(trainerId: String) {
+
+        var trainerProfile = UserProfile()
+        ref.child("user").child(trainerId).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            print("@@@@@@\(value!["name"])")
+            trainerProfile.fullName = value!["name"] as! String
+            trainerProfile.email = value!["email"] as! String
+            trainerProfile.dateOfBirth = value!["dateOfBirth"] as! String
+            trainerProfile.weight = value!["weight"] as! String
+            trainerProfile.height = value!["height"] as! String
+            trainerProfile.gender = value!["gender"] as! String
+            trainerProfile.role = value!["role"] as! String
+            trainerProfile.profileImageUrl = value!["profileImageUrl"] as! String
+            self.trainerProfiles.append(trainerProfile)
+            print(trainerProfile.getData())
+
+            if self.numberOfTrainer == self.trainerProfiles.count {
+                self.showTrainerTableView.reloadData()
+                
+                var convertedArray: [Date] = []
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"// yyyy-MM-dd"
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                
+                for dat in self.timeList {
+                    let date = dateFormatter.date(from: dat)
+                    if let date = date {
+                        convertedArray.append(date)
+                    }
+                }
+                
+                self.timeListSorted = convertedArray.sorted(by: { $0.compare($1) == .orderedAscending })
+                
+                print(self.timeListSorted)
+                
+            }
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -71,71 +137,9 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         }
     }
     
-    func getTrainerIdList() { // [placeId: [trainerId]]
-        var tempTrainerId = [String]()
-        
-        tempTrainerId = []
-        bookPlaceDict.forEach({ (trainerId, bookPlaceDetails) in
-            
-            bookPlaceDetails.forEach({ (bookPlaceDetail) in
-                
-                if placeId == bookPlaceDetail.placeId {
-                    
-                    if !tempTrainerId.contains(trainerId){
-                        tempTrainerId.append(trainerId)
-                    }
-                }
-            })
-        })
-        PlaceTrainerIdList[placeId] = tempTrainerId
-//        var i = tempTrainerId[0]
-//        PlaceTrainerIdList.forEach { (placeId, trainerIds) in
-//            trainerIds.forEach({ print($0) })
-//        }
-        
-        getTrainerInfo()
-        
-        
-    }
-    
-    func getTrainerInfo() {
-        var trainerProfile = UserProfile()
-        PlaceTrainerIdList.forEach { (placeId, trainerIds) in
-            trainerIds.forEach({ (trainerId) in
-                //TODO: get trainer info by trainerId in database
-
-                ref.child("user").child(trainerId).observeSingleEvent(of: .value, with: { (snapshot) in
-                    let value = snapshot.value as? NSDictionary
-//                    print(value!["name"])
-                    trainerProfile.fullName = value!["name"] as! String
-                    trainerProfile.email = value!["email"] as! String
-                    trainerProfile.dateOfBirth = value!["dateOfBirth"] as! String
-                    trainerProfile.weight = value!["weight"] as! String
-                    trainerProfile.height = value!["height"] as! String
-                    trainerProfile.gender = value!["gender"] as! String
-                    trainerProfile.role = value!["role"] as! String
-                    trainerProfile.profileImageUrl = value!["profileImageUrl"] as! String
-                    self.trainerProfiles.append(trainerProfile)
-                    if self.trainerProfiles.count == self.PlaceTrainerIdList[placeId]?.count {
-                        self.showTrainerTableView.delegate = self
-                        self.showTrainerTableView.dataSource = self
-                        self.showTrainerTableView.reloadData()
-                    }
-                }, withCancel: { (err) in
-                    print(err.localizedDescription)
-                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
-                    return
-                })
-                
-            })
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedTrainerId = PlaceTrainerIdList[placeId]!.reversed()[indexPath.row]
-        print(indexPath.row)
-        print(PlaceTrainerIdList[placeId]!.reversed()[indexPath.row])
+        selectedTrainerId = trainerIdList.reversed()[indexPath.row]
         performSegue(withIdentifier: "ShowTrainerMarkerToShowCourseTrainerSpecified", sender: self)
     }
     
@@ -150,7 +154,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.setupNavigationStyle()
     }
     
