@@ -18,6 +18,7 @@ struct UserProfile {
     var gender: String = "-1"
     var role: String = "trainer"
     var profileImageUrl: String = "-1"
+    var uid: String = "-1"
     
     init(){}
     
@@ -33,8 +34,21 @@ struct UserProfile {
         self.profileImageUrl = profileImageUrl!
     }
     
+    init(fullName: String?, email: String?,dateOfBirth: String?, weight: String?, height: String?, gender: String?, role: String?, profileImageUrl: String?, uid: String?) {
+        
+        self.fullName = fullName!
+        self.email = email!
+        self.dateOfBirth = dateOfBirth!
+        self.weight = weight!
+        self.height = height!
+        self.gender = gender!
+        self.role = role!
+        self.profileImageUrl = profileImageUrl!
+        self.uid = uid!
+    }
+    
     func getData() -> String {
         
-        return "Fullname: \(self.fullName)\nemail: \(self.email)\nDateOfBirth: \(self.dateOfBirth)\nWeight: \(self.weight)Kg\nHeight: \(self.height)Cm\nGender: \(self.gender)\nRole: \(self.role)\nProfileImageUrl: \(self.profileImageUrl)\n------------------"
+        return "Fullname: \(self.fullName)\nemail: \(self.email)\nDateOfBirth: \(self.dateOfBirth)\nWeight: \(self.weight)Kg\nHeight: \(self.height)Cm\nGender: \(self.gender)\nRole: \(self.role)\nProfileImageUrl: \(self.profileImageUrl)\nUID: \(self.uid)\n------------------"
     }
 }
