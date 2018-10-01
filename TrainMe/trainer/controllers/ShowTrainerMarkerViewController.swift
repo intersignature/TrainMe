@@ -14,23 +14,30 @@ import FirebaseDatabase
 
 class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    struct trainerObject {
+        var date: String!
+        var bookPlaceDetail: [BookPlaceDetail]!
+        var trainerList: [String]!
+    }
+    
     @IBOutlet weak var showTrainerTableView: UITableView!
     var ref: DatabaseReference!
     var currentUser: User?
     var placeId: String!
-    var trainerProfiles = [UserProfile]()
-    var trainerIdList = [String]()
-    var scheduleTimeList = [BookPlaceDetail]()
+    var trainerProfiles: [UserProfile] = []
+    var trainerIdList: [String] = []
+    var scheduleTimeList: [BookPlaceDetail] = []
     var selectedTrainerId: String!
     var numberOfTrainer = 0
     
-    var timeList = [String]()
-    var timeListSorted = [Date]()
-    var timeListSoretdString = [String]()
-    var bookPlaceDetailSorted = [BookPlaceDetail]()
+    var timeList: [String] = []
+    var timeListSorted: [Date] = []
+    var timeListSoretdString: [String] = []
+    var dateList: [String] = []
+    var bookPlaceDetailSorted: [BookPlaceDetail] = []
     
-    
-    
+    var trainerObjects: [trainerObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,16 +53,35 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trainerProfiles.count
-        
+        print("xxxxxxx\(trainerObjects[section].trainerList.count)")
+        return trainerObjects[section].trainerList.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return trainerObjects.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var dateSplit = trainerObjects[section].date.split(separator: "/")
+        return "\(dateSplit[1])/\(dateSplit[0])/\(dateSplit[2])"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainerSelected") as! TrainerSelectedTableViewCell
-        cell.setDataToCell(trainerProfile: trainerProfiles[indexPath.row])
+        var tempTimes: [BookPlaceDetail] = []
+        print("555555a\(trainerObjects[indexPath.section].trainerList.count)")
+        print(self.trainerObjects)
+
+        trainerObjects[indexPath.section].bookPlaceDetail.forEach { (bookDetail) in
+            if trainerObjects[indexPath.section].trainerList[indexPath.row] == bookDetail.trainerId {
+                tempTimes.append(bookDetail)
+            }
+        }
+        
+        cell.setDataToCell(trainerProfile: trainerProfiles[trainerIdList.firstIndex(of: trainerObjects[indexPath.section].trainerList[indexPath.row])!], tag: indexPath.row, time: tempTimes)
         return cell
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -67,9 +93,12 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
             let values = snapshot.value as? [String: [String: NSDictionary]]
             self.numberOfTrainer = values?.count ?? 0
             values?.forEach({ (trainerId, allBookPlaceSchedule) in
-//                print("qqqqqq\(trainerId)")
+                print("qqqqqq\(trainerId)")
                 self.getTrainerInfo(trainerId: trainerId)
-                self.trainerIdList.insert(trainerId, at: 0)
+                
+                if !self.trainerIdList.contains(trainerId) {
+                    self.trainerIdList.insert(trainerId, at: 0)
+                }
                 allBookPlaceSchedule.forEach({ (bookPlaceScheduleKey, bookPlaceScheduleValue) in
                     tempBookPlaceSchedule = BookPlaceDetail()
 //                    print(bookPlaceScheduleValue["start_train_date"] as! String)
@@ -77,7 +106,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
                     tempBookPlaceSchedule.trainerId = trainerId
                     tempBookPlaceSchedule.startTrainDate = bookPlaceScheduleValue["start_train_date"] as! String
                     tempBookPlaceSchedule.startTrainTime = bookPlaceScheduleValue["start_train_time"] as! String
-                    self.scheduleTimeList.append(tempBookPlaceSchedule)
+                    self.scheduleTimeList.insert(tempBookPlaceSchedule, at: 0)
                     if !self.timeList.contains("\(bookPlaceScheduleValue["start_train_date"] as! String) \(bookPlaceScheduleValue["start_train_time"] as! String)") {
                         self.timeList.append("\(bookPlaceScheduleValue["start_train_date"] as! String) \(bookPlaceScheduleValue["start_train_time"] as! String)")
                     }
@@ -157,20 +186,68 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
             self.scheduleTimeList.forEach({ (bookPlaceDetail) in
                 if date == "\(bookPlaceDetail.startTrainDate) \(bookPlaceDetail.startTrainTime)" {
                     self.bookPlaceDetailSorted.append(bookPlaceDetail)
+                    if !self.dateList.contains(bookPlaceDetail.startTrainDate) {
+                        self.dateList.append(bookPlaceDetail.startTrainDate)
+                        
+                    }
                 }
             })
         }
         
-        self.bookPlaceDetailSorted.forEach { (key) in
-            print("yyyyyy\(key.getData())")
-        }
+//        self.bookPlaceDetailSorted.forEach { (key) in
+//            print("yyyyyy\(key.getData())")
+//        }
+        
+        print(self.dateList)
+        print(self.trainerIdList)
+        self.runDataFromDate()
+//        self.trainerObjects.forEach { (trainerObject) in
+//            trainerObject.bookPlaceDetail.forEach({ (bookDetail) in
+//                print("date: \(trainerObject.date) - trainer id : \(bookDetail.key) - \(bookDetail.startTrainTime)")
+//            })
+//        }
+//        print(trainerObjects)
     }
-
+    
+    func runDataFromDate() {
+        print("6666\(self.trainerIdList)")
+        self.dateList.forEach { self.runDataFromTrainer(date: $0) }
+    }
+    
+    func runDataFromTrainer(date: String) {
+        
+        var tempBookPlaceDetailList: [BookPlaceDetail] = []
+        var tempTrainerList: [String] = []
+        
+        self.trainerIdList.forEach { (trainerId) in
+            self.bookPlaceDetailSorted.forEach({ (bookPlaceDetail) in
+                if bookPlaceDetail.startTrainDate == date && bookPlaceDetail.trainerId == trainerId && trainerId != "-1" {
+                    print("date: \(date): \(bookPlaceDetail.key) - \(bookPlaceDetail.startTrainTime) - \(bookPlaceDetail.trainerId)")
+                    tempBookPlaceDetailList.append(bookPlaceDetail)
+                    if !tempTrainerList.contains(trainerId) {
+                        tempTrainerList.append(trainerId)
+                    }
+                }
+            })
+            print("pppppppppppppppp")
+        }
+        
+        self.trainerObjects.append(trainerObject(date: date, bookPlaceDetail: tempBookPlaceDetailList, trainerList: tempTrainerList))
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedTrainerId = trainerIdList[indexPath.row]
+        selectedTrainerId = trainerObjects[indexPath.section].bookPlaceDetail[indexPath.row].trainerId
+        print("$$$$$\(indexPath.section)$$$$$\(indexPath.row)")
         performSegue(withIdentifier: "ShowTrainerMarkerToShowCourseTrainerSpecified", sender: self)
+        
+        [TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("10/27/2018"),
+                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNPzXFjfep4g28fjWEG", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "02:25"), TrainMe.BookPlaceDetail(key: "-LNaGp3HeGtjUleEYIYp", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "03:04"), TrainMe.BookPlaceDetail(key: "-LNaH7gtp7wIH3hLQaOL", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "03:04"), TrainMe.BookPlaceDetail(key: "-LNSPrpkU-Zxkz329YM-", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "05:44"), TrainMe.BookPlaceDetail(key: "-LNSPHOGKlyYQML_TWXH", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "07:41"), TrainMe.BookPlaceDetail(key: "-LNhvofsbkfNmwWZILhv", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "04:42"), TrainMe.BookPlaceDetail(key: "-LNhzEMFPLbMUwXUvVty", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "07:57"), TrainMe.BookPlaceDetail(key: "-LNhz8ITpCQY1bske2bQ", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "13:56")]), trainerList: Optional(["0AODZhb3w5ZfZarTfFU9EXZSdBS2", "qdZC41mTlCTAdKLxC4zU9n2cZbI3"])),
+         TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("11/27/2018"),
+                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNMPGR_ARJkaC2BbZto", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "11/27/2018", startTrainTime: "02:47")]), trainerList: Optional(["0AODZhb3w5ZfZarTfFU9EXZSdBS2"])),
+         TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("12/28/2018"),
+                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNRc1hfBH2BazLfNdI3", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "12/28/2018", startTrainTime: "05:02")]), trainerList: Optional(["qdZC41mTlCTAdKLxC4zU9n2cZbI3"]))]
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

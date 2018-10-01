@@ -168,6 +168,9 @@ extension UIImageView {
     func downloaded(from link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         
         guard let url = URL(string: link) else { return }
+        if link == "" || link == "-1" || link == nil {
+            return
+        }
         downloaded(from: url, contentMode: mode)
     }
 }

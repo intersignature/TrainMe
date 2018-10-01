@@ -13,14 +13,28 @@ class TrainerSelectedTableViewCell: UITableViewCell {
     @IBOutlet weak var trainerImg: UIImageView!
     @IBOutlet weak var trainerNameLb: UILabel!
     @IBOutlet weak var trainerTime: UILabel!
+    var time: [BookPlaceDetail] = []
     
-    func setDataToCell(trainerProfile: UserProfile) {
+    func setDataToCell(trainerProfile: UserProfile, tag: Int, time: [BookPlaceDetail]) {
         
-
-            self.trainerImg.downloaded(from: trainerProfile.profileImageUrl)
-
+        self.trainerImg.downloaded(from: trainerProfile.profileImageUrl)
+        self.trainerImg.tag = tag
+        self.trainerImg.isUserInteractionEnabled = true
         self.trainerNameLb.text = trainerProfile.fullName
-        self.trainerTime.text = "dsfsdfdsfsdfsdf"
+        var timestr = ""
+        time.forEach { (bookplace) in
+            timestr += "\(bookplace.startTrainTime) "
+        }
+        self.trainerTime.text = "\(timestr)"
+        self.time = time
+        
+        let tapGesture = UITapGestureRecognizer (target: self, action: #selector(imgTap(tapGesture:)))
+        trainerImg.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func imgTap(tapGesture: UITapGestureRecognizer) {
+        let trainerTapImg = tapGesture.view as! UIImageView
+        print(self.time[trainerTapImg.tag].trainerId)
     }
     
     func setProfileImageRound() {
