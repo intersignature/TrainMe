@@ -821,36 +821,63 @@ TrainMe’s Privacy Policy</string>
                                                         <constraint firstAttribute="width" constant="62" id="uu3-Ig-4kS"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Amx-vV-HxW">
-                                                    <rect key="frame" x="117" y="61" width="272" height="22"/>
-                                                    <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-Nh-7dY">
-                                                    <rect key="frame" x="117" y="26" width="272" height="30"/>
+                                                    <rect key="frame" x="117" y="26" width="272" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CaO-CT-b2F">
+                                                    <rect key="frame" x="115" y="48" width="299" height="61.666666666666657"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rag-4W-aIa">
+                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeButtonCollection" id="9q2-uV-IuJ" customClass="TimeButtonCollectionViewCell" customModule="TrainMe" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="5.666666666666667" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnY-JA-unh">
+                                                                        <rect key="frame" x="2" y="10" width="46" height="30"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <connections>
+                                                                            <action selector="timeBtnAction:" destination="9q2-uV-IuJ" eventType="touchUpInside" id="Raq-n6-ivF"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </view>
+                                                            <connections>
+                                                                <outlet property="timeBtn" destination="mnY-JA-unh" id="kJp-vc-wgs"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="CaO-CT-b2F" firstAttribute="top" secondItem="nvE-Nh-7dY" secondAttribute="bottom" id="COJ-Gf-cDk"/>
+                                                <constraint firstAttribute="trailing" secondItem="CaO-CT-b2F" secondAttribute="trailing" id="XEW-Vf-LBL"/>
                                                 <constraint firstItem="Syf-pM-gZF" firstAttribute="leading" secondItem="bQN-8V-XoL" secondAttribute="leadingMargin" constant="5" id="d7v-J5-KEv"/>
                                                 <constraint firstItem="nvE-Nh-7dY" firstAttribute="leading" secondItem="Syf-pM-gZF" secondAttribute="trailing" constant="30" id="euN-k5-Tdc"/>
-                                                <constraint firstItem="Amx-vV-HxW" firstAttribute="leading" secondItem="Syf-pM-gZF" secondAttribute="trailing" constant="30" id="f23-Rj-I2d"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Amx-vV-HxW" secondAttribute="trailing" constant="5" id="g7r-Xp-cUr"/>
                                                 <constraint firstItem="nvE-Nh-7dY" firstAttribute="top" secondItem="bQN-8V-XoL" secondAttribute="topMargin" constant="15" id="hFv-5r-1C8"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="nvE-Nh-7dY" secondAttribute="trailing" constant="5" id="kbs-0N-KdF"/>
                                                 <constraint firstItem="Syf-pM-gZF" firstAttribute="top" secondItem="bQN-8V-XoL" secondAttribute="topMargin" constant="13" id="lGB-E2-xDe"/>
-                                                <constraint firstItem="Amx-vV-HxW" firstAttribute="top" secondItem="nvE-Nh-7dY" secondAttribute="bottom" constant="5" id="s0e-j2-Ymg"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Amx-vV-HxW" secondAttribute="bottom" constant="16" id="su1-3O-ecU"/>
+                                                <constraint firstItem="CaO-CT-b2F" firstAttribute="leading" secondItem="Syf-pM-gZF" secondAttribute="trailing" constant="28" id="ny0-nY-wtL"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Syf-pM-gZF" secondAttribute="bottom" constant="13" id="syw-T0-oV2"/>
+                                                <constraint firstAttribute="bottom" secondItem="CaO-CT-b2F" secondAttribute="bottom" id="xxN-8l-ZGO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="timeCollect" destination="CaO-CT-b2F" id="rYx-vI-602"/>
                                             <outlet property="trainerImg" destination="Syf-pM-gZF" id="20N-cU-H3h"/>
                                             <outlet property="trainerNameLb" destination="nvE-Nh-7dY" id="x6g-R4-YBJ"/>
-                                            <outlet property="trainerTime" destination="Amx-vV-HxW" id="fuz-DX-aKn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

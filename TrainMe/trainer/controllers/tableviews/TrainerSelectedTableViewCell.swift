@@ -8,11 +8,12 @@
 
 import UIKit
 
-class TrainerSelectedTableViewCell: UITableViewCell {
+class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var trainerImg: UIImageView!
     @IBOutlet weak var trainerNameLb: UILabel!
-    @IBOutlet weak var trainerTime: UILabel!
+    @IBOutlet weak var timeCollect: UICollectionView!
+    
     var time: [BookPlaceDetail] = []
     
     func setDataToCell(trainerProfile: UserProfile, tag: Int, time: [BookPlaceDetail]) {
@@ -25,11 +26,14 @@ class TrainerSelectedTableViewCell: UITableViewCell {
         time.forEach { (bookplace) in
             timestr += "\(bookplace.startTrainTime) "
         }
-        self.trainerTime.text = "\(timestr)"
+
         self.time = time
         
         let tapGesture = UITapGestureRecognizer (target: self, action: #selector(imgTap(tapGesture:)))
         trainerImg.addGestureRecognizer(tapGesture)
+        
+        self.timeCollect.delegate = self
+        self.timeCollect.dataSource = self
     }
     
     @objc func imgTap(tapGesture: UITapGestureRecognizer) {
@@ -58,5 +62,19 @@ class TrainerSelectedTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return time.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeButtonCollection", for: indexPath) as! TimeButtonCollectionViewCell
+        
+        cell.setDataToButton(bookPlaceDetail: time[indexPath.row])
+        return cell
+    }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print(time[indexPath.row])
+    }
 }

@@ -49,6 +49,7 @@
 		B25A811E212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
 		B25A811F212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
 		B25A8120212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
+		B26B4BE921632E47003CB72C /* TimeButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26B4BE821632E47003CB72C /* TimeButtonCollectionViewCell.swift */; };
 		B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */; };
 		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
 		B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */; };
@@ -131,6 +132,7 @@
 		B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Black.ttf"; sourceTree = "<group>"; };
 		B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Light.ttf"; sourceTree = "<group>"; };
+		B26B4BE821632E47003CB72C /* TimeButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
 		B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceDetail.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		B202BD17214D698400DE0790 /* trainer */ = {
 			isa = PBXGroup;
 			children = (
+				B26B4BE721632E10003CB72C /* collectioncells */,
 				B280D84E21392C6C00A59DB0 /* controllers */,
 			);
 			path = trainer;
@@ -296,6 +299,14 @@
 				B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		B26B4BE721632E10003CB72C /* collectioncells */ = {
+			isa = PBXGroup;
+			children = (
+				B26B4BE821632E47003CB72C /* TimeButtonCollectionViewCell.swift */,
+			);
+			path = collectioncells;
 			sourceTree = "<group>";
 		};
 		B280D84E21392C6C00A59DB0 /* controllers */ = {
@@ -685,6 +696,7 @@
 				B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */,
 				B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */,
 				B23E7DB9213FB5E7005E7F7F /* CustomSegmentedControl.swift in Sources */,
+				B26B4BE921632E47003CB72C /* TimeButtonCollectionViewCell.swift in Sources */,
 				B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */,
 				B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */,
 				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,

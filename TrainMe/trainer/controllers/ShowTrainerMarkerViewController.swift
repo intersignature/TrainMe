@@ -234,30 +234,30 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         
         self.trainerObjects.append(trainerObject(date: date, bookPlaceDetail: tempBookPlaceDetailList, trainerList: tempTrainerList))
     }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+////        selectedTrainerId = trainerObjects[indexPath.section].bookPlaceDetail[indexPath.row].trainerId
+//        print("$$$$$\(indexPath.section)$$$$$\(indexPath.row)")
+//
+//        [TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("10/27/2018"),
+//                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNPzXFjfep4g28fjWEG", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "02:25"), TrainMe.BookPlaceDetail(key: "-LNaGp3HeGtjUleEYIYp", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "03:04"), TrainMe.BookPlaceDetail(key: "-LNaH7gtp7wIH3hLQaOL", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "03:04"), TrainMe.BookPlaceDetail(key: "-LNSPrpkU-Zxkz329YM-", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "05:44"), TrainMe.BookPlaceDetail(key: "-LNSPHOGKlyYQML_TWXH", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "07:41"), TrainMe.BookPlaceDetail(key: "-LNhvofsbkfNmwWZILhv", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "04:42"), TrainMe.BookPlaceDetail(key: "-LNhzEMFPLbMUwXUvVty", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "07:57"), TrainMe.BookPlaceDetail(key: "-LNhz8ITpCQY1bske2bQ", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "13:56")]), trainerList: Optional(["0AODZhb3w5ZfZarTfFU9EXZSdBS2", "qdZC41mTlCTAdKLxC4zU9n2cZbI3"])),
+//         TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("11/27/2018"),
+//                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNMPGR_ARJkaC2BbZto", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "11/27/2018", startTrainTime: "02:47")]), trainerList: Optional(["0AODZhb3w5ZfZarTfFU9EXZSdBS2"])),
+//         TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("12/28/2018"),
+//                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNRc1hfBH2BazLfNdI3", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "12/28/2018", startTrainTime: "05:02")]), trainerList: Optional(["qdZC41mTlCTAdKLxC4zU9n2cZbI3"]))]
+//
+//    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        selectedTrainerId = trainerObjects[indexPath.section].bookPlaceDetail[indexPath.row].trainerId
-        print("$$$$$\(indexPath.section)$$$$$\(indexPath.row)")
-        performSegue(withIdentifier: "ShowTrainerMarkerToShowCourseTrainerSpecified", sender: self)
-        
-        [TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("10/27/2018"),
-                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNPzXFjfep4g28fjWEG", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "02:25"), TrainMe.BookPlaceDetail(key: "-LNaGp3HeGtjUleEYIYp", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "03:04"), TrainMe.BookPlaceDetail(key: "-LNaH7gtp7wIH3hLQaOL", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "03:04"), TrainMe.BookPlaceDetail(key: "-LNSPrpkU-Zxkz329YM-", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "05:44"), TrainMe.BookPlaceDetail(key: "-LNSPHOGKlyYQML_TWXH", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "10/27/2018", startTrainTime: "07:41"), TrainMe.BookPlaceDetail(key: "-LNhvofsbkfNmwWZILhv", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "04:42"), TrainMe.BookPlaceDetail(key: "-LNhzEMFPLbMUwXUvVty", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "07:57"), TrainMe.BookPlaceDetail(key: "-LNhz8ITpCQY1bske2bQ", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "10/27/2018", startTrainTime: "13:56")]), trainerList: Optional(["0AODZhb3w5ZfZarTfFU9EXZSdBS2", "qdZC41mTlCTAdKLxC4zU9n2cZbI3"])),
-         TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("11/27/2018"),
-                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNMPGR_ARJkaC2BbZto", trainerId: "0AODZhb3w5ZfZarTfFU9EXZSdBS2", startTrainDate: "11/27/2018", startTrainTime: "02:47")]), trainerList: Optional(["0AODZhb3w5ZfZarTfFU9EXZSdBS2"])),
-         TrainMe.ShowTrainerMarkerViewController.trainerObject(date: Optional("12/28/2018"),
-                                                               bookPlaceDetail: Optional([TrainMe.BookPlaceDetail(key: "-LNRc1hfBH2BazLfNdI3", trainerId: "qdZC41mTlCTAdKLxC4zU9n2cZbI3", startTrainDate: "12/28/2018", startTrainTime: "05:02")]), trainerList: Optional(["qdZC41mTlCTAdKLxC4zU9n2cZbI3"]))]
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //ShowCourseTrainerSpecifiedViewController
-        if(segue.identifier == "ShowTrainerMarkerToShowCourseTrainerSpecified") {
-            let vc = segue.destination as! UINavigationController
-            let containVc = vc.topViewController as! ShowCourseTrainerSpecifiedViewController
-            containVc.trainerId = self.selectedTrainerId
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        //ShowCourseTrainerSpecifiedViewController
+//        if(segue.identifier == "ShowTrainerMarkerToShowCourseTrainerSpecified") {
+//            let vc = segue.destination as! UINavigationController
+//            let containVc = vc.topViewController as! ShowCourseTrainerSpecifiedViewController
+////            containVc.trainerId = self.selectedTrainerId
+//
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
