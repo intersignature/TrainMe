@@ -12,6 +12,9 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     
     @IBOutlet weak var courseDetailTableView: UITableView!
     @IBOutlet weak var bookBtn: UIButton!
+    
+    var selectedBookDetail: BookPlaceDetail!
+    
     var course: Course!
     var titleList: [String] = ["Name", "Detail", "Type", "Time", "Duration", "Level", "Price", "Language"]
     var descriptionList: [String] = []
@@ -20,6 +23,7 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         print(course.getData())
+        print(selectedBookDetail.getData())
         
         self.bookBtn.layer.cornerRadius = 17
         self.courseToList()

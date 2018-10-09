@@ -794,6 +794,29 @@ TrainMe’s Privacy Policy</string>
             </objects>
             <point key="canvasLocation" x="6976.811594202899" y="-214.4021739130435"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="yJF-YS-OwT">
+            <objects>
+                <viewController id="Iv1-Wf-HmN" customClass="ProfileViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c4B-mn-fSf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QJe-Nl-JWF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZLb-wT-Ugq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="y1Q-HH-ks9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelBtnAction:" destination="Iv1-Wf-HmN" id="moF-4a-ZLf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pnE-zf-5IX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9849.2753623188419" y="-968.47826086956525"/>
+        </scene>
         <!--Select your trainer-->
         <scene sceneID="pu7-D6-cXQ">
             <objects>
@@ -903,6 +926,7 @@ TrainMe’s Privacy Policy</string>
                     <connections>
                         <outlet property="showTrainerTableView" destination="uKR-g0-oho" id="gY6-Ic-QeC"/>
                         <segue destination="Iqq-E4-Au7" kind="presentation" identifier="ShowTrainerMarkerToShowCourseTrainerSpecified" id="tkk-iF-6kv"/>
+                        <segue destination="R5F-9y-Tmg" kind="presentation" identifier="SelectTrainerToShowProfile" id="DwY-7P-htQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATT-KF-Tn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3039,6 +3063,24 @@ detail</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVE-LC-I5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10911.594202898552" y="1284.7826086956522"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tc6-cP-JtM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R5F-9y-Tmg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aWh-Tb-eKn">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Iv1-Wf-HmN" kind="relationship" relationship="rootViewController" id="nmb-vG-oRl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G9N-F4-GVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8942.0289855072479" y="-968.47826086956525"/>
         </scene>
     </scenes>
     <resources>

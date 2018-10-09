@@ -8,18 +8,33 @@
 
 import UIKit
 
-class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+protocol BookDetailValueDelegate {
+    
+    func didRecieveValue(bookPlaceDetailTapObject: BookPlaceDetail)
+}
+
+class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, TimeButtonCollectionCellDelegate {
+    
+    func didTapTimeButoon(bookPlaceDetailTapObject: BookPlaceDetail) {
+
+        self.delegate?.didRecieveValue(bookPlaceDetailTapObject: bookPlaceDetailTapObject)
+    }
+    
 
     @IBOutlet weak var trainerImg: UIImageView!
     @IBOutlet weak var trainerNameLb: UILabel!
     @IBOutlet weak var timeCollect: UICollectionView!
+    var delegate: BookDetailValueDelegate?
+    var trainerNo: Int!
     
     var time: [BookPlaceDetail] = []
     
     func setDataToCell(trainerProfile: UserProfile, tag: Int, time: [BookPlaceDetail]) {
         
+        self.trainerNo = tag
         self.trainerImg.downloaded(from: trainerProfile.profileImageUrl)
         self.trainerImg.tag = tag
+        self.trainerImg.accessibilityLabel = trainerProfile.uid
         self.trainerImg.isUserInteractionEnabled = true
         self.trainerNameLb.text = trainerProfile.fullName
         var timestr = ""
@@ -29,8 +44,8 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDelegate, U
 
         self.time = time
         
-        let tapGesture = UITapGestureRecognizer (target: self, action: #selector(imgTap(tapGesture:)))
-        trainerImg.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer (target: self, action: #selector(imgTap(tapGesture:)))
+//        trainerImg.addGestureRecognizer(tapGesture)
         
         self.timeCollect.delegate = self
         self.timeCollect.dataSource = self
@@ -66,15 +81,19 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return time.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeButtonCollection", for: indexPath) as! TimeButtonCollectionViewCell
-        
+
+        cell.timeBtn.accessibilityHint = "tag: \(self.trainerNo) row: \(indexPath.row) section: \(indexPath.section)"
+        cell.delegate = self
         cell.setDataToButton(bookPlaceDetail: time[indexPath.row])
+
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(time[indexPath.row])
+        print(time[indexPath.row].key)
+        
     }
 }

@@ -63,6 +63,7 @@
 		B2B8BC5E212BC5D7009A3712 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B8BC5C212BC5D7009A3712 /* LaunchScreen.storyboard */; };
 		B2B8BC69212BC5D7009A3712 /* TrainMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC68212BC5D7009A3712 /* TrainMeTests.swift */; };
 		B2B8BC74212BC5D7009A3712 /* TrainMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC73212BC5D7009A3712 /* TrainMeUITests.swift */; };
+		B2B929D1216B14F600D61E0A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B929D0216B14F600D61E0A /* ProfileViewController.swift */; };
 		B2B9E3572152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */; };
 		B2B9E359215261CA0048E501 /* NewProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E358215261CA0048E501 /* NewProgressViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
@@ -152,6 +153,7 @@
 		B2B8BC6F212BC5D7009A3712 /* TrainMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B8BC73212BC5D7009A3712 /* TrainMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainMeUITests.swift; sourceTree = "<group>"; };
 		B2B8BC75212BC5D7009A3712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2B929D0216B14F600D61E0A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerByTraineeViewController.swift; sourceTree = "<group>"; };
 		B2B9E358215261CA0048E501 /* NewProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				B20ECAEB213FDE7E0084E685 /* tableviews */,
 				B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */,
 				B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */,
+				B2B929D0216B14F600D61E0A /* ProfileViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */,
 				B20ECAEF213FE4590084E685 /* AllCourseTrainerTableViewCell.swift in Sources */,
 				B202BD2921501D3700DE0790 /* AddCertificateViewController.swift in Sources */,
+				B2B929D1216B14F600D61E0A /* ProfileViewController.swift in Sources */,
 				B202BD20214D713600DE0790 /* ProgressTabTraineeViewController.swift in Sources */,
 				B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */,
 			);

@@ -12,6 +12,7 @@ import FirebaseDatabase
 class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var trainerId = ""
+    var bookPlaceDetail: BookPlaceDetail!
     var selectedCourses = [Course]()
     var ref: DatabaseReference!
     var selectedCourseIndexPath: IndexPath!
@@ -21,6 +22,7 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
         super.viewDidLoad()
        
         self.ref = Database.database().reference()
+        self.trainerId = self.bookPlaceDetail.trainerId
         self.getSelectedTrainerCourses()
         print(self.trainerId)
 
@@ -66,7 +68,7 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(selectedCourses.reversed()[indexPath.row].getData())
+//        print(selectedCourses.reversed()[indexPath.row].getData())
         self.selectedCourseIndexPath = indexPath
         self.performSegue(withIdentifier: "SelectCourseToCourseDetail", sender: self)
     }
@@ -93,6 +95,7 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ViewCourseTrainerByTraineeViewController
             containVc.course = self.selectedCourses.reversed()[self.selectedCourseIndexPath.row]
+            containVc.selectedBookDetail = self.bookPlaceDetail
         }
     }
     

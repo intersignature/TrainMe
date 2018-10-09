@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol TimeButtonCollectionCellDelegate {
+
+    func didTapTimeButoon(bookPlaceDetailTapObject: BookPlaceDetail)
+}
+
 class TimeButtonCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var timeBtn: UIButton!
     var bookPlaceDetail: BookPlaceDetail!
+    var delegate: TimeButtonCollectionCellDelegate?
     
     func setDataToButton(bookPlaceDetail: BookPlaceDetail) {
         
@@ -21,5 +27,7 @@ class TimeButtonCollectionViewCell: UICollectionViewCell {
     
     @IBAction func timeBtnAction(_ sender: UIButton) {
         print(bookPlaceDetail.getData())
+        delegate?.didTapTimeButoon(bookPlaceDetailTapObject: bookPlaceDetail)
+        print(sender.accessibilityHint as? String)
     }
 }
