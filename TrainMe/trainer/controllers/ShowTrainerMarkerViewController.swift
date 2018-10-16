@@ -272,6 +272,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ShowCourseTrainerSpecifiedViewController
             containVc.bookPlaceDetail = self.bookPlaceDetailTap
+            containVc.placeId = self.placeId
         }
     }
     

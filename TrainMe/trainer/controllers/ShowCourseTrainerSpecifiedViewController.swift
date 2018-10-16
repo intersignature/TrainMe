@@ -16,6 +16,7 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
     var selectedCourses = [Course]()
     var ref: DatabaseReference!
     var selectedCourseIndexPath: IndexPath!
+    var placeId: String!
     
     @IBOutlet weak var selectedTrainerCourseTv: UITableView!
     override func viewDidLoad() {
@@ -96,6 +97,7 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
             let containVc = vc.topViewController as! ViewCourseTrainerByTraineeViewController
             containVc.course = self.selectedCourses.reversed()[self.selectedCourseIndexPath.row]
             containVc.selectedBookDetail = self.bookPlaceDetail
+            containVc.placeId = self.placeId
         }
     }
     

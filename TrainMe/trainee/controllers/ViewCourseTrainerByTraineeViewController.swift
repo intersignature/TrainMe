@@ -16,6 +16,8 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     var selectedBookDetail: BookPlaceDetail!
     
     var course: Course!
+    var placeId: String!
+    
     var titleList: [String] = ["Name", "Detail", "Type", "Time", "Duration", "Level", "Price", "Language"]
     var descriptionList: [String] = []
     
@@ -48,6 +50,9 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
         if(segue.identifier == "CourseDetailToNewProgress") {
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! NewProgressViewController
+            containVc.selectedBookDetail = self.selectedBookDetail
+            containVc.selectedCourse = self.course
+            containVc.selectedPlaceId = self.placeId
         }
     }
     
