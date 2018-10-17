@@ -51,6 +51,9 @@
 		B25A8120212BD61600073C68 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */; };
 		B26B4BE921632E47003CB72C /* TimeButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26B4BE821632E47003CB72C /* TimeButtonCollectionViewCell.swift */; };
 		B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */; };
+		B272239C2176961F00288ADE /* OmiseSDK.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */; };
+		B272239E2176963500288ADE /* OmiseSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B272239B2176961F00288ADE /* OmiseSDK.framework */; };
+		B272239F2176963500288ADE /* OmiseSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B272239B2176961F00288ADE /* OmiseSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
 		B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */; };
 		B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */; };
@@ -86,6 +89,20 @@
 			remoteInfo = TrainMe;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B27223A02176963500288ADE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B272239F2176963500288ADE /* OmiseSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00381F36DE4033DBCA41F5A4 /* Pods-TrainMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMeUITests/Pods-TrainMeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +152,8 @@
 		B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Light.ttf"; sourceTree = "<group>"; };
 		B26B4BE821632E47003CB72C /* TimeButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabTrainerViewController.swift; sourceTree = "<group>"; };
+		B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OmiseSDK.framework.dSYM; path = Carthage/Build/iOS/OmiseSDK.framework.dSYM; sourceTree = SOURCE_ROOT; };
+		B272239B2176961F00288ADE /* OmiseSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmiseSDK.framework; path = Carthage/Build/iOS/OmiseSDK.framework; sourceTree = SOURCE_ROOT; };
 		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
 		B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceDetail.swift; sourceTree = "<group>"; };
 		B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -165,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B272239E2176963500288ADE /* OmiseSDK.framework in Frameworks */,
 				F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +398,8 @@
 		B2B8BC52212BC5D5009A3712 /* TrainMe */ = {
 			isa = PBXGroup;
 			children = (
+				B272239B2176961F00288ADE /* OmiseSDK.framework */,
+				B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */,
 				B202BD18214D69B800DE0790 /* trainee */,
 				B202BD17214D698400DE0790 /* trainer */,
 				B280D85221392CB700A59DB0 /* registers */,
@@ -425,6 +447,7 @@
 				B2B8BC4E212BC5D5009A3712 /* Resources */,
 				3711B05C8BFC5FC6B43B5A4E /* [CP] Embed Pods Frameworks */,
 				5A66EBACFB4C3BBFB9DCD82C /* [CP] Copy Pods Resources */,
+				B27223A02176963500288ADE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -527,6 +550,7 @@
 				B2B8BC5E212BC5D7009A3712 /* LaunchScreen.storyboard in Resources */,
 				B224A061212BC92900DA7E47 /* GoogleService-Info.plist in Resources */,
 				B24144B221371ACF00F8315B /* Localizable.strings in Resources */,
+				B272239C2176961F00288ADE /* OmiseSDK.framework.dSYM in Resources */,
 				B2B8BC5B212BC5D7009A3712 /* Assets.xcassets in Resources */,
 				B25A811B212BD61600073C68 /* NotoSans-Black.ttf in Resources */,
 				B2B8BC59212BC5D5009A3712 /* Main.storyboard in Resources */,
@@ -914,6 +938,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4D9F78GB2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TrainMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -934,6 +962,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4D9F78GB2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TrainMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = (
