@@ -1017,15 +1017,31 @@ TrainMe’s Privacy Policy</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usg-jn-qhF">
-                                <rect key="frame" x="187" y="240" width="10" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sde-hb-vOC" customClass="CustomSegmentedControl" customModule="TrainMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="79" width="414" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="BIO-R1-0hP"/>
+                                    <constraint firstAttribute="height" constant="30" id="usT-CQ-0Jv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeperatedButtonTitle" value="Confirmation,Payment,Ongoing,Successful"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pendingSegmentedControlAction:" destination="L2i-eS-cjx" eventType="valueChanged" id="2SK-gb-BAG"/>
+                                    <action selector="progressCustomSegmentedControl:" destination="j6V-d6-VeN" eventType="valueChanged" id="YGC-BZ-7go"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sde-hb-vOC" firstAttribute="top" secondItem="pD9-WT-s8i" secondAttribute="top" constant="15" id="5f2-SE-i0n"/>
+                            <constraint firstItem="sde-hb-vOC" firstAttribute="leading" secondItem="pD9-WT-s8i" secondAttribute="leading" id="hL2-db-sVT"/>
+                            <constraint firstItem="pD9-WT-s8i" firstAttribute="trailing" secondItem="sde-hb-vOC" secondAttribute="trailing" id="rRe-fr-8oj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pD9-WT-s8i"/>
                     </view>
                     <navigationItem key="navigationItem" title="Progress" id="KUB-Gs-cC9">
@@ -1484,49 +1500,49 @@ detail</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wB-IH-cEv" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="34" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="34" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyx-IA-iga">
-                                                <rect key="frame" x="34.000000000000007" y="74" width="103.66666666666669" height="20.666666666666671"/>
+                                                <rect key="frame" x="34.000000000000007" y="71" width="103.66666666666669" height="17.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SMc-Le-8Tw" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="225.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="219.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course language" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjK-QI-nBj" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="425.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="404.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course duration" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D51-1P-JMx" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="305.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="293.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course level" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHD-Af-OQl" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="345.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="330.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtd-jz-mZx" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="385.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="367.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj4-Sn-l8E">
-                                                <rect key="frame" x="92" y="516" width="230" height="32"/>
+                                                <rect key="frame" x="92" y="492" width="230" height="29"/>
                                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="ZTL-MP-pbP"/>
@@ -1540,7 +1556,7 @@ detail</string>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Course detail ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-6P-ftp">
-                                                <rect key="frame" x="34" y="99.666666666666657" width="346" height="111"/>
+                                                <rect key="frame" x="34" y="93.666666666666657" width="346" height="111"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="111" id="Lur-Qg-5wM"/>
@@ -1549,7 +1565,7 @@ detail</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Time of course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joD-UR-735" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="265.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="256.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -2419,6 +2435,9 @@ detail</string>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="commaSeperatedButtonTitle" value="Confirmation,Payment,Ongoing,Successful"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="progressCustomSegmentedControl:" destination="j6V-d6-VeN" eventType="valueChanged" id="m6C-8F-wYf"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3040,7 +3059,14 @@ detail</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iFe-5y-bbI"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xki-Dk-l5p"/>
+                    <navigationItem key="navigationItem" id="xki-Dk-l5p">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="leftArrow" id="yRT-3N-1su">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="vXh-63-c32" id="wTi-3S-EvO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P93-qt-vdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

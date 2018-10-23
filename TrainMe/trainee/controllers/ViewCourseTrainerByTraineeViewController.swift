@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var courseDetailTableView: UITableView!
     @IBOutlet weak var bookBtn: UIButton!
+    
+    var ref: DatabaseReference!
+    var currentUser: User!
     
     var selectedBookDetail: BookPlaceDetail!
     
@@ -26,6 +31,9 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
         super.viewDidLoad()
         print(course.getData())
         print(selectedBookDetail.getData())
+        
+        self.ref = Database.database().reference()
+        self.currentUser = Auth.auth().currentUser
         
         self.bookBtn.layer.cornerRadius = 17
         self.courseToList()
@@ -73,7 +81,27 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     }
     
     @IBAction func bookBtnAction(_ sender: UIButton) {
+        
+        self.addPedndingDataToDatabase()
+        
         performSegue(withIdentifier: "CourseDetailToNewProgress", sender: self)
+    }
+    
+    func addPedndingDataToDatabase() {
+        
+        let mainData = ["place_id": self.placeId,
+                        "course_id": self.course.key,
+                        "start_train_date": self.selectedBookDetail.startTrainDate,
+                        "start_train_time": self.selectedBookDetail.startTrainTime,]
+        
+        self.ref.child("pending_schedule_detail").child(self.selectedBookDetail.trainerId).child(self.selectedBookDetail.key).child(self.currentUser.uid).updateChildValues(mainData) { (err, ref) in
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            print("aaaaa = \(self.selectedBookDetail.key)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

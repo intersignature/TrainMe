@@ -26,7 +26,7 @@ class NewProgressViewController: UIViewController {
         self.ref = Database.database().reference()
         self.currentUser = Auth.auth().currentUser
         
-        self.addDataToDatabase()
+//        self.addDataToDatabase()
     }
     
     func addDataToDatabase() {
@@ -34,12 +34,7 @@ class NewProgressViewController: UIViewController {
         let mainData = ["course_id": self.selectedCourse.key,
                     "place_id": self.selectedPlaceId,
                     "transaction_to_admin": "-1"]
-        
-        let subTimeSchedule = ["start_train_date": self.selectedBookDetail.startTrainDate,
-                               "start_train_time": self.selectedBookDetail.startTrainTime,
-                               "status": "1",
-                               "transaction_to_trainer": "-1"]
-        
+       
         ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedBookDetail.trainerId).childByAutoId().updateChildValues(mainData) { (err, ref) in
             if let err = err {
                 print(err.localizedDescription)
@@ -49,13 +44,42 @@ class NewProgressViewController: UIViewController {
             print("asdasd = \(ref.key)")
             print("successfully add main data")
             
-            ref.childByAutoId().updateChildValues(subTimeSchedule, withCompletionBlock: { (err2, ref) in
-                if let err2 = err2 {
-                    print(err2.localizedDescription)
-                    self.createAlert(alertTitle: err2.localizedDescription, alertMessage: "")
-                    return
+            
+            for i in 1...Int(self.selectedCourse.timeOfCourse)! {
+                
+                print(i)
+                
+                if i==1 {
+                    let subTimeSchedule = ["start_train_date": self.selectedBookDetail.startTrainDate,
+                                           "start_train_time": self.selectedBookDetail.startTrainTime,
+                                           "status": "1",
+                                           "transaction_to_trainer": "-1",
+                                           "time": "\(i)"]
+                    
+                    ref.childByAutoId().updateChildValues(subTimeSchedule, withCompletionBlock: { (err2, ref) in
+                        if let err2 = err2 {
+                            print(err2.localizedDescription)
+                            self.createAlert(alertTitle: err2.localizedDescription, alertMessage: "")
+                            return
+                        }
+                    })
+                    
+                } else {
+                    let subTimeSchedule = ["start_train_date": "-1",
+                                           "start_train_time": "-1",
+                                           "status": "-1",
+                                           "transaction_to_trainer": "-1",
+                                           "time": "\(i)"]
+                    
+                    ref.childByAutoId().updateChildValues(subTimeSchedule, withCompletionBlock: { (err2, ref) in
+                        if let err2 = err2 {
+                            print(err2.localizedDescription)
+                            self.createAlert(alertTitle: err2.localizedDescription, alertMessage: "")
+                            return
+                        }
+                    })
                 }
-            })
+            }
         }
         print("successfully add sub time schedule")
         
@@ -73,5 +97,10 @@ class NewProgressViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.setupNavigationStyle()
+    }
+    
+    @IBAction func backBtnAction(_ sender: UIBarButtonItem) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
