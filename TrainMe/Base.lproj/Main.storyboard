@@ -1035,10 +1035,78 @@ TrainMe’s Privacy Policy</string>
                                     <action selector="progressCustomSegmentedControl:" destination="j6V-d6-VeN" eventType="valueChanged" id="YGC-BZ-7go"/>
                                 </connections>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R40-dy-cOH">
+                                <rect key="frame" x="0.0" y="114" width="414" height="573"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProgressCell" rowHeight="102" id="LCw-tt-cS7" customClass="ProgressTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LCw-tt-cS7" id="hmu-Mo-3wP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="101.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeC-Xf-iVO">
+                                                    <rect key="frame" x="20" y="11" width="296" height="28"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U63-lE-w24">
+                                                    <rect key="frame" x="20" y="47" width="253" height="41"/>
+                                                    <string key="text">Label
+asd</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.15 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEO-iH-7f2">
+                                                    <rect key="frame" x="331" y="16" width="63" height="24"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait for trainer approve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6A-Tx-rSh">
+                                                    <rect key="frame" x="294" y="75" width="100" height="11"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="g4U-gE-by7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="8"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="aEO-iH-7f2" secondAttribute="trailing" id="1wW-iB-U0o"/>
+                                                <constraint firstItem="QeC-Xf-iVO" firstAttribute="leading" secondItem="hmu-Mo-3wP" secondAttribute="leadingMargin" id="4IL-tg-dOR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="U63-lE-w24" secondAttribute="bottom" constant="3" id="63t-EG-lDH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="u6A-Tx-rSh" secondAttribute="trailing" id="GBO-sQ-Alb"/>
+                                                <constraint firstItem="aEO-iH-7f2" firstAttribute="leading" secondItem="QeC-Xf-iVO" secondAttribute="trailing" constant="15" id="IGG-NY-A7N"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="u6A-Tx-rSh" secondAttribute="bottom" constant="5" id="Mrp-JA-mdK"/>
+                                                <constraint firstItem="QeC-Xf-iVO" firstAttribute="top" secondItem="hmu-Mo-3wP" secondAttribute="topMargin" id="Oqh-Qd-OV1"/>
+                                                <constraint firstItem="U63-lE-w24" firstAttribute="leading" secondItem="hmu-Mo-3wP" secondAttribute="leadingMargin" id="YSf-C0-mdq"/>
+                                                <constraint firstItem="aEO-iH-7f2" firstAttribute="top" secondItem="hmu-Mo-3wP" secondAttribute="topMargin" constant="5" id="frC-Kn-hBA"/>
+                                                <constraint firstItem="U63-lE-w24" firstAttribute="top" secondItem="QeC-Xf-iVO" secondAttribute="bottom" constant="8" id="fwI-vI-dGP"/>
+                                                <constraint firstItem="u6A-Tx-rSh" firstAttribute="leading" secondItem="U63-lE-w24" secondAttribute="trailing" constant="21" id="lkq-sW-uTD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="Detail" destination="U63-lE-w24" id="aWh-4x-YZK"/>
+                                            <outlet property="status" destination="u6A-Tx-rSh" id="JzV-es-f1g"/>
+                                            <outlet property="time" destination="aEO-iH-7f2" id="jWv-jA-bQh"/>
+                                            <outlet property="traineeName" destination="QeC-Xf-iVO" id="WG9-3O-4qd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sde-hb-vOC" firstAttribute="top" secondItem="pD9-WT-s8i" secondAttribute="top" constant="15" id="5f2-SE-i0n"/>
+                            <constraint firstItem="pD9-WT-s8i" firstAttribute="trailing" secondItem="R40-dy-cOH" secondAttribute="trailing" id="A0M-Ju-gpk"/>
+                            <constraint firstItem="R40-dy-cOH" firstAttribute="leading" secondItem="pD9-WT-s8i" secondAttribute="leading" id="RPL-dl-KKH"/>
+                            <constraint firstItem="pD9-WT-s8i" firstAttribute="bottom" secondItem="R40-dy-cOH" secondAttribute="bottom" id="dWf-Xv-w3j"/>
+                            <constraint firstItem="R40-dy-cOH" firstAttribute="top" secondItem="sde-hb-vOC" secondAttribute="bottom" constant="5" id="gPP-Wr-bOa"/>
                             <constraint firstItem="sde-hb-vOC" firstAttribute="leading" secondItem="pD9-WT-s8i" secondAttribute="leading" id="hL2-db-sVT"/>
                             <constraint firstItem="pD9-WT-s8i" firstAttribute="trailing" secondItem="sde-hb-vOC" secondAttribute="trailing" id="rRe-fr-8oj"/>
                         </constraints>
@@ -1051,6 +1119,7 @@ TrainMe’s Privacy Policy</string>
                     </navigationItem>
                     <connections>
                         <outlet property="menuBtn" destination="Ec1-1B-75b" id="voH-yO-jqe"/>
+                        <outlet property="progressTableView" destination="R40-dy-cOH" id="uEW-QQ-lZq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwu-Yq-eC2" userLabel="First Responder" sceneMemberID="firstResponder"/>

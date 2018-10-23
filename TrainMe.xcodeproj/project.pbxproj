@@ -60,6 +60,7 @@
 		B2AB110F214655D900E84321 /* AddSchedulePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */; };
 		B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */; };
 		B2B6CE56217F1A6D00869488 /* PendingBookPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B6CE55217F1A6D00869488 /* PendingBookPlaceDetail.swift */; };
+		B2B6CE58217FB8F100869488 /* ProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B6CE57217FB8F100869488 /* ProgressTableViewCell.swift */; };
 		B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */; };
 		B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8BC55212BC5D5009A3712 /* ViewController.swift */; };
 		B2B8BC59212BC5D5009A3712 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B8BC57212BC5D5009A3712 /* Main.storyboard */; };
@@ -161,6 +162,7 @@
 		B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedulePlaceViewController.swift; sourceTree = "<group>"; };
 		B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTrainerViewController.swift; sourceTree = "<group>"; };
 		B2B6CE55217F1A6D00869488 /* PendingBookPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingBookPlaceDetail.swift; sourceTree = "<group>"; };
+		B2B6CE57217FB8F100869488 /* ProgressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTableViewCell.swift; sourceTree = "<group>"; };
 		B2B8BC50212BC5D5009A3712 /* TrainMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B8BC53212BC5D5009A3712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2B8BC55212BC5D5009A3712 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 		B20ECAEB213FDE7E0084E685 /* tableviews */ = {
 			isa = PBXGroup;
 			children = (
+				B2B6CE57217FB8F100869488 /* ProgressTableViewCell.swift */,
 				B20ECAEE213FE4590084E685 /* AllCourseTrainerTableViewCell.swift */,
 				B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */,
 				B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */,
@@ -740,6 +743,7 @@
 				B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */,
 				B2B9E359215261CA0048E501 /* NewProgressViewController.swift in Sources */,
 				B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */,
+				B2B6CE58217FB8F100869488 /* ProgressTableViewCell.swift in Sources */,
 				B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */,
 				B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */,
 				B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */,

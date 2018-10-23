@@ -11,12 +11,14 @@ import SWRevealViewController
 import FirebaseAuth
 import FirebaseDatabase
 
-class ProgressTabTrainerViewController: UIViewController {
+class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
-    var pendingDataList: [PendingBookPlaceDetail] = []
+
+    var pendingDataLists: [[PendingBookPlaceDetail]] = []
     var ref: DatabaseReference!
     var currentUser: User!
+    @IBOutlet weak var progressTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,8 @@ class ProgressTabTrainerViewController: UIViewController {
         super.viewDidAppear(animated)
         
         self.getPendingDataList()
+        self.progressTableView.delegate = self
+        self.progressTableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,13 +46,14 @@ class ProgressTabTrainerViewController: UIViewController {
     
     func getPendingDataList() {
         
+        var tempPendingDatas: [PendingBookPlaceDetail] = []
         print("sadasd:\(self.currentUser.uid)")
         self.ref.child("pending_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
-                self.pendingDataList.removeAll()
                 for pendingDataObjs in snapshot.children.allObjects as! [DataSnapshot] {
-                    
+                    tempPendingDatas.removeAll()
                     let pendingDataObj = pendingDataObjs.value as! [String: NSDictionary]
+                    print("aaa: \(pendingDataObj.values.count)")
                     pendingDataObj.forEach({ (pendingDataObjKey, pendingDataObjVal) in
                         print(pendingDataObjKey)
                         let pendingData = PendingBookPlaceDetail()
@@ -58,13 +63,19 @@ class ProgressTabTrainerViewController: UIViewController {
                         pendingData.place_id = pendingDataObjVal["place_id"] as! String
                         pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
                         pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
-                        self.pendingDataList.append(pendingData)
+                        tempPendingDatas.append(pendingData)
                     })
+                    self.pendingDataLists.append(tempPendingDatas)
                 }
             }
-            self.pendingDataList.forEach({ (val) in
-                print(val.getData())
+
+            self.pendingDataLists.forEach({ (vals) in
+                vals.forEach({ (val) in
+                    print(val.getData())
+                })
+                print("=======")
             })
+            print(self.pendingDataLists)
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -81,6 +92,25 @@ class ProgressTabTrainerViewController: UIViewController {
             menuBtn.target = revealViewController()
             menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pendingDataLists[section].count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return pendingDataLists.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
+        cell.setDataToCell(traineeName: pendingDataLists[indexPath.section][indexPath.row].trainee_id, detail: "detail", time: pendingDataLists[indexPath.section][indexPath.row].start_train_time, status: "-1")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Group \(section+1)"
     }
     
     override func didReceiveMemoryWarning() {
