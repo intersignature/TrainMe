@@ -18,6 +18,9 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     var pendingDataLists: [[PendingBookPlaceDetail]] = []
     var ref: DatabaseReference!
     var currentUser: User!
+    
+    var traineeObj: [String: String] = [:]
+    var traineeIds: [String] = []
     @IBOutlet weak var progressTableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,14 +31,20 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         self.ref = Database.database().reference()
         self.currentUser = Auth.auth().currentUser
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.traineeIds.removeAll()
+        self.traineeObj.removeAll()
+        self.pendingDataLists.removeAll()
+        
         self.getPendingDataList()
         self.progressTableView.delegate = self
         self.progressTableView.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,8 +73,17 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
                         pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
                         tempPendingDatas.append(pendingData)
+                        if !self.traineeIds.contains(pendingData.trainee_id) {
+                            self.traineeIds.append(pendingData.trainee_id)
+                        }
                     })
                     self.pendingDataLists.append(tempPendingDatas)
+                    if self.pendingDataLists.count == snapshot.childrenCount {
+                        for traineeId in self.traineeIds {
+                            self.getTraineeData(uid: traineeId)
+                            
+                        }
+                    }
                 }
             }
 
@@ -75,7 +93,26 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 })
                 print("=======")
             })
-            print(self.pendingDataLists)
+//            print(self.pendingDataLists)
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
+    }
+    
+    func getTraineeData(uid: String) {
+        
+        self.ref.child("user").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as! NSDictionary
+            print(value["name"] as! String)
+            let ans = value["name"] as! String
+            self.traineeObj[uid] = ans
+            if self.traineeObj.count == self.traineeIds.count {
+                self.progressTableView.reloadData()
+            }
+//            self.progressTableView.reloadData()
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -105,7 +142,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
-        cell.setDataToCell(traineeName: pendingDataLists[indexPath.section][indexPath.row].trainee_id, detail: "detail", time: pendingDataLists[indexPath.section][indexPath.row].start_train_time, status: "-1")
+        cell.setDataToCell(traineeName: self.traineeObj[self.pendingDataLists[indexPath.section][indexPath.row].trainee_id]!, detail: "detail", time: pendingDataLists[indexPath.section][indexPath.row].start_train_time, status: "-1")
         return cell
     }
     
