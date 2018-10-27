@@ -12,11 +12,17 @@ import FirebaseAuth
 import FirebaseDatabase
 import GooglePlaces
 
-class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+struct ExpandableData {
+    
+    var isExpanded: Bool
+    var pendingDetail: [PendingBookPlaceDetail]
+}
+
+class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
 
-    var pendingDataLists: [[PendingBookPlaceDetail]] = []
+    var pendingDataLists: [ExpandableData] = []
     var ref: DatabaseReference!
     var currentUser: User!
     
@@ -38,6 +44,9 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.ref = Database.database().reference()
         self.currentUser = Auth.auth().currentUser
         self.placesClient = GMSPlacesClient.shared()
+        
+        self.progressTableView.delegate = self
+        self.progressTableView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,8 +57,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.pendingDataLists.removeAll()
         
         self.getPendingDataList()
-        self.progressTableView.delegate = self
-        self.progressTableView.dataSource = self
+//        self.progressTableView.delegate = self
+//        self.progressTableView.dataSource = self
         
     }
     
@@ -61,12 +70,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     
     func getPendingDataList() {
         
-        var tempPendingDatas: [PendingBookPlaceDetail] = []
+        var tempPendingData: [PendingBookPlaceDetail] = []
         print("sadasd:\(self.currentUser.uid)")
         self.ref.child("pending_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 for pendingDataObjs in snapshot.children.allObjects as! [DataSnapshot] {
-                    tempPendingDatas.removeAll()
+                    tempPendingData.removeAll()
                     let pendingDataObj = pendingDataObjs.value as! [String: NSDictionary]
                     print("aaa: \(pendingDataObj.values.count)")
                     pendingDataObj.forEach({ (pendingDataObjKey, pendingDataObjVal) in
@@ -78,7 +87,10 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         pendingData.place_id = pendingDataObjVal["place_id"] as! String
                         pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
                         pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
-                        tempPendingDatas.append(pendingData)
+                        tempPendingData.append(pendingData)
+                        
+                        
+                        
                         if self.courseName[pendingData.course_id] == nil {
                             self.getCourseData(courseId: pendingData.course_id)
                         }
@@ -90,7 +102,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                             self.traineeIds.append(pendingData.trainee_id)
                         }
                     })
-                    self.pendingDataLists.append(tempPendingDatas)
+                    self.pendingDataLists.append(ExpandableData(isExpanded: true, pendingDetail: tempPendingData))
+                    
                     if self.pendingDataLists.count == snapshot.childrenCount {
                         for traineeId in self.traineeIds {
                             self.getTraineeData(uid: traineeId)
@@ -99,11 +112,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 }
             }
 
-            self.pendingDataLists.forEach({ (vals) in
-                vals.forEach({ (val) in
-                    print(val.getData())
+            self.pendingDataLists.forEach({ (val) in
+                print(val.isExpanded)
+                val.pendingDetail.forEach({ (pending) in
+                    print(pending.getData())
                 })
-                print("=======")
+                print("===")
             })
 //            print(self.pendingDataLists)
         }) { (err) in
@@ -175,29 +189,74 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pendingDataLists[section].count
+        
+        if !self.pendingDataLists[section].isExpanded {
+            return 0
+        }
+        
+        return pendingDataLists[section].pendingDetail.count
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return pendingDataLists.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
 
-        cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataLists[indexPath.section][indexPath.row].trainee_id]!.profileImageUrl,
-                           traineeName: self.traineeObj[self.pendingDataLists[indexPath.section][indexPath.row].trainee_id]!.fullName,
-                           startDate: self.pendingDataLists[indexPath.section][indexPath.row].start_train_date,
-                           startTime: self.pendingDataLists[indexPath.section][indexPath.row].start_train_time,
+        cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataLists[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
+                           traineeName: self.traineeObj[self.pendingDataLists[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
+                           startDate: self.pendingDataLists[indexPath.section].pendingDetail[indexPath.row].start_train_date,
+                           startTime: self.pendingDataLists[indexPath.section].pendingDetail[indexPath.row].start_train_time,
                            position: "\(indexPath.section)-\(indexPath.row)")
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.placeName[self.pendingDataLists[section][0].place_id]
+        return self.placeName[self.pendingDataLists[section].pendingDetail[0].place_id]
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let headerBtn = UIButton(type: .system)
+        headerBtn.setTitle("Close", for: .normal)
+        headerBtn.setTitleColor(.black, for: .normal)
+        headerBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+
+        headerBtn.addTarget(self, action: #selector(self.handleExpandCollapse(headerBtn:)), for: .touchUpInside)
+        headerBtn.tag = section
+
+        return headerBtn
+    }
+
+    @objc func handleExpandCollapse(headerBtn: UIButton) {
+
+        print("handle")
+        print(headerBtn.tag)
+
+        let section = headerBtn.tag
+
+        var indexPaths = [IndexPath]()
+        for row in self.pendingDataLists[section].pendingDetail.indices {
+            let indexPath = IndexPath(row: row, section: section)
+            indexPaths.append(indexPath)
+        }
+
+        let isExpanded = self.pendingDataLists[section].isExpanded
+        self.pendingDataLists[section].isExpanded = !isExpanded
+        
+        headerBtn.setTitle(isExpanded ? "Open" : "Close", for: .normal)
+        
+        if isExpanded {
+            self.progressTableView.deleteRows(at: indexPaths, with: .fade)
+        } else {
+            self.progressTableView.insertRows(at: indexPaths, with: .fade)
+        }
+        
+        print("indexPaths: \(indexPaths)")
     }
     
     override func didReceiveMemoryWarning() {
