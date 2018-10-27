@@ -25,6 +25,8 @@ class ProgressTableViewCell: UITableViewCell {
         self.startTime.text = startTime
         self.acceptBtn.accessibilityLabel = position
         self.declineBtn.accessibilityLabel = position
+        
+        self.setProfileImageRound()
     }
     
     
@@ -34,6 +36,13 @@ class ProgressTableViewCell: UITableViewCell {
     
     @IBAction func declineBtnAction(_ sender: UIButton) {
         print(sender.accessibilityLabel)
+    }
+    
+    func setProfileImageRound() {
+        
+        self.traineeImg.layer.masksToBounds = false
+        self.traineeImg.layer.cornerRadius = self.traineeImg.frame.height/2
+        self.traineeImg.clipsToBounds = true
     }
     
     override func awakeFromNib() {
