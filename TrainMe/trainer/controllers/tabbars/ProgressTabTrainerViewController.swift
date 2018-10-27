@@ -19,7 +19,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     var ref: DatabaseReference!
     var currentUser: User!
     
-    var traineeObj: [String: String] = [:]
+    var traineeObj: [String: UserProfile] = [:]
     var traineeIds: [String] = []
     @IBOutlet weak var progressTableView: UITableView!
     
@@ -31,7 +31,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         self.ref = Database.database().reference()
         self.currentUser = Auth.auth().currentUser
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,7 +80,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                     if self.pendingDataLists.count == snapshot.childrenCount {
                         for traineeId in self.traineeIds {
                             self.getTraineeData(uid: traineeId)
-                            
                         }
                     }
                 }
@@ -107,8 +105,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             let value = snapshot.value as! NSDictionary
             print(value["name"] as! String)
-            let ans = value["name"] as! String
-            self.traineeObj[uid] = ans
+            let tempUserProfile = UserProfile(fullName: (value["name"] as! String), email: (value["email"] as! String), dateOfBirth: (value["dateOfBirth"] as! String), weight: (value["weight"] as! String), height: (value["height"] as! String), gender: (value["gender"] as! String), role: (value["role"] as! String), profileImageUrl: (value["profileImageUrl"] as! String), uid: uid)
+            self.traineeObj[uid] = tempUserProfile
             if self.traineeObj.count == self.traineeIds.count {
                 self.progressTableView.reloadData()
             }
@@ -141,8 +139,13 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
-        cell.setDataToCell(traineeName: self.traineeObj[self.pendingDataLists[indexPath.section][indexPath.row].trainee_id]!, detail: "detail", time: pendingDataLists[indexPath.section][indexPath.row].start_train_time, status: "-1")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
+
+        cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataLists[indexPath.section][indexPath.row].trainee_id]!.profileImageUrl,
+                           traineeName: self.traineeObj[self.pendingDataLists[indexPath.section][indexPath.row].trainee_id]!.fullName,
+                           startDate: self.pendingDataLists[indexPath.section][indexPath.row].start_train_date,
+                           startTime: self.pendingDataLists[indexPath.section][indexPath.row].start_train_time,
+                           position: "\(indexPath.section)-\(indexPath.row)")
         return cell
     }
     

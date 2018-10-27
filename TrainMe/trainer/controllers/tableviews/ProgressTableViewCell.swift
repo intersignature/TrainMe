@@ -10,16 +10,30 @@ import UIKit
 
 class ProgressTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var traineeName: UILabel!
-    @IBOutlet weak var Detail: UILabel!
-    @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var traineeImg: UIImageView!
+    @IBOutlet weak var traineeNameLb: UILabel!
+    @IBOutlet weak var startDateLb: UILabel!
+    @IBOutlet weak var startTime: UILabel!
+    @IBOutlet weak var acceptBtn: UIButton!
+    @IBOutlet weak var declineBtn: UIButton!
     
-    func setDataToCell(traineeName: String, detail: String, time: String, status: String) {
+    func setDataToCell(traineeImgLink: String, traineeName: String, startDate: String, startTime: String, position: String) {
         
-        self.traineeName.text = traineeName
-        self.Detail.text = detail
-        self.time.text = time
+        self.traineeImg.downloaded(from: traineeImgLink)
+        self.traineeNameLb.text = traineeName
+        self.startDateLb.text = startDate
+        self.startTime.text = startTime
+        self.acceptBtn.accessibilityLabel = position
+        self.declineBtn.accessibilityLabel = position
+    }
+    
+    
+    @IBAction func acceptBtnAction(_ sender: UIButton) {
+        print(sender.accessibilityLabel)
+    }
+    
+    @IBAction func declineBtnAction(_ sender: UIButton) {
+        print(sender.accessibilityLabel)
     }
     
     override func awakeFromNib() {
