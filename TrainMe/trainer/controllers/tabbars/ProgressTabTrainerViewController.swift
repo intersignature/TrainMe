@@ -21,19 +21,21 @@ struct ExpandableData {
 class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
-
+    @IBOutlet weak var progressTableView: UITableView!
+    
     var pendingDataLists: [ExpandableData] = []
     var ref: DatabaseReference!
     var currentUser: User!
+    var placesClient: GMSPlacesClient!
     
     var traineeObj: [String: UserProfile] = [:]
     var traineeIds: [String] = []
     
     var placeName: [String: String] = [:]
-    var placesClient: GMSPlacesClient!
+    var placeIds: [String] = []
     
     var courseName: [String: String] = [:]
-    @IBOutlet weak var progressTableView: UITableView!
+    var courseIds: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,11 +93,13 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         
                         
                         
-                        if self.courseName[pendingData.course_id] == nil {
-                            self.getCourseData(courseId: pendingData.course_id)
+                        if !self.courseIds.contains(pendingData.course_id) {
+//                            self.getCourseData(courseId: pendingData.course_id)
+                            self.courseIds.append(pendingData.course_id)
                         }
-                        if self.placeName[pendingData.place_id] == nil {
-                            self.getPlaceData(placeId: pendingData.place_id)
+                        if !self.placeIds.contains(pendingData.place_id){
+//                            self.getPlaceData(placeId: pendingData.place_id)
+                            self.placeIds.append(pendingData.place_id)
                         }
 //                        self.getPlaceData(placeId: pendingData.place_id)
                         if !self.traineeIds.contains(pendingData.trainee_id) {
@@ -107,6 +111,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                     if self.pendingDataLists.count == snapshot.childrenCount {
                         for traineeId in self.traineeIds {
                             self.getTraineeData(uid: traineeId)
+                        }
+                        for courseId in self.courseIds {
+                            self.getCourseData(courseId: courseId)
+                        }
+                        for placeId in self.placeIds {
+                            self.getPlaceData(placeId: placeId)
                         }
                     }
                 }
@@ -135,10 +145,10 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             print(value["name"] as! String)
             let tempUserProfile = UserProfile(fullName: (value["name"] as! String), email: (value["email"] as! String), dateOfBirth: (value["dateOfBirth"] as! String), weight: (value["weight"] as! String), height: (value["height"] as! String), gender: (value["gender"] as! String), role: (value["role"] as! String), profileImageUrl: (value["profileImageUrl"] as! String), uid: uid)
             self.traineeObj[uid] = tempUserProfile
-            if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 {
+            if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
+                self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
+                self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
                 self.progressTableView.reloadData()
-                print(self.placeName)
-                print(self.courseName)
             }
 //            self.progressTableView.reloadData()
         }) { (err) in
@@ -163,6 +173,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             }
 
             self.placeName[placeId] = place.name
+            if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
+                self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
+                self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
+                self.progressTableView.reloadData()
+            }
+
         }
     }
     
@@ -172,6 +188,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             let value = snapshot.value as! NSDictionary
             self.courseName[courseId] = (value["course_name"] as! String)
+            if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
+                self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
+                self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
+                self.progressTableView.reloadData()
+            }
+
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -225,11 +247,31 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         headerBtn.setTitle("Close", for: .normal)
         headerBtn.setTitleColor(.black, for: .normal)
         headerBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-
         headerBtn.addTarget(self, action: #selector(self.handleExpandCollapse(headerBtn:)), for: .touchUpInside)
         headerBtn.tag = section
+        headerBtn.translatesAutoresizingMaskIntoConstraints = false
 
-        return headerBtn
+        let label = UILabel()
+        label.text = self.placeName[self.pendingDataLists[section].pendingDetail[0].place_id]
+//        label.text = "kofiwkofogjneowlfekmgjnirekogjnrkojiokmfijkojnrfeikmjrhbefjikmijokmghrekojnre"
+        label.font = UIFont.boldSystemFont(ofSize: 14.0)
+        label.numberOfLines = 1
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray
+        view.addSubview(label)
+        view.addSubview(headerBtn)
+
+        let views = ["label": label, "button": headerBtn, "view": view]
+
+        let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label]-10-[button]-10-|", options: .alignAllCenterY, metrics: nil, views: views)
+        view.addConstraints(horizontallayoutContraints)
+
+        let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+        view.addConstraint(verticalLayoutContraint)
+
+        return view
     }
 
     @objc func handleExpandCollapse(headerBtn: UIButton) {
