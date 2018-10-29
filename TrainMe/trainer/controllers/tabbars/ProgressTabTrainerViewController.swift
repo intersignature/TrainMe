@@ -59,9 +59,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.pendingDataLists.removeAll()
         
         self.getPendingDataList()
-//        self.progressTableView.delegate = self
-//        self.progressTableView.dataSource = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,17 +88,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
                         tempPendingData.append(pendingData)
                         
-                        
-                        
                         if !self.courseIds.contains(pendingData.course_id) {
-//                            self.getCourseData(courseId: pendingData.course_id)
                             self.courseIds.append(pendingData.course_id)
                         }
                         if !self.placeIds.contains(pendingData.place_id){
-//                            self.getPlaceData(placeId: pendingData.place_id)
                             self.placeIds.append(pendingData.place_id)
                         }
-//                        self.getPlaceData(placeId: pendingData.place_id)
                         if !self.traineeIds.contains(pendingData.trainee_id) {
                             self.traineeIds.append(pendingData.trainee_id)
                         }
@@ -259,13 +251,13 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         label.translatesAutoresizingMaskIntoConstraints = false
 
         let view = UIView()
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.clear
         view.addSubview(label)
         view.addSubview(headerBtn)
 
         let views = ["label": label, "button": headerBtn, "view": view]
 
-        let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label]-10-[button]-10-|", options: .alignAllCenterY, metrics: nil, views: views)
+        let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label(<=250)]-0-[button]-|", options: .alignAllCenterY, metrics: nil, views: views)
         view.addConstraints(horizontallayoutContraints)
 
         let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)

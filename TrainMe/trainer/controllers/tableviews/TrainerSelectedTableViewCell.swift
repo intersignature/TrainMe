@@ -19,17 +19,17 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDataSource,
 
         self.delegate?.didRecieveValue(bookPlaceDetailTapObject: bookPlaceDetailTapObject)
     }
-    
 
     @IBOutlet weak var trainerImg: UIImageView!
     @IBOutlet weak var trainerNameLb: UILabel!
     @IBOutlet weak var timeCollect: UICollectionView!
     var delegate: BookDetailValueDelegate?
     var trainerNo: Int!
+    var buttonIdPendingAlready: [String] = []
     
     var time: [BookPlaceDetail] = []
     
-    func setDataToCell(trainerProfile: UserProfile, tag: Int, time: [BookPlaceDetail]) {
+    func setDataToCell(trainerProfile: UserProfile, tag: Int, time: [BookPlaceDetail], buttonIdPendingAlready: [String]) {
         
         self.trainerNo = tag
         self.trainerImg.downloaded(from: trainerProfile.profileImageUrl)
@@ -37,6 +37,7 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDataSource,
         self.trainerImg.accessibilityLabel = trainerProfile.uid
         self.trainerImg.isUserInteractionEnabled = true
         self.trainerNameLb.text = trainerProfile.fullName
+        self.buttonIdPendingAlready = buttonIdPendingAlready
         var timestr = ""
         time.forEach { (bookplace) in
             timestr += "\(bookplace.startTrainTime) "
@@ -86,6 +87,10 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDataSource,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeButtonCollection", for: indexPath) as! TimeButtonCollectionViewCell
 
         cell.timeBtn.accessibilityHint = "tag: \(self.trainerNo) row: \(indexPath.row) section: \(indexPath.section)"
+        if self.buttonIdPendingAlready.contains(self.time[indexPath.row].key) {
+            cell.timeBtn.setTitleColor(UIColor.red, for: .normal)
+            cell.timeBtn.isEnabled = false
+        }
         cell.delegate = self
         cell.setDataToButton(bookPlaceDetail: time[indexPath.row])
 

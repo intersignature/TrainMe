@@ -60,6 +60,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
 //        getBookPlaceDict()
         
     }
@@ -178,7 +179,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
             print("selected place")
             performSegue(withIdentifier: "PickYourPlaceToAddSchedulePlace", sender: self)
         } else if checkDidSelectPlace == 0 {
-//            getBookPlaceDict()
+            getBookPlaceDict()
             print("not selected place")
         }
 //        checkDidSelectPlace ?? 0 {print("seleect place")} else {print("not select place")}

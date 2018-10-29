@@ -46,6 +46,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     var bookPlaceDetailSorted: [BookPlaceDetail] = []
     
     var trainerObjects: [trainerObject] = []
+    var buttonIdPendingAlready: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         currentUser = Auth.auth().currentUser
         
         getBookPlaceDict()
+        self.getBookedDetailKey()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,7 +91,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         let tapGesture = UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:)))
         cell.trainerImg.addGestureRecognizer(tapGesture)
         cell.delegate = self
-        cell.setDataToCell(trainerProfile: trainerProfiles[trainerIdList.firstIndex(of: trainerObjects[indexPath.section].trainerList[indexPath.row])!], tag: indexPath.row, time: tempTimes)
+        cell.setDataToCell(trainerProfile: trainerProfiles[trainerIdList.firstIndex(of: trainerObjects[indexPath.section].trainerList[indexPath.row])!], tag: indexPath.row, time: tempTimes, buttonIdPendingAlready: self.buttonIdPendingAlready)
         return cell
     }
     
@@ -172,6 +174,29 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
             return
         }
     }
+    
+    func getBookedDetailKey() {
+        
+        self.ref.child("pending_schedule_detail").observeSingleEvent(of: .value, with: { (snapshot) in
+            let values = snapshot.value as? [String: [String: [String: NSDictionary]]]
+            values?.forEach({ (trainerId, buttons) in
+                buttons.forEach({ (buttonId, bookdetail) in
+                    bookdetail.forEach({ (traineeId, bookdetailInfo) in
+                        if traineeId == self.currentUser?.uid {
+                            print("buttonId = \(buttonId)")
+                            print("trainee = \(traineeId)")
+                            self.buttonIdPendingAlready.append(buttonId)
+                        }
+                    })
+                })
+            })
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
+    }
+    
     
     func sortDate() {
         
