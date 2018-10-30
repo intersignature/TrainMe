@@ -49,7 +49,7 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         
-        self.getBookPlaceDict()
+//        self.getBookPlaceDict()
     }
     
     func getBookPlaceDict() {
@@ -172,6 +172,6 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.getBookPlaceDict()
+//        self.getBookPlaceDict()
     }
 }

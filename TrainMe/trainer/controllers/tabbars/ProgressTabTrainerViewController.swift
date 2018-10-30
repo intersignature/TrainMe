@@ -156,6 +156,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         print(placeId)
         self.placesClient.lookUpPlaceID(placeId) { (place, err) in
             if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 print("lookup place id query error: \(err.localizedDescription)")
                 return
             }
