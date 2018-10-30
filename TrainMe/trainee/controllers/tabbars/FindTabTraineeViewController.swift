@@ -172,6 +172,6 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        self.getBookPlaceDict()
+        self.getBookPlaceDict()
     }
 }

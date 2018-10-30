@@ -279,6 +279,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                                 startDate: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_date,
                                 startTime: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_time,
                                 position: "\(indexPath.section)-\(indexPath.row)")
+            //Course name: self.courseName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!
         }
 
         return cell

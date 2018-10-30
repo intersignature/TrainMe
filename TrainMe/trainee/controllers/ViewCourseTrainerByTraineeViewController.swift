@@ -81,10 +81,14 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     }
     
     @IBAction func bookBtnAction(_ sender: UIButton) {
-        
-        self.addPedndingDataToDatabase()
-        
-        performSegue(withIdentifier: "CourseDetailToNewProgress", sender: self)
+        let alert = UIAlertController(title: "Booking trainer", message: "trainer: \(self.selectedBookDetail.trainerId)\nCourse: \(self.course.course)\nPrice: \(self.course.coursePrice)", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            self.view.showBlurLoader()
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.addPedndingDataToDatabase()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func addPedndingDataToDatabase() {
@@ -100,6 +104,15 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            let alert = UIAlertController(title: "Booking Successful", message: "", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+                
+                self.performSegue(withIdentifier: "BookToFindTrainer", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+       
             print("aaaaa = \(self.selectedBookDetail.key)")
         }
     }

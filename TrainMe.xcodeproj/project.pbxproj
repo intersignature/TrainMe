@@ -154,6 +154,7 @@
 		B25A8113212BD5D500073C68 /* NotoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Black.ttf"; sourceTree = "<group>"; };
 		B25A8114212BD5F500073C68 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Light.ttf"; sourceTree = "<group>"; };
 		B263566D218830C100277F67 /* ConfirmationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationTableViewCell.swift; sourceTree = "<group>"; };
+		B263566F2188884200277F67 /* TrainMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrainMe.entitlements; sourceTree = "<group>"; };
 		B26B4BE821632E47003CB72C /* TimeButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OmiseSDK.framework.dSYM; path = Carthage/Build/iOS/OmiseSDK.framework.dSYM; sourceTree = SOURCE_ROOT; };
@@ -407,6 +408,7 @@
 		B2B8BC52212BC5D5009A3712 /* TrainMe */ = {
 			isa = PBXGroup;
 			children = (
+				B263566F2188884200277F67 /* TrainMe.entitlements */,
 				B272239B2176961F00288ADE /* OmiseSDK.framework */,
 				B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */,
 				B202BD18214D69B800DE0790 /* trainee */,
@@ -517,6 +519,11 @@
 				TargetAttributes = {
 					B2B8BC4F212BC5D5009A3712 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					B2B8BC63212BC5D7009A3712 = {
 						CreatedOnToolsVersion = 9.4;
@@ -948,6 +955,7 @@
 			baseConfigurationReference = DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TrainMe/TrainMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4D9F78GB2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -972,6 +980,7 @@
 			baseConfigurationReference = 16F7CCA7514E4610677B8507 /* Pods-TrainMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TrainMe/TrainMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4D9F78GB2;
 				FRAMEWORK_SEARCH_PATHS = (
