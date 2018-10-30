@@ -238,19 +238,9 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
             })
         }
         
-//        self.bookPlaceDetailSorted.forEach { (key) in
-//            print("yyyyyy\(key.getData())")
-//        }
-        
         print(self.dateList)
         print(self.trainerIdList)
         self.runDataFromDate()
-//        self.trainerObjects.forEach { (trainerObject) in
-//            trainerObject.bookPlaceDetail.forEach({ (bookDetail) in
-//                print("date: \(trainerObject.date) - trainer id : \(bookDetail.key) - \(bookDetail.startTrainTime)")
-//            })
-//        }
-//        print(trainerObjects)
     }
     
     func runDataFromDate() {

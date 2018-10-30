@@ -15,6 +15,7 @@ import GooglePlaces
 struct ExpandableData {
     
     var isExpanded: Bool
+    var date: String
     var pendingDetail: [PendingBookPlaceDetail]
 }
 
@@ -22,11 +23,18 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var progressTableView: UITableView!
+
+    var pendingDetailsCount: Int = 0
     
-    var pendingDataLists: [ExpandableData] = []
+    var pendingDataListsMatch: [ExpandableData] = []
+    var pendingDetails: [PendingBookPlaceDetail] = []
+    
     var ref: DatabaseReference!
     var currentUser: User!
     var placesClient: GMSPlacesClient!
+    var timeList: [String] = []
+    var timeListSorted: [Date] = []
+    
     
     var traineeObj: [String: UserProfile] = [:]
     var traineeIds: [String] = []
@@ -56,7 +64,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         self.traineeIds.removeAll()
         self.traineeObj.removeAll()
-        self.pendingDataLists.removeAll()
+        self.pendingDataListsMatch.removeAll()
+        self.pendingDetails.removeAll()
         
         self.getPendingDataList()
     }
@@ -74,6 +83,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.ref.child("pending_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 for pendingDataObjs in snapshot.children.allObjects as! [DataSnapshot] {
+                    print("pendingobjscount: \(pendingDataObjs.childrenCount)")
+                    self.pendingDetailsCount += Int(pendingDataObjs.childrenCount)
                     tempPendingData.removeAll()
                     let pendingDataObj = pendingDataObjs.value as! [String: NSDictionary]
                     print("aaa: \(pendingDataObj.values.count)")
@@ -87,41 +98,32 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
                         pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
                         tempPendingData.append(pendingData)
+
+                        self.pendingDetails.append(pendingData)
                         
                         if !self.courseIds.contains(pendingData.course_id) {
                             self.courseIds.append(pendingData.course_id)
+                            self.getCourseData(courseId: pendingData.course_id)
                         }
                         if !self.placeIds.contains(pendingData.place_id){
                             self.placeIds.append(pendingData.place_id)
+                            self.getPlaceData(placeId: pendingData.place_id)
                         }
                         if !self.traineeIds.contains(pendingData.trainee_id) {
                             self.traineeIds.append(pendingData.trainee_id)
+                            self.getTraineeData(uid: pendingData.trainee_id)
+                        }
+                        if !self.timeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {
+                            self.timeList.append("\(pendingData.start_train_date) \(pendingData.start_train_time)")
                         }
                     })
-                    self.pendingDataLists.append(ExpandableData(isExpanded: true, pendingDetail: tempPendingData))
-                    
-                    if self.pendingDataLists.count == snapshot.childrenCount {
-                        for traineeId in self.traineeIds {
-                            self.getTraineeData(uid: traineeId)
-                        }
-                        for courseId in self.courseIds {
-                            self.getCourseData(courseId: courseId)
-                        }
-                        for placeId in self.placeIds {
-                            self.getPlaceData(placeId: placeId)
-                        }
-                    }
                 }
+                
             }
-
-            self.pendingDataLists.forEach({ (val) in
-                print(val.isExpanded)
-                val.pendingDetail.forEach({ (pending) in
-                    print(pending.getData())
-                })
-                print("===")
-            })
-//            print(self.pendingDataLists)
+//            if self.pendingDetailsCount == self.pendingDetails.count {
+//                self.progressTableView.reloadData()
+//            }
+            
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -140,9 +142,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
                 self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
-                self.progressTableView.reloadData()
+                self.sortDate()
             }
-//            self.progressTableView.reloadData()
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -165,12 +166,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             }
 
             self.placeName[placeId] = place.name
+            
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
                 self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
-                self.progressTableView.reloadData()
+                self.sortDate()
             }
-
         }
     }
     
@@ -183,9 +184,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
                 self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
-                self.progressTableView.reloadData()
+                self.sortDate()
             }
-
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -206,31 +206,79 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if !self.pendingDataLists[section].isExpanded {
+        if !self.pendingDataListsMatch[section].isExpanded {
             return 0
         }
         
-        return pendingDataLists[section].pendingDetail.count
+        return pendingDataListsMatch[section].pendingDetail.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return pendingDataLists.count
+        return pendingDataListsMatch.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
 
-        cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataLists[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
-                           traineeName: self.traineeObj[self.pendingDataLists[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
-                           startDate: self.pendingDataLists[indexPath.section].pendingDetail[indexPath.row].start_train_date,
-                           startTime: self.pendingDataLists[indexPath.section].pendingDetail[indexPath.row].start_train_time,
+        cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
+                           traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
+                           startDate: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_date,
+                           startTime: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_time,
                            position: "\(indexPath.section)-\(indexPath.row)")
         return cell
     }
 
+    func sortDate() {
+        
+        var convertedArray: [Date] = []
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        for dat in self.timeList {
+            let date = dateFormatter.date(from: dat)
+            if let date = date {
+                convertedArray.append(date)
+            }
+        }
+        
+        self.timeListSorted = convertedArray.sorted(by: { $0.compare($1) == .orderedAscending })
+        self.matchPendingAndDate()
+        print(self.timeListSorted)
+    }
+    
+    func matchPendingAndDate() {
+        
+        var tempPendingDetail: [PendingBookPlaceDetail] = []
+        self.timeListSorted.forEach { (date) in
+            tempPendingDetail.removeAll()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/yyyy HH:mm"
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            let result = formatter.string(from: date)
+            self.pendingDetails.forEach({ (pendingBookDetail) in
+                if result == "\(pendingBookDetail.start_train_date) \(pendingBookDetail.start_train_time)" {
+                    tempPendingDetail.append(pendingBookDetail)
+                }
+            })
+            self.pendingDataListsMatch.append(ExpandableData(isExpanded: true, date: "\(result)", pendingDetail: tempPendingDetail))
+        }
+        self.progressTableView.reloadData()
+
+        
+        self.pendingDataListsMatch.forEach { (expandObj) in
+            print(expandObj.date)
+            expandObj.pendingDetail.forEach({ (pending) in
+                print(pending.getData())
+            })
+            print("hhhhhhhhhhhhhhhhhhhh")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.placeName[self.pendingDataLists[section].pendingDetail[0].place_id]
+        return self.placeName[self.pendingDataListsMatch[section].pendingDetail[0].place_id]
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -244,8 +292,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         headerBtn.translatesAutoresizingMaskIntoConstraints = false
 
         let label = UILabel()
-        label.text = self.placeName[self.pendingDataLists[section].pendingDetail[0].place_id]
-//        label.text = "kofiwkofogjneowlfekmgjnirekogjnrkojiokmfijkojnrfeikmjrhbefjikmijokmghrekojnre"
+        label.text = "\(self.pendingDataListsMatch[section].pendingDetail[0].start_train_date) \(self.pendingDataListsMatch[section].pendingDetail[0].start_train_time)"
         label.font = UIFont.boldSystemFont(ofSize: 14.0)
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -274,13 +321,13 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         let section = headerBtn.tag
 
         var indexPaths = [IndexPath]()
-        for row in self.pendingDataLists[section].pendingDetail.indices {
+        for row in self.pendingDataListsMatch[section].pendingDetail.indices {
             let indexPath = IndexPath(row: row, section: section)
             indexPaths.append(indexPath)
         }
 
-        let isExpanded = self.pendingDataLists[section].isExpanded
-        self.pendingDataLists[section].isExpanded = !isExpanded
+        let isExpanded = self.pendingDataListsMatch[section].isExpanded
+        self.pendingDataListsMatch[section].isExpanded = !isExpanded
         
         headerBtn.setTitle(isExpanded ? "Open" : "Close", for: .normal)
         
