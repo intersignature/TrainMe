@@ -23,8 +23,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var progressTableView: UITableView!
-
-    var pendingDetailsCount: Int = 0
     
     var pendingDataListsMatch: [ExpandableData] = []
     var pendingDetails: [PendingBookPlaceDetail] = []
@@ -34,7 +32,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     var placesClient: GMSPlacesClient!
     var timeList: [String] = []
     var timeListSorted: [Date] = []
-    
     
     var traineeObj: [String: UserProfile] = [:]
     var traineeIds: [String] = []
@@ -62,10 +59,16 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.traineeIds.removeAll()
-        self.traineeObj.removeAll()
         self.pendingDataListsMatch.removeAll()
         self.pendingDetails.removeAll()
+        self.timeList.removeAll()
+        self.timeListSorted.removeAll()
+        self.traineeObj.removeAll()
+        self.traineeIds.removeAll()
+        self.placeName.removeAll()
+        self.placeIds.removeAll()
+        self.courseName.removeAll()
+        self.courseIds.removeAll()
         
         self.getPendingDataList()
     }
@@ -84,7 +87,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             if snapshot.childrenCount > 0 {
                 for pendingDataObjs in snapshot.children.allObjects as! [DataSnapshot] {
                     print("pendingobjscount: \(pendingDataObjs.childrenCount)")
-                    self.pendingDetailsCount += Int(pendingDataObjs.childrenCount)
                     tempPendingData.removeAll()
                     let pendingDataObj = pendingDataObjs.value as! [String: NSDictionary]
                     print("aaa: \(pendingDataObj.values.count)")
@@ -194,42 +196,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         }
     }
     
-    func initSideMenu() {
-        
-        if revealViewController() != nil {
-            revealViewController().rearViewRevealWidth = 275
-            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            menuBtn.target = revealViewController()
-            menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
-        }
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if !self.pendingDataListsMatch[section].isExpanded {
-            return 0
-        }
-        
-        return pendingDataListsMatch[section].pendingDetail.count
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return pendingDataListsMatch.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
-
-        cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
-                           traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
-                           startDate: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_date,
-                           startTime: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_time,
-                           position: "\(indexPath.section)-\(indexPath.row)")
-        return cell
-    }
-
+    
     func sortDate() {
         
         var convertedArray: [Date] = []
@@ -262,20 +229,59 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.pendingDetails.forEach({ (pendingBookDetail) in
                 if result == "\(pendingBookDetail.start_train_date) \(pendingBookDetail.start_train_time)" {
                     tempPendingDetail.append(pendingBookDetail)
+                    self.pendingDetails.remove(at: self.pendingDetails.firstIndex(where: {$0 === pendingBookDetail})!)
+                    print("hhhhhhh")
+                    print(self.pendingDetails)
                 }
             })
             self.pendingDataListsMatch.append(ExpandableData(isExpanded: true, date: "\(result)", pendingDetail: tempPendingDetail))
         }
         self.progressTableView.reloadData()
-
         
-        self.pendingDataListsMatch.forEach { (expandObj) in
-            print(expandObj.date)
-            expandObj.pendingDetail.forEach({ (pending) in
-                print(pending.getData())
-            })
-            print("hhhhhhhhhhhhhhhhhhhh")
+        
+        //        self.pendingDataListsMatch.forEach { (expandObj) in
+        //            print(expandObj.date)
+        //            expandObj.pendingDetail.forEach({ (pending) in
+        //                print(pending.getData())
+        //            })
+        //            print("hhhhhhhhhhhhhhhhhhhh")
+        //        }
+    }
+    
+    func initSideMenu() {
+        
+        if revealViewController() != nil {
+            revealViewController().rearViewRevealWidth = 275
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            menuBtn.target = revealViewController()
+            menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
         }
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pendingDataListsMatch[section].pendingDetail.count
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return pendingDataListsMatch.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
+        
+        if self.pendingDataListsMatch.count == 0 {
+            self.getPendingDataList()
+        } else {
+            cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
+                                traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
+                                startDate: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_date,
+                                startTime: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_time,
+                                position: "\(indexPath.section)-\(indexPath.row)")
+        }
+
+        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

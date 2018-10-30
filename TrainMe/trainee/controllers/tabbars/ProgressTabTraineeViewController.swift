@@ -22,6 +22,10 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     var placesClient: GMSPlacesClient!
     
     var pendingData: [PendingBookPlaceDetail] = []
+    var pendingDataSortedDate: [PendingBookPlaceDetail] = []
+    
+    var timeList: [String] = []
+    var timeListSorted: [Date] = []
     
     var trainerId: [String] = []
     var trainerObj: [String: UserProfile] = [:]
@@ -44,10 +48,25 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         self.currentUser = Auth.auth().currentUser
         
         self.initSideMenu()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.pendingData.removeAll()
+        self.pendingDataSortedDate.removeAll()
+        self.timeList.removeAll()
+        self.timeListSorted.removeAll()
+        self.trainerId.removeAll()
+        self.trainerObj.removeAll()
+        self.courseId.removeAll()
+        self.courseName.removeAll()
+        self.placeId.removeAll()
+        self.placeName.removeAll()
         
         self.getPendingObj()
     }
-
+    
     func getPendingObj() {
         
         self.ref.child("pending_schedule_detail").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -76,13 +95,12 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                 self.placeId.append(bookDetailInfo["place_id"] as! String)
                                 self.getPlaceName(placeId: bookDetailInfo["place_id"] as! String)
                             }
+                            if !self.timeList.contains("\(bookDetailInfo["start_train_date"] as! String) \(bookDetailInfo["start_train_time"] as! String)") {
+                                self.timeList.append("\(bookDetailInfo["start_train_date"] as! String) \(bookDetailInfo["start_train_time"] as! String)")
+                            }
                         }
                     })
                 })
-            })
-            self.pendingData.forEach({ (pendingBookDetail) in
-                print(pendingBookDetail.getData())
-                print("=======================================")
             })
         }) { (err) in
             print(err.localizedDescription)
@@ -107,7 +125,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             if self.trainerId.count == self.trainerObj.count && self.trainerId.count != 0 &&
                 self.courseId.count == self.courseName.count && self.courseId.count != 0 &&
                 self.placeId.count == self.placeName.count && self.placeId.count != 0 {
-                self.pendingTableView.reloadData()
+                self.sortDate()
             }
         }) { (err) in
             print(err.localizedDescription)
@@ -125,7 +143,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             if self.trainerId.count == self.trainerObj.count && self.trainerId.count != 0 &&
                 self.courseId.count == self.courseName.count && self.courseId.count != 0 &&
                 self.placeId.count == self.placeName.count && self.placeId.count != 0 {
-                self.pendingTableView.reloadData()
+                self.sortDate()
             }
         }) { (err) in
             print(err.localizedDescription)
@@ -153,9 +171,52 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             if self.trainerId.count == self.trainerObj.count && self.trainerId.count != 0 &&
                 self.courseId.count == self.courseName.count && self.courseId.count != 0 &&
                 self.placeId.count == self.placeName.count && self.placeId.count != 0 {
-                self.pendingTableView.reloadData()
+                self.sortDate()
             }
         }
+    }
+    
+    func sortDate() {
+        
+        var convertedArray: [Date] = []
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        for dat in self.timeList {
+            let date = dateFormatter.date(from: dat)
+            if let date = date {
+                convertedArray.append(date)
+            }
+        }
+        
+        self.timeListSorted = convertedArray.sorted(by: { $0.compare($1) == .orderedAscending })
+        self.matchPendingAndDate()
+        print(self.timeListSorted)
+    }
+    
+    func matchPendingAndDate() {
+        
+        self.timeListSorted.forEach { (date) in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/yyyy HH:mm"
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            let result = formatter.string(from: date)
+            self.pendingData.forEach({ (pendingBookDetail) in
+                if result == "\(pendingBookDetail.start_train_date) \(pendingBookDetail.start_train_time)" {
+                    self.pendingDataSortedDate.append(pendingBookDetail)
+                    self.pendingData.remove(at: self.pendingData.firstIndex(where: {$0 === pendingBookDetail})!)
+                    print("@@@@@@@@@")
+                    print(self.pendingData)
+                }
+            })
+        }
+        self.pendingTableView.reloadData()
+//        print("@@@@@@")
+//        self.pendingDataSortedDate.forEach { (pending) in
+//            print(pending.getData())
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -165,18 +226,31 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.pendingData.count
+        return self.pendingDataSortedDate.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TraineeConfirmationTableViewCell") as! ConfirmationTableViewCell
-        cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.pendingData[indexPath.row].trainer_id]?.profileImageUrl)!,
-                           name: (self.trainerObj[self.pendingData[indexPath.row].trainer_id]?.fullName)!,
-                           startDate: self.pendingData[indexPath.row].start_train_date,
-                           startTime: self.pendingData[indexPath.row].start_train_time,
-                           courseName: self.courseName[self.pendingData[indexPath.row].course_id]!,
-                           placeName: self.placeName[self.pendingData[indexPath.row].place_id]!)
+        
+        do {
+            cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.pendingDataSortedDate[indexPath.row].trainer_id]?.profileImageUrl)!,
+                               name: (self.trainerObj[self.pendingDataSortedDate[indexPath.row].trainer_id]?.fullName)!,
+                               startDate: self.pendingDataSortedDate[indexPath.row].start_train_date,
+                               startTime: self.pendingDataSortedDate[indexPath.row].start_train_time,
+                               courseName: self.courseName[self.pendingDataSortedDate[indexPath.row].course_id]!,
+                               placeName: self.placeName[self.pendingDataSortedDate[indexPath.row].place_id]!)
+        } catch {
+            print(error.localizedDescription)
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Confirmation"
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     func initSideMenu() {
