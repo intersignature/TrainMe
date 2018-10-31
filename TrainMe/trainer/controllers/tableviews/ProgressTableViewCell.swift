@@ -12,17 +12,17 @@ class ProgressTableViewCell: UITableViewCell {
 
     @IBOutlet weak var traineeImg: UIImageView!
     @IBOutlet weak var traineeNameLb: UILabel!
-    @IBOutlet weak var startDateLb: UILabel!
-    @IBOutlet weak var startTime: UILabel!
+    @IBOutlet weak var courseName: UILabel!
+    @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var acceptBtn: UIButton!
     @IBOutlet weak var declineBtn: UIButton!
     
-    func setDataToCell(traineeImgLink: String, traineeName: String, startDate: String, startTime: String, position: String) {
+    func setDataToCell(traineeImgLink: String, traineeName: String, courseName: String, placeName: String, position: String) {
         
         self.traineeImg.downloaded(from: traineeImgLink)
         self.traineeNameLb.text = traineeName
-        self.startDateLb.text = startDate
-        self.startTime.text = startTime
+        self.courseName.text = courseName
+        self.placeName.text = placeName
         self.acceptBtn.accessibilityLabel = position
         self.declineBtn.accessibilityLabel = position
         

@@ -260,6 +260,10 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if !self.pendingDataListsMatch[section].isExpanded {
+            return 0
+        }
         return pendingDataListsMatch[section].pendingDetail.count
     }
 
@@ -271,16 +275,13 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
         
-        if self.pendingDataListsMatch.count == 0 {
-            self.getPendingDataList()
-        } else {
-            cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
-                                traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
-                                startDate: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_date,
-                                startTime: self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].start_train_time,
-                                position: "\(indexPath.section)-\(indexPath.row)")
-            //Course name: self.courseName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!
-        }
+        cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
+                           traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
+                           courseName: self.courseName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!,
+                           placeName: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!,
+                           position: "\(indexPath.section)-\(indexPath.row)")
+        //Course name: self.courseName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!
+        //Place name: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!
 
         return cell
     }

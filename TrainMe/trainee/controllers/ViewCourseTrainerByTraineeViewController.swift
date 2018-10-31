@@ -100,6 +100,8 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
         
         self.ref.child("pending_schedule_detail").child(self.selectedBookDetail.trainerId).child(self.selectedBookDetail.key).child(self.currentUser.uid).updateChildValues(mainData) { (err, ref) in
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return

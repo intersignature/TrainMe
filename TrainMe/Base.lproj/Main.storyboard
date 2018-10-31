@@ -1039,15 +1039,15 @@ TrainMe’s Privacy Policy</string>
                                 <rect key="frame" x="0.0" y="114" width="414" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProgressCell" rowHeight="92" id="LCw-tt-cS7" customClass="ProgressTableViewCell" customModule="TrainMe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="92"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProgressCell" rowHeight="110" id="LCw-tt-cS7" customClass="ProgressTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LCw-tt-cS7" id="hmu-Mo-3wP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="91.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D19-J1-uza">
-                                                    <rect key="frame" x="20" y="19.333333333333329" width="62" height="62"/>
+                                                    <rect key="frame" x="20" y="19" width="62" height="62"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="D19-J1-uza" secondAttribute="height" multiplier="1:1" id="JUP-9U-mhx"/>
@@ -1056,62 +1056,63 @@ TrainMe’s Privacy Policy</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gcI-af-rC1">
-                                                    <rect key="frame" x="90" y="13.333333333333336" width="304" height="22"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/18/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="rWc-sW-fZA">
-                                                    <rect key="frame" x="90" y="39.333333333333336" width="74" height="19"/>
-                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="DF2-RT-XbB">
-                                                    <rect key="frame" x="184" y="39.333333333333336" width="35.666666666666657" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="rWc-sW-fZA">
+                                                    <rect key="frame" x="90" y="37" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGD-rV-tVm">
-                                                    <rect key="frame" x="90" y="62.333333333333343" width="49" height="30"/>
+                                                    <rect key="frame" x="90" y="79.666666666666671" width="49" height="30"/>
                                                     <state key="normal" title="Accept"/>
                                                     <connections>
                                                         <action selector="acceptBtnAction:" destination="LCw-tt-cS7" eventType="touchUpInside" id="2Wi-Nz-GRL"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMF-jC-QeN">
-                                                    <rect key="frame" x="159" y="62.333333333333343" width="52" height="30"/>
+                                                    <rect key="frame" x="159" y="79.666666666666671" width="52" height="30"/>
                                                     <state key="normal" title="Decline"/>
                                                     <connections>
                                                         <action selector="declineBtnAction:" destination="LCw-tt-cS7" eventType="touchUpInside" id="MyS-ki-WsA"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="DF2-RT-XbB">
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="304" height="19.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hGD-rV-tVm" firstAttribute="top" secondItem="rWc-sW-fZA" secondAttribute="bottom" constant="4" id="2ZN-Ct-Yaq"/>
-                                                <constraint firstItem="rWc-sW-fZA" firstAttribute="top" secondItem="gcI-af-rC1" secondAttribute="bottom" constant="4" id="9Rl-3j-cUL"/>
-                                                <constraint firstItem="rWc-sW-fZA" firstAttribute="leading" secondItem="D19-J1-uza" secondAttribute="trailing" constant="8" id="F6E-Pv-ihd"/>
-                                                <constraint firstItem="pMF-jC-QeN" firstAttribute="top" secondItem="rWc-sW-fZA" secondAttribute="bottom" constant="4" id="KP9-pN-D65"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="D19-J1-uza" secondAttribute="bottom" constant="8" id="LUz-Zl-VKe"/>
-                                                <constraint firstItem="pMF-jC-QeN" firstAttribute="leading" secondItem="hGD-rV-tVm" secondAttribute="trailing" constant="20" id="MRI-1e-aqK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="gcI-af-rC1" secondAttribute="trailing" id="OUt-fL-jmB"/>
-                                                <constraint firstItem="DF2-RT-XbB" firstAttribute="leading" secondItem="rWc-sW-fZA" secondAttribute="trailing" constant="20" id="Vbv-V4-DaV"/>
-                                                <constraint firstItem="gcI-af-rC1" firstAttribute="leading" secondItem="D19-J1-uza" secondAttribute="trailing" constant="8" id="Ykh-kb-slP"/>
-                                                <constraint firstItem="DF2-RT-XbB" firstAttribute="top" secondItem="gcI-af-rC1" secondAttribute="bottom" constant="4" id="coB-24-SxY"/>
-                                                <constraint firstItem="D19-J1-uza" firstAttribute="top" secondItem="hmu-Mo-3wP" secondAttribute="topMargin" constant="8" id="gOI-2r-eoz"/>
-                                                <constraint firstAttribute="bottom" secondItem="pMF-jC-QeN" secondAttribute="bottom" id="np6-GO-Z69"/>
-                                                <constraint firstItem="gcI-af-rC1" firstAttribute="top" secondItem="hmu-Mo-3wP" secondAttribute="topMargin" constant="2" id="nw0-y5-qgb"/>
-                                                <constraint firstItem="hGD-rV-tVm" firstAttribute="leading" secondItem="D19-J1-uza" secondAttribute="trailing" constant="8" id="oJH-Tb-kmq"/>
-                                                <constraint firstItem="D19-J1-uza" firstAttribute="leading" secondItem="hmu-Mo-3wP" secondAttribute="leadingMargin" id="pWN-z6-9Iv"/>
-                                                <constraint firstAttribute="bottom" secondItem="hGD-rV-tVm" secondAttribute="bottom" id="zIU-HG-nEO"/>
+                                                <constraint firstItem="pMF-jC-QeN" firstAttribute="top" secondItem="DF2-RT-XbB" secondAttribute="bottom" id="2mj-cp-bgd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gcI-af-rC1" secondAttribute="trailing" id="4Uq-fF-1Aa"/>
+                                                <constraint firstAttribute="bottom" secondItem="pMF-jC-QeN" secondAttribute="bottom" id="57K-KS-AUN"/>
+                                                <constraint firstItem="pMF-jC-QeN" firstAttribute="leading" secondItem="hGD-rV-tVm" secondAttribute="trailing" constant="20" id="8ty-s7-hU7"/>
+                                                <constraint firstItem="hGD-rV-tVm" firstAttribute="top" secondItem="DF2-RT-XbB" secondAttribute="bottom" id="97u-KR-uTJ"/>
+                                                <constraint firstItem="rWc-sW-fZA" firstAttribute="leading" secondItem="D19-J1-uza" secondAttribute="trailing" constant="8" id="GKa-Sv-Lsq"/>
+                                                <constraint firstItem="hGD-rV-tVm" firstAttribute="leading" secondItem="D19-J1-uza" secondAttribute="trailing" constant="8" id="Oy8-L9-aGq"/>
+                                                <constraint firstItem="rWc-sW-fZA" firstAttribute="top" secondItem="gcI-af-rC1" secondAttribute="bottom" constant="4" id="PuC-Qg-ycg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rWc-sW-fZA" secondAttribute="trailing" id="UXc-fC-xiU"/>
+                                                <constraint firstItem="gcI-af-rC1" firstAttribute="top" secondItem="hmu-Mo-3wP" secondAttribute="topMargin" id="Ukh-h6-QBI"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DF2-RT-XbB" secondAttribute="trailing" id="WMt-Ph-QfY"/>
+                                                <constraint firstItem="D19-J1-uza" firstAttribute="leading" secondItem="hmu-Mo-3wP" secondAttribute="leadingMargin" id="Y6F-Ez-cga"/>
+                                                <constraint firstAttribute="bottom" secondItem="hGD-rV-tVm" secondAttribute="bottom" id="Zdb-SG-FBN"/>
+                                                <constraint firstItem="gcI-af-rC1" firstAttribute="leading" secondItem="D19-J1-uza" secondAttribute="trailing" constant="8" id="mQb-17-Pdv"/>
+                                                <constraint firstItem="D19-J1-uza" firstAttribute="top" secondItem="hmu-Mo-3wP" secondAttribute="topMargin" constant="8" id="uaH-Kw-0ad"/>
+                                                <constraint firstItem="DF2-RT-XbB" firstAttribute="leading" secondItem="D19-J1-uza" secondAttribute="trailing" constant="8" id="xa2-UX-i10"/>
+                                                <constraint firstItem="DF2-RT-XbB" firstAttribute="top" secondItem="rWc-sW-fZA" secondAttribute="bottom" constant="4" id="zR8-H2-cMv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="acceptBtn" destination="hGD-rV-tVm" id="PDE-ES-4CO"/>
+                                            <outlet property="courseName" destination="rWc-sW-fZA" id="xFi-Fg-LrQ"/>
                                             <outlet property="declineBtn" destination="pMF-jC-QeN" id="9JE-tn-s28"/>
-                                            <outlet property="startDateLb" destination="rWc-sW-fZA" id="V0S-RU-Xhs"/>
-                                            <outlet property="startTime" destination="DF2-RT-XbB" id="ncu-S4-Tli"/>
+                                            <outlet property="placeName" destination="DF2-RT-XbB" id="UxX-Yg-QGh"/>
                                             <outlet property="traineeImg" destination="D19-J1-uza" id="8iV-tJ-cDo"/>
                                             <outlet property="traineeNameLb" destination="gcI-af-rC1" id="dXW-Zv-EwK"/>
                                         </connections>
@@ -1588,49 +1589,49 @@ detail</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wB-IH-cEv" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="34" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="34" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyx-IA-iga">
-                                                <rect key="frame" x="34.000000000000007" y="74" width="103.66666666666669" height="20.666666666666671"/>
+                                                <rect key="frame" x="34.000000000000007" y="71" width="103.66666666666669" height="17.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SMc-Le-8Tw" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="225.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="219.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course language" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjK-QI-nBj" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="425.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="404.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course duration" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D51-1P-JMx" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="305.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="293.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course level" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHD-Af-OQl" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="345.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="330.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtd-jz-mZx" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="385.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="367.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj4-Sn-l8E">
-                                                <rect key="frame" x="92" y="516" width="230" height="32"/>
+                                                <rect key="frame" x="92" y="492" width="230" height="29"/>
                                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="ZTL-MP-pbP"/>
@@ -1644,7 +1645,7 @@ detail</string>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Course detail ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-6P-ftp">
-                                                <rect key="frame" x="34" y="99.666666666666657" width="346" height="111"/>
+                                                <rect key="frame" x="34" y="93.666666666666657" width="346" height="111"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="111" id="Lur-Qg-5wM"/>
@@ -1653,7 +1654,7 @@ detail</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Time of course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joD-UR-735" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="265.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="256.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -2283,49 +2284,49 @@ detail</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5gJ-F5-3bL" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="34" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="34" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfG-yu-3Vy">
-                                                <rect key="frame" x="34.000000000000007" y="74" width="103.66666666666669" height="20.666666666666671"/>
+                                                <rect key="frame" x="34.000000000000007" y="71" width="103.66666666666669" height="17.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FsV-Sg-WXI" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="225.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="219.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course language" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99w-Ji-EEQ" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="425.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="404.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course duration" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ah-qM-by1" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="305.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="293.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course level" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="so3-YO-boF" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="345.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="330.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Course price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r2c-Xy-i2x" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="385.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="367.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTd-1o-xEQ">
-                                                <rect key="frame" x="92" y="516" width="230" height="32"/>
+                                                <rect key="frame" x="92" y="492" width="230" height="29"/>
                                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="cfq-3J-lIW"/>
@@ -2339,7 +2340,7 @@ detail</string>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Course detail ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FDe-jT-BTc">
-                                                <rect key="frame" x="34" y="99.666666666666657" width="346" height="111"/>
+                                                <rect key="frame" x="34" y="93.666666666666657" width="346" height="111"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="111" id="SUC-X8-YNG"/>
@@ -2348,7 +2349,7 @@ detail</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Time of course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B96-Mh-itR" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="265.66666666666669" width="346" height="25"/>
+                                                <rect key="frame" x="34" y="256.66666666666669" width="346" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -2539,7 +2540,7 @@ detail</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-cZ-xoI">
-                                                    <rect key="frame" x="20" y="27.666666666666671" width="62" height="62"/>
+                                                    <rect key="frame" x="20" y="27.333333333333329" width="62" height="62"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9R2-cZ-xoI" secondAttribute="height" multiplier="1:1" id="f59-Fl-vmK"/>
@@ -2548,31 +2549,31 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XF-vi-6Hr">
-                                                    <rect key="frame" x="90" y="11" width="116.33333333333331" height="22"/>
+                                                    <rect key="frame" x="90" y="11.000000000000002" width="110" height="18.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/27/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uB-R0-J3Z">
-                                                    <rect key="frame" x="90" y="37" width="74" height="20"/>
+                                                    <rect key="frame" x="90" y="33.666666666666664" width="71.666666666666686" height="16.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sve-uC-pMT">
-                                                    <rect key="frame" x="90" y="61" width="87" height="20"/>
+                                                    <rect key="frame" x="90" y="54" width="87" height="16.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmv-iI-IqT">
-                                                    <rect key="frame" x="90" y="85" width="39.666666666666657" height="20"/>
+                                                    <rect key="frame" x="90" y="74.333333333333343" width="41" height="16.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02:47" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgK-sk-efD">
-                                                    <rect key="frame" x="184" y="37" width="36" height="20"/>
+                                                    <rect key="frame" x="181.66666666666666" y="33.666666666666664" width="36" height="16.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
