@@ -95,6 +95,9 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     
     @IBAction func AddBtnAction(_ sender: UIButton) {
         
+        self.dismissKeyboard()
+        self.view.showBlurLoader()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         addCourseToDatabase()
     }
     
@@ -186,6 +189,9 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         let courseLanguage = courseLanguageTf.text
         
         if !checkTextfield(course_name: courseName!, course_content: courseContent!, course_type: courseType!, time_of_course: timeOfCourse!, course_duration: courseDuration!, course_level: courseLevel!, course_price: coursePrice!, course_language: courseLanguage!) {
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            createAlert(alertTitle: "Please enter in blank field", alertMessage: "")
             return
         }
         
@@ -201,13 +207,19 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
                                 "course_language": courseLanguage]
         
         Database.database().reference().child("courses").child(uid).childByAutoId().updateChildValues(dictionaryValues) { (err, reference) in
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
             if let err = err {
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
             print("successfully add course to database")
-            self.dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title: "Successfully add course to database", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
     
         }
     }
@@ -217,8 +229,6 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         if course_name == "" || course_content == "" || course_type == "" || time_of_course == "" ||
             course_duration == "" || course_level == "" || course_price == "" || course_language == "" {
-            
-            createAlert(alertTitle: "Please enter in blank field", alertMessage: "")
             return false
         }
         return true

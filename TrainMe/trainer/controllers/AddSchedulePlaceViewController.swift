@@ -149,11 +149,16 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
     
     @IBAction func scheduleBtnAction(_ sender: UIButton) {
         
+        self.view.showBlurLoader()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         let date = dateTf.text ?? ""
         let time = timeTf.text ?? ""
         
 
         if !checkData(date: date, time: time){
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.createAlert(alertTitle: "Please fill in the blank", alertMessage: "")
             return
         }
@@ -176,13 +181,20 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
                                     "start_train_time": time]
         
         ref.child("schedule_place_books").child(place.placeID).child(uid).childByAutoId().updateChildValues(scheduleDetailDicVal) { (err, ref) in
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
             if let err = err {
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
+            
             print("successfully add schedule place book to database")
-            self.dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title: "Successfully add schedule place book to database", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                 self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }

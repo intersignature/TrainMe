@@ -184,6 +184,10 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
 
     @IBAction func editBtnAction(_ sender: UIButton) {
         
+        self.dismissKeyboard()
+        self.view.showBlurLoader()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         let courseName = self.courseName.text
         let courseContent = self.courseDetail.text
         let courseType = self.courseType.text
@@ -194,6 +198,9 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
         let courseLanguage = self.courseLanguage.text
 
         if !checkTextfield(course_name: courseName!, course_content: courseContent!, course_type: courseType!, time_of_course: timeOfCourse!, course_duration: courseDuration!, course_level: courseLevel!, course_price: coursePrice!, course_language: courseLanguage!) {
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            createAlert(alertTitle: "Please enter in blank field", alertMessage: "")
             return
         }
 
@@ -208,15 +215,24 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
 
         let uid = self.currentUser?.uid
         ref.child("courses").child(uid!).child(course.key).updateChildValues(dictionaryValues) { (err, ref) in
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
             if let err = err {
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-        }
+        
         print("successfully edit course to database")
-        self.course = Course(key: course.key, course: courseName!, courseContent: courseContent!, courseType: courseType!, timeOfCourse: timeOfCourse!, courseDuration: courseDuration!, courseLevel: courseLevel!, coursePrice: coursePrice!, courseLanguage: courseLanguage!)
-        self.dismiss(animated: true, completion: nil)
+        
+        let alert = UIAlertController(title: "Successfully edit course to database", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        self.course = Course(key: self.course.key, course: courseName!, courseContent: courseContent!, courseType: courseType!, timeOfCourse: timeOfCourse!, courseDuration: courseDuration!, courseLevel: courseLevel!, coursePrice: coursePrice!, courseLanguage: courseLanguage!)
+        }
     }
     
     func checkTextfield(course_name: String, course_content: String, course_type: String, time_of_course: String,
@@ -224,8 +240,6 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
 
         if course_name == "" || course_content == "" || course_type == "" || time_of_course == "" ||
             course_duration == "" || course_level == "" || course_price == "" || course_language == "" {
-
-            createAlert(alertTitle: "Please enter in blank field", alertMessage: "")
             return false
         }
         return true
