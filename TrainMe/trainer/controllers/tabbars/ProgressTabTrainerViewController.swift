@@ -99,6 +99,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         pendingData.place_id = pendingDataObjVal["place_id"] as! String
                         pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
                         pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
+                        pendingData.trainer_id = self.currentUser.uid
                         tempPendingData.append(pendingData)
 
                         self.pendingDetails.append(pendingData)
@@ -280,10 +281,109 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                            courseName: self.courseName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!,
                            placeName: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!,
                            position: "\(indexPath.section)-\(indexPath.row)")
-        //Course name: self.courseName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!
-        //Place name: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!
+        
+        cell.acceptBtn.addTarget(self, action: #selector(self.acceptBtnAction(acceptBtn:)), for: .touchUpInside)
+        cell.declineBtn.addTarget(self, action: #selector(self.declineBtnAction(declineBtn:)), for: .touchUpInside)
 
         return cell
+    }
+    
+    @objc func acceptBtnAction(acceptBtn: UIButton) {
+        
+        let acceptIndexPath = IndexPath(row: Int(acceptBtn.accessibilityLabel!.components(separatedBy: "-")[1])!, section: Int(acceptBtn.accessibilityLabel!.components(separatedBy: "-")[0])!)
+        
+        let alert = UIAlertController(title: "Accept?", message: "", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            
+            self.view.showBlurLoader()
+            self.tabBarController?.tabBar.isHidden = true
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            
+            print("Accept OK at pos: section: \(acceptIndexPath.section) row: \(acceptIndexPath.row)")
+            print(self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row].trainer_id)
+ 
+            self.addProgressData(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
+            self.deleteSchedulePlaceBook(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
+            self.deletePendingData(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row], indexPath: acceptIndexPath)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func declineBtnAction(declineBtn: UIButton) {
+        
+        let declineIndexPath = IndexPath(row: Int(declineBtn.accessibilityLabel!.components(separatedBy: "-")[1])!, section: Int(declineBtn.accessibilityLabel!.components(separatedBy: "-")[0])!)
+        
+        let alert = UIAlertController(title: "Decline?", message: "", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            
+            self.view.showBlurLoader()
+            self.tabBarController?.tabBar.isHidden = true
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            
+            print("Decline OK at pos: section: \(declineIndexPath.section) row: \(declineIndexPath.row)")
+            self.deletePendingData(pendingData: self.pendingDataListsMatch[declineIndexPath.section].pendingDetail[declineIndexPath.row], indexPath: declineIndexPath)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func addProgressData(pendingData: PendingBookPlaceDetail) {
+        
+        let mainData = ["course_id": pendingData.course_id,
+                        "place_id": pendingData.place_id,
+                        "transaction_to_admin": "-1"]
+        
+        self.ref.child("progress_schedule_detail").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).updateChildValues(mainData) { (err, progressRef) in
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+        }
+    }
+    
+    func deleteSchedulePlaceBook(pendingData: PendingBookPlaceDetail) {
+        print(pendingData.schedule_key)
+        self.ref.child("schedule_place_books").child(pendingData.place_id).child(pendingData.trainer_id).child(pendingData.schedule_key).removeValue { (err, scheduleRef) in
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+        }
+    }
+    
+    func deletePendingData(pendingData: PendingBookPlaceDetail, indexPath: IndexPath) {
+        
+        self.ref.child("pending_schedule_detail").child(pendingData.trainer_id).child(pendingData.schedule_key).child(pendingData.trainee_id).removeValue { (err, pendingRef) in
+            
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.tabBarController?.tabBar.isHidden = false
+            
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            
+            self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
+            if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
+                self.pendingDataListsMatch.remove(at: indexPath.section)
+            }
+            self.progressTableView.reloadData()
+//            self.progressTableView.beginUpdates()
+//            if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
+//
+//                self.pendingDataListsMatch.remove(at: indexPath.section)
+//                let indexSet = IndexSet(integer: indexPath.section)
+//                self.progressTableView.deleteSections(indexSet, with: .fade)
+//            } else {
+//                self.progressTableView.deleteRows(at: [indexPath], with: .fade)
+//            }
+//            self.progressTableView.endUpdates()
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

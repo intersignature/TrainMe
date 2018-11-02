@@ -31,11 +31,11 @@ class ProgressTableViewCell: UITableViewCell {
     
     
     @IBAction func acceptBtnAction(_ sender: UIButton) {
-        print(sender.accessibilityLabel)
+//        print(sender.accessibilityLabel)
     }
     
     @IBAction func declineBtnAction(_ sender: UIButton) {
-        print(sender.accessibilityLabel)
+//        print(sender.accessibilityLabel)
     }
     
     func setProfileImageRound() {
