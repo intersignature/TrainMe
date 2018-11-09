@@ -39,7 +39,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     var placeName: [String: String] = [:]
     var placeIds: [String] = []
     
-    var courseName: [String: String] = [:]
+    var courseObj: [String: Course] = [:]
     var courseIds: [String] = []
     
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.traineeIds.removeAll()
         self.placeName.removeAll()
         self.placeIds.removeAll()
-        self.courseName.removeAll()
+        self.courseObj.removeAll()
         self.courseIds.removeAll()
         
         self.getPendingDataList()
@@ -143,7 +143,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             let tempUserProfile = UserProfile(fullName: (value["name"] as! String), email: (value["email"] as! String), dateOfBirth: (value["dateOfBirth"] as! String), weight: (value["weight"] as! String), height: (value["height"] as! String), gender: (value["gender"] as! String), role: (value["role"] as! String), profileImageUrl: (value["profileImageUrl"] as! String), uid: uid)
             self.traineeObj[uid] = tempUserProfile
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
-                self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
+                self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
                 self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
                 self.sortDate()
             }
@@ -172,7 +172,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.placeName[placeId] = place.name
             
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
-                self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
+                self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
                 self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
                 self.sortDate()
             }
@@ -184,9 +184,19 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.ref.child("courses").child(self.currentUser.uid).child(courseId).observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as! NSDictionary
-            self.courseName[courseId] = (value["course_name"] as! String)
+//            self.courseName[courseId] = (value["course_name"] as! String)
+            let course = Course(key: courseId,
+                                course: (value["course_name"] as! String),
+                                courseContent: (value["course_content"] as! String),
+                                courseType: (value["course_type"] as! String),
+                                timeOfCourse: (value["time_of_course"] as! String),
+                                courseDuration: (value["course_duration"] as! String),
+                                courseLevel: (value["course_level"] as! String),
+                                coursePrice: (value["course_price"] as! String),
+                                courseLanguage: (value["course_language"] as! String))
+            self.courseObj[courseId] = course
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
-                self.courseName.count == self.courseIds.count && self.courseName.count != 0 &&
+                self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
                 self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
                 self.sortDate()
             }
@@ -278,7 +288,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
                            traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
-                           courseName: self.courseName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!,
+                           courseName: self.courseObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!.course,
                            placeName: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!,
                            position: "\(indexPath.section)-\(indexPath.row)")
         
@@ -334,12 +344,41 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         "place_id": pendingData.place_id,
                         "transaction_to_admin": "-1"]
         
+        var subData: [String: Any] = [:]
+        
+        for i in 1...Int((self.courseObj[pendingData.course_id]?.timeOfCourse)!)! {
+            
+            if i == 1 {
+                
+                let timeSchedule = ["start_train_date": pendingData.start_train_date,
+                                       "start_train_time": pendingData.start_train_time,
+                                       "status": "1",
+                                       "transaction_to_trainer": "-1"]
+                subData["\(i)"] = timeSchedule
+            } else {
+                
+                let timeSchedule = ["start_train_date": "-1",
+                                    "start_train_time": "-1",
+                                    "status": "1",
+                                    "transaction_to_trainer": "-1"]
+                subData["\(i)"] = timeSchedule
+            }
+        }
+        
+        print(subData)
         self.ref.child("progress_schedule_detail").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).updateChildValues(mainData) { (err, progressRef) in
             if let err = err {
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
+            progressRef.updateChildValues(subData, withCompletionBlock: { (err1, subRef) in
+                if let err1 = err1 {
+                    print(err1.localizedDescription)
+                    self.createAlert(alertTitle: err1.localizedDescription, alertMessage: "")
+                    return
+                }
+            })
         }
     }
     
