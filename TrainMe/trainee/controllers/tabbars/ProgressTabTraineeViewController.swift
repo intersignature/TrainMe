@@ -181,7 +181,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         var convertedArray: [Date] = []
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         
         for dat in self.timeList {
@@ -200,7 +200,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         
         self.timeListSorted.forEach { (date) in
             let formatter = DateFormatter()
-            formatter.dateFormat = "MM/dd/yyyy HH:mm"
+            formatter.dateFormat = "dd/MM/yyyy HH:mm"
             formatter.locale = Locale(identifier: "en_US_POSIX")
             let result = formatter.string(from: date)
             self.pendingData.forEach({ (pendingBookDetail) in
