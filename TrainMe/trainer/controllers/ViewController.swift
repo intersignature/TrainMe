@@ -96,7 +96,13 @@ class ViewController: UIViewController {
             } else {
 //                self.dismiss(animated: false, completion: nil)
                 self.view.removeBluerLoader()
-                self.performSegue(withIdentifier: "WelcomeToMain", sender: nil)
+                let value = snapshot.value as! NSDictionary
+                let role = value["role"] as! String
+                if role == "trainee" {
+                    self.performSegue(withIdentifier: "WelcomeToMainTrainee", sender: nil)
+                } else if role == "trainer" {
+                    self.performSegue(withIdentifier: "WelcomeToMainTrainer", sender: nil)
+                }
             }
 //            self.fetchFacebookUser()
         }
@@ -115,7 +121,8 @@ class ViewController: UIViewController {
                 self.name = json["name"].string
                 self.email = json["email"].string
                 self.gender = json["gender"].string
-                self.dateOfBirth = json["birthday"].string
+                let tempDateOfBirth = json["birthday"].string?.split(separator: "/")
+                self.dateOfBirth = "\(tempDateOfBirth![1])/\(tempDateOfBirth![0])/\(tempDateOfBirth![2])"
                 guard let profilePictureUrl = json["picture"]["data"]["url"].string else {return}
                 print(json["picture"].string)
                 guard let url = URL(string: profilePictureUrl) else {return}

@@ -81,9 +81,10 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
     @objc func dateChange(datePicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en")
-        dateFormatter.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy")
     
-        dateTf.text = dateFormatter.string(from: datePicker.date)
+        let tempDate = dateFormatter.string(from: datePicker.date).split(separator: "/")
+        dateTf.text = "\(tempDate[1])/\(tempDate[0])/\(tempDate[2])"
     }
     
     @objc func timeChange(datePicker: UIDatePicker) {

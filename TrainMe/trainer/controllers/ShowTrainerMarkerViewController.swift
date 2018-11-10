@@ -72,8 +72,8 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var dateSplit = trainerObjects[section].date.split(separator: "/")
-        return "\(dateSplit[1])/\(dateSplit[0])/\(dateSplit[2])"
+//        var dateSplit = trainerObjects[section].date.split(separator: "/")
+        return trainerObjects[section].date
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,6 +91,11 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         let tapGesture = UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:)))
         cell.trainerImg.addGestureRecognizer(tapGesture)
         cell.delegate = self
+        
+        if indexPath.section == 5 {
+            print("temptime: \(tempTimes)")
+        }
+        
         cell.setDataToCell(trainerProfile: trainerProfiles[trainerIdList.firstIndex(of: trainerObjects[indexPath.section].trainerList[indexPath.row])!], tag: indexPath.row, time: tempTimes, buttonIdPendingAlready: self.buttonIdPendingAlready)
         return cell
     }
@@ -203,7 +208,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         var convertedArray: [Date] = []
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         
         for dat in self.timeList {
