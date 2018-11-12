@@ -12,19 +12,17 @@ class ConfirmationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var trainerProfileImg: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
-    @IBOutlet weak var startDate: UILabel!
-    @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var courseName: UILabel!
     @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var cancelBtn: UIButton!
     
-    func setDataToCell(trainerProfileUrl: String, name: String, startDate: String, startTime: String, courseName: String, placeName: String) {
+    func setDataToCell(trainerProfileUrl: String, name: String, courseName: String, placeName: String, position: String) {
         
         self.trainerProfileImg.downloaded(from: trainerProfileUrl)
         self.nameLb.text = name
-        self.startDate.text = startDate
-        self.startTime.text = startTime
         self.courseName.text = courseName
         self.placeName.text = placeName
+        self.cancelBtn.accessibilityLabel = position
         
         self.setProfileImageRound()
     }

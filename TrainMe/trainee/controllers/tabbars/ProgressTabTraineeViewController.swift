@@ -22,7 +22,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     var placesClient: GMSPlacesClient!
     
     var pendingData: [PendingBookPlaceDetail] = []
-    var pendingDataSortedDate: [PendingBookPlaceDetail] = []
+    var expandableData: [ExpandableData] = []
     
     var timeList: [String] = []
     var timeListSorted: [Date] = []
@@ -54,7 +54,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         super.viewDidAppear(animated)
         
         self.pendingData.removeAll()
-        self.pendingDataSortedDate.removeAll()
+        self.expandableData.removeAll()
         self.timeList.removeAll()
         self.timeListSorted.removeAll()
         self.trainerId.removeAll()
@@ -198,25 +198,24 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     
     func matchPendingAndDate() {
         
+        var tempPendingDetail: [PendingBookPlaceDetail] = []
         self.timeListSorted.forEach { (date) in
+            tempPendingDetail.removeAll()
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy HH:mm"
             formatter.locale = Locale(identifier: "en_US_POSIX")
             let result = formatter.string(from: date)
             self.pendingData.forEach({ (pendingBookDetail) in
                 if result == "\(pendingBookDetail.start_train_date) \(pendingBookDetail.start_train_time)" {
-                    self.pendingDataSortedDate.append(pendingBookDetail)
+                    tempPendingDetail.append(pendingBookDetail)
                     self.pendingData.remove(at: self.pendingData.firstIndex(where: {$0 === pendingBookDetail})!)
                     print("@@@@@@@@@")
-                    print(self.pendingData)
                 }
             })
+            self.expandableData.append(ExpandableData(isExpanded: true, date: "\(result)", pendingDetail: tempPendingDetail))
+            print("pendingeiei: \(self.expandableData)")
         }
         self.pendingTableView.reloadData()
-//        print("@@@@@@")
-//        self.pendingDataSortedDate.forEach { (pending) in
-//            print(pending.getData())
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -226,31 +225,128 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.pendingDataSortedDate.count
+        if !self.expandableData[section].isExpanded {
+            return 0
+        }
+        return self.expandableData[section].pendingDetail.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TraineeConfirmationTableViewCell") as! ConfirmationTableViewCell
         
-        do {
-            cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.pendingDataSortedDate[indexPath.row].trainer_id]?.profileImageUrl)!,
-                               name: (self.trainerObj[self.pendingDataSortedDate[indexPath.row].trainer_id]?.fullName)!,
-                               startDate: self.pendingDataSortedDate[indexPath.row].start_train_date,
-                               startTime: self.pendingDataSortedDate[indexPath.row].start_train_time,
-                               courseName: self.courseName[self.pendingDataSortedDate[indexPath.row].course_id]!,
-                               placeName: self.placeName[self.pendingDataSortedDate[indexPath.row].place_id]!)
-        } catch {
-            print(error.localizedDescription)
-        }
+
+        cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.expandableData[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.profileImageUrl)!,
+                            name: (self.trainerObj[self.expandableData[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.fullName)!,
+                            courseName: self.courseName[self.expandableData[indexPath.section].pendingDetail[indexPath.row].course_id]!,
+                            placeName: self.placeName[self.expandableData[indexPath.section].pendingDetail[indexPath.row].place_id]!,
+                            position: "\(indexPath.section)-\(indexPath.row)")
+        
+        cell.cancelBtn.addTarget(self, action: #selector(self.cancelBtnActiob(cancelBtn:)), for: .touchUpInside)
         return cell
     }
     
+    @objc func cancelBtnActiob(cancelBtn: UIButton) {
+        
+        let cencelIndexPath = IndexPath(row: Int(cancelBtn.accessibilityLabel!.components(separatedBy: "-")[1])!, section: Int(cancelBtn.accessibilityLabel!.components(separatedBy: "-")[0])!)
+        
+        let alert = UIAlertController(title: "Cancel?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            
+            self.view.showBlurLoader()
+            self.tabBarController?.tabBar.isHidden = true
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            
+            self.deletePendingData(deletePendingIndexPath: cencelIndexPath)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func deletePendingData(deletePendingIndexPath: IndexPath) {
+        
+        let deletePendingData = self.expandableData[deletePendingIndexPath.section].pendingDetail[deletePendingIndexPath.row]
+        self.ref.child("pending_schedule_detail").child(deletePendingData.trainer_id).child(deletePendingData.schedule_key).child(self.currentUser.uid).removeValue { (err, ref) in
+            
+            self.view.removeBluerLoader()
+            self.tabBarController?.tabBar.isHidden = false
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            
+            self.expandableData[deletePendingIndexPath.section].pendingDetail.remove(at: deletePendingIndexPath.row)
+            if self.expandableData[deletePendingIndexPath.section].pendingDetail.count == 0 {
+                self.expandableData.remove(at: deletePendingIndexPath.section)
+            }
+            self.pendingTableView.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Confirmation"
+        return self.expandableData[section].date
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.expandableData.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerBtn = UIButton(type: .system)
+        headerBtn.setTitle("Close", for: .normal)
+        headerBtn.setTitleColor(.black, for: .normal)
+        headerBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        headerBtn.addTarget(self, action: #selector(self.handleExpandCollapse(headerBtn:)), for: .touchUpInside)
+        headerBtn.tag = section
+        headerBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        let label = UILabel()
+        label.text = self.expandableData[section].date
+        label.font = UIFont.boldSystemFont(ofSize: 14.0)
+        label.numberOfLines = 1
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        view.addSubview(label)
+        view.addSubview(headerBtn)
+        
+        let views = ["label": label, "button": headerBtn, "view": view]
+        
+        let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label(<=250)]-0-[button]-|", options: .alignAllCenterY, metrics: nil, views: views)
+        view.addConstraints(horizontallayoutContraints)
+        
+        let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+        view.addConstraint(verticalLayoutContraint)
+        
+        return view
+    }
+    
+    @objc func handleExpandCollapse(headerBtn: UIButton) {
+     
+        let section = headerBtn.tag
+        
+        var indexPaths = [IndexPath]()
+        for row in self.expandableData[section].pendingDetail.indices {
+            let indexPath = IndexPath(row: row, section: section)
+            indexPaths.append(indexPath)
+        }
+        
+        let isExpanded = self.expandableData[section].isExpanded
+        self.expandableData[section].isExpanded = !isExpanded
+        
+        headerBtn.setTitle(isExpanded ? "Open" : "Close", for: .normal)
+        
+        if isExpanded {
+            self.pendingTableView.deleteRows(at: indexPaths, with: .fade)
+        } else {
+            self.pendingTableView.insertRows(at: indexPaths, with: .fade)
+        }
+        
+        print("indexPaths: \(indexPaths)")
     }
     
     func initSideMenu() {
