@@ -314,7 +314,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
  
             self.addProgressData(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
             self.deleteSchedulePlaceBook(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
-            self.deletePendingData(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row], indexPath: acceptIndexPath)
+            self.deletePendingData(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row], indexPath: acceptIndexPath, from: "accept")
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -332,7 +332,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             
             print("Decline OK at pos: section: \(declineIndexPath.section) row: \(declineIndexPath.row)")
-            self.deletePendingData(pendingData: self.pendingDataListsMatch[declineIndexPath.section].pendingDetail[declineIndexPath.row], indexPath: declineIndexPath)
+            self.deletePendingData(pendingData: self.pendingDataListsMatch[declineIndexPath.section].pendingDetail[declineIndexPath.row], indexPath: declineIndexPath, from: "decline")
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -393,35 +393,63 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         }
     }
     
-    func deletePendingData(pendingData: PendingBookPlaceDetail, indexPath: IndexPath) {
+    func deletePendingData(pendingData: PendingBookPlaceDetail, indexPath: IndexPath, from: String) {
         
-        self.ref.child("pending_schedule_detail").child(pendingData.trainer_id).child(pendingData.schedule_key).child(pendingData.trainee_id).removeValue { (err, pendingRef) in
+        if from == "decline" {
             
-            self.view.removeBluerLoader()
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.tabBarController?.tabBar.isHidden = false
+            self.ref.child("pending_schedule_detail").child(pendingData.trainer_id).child(pendingData.schedule_key).child(pendingData.trainee_id).removeValue { (err, pendingRef) in
             
-            if let err = err {
-                print(err.localizedDescription)
-                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
-                return
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.tabBarController?.tabBar.isHidden = false
+            
+                if let err = err {
+                    print(err.localizedDescription)
+                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                    return
+                }
+    
+                self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
+                if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
+                    self.pendingDataListsMatch.remove(at: indexPath.section)
+                }
+                self.progressTableView.reloadData()
+            }
+        } else if from == "accept" {
+    
+            for (index, eachPending) in self.pendingDataListsMatch[indexPath.section].pendingDetail.enumerated() {
+                
+                self.ref.child("pending_schedule_detail").child(eachPending.trainer_id).child(eachPending.schedule_key).child(eachPending.trainee_id).removeValue { (err, pendingRef) in
+                    
+                    if let err = err {
+                        print(err.localizedDescription)
+                        self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                        return
+                    }
+                    
+//                    self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: index)
+                    
+                    if index == self.pendingDataListsMatch[indexPath.section].pendingDetail.count-1 {
+                        
+                        self.view.removeBluerLoader()
+                        self.tabBarController?.tabBar.isHidden = false
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
+                        
+                        self.pendingDataListsMatch.remove(at: indexPath.section)
+                        self.progressTableView.reloadData()
+                    }
+                }
             }
             
-            self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
-            if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
-                self.pendingDataListsMatch.remove(at: indexPath.section)
-            }
-            self.progressTableView.reloadData()
-//            self.progressTableView.beginUpdates()
 //            if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
 //
+//                self.view.removeBluerLoader()
+//                self.tabBarController?.tabBar.isHidden = false
+//                self.navigationController?.setNavigationBarHidden(false, animated: true)
+//
 //                self.pendingDataListsMatch.remove(at: indexPath.section)
-//                let indexSet = IndexSet(integer: indexPath.section)
-//                self.progressTableView.deleteSections(indexSet, with: .fade)
-//            } else {
-//                self.progressTableView.deleteRows(at: [indexPath], with: .fade)
+//                self.progressTableView.reloadData()
 //            }
-//            self.progressTableView.endUpdates()
         }
     }
     
@@ -440,7 +468,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         headerBtn.translatesAutoresizingMaskIntoConstraints = false
 
         let label = UILabel()
-        label.text = "\(self.pendingDataListsMatch[section].pendingDetail[0].start_train_date) \(self.pendingDataListsMatch[section].pendingDetail[0].start_train_time)"
+        label.text = self.pendingDataListsMatch[section].date
         label.font = UIFont.boldSystemFont(ofSize: 14.0)
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
