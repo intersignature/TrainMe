@@ -75,28 +75,32 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                 buttons.forEach({ (buttonId, bookDetail) in
                     bookDetail.forEach({ (traineeId, bookDetailInfo) in
                         if self.currentUser.uid == traineeId {
-                            print("\(trainerId) - \(bookDetailInfo["start_train_date"] as! String) - \(bookDetailInfo["start_train_time"] as! String)")
-                            self.pendingData.append(PendingBookPlaceDetail(trainer_id: trainerId,
-                                                                           course_id: bookDetailInfo["course_id"] as! String,
-                                                                           place_id: bookDetailInfo["place_id"] as! String,
-                                                                           start_train_date: bookDetailInfo["start_train_date"] as! String,
-                                                                           start_train_time: bookDetailInfo["start_train_time"] as! String,
-                                                                           schedule_key: buttonId))
-                            
-                            if !self.trainerId.contains(trainerId) {
-                                self.trainerId.append(trainerId)
-                                self.getTrainerData(trainerId: trainerId)
-                            }
-                            if !self.courseId.contains(bookDetailInfo["course_id"] as! String) {
-                                self.courseId.append(bookDetailInfo["course_id"] as! String)
-                                self.getCourseName(trainerId: trainerId, courseId: bookDetailInfo["course_id"] as! String)
-                            }
-                            if !self.placeId.contains(bookDetailInfo["place_id"] as! String) {
-                                self.placeId.append(bookDetailInfo["place_id"] as! String)
-                                self.getPlaceName(placeId: bookDetailInfo["place_id"] as! String)
-                            }
-                            if !self.timeList.contains("\(bookDetailInfo["start_train_date"] as! String) \(bookDetailInfo["start_train_time"] as! String)") {
-                                self.timeList.append("\(bookDetailInfo["start_train_date"] as! String) \(bookDetailInfo["start_train_time"] as! String)")
+                            if bookDetailInfo["is_trainer_accept"] as! String == "-1" {
+                                print("\(trainerId) - \(bookDetailInfo["start_train_date"] as! String) - \(bookDetailInfo["start_train_time"] as! String)")
+                                self.pendingData.append(PendingBookPlaceDetail(trainer_id: trainerId,
+                                                                               course_id: bookDetailInfo["course_id"] as! String,
+                                                                               place_id: bookDetailInfo["place_id"] as! String,
+                                                                               start_train_date: bookDetailInfo["start_train_date"] as! String,
+                                                                               start_train_time: bookDetailInfo["start_train_time"] as! String,
+                                                                               schedule_key: buttonId,
+                                                                               is_trainer_accept: bookDetailInfo["is_trainer_accept"] as! String))
+                                
+                                if !self.trainerId.contains(trainerId) {
+                                    self.trainerId.append(trainerId)
+                                    self.getTrainerData(trainerId: trainerId)
+                                }
+                                if !self.courseId.contains(bookDetailInfo["course_id"] as! String) {
+                                    self.courseId.append(bookDetailInfo["course_id"] as! String)
+                                    self.getCourseName(trainerId: trainerId, courseId: bookDetailInfo["course_id"] as! String)
+                                }
+                                if !self.placeId.contains(bookDetailInfo["place_id"] as! String) {
+                                    self.placeId.append(bookDetailInfo["place_id"] as! String)
+                                    self.getPlaceName(placeId: bookDetailInfo["place_id"] as! String)
+                                }
+                                if !self.timeList.contains("\(bookDetailInfo["start_train_date"] as! String) \(bookDetailInfo["start_train_time"] as! String)") {
+                                    self.timeList.append("\(bookDetailInfo["start_train_date"] as! String) \(bookDetailInfo["start_train_time"] as! String)")
+                                }
+
                             }
                         }
                     })

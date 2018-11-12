@@ -96,7 +96,8 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
         let mainData = ["place_id": self.placeId,
                         "course_id": self.course.key,
                         "start_train_date": self.selectedBookDetail.startTrainDate,
-                        "start_train_time": self.selectedBookDetail.startTrainTime,]
+                        "start_train_time": self.selectedBookDetail.startTrainTime,
+                        "is_trainer_accept": "-1"]
         
         self.ref.child("pending_schedule_detail").child(self.selectedBookDetail.trainerId).child(self.selectedBookDetail.key).child(self.currentUser.uid).updateChildValues(mainData) { (err, ref) in
             if let err = err {
