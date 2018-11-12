@@ -313,7 +313,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             print(self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row].trainer_id)
  
             self.addProgressData(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
-            self.deleteSchedulePlaceBook(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
+//            self.deleteSchedulePlaceBook(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
             self.deletePendingData(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row], indexPath: acceptIndexPath, from: "accept")
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
@@ -359,7 +359,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 
                 let timeSchedule = ["start_train_date": "-1",
                                     "start_train_time": "-1",
-                                    "status": "1",
+                                    "status": "-1",
                                     "transaction_to_trainer": "-1"]
                 subData["\(i)"] = timeSchedule
             }
