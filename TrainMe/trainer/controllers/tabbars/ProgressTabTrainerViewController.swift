@@ -21,17 +21,23 @@ struct ExpandableData {
 
 class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
+    @IBOutlet weak var statusSegmented: CustomSegmentedControl!
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var progressTableView: UITableView!
     
     var pendingDataListsMatch: [ExpandableData] = []
     var pendingDetails: [PendingBookPlaceDetail] = []
+    var pendingTimeList: [String] = []
+    var pendingTimeListSorted: [Date] = []
+    
+    var paymentDataListsMatch: [PendingBookPlaceDetail] = []
+    var paymentDetail: [PendingBookPlaceDetail] = []
+    var paymentTimeList: [String] = []
+    var paymentTimeListSorted: [Date] = []
     
     var ref: DatabaseReference!
     var currentUser: User!
     var placesClient: GMSPlacesClient!
-    var timeList: [String] = []
-    var timeListSorted: [Date] = []
     
     var traineeObj: [String: UserProfile] = [:]
     var traineeIds: [String] = []
@@ -61,8 +67,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         self.pendingDataListsMatch.removeAll()
         self.pendingDetails.removeAll()
-        self.timeList.removeAll()
-        self.timeListSorted.removeAll()
+        self.pendingTimeList.removeAll()
+        self.pendingTimeListSorted.removeAll()
         self.traineeObj.removeAll()
         self.traineeIds.removeAll()
         self.placeName.removeAll()
@@ -86,41 +92,51 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.ref.child("pending_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 for pendingDataObjs in snapshot.children.allObjects as! [DataSnapshot] {
-                    print("pendingobjscount: \(pendingDataObjs.childrenCount)")
+//                    print("pendingobjscount: \(pendingDataObjs.childrenCount)")
                     tempPendingData.removeAll()
                     let pendingDataObj = pendingDataObjs.value as! [String: NSDictionary]
-                    print("aaa: \(pendingDataObj.values.count)")
+//                    print("aaa: \(pendingDataObj.values.count)")
                     pendingDataObj.forEach({ (pendingDataObjKey, pendingDataObjVal) in
-                        if pendingDataObjVal["is_trainer_accept"] as! String == "-1" {
-                            print(pendingDataObjKey)
-                            let pendingData = PendingBookPlaceDetail()
-                            pendingData.schedule_key = pendingDataObjs.key
-                            pendingData.trainee_id = pendingDataObjKey
-                            pendingData.course_id = pendingDataObjVal["course_id"] as! String
-                            pendingData.place_id = pendingDataObjVal["place_id"] as! String
-                            pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
-                            pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
-                            pendingData.trainer_id = self.currentUser.uid
-                            pendingData.is_trainer_accept = pendingDataObjVal["is_trainer_accept"] as! String
-                            tempPendingData.append(pendingData)
+                        
+//                        print(pendingDataObjKey)
+                        let pendingData = PendingBookPlaceDetail()
+                        pendingData.schedule_key = pendingDataObjs.key
+                        pendingData.trainee_id = pendingDataObjKey
+                        pendingData.course_id = pendingDataObjVal["course_id"] as! String
+                        pendingData.place_id = pendingDataObjVal["place_id"] as! String
+                        pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
+                        pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
+                        pendingData.trainer_id = self.currentUser.uid
+                        pendingData.is_trainer_accept = pendingDataObjVal["is_trainer_accept"] as! String
+                        
+                        if pendingData.is_trainer_accept == "-1" {
                             
+                            tempPendingData.append(pendingData)
                             self.pendingDetails.append(pendingData)
                             
-                            if !self.courseIds.contains(pendingData.course_id) {
-                                self.courseIds.append(pendingData.course_id)
-                                self.getCourseData(courseId: pendingData.course_id)
+                            if !self.pendingTimeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {
+                                self.pendingTimeList.append("\(pendingData.start_train_date) \(pendingData.start_train_time)")
                             }
-                            if !self.placeIds.contains(pendingData.place_id){
-                                self.placeIds.append(pendingData.place_id)
-                                self.getPlaceData(placeId: pendingData.place_id)
+                        } else if pendingData.is_trainer_accept == "1" {
+                            
+                            self.paymentDetail.append(pendingData)
+                            
+                            if !self.paymentTimeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {
+                                self.paymentTimeList.append("\(pendingData.start_train_date) \(pendingData.start_train_time)")
                             }
-                            if !self.traineeIds.contains(pendingData.trainee_id) {
-                                self.traineeIds.append(pendingData.trainee_id)
-                                self.getTraineeData(uid: pendingData.trainee_id)
-                            }
-                            if !self.timeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {
-                                self.timeList.append("\(pendingData.start_train_date) \(pendingData.start_train_time)")
-                            }
+                        }
+                        
+                        if !self.courseIds.contains(pendingData.course_id) {
+                            self.courseIds.append(pendingData.course_id)
+                            self.getCourseData(courseId: pendingData.course_id)
+                        }
+                        if !self.placeIds.contains(pendingData.place_id){
+                            self.placeIds.append(pendingData.place_id)
+                            self.getPlaceData(placeId: pendingData.place_id)
+                        }
+                        if !self.traineeIds.contains(pendingData.trainee_id) {
+                            self.traineeIds.append(pendingData.trainee_id)
+                            self.getTraineeData(uid: pendingData.trainee_id)
                         }
                     })
                 }
@@ -213,28 +229,37 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     
     func sortDate() {
         
-        var convertedArray: [Date] = []
+        var convertedArrayPending: [Date] = []
+        var convertedArrayPayment: [Date] = []
+        
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         
-        for dat in self.timeList {
+        for dat in self.pendingTimeList {
             let date = dateFormatter.date(from: dat)
             if let date = date {
-                convertedArray.append(date)
+                convertedArrayPending.append(date)
             }
         }
         
-        self.timeListSorted = convertedArray.sorted(by: { $0.compare($1) == .orderedAscending })
+        for dat in self.paymentTimeList {
+            let date = dateFormatter.date(from: dat)
+            if let date = date {
+                convertedArrayPayment.append(date)
+            }
+        }
+        
+        self.pendingTimeListSorted = convertedArrayPending.sorted(by: { $0.compare($1) == .orderedAscending })
+        self.paymentTimeListSorted = convertedArrayPayment.sorted(by: { $0.compare($1) == .orderedAscending })
         self.matchPendingAndDate()
-        print(self.timeListSorted)
     }
     
     func matchPendingAndDate() {
         
         var tempPendingDetail: [PendingBookPlaceDetail] = []
-        self.timeListSorted.forEach { (date) in
+        self.pendingTimeListSorted.forEach { (date) in
             tempPendingDetail.removeAll()
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -250,16 +275,25 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             })
             self.pendingDataListsMatch.append(ExpandableData(isExpanded: true, date: "\(result)", pendingDetail: tempPendingDetail))
         }
+        
+        self.paymentTimeListSorted.forEach { (date) in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy HH:mm"
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            let result = formatter.string(from: date)
+            self.paymentDetail.forEach({ (pendingBookDetail) in
+                if result == "\(pendingBookDetail.start_train_date) \(pendingBookDetail.start_train_time)" {
+                    self.paymentDataListsMatch.append(pendingBookDetail)
+                    self.paymentDetail.remove(at: self.paymentDetail.firstIndex(where: {$0 === pendingBookDetail})!)
+                }
+            })
+        }
+        
+        self.paymentDataListsMatch.forEach { (a) in
+            print("********* \(a.getData())")
+        }
+        
         self.progressTableView.reloadData()
-        
-        
-        //        self.pendingDataListsMatch.forEach { (expandObj) in
-        //            print(expandObj.date)
-        //            expandObj.pendingDetail.forEach({ (pending) in
-        //                print(pending.getData())
-        //            })
-        //            print("hhhhhhhhhhhhhhhhhhhh")
-        //        }
     }
     
     func initSideMenu() {
@@ -275,30 +309,66 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if !self.pendingDataListsMatch[section].isExpanded {
+        switch self.statusSegmented.selectedSegmentIndex {
+        case 0:
+            if !self.pendingDataListsMatch[section].isExpanded {
+                return 0
+            }
+            return self.pendingDataListsMatch[section].pendingDetail.count
+        case 1:
+            return 1
+        default:
             return 0
         }
-        return pendingDataListsMatch[section].pendingDetail.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return pendingDataListsMatch.count
+        
+        switch self.statusSegmented.selectedSegmentIndex {
+        case 0:
+            return self.pendingDataListsMatch.count
+        case 1:
+            return self.paymentDataListsMatch.count
+        default:
+            return 1
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
         
-        cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
-                           traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
-                           courseName: self.courseObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!.course,
-                           placeName: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!,
-                           position: "\(indexPath.section)-\(indexPath.row)")
-        
-        cell.acceptBtn.addTarget(self, action: #selector(self.acceptBtnAction(acceptBtn:)), for: .touchUpInside)
-        cell.declineBtn.addTarget(self, action: #selector(self.declineBtnAction(declineBtn:)), for: .touchUpInside)
-
-        return cell
+        switch self.statusSegmented.selectedSegmentIndex {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
+            
+            cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
+                               traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
+                               courseName: self.courseObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!.course,
+                               placeName: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!,
+                               position: "\(indexPath.section)-\(indexPath.row)")
+            
+            cell.acceptBtn.isHidden = false
+            cell.declineBtn.isHidden = false
+            
+            cell.acceptBtn.addTarget(self, action: #selector(self.acceptBtnAction(acceptBtn:)), for: .touchUpInside)
+            cell.declineBtn.addTarget(self, action: #selector(self.declineBtnAction(declineBtn:)), for: .touchUpInside)
+            
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
+            
+            cell.setDataToCell(traineeImgLink: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.profileImageUrl)!,
+                               traineeName: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.fullName)!,
+                               courseName: (self.courseObj[self.paymentDataListsMatch[indexPath.row].course_id]?.course)!,
+                               placeName: self.placeName[self.paymentDataListsMatch[indexPath.row].place_id]!,
+                               position: "\(indexPath.section)-\(indexPath.row)")
+            
+            cell.acceptBtn.isHidden = true
+            cell.declineBtn.isHidden = true
+            
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
     
     @objc func acceptBtnAction(acceptBtn: UIButton) {
@@ -473,39 +543,72 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.placeName[self.pendingDataListsMatch[section].pendingDetail[0].place_id]
+        
+        switch self.statusSegmented.selectedSegmentIndex {
+        case 0:
+            return self.pendingDataListsMatch[section].date
+        case 1:
+            return ""
+        default:
+            return ""
+        }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let headerBtn = UIButton(type: .system)
-        headerBtn.setTitle("Close", for: .normal)
-        headerBtn.setTitleColor(.black, for: .normal)
-        headerBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        headerBtn.addTarget(self, action: #selector(self.handleExpandCollapse(headerBtn:)), for: .touchUpInside)
-        headerBtn.tag = section
-        headerBtn.translatesAutoresizingMaskIntoConstraints = false
-
-        let label = UILabel()
-        label.text = self.pendingDataListsMatch[section].date
-        label.font = UIFont.boldSystemFont(ofSize: 14.0)
-        label.numberOfLines = 1
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
-        view.addSubview(label)
-        view.addSubview(headerBtn)
-
-        let views = ["label": label, "button": headerBtn, "view": view]
-
-        let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label(<=250)]-0-[button]-|", options: .alignAllCenterY, metrics: nil, views: views)
-        view.addConstraints(horizontallayoutContraints)
-
-        let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
-        view.addConstraint(verticalLayoutContraint)
-
-        return view
+        switch self.statusSegmented.selectedSegmentIndex {
+        case 0:
+            let headerBtn = UIButton(type: .system)
+            headerBtn.setTitle("Close", for: .normal)
+            headerBtn.setTitleColor(.black, for: .normal)
+            headerBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+            headerBtn.addTarget(self, action: #selector(self.handleExpandCollapse(headerBtn:)), for: .touchUpInside)
+            headerBtn.tag = section
+            headerBtn.translatesAutoresizingMaskIntoConstraints = false
+            
+            let label = UILabel()
+            label.text = self.pendingDataListsMatch[section].date
+            label.font = UIFont.boldSystemFont(ofSize: 14.0)
+            label.numberOfLines = 1
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            let view = UIView()
+            view.backgroundColor = UIColor.clear
+            view.addSubview(label)
+            view.addSubview(headerBtn)
+            
+            let views = ["label": label, "button": headerBtn, "view": view]
+            
+            let horizontalLayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label(<=250)]-0-[button]-|", options: .alignAllCenterY, metrics: nil, views: views)
+            view.addConstraints(horizontalLayoutContraints)
+            
+            let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+            view.addConstraint(verticalLayoutContraint)
+            
+            return view
+        case 1:
+            let label = UILabel()
+            label.text = "\(self.paymentDataListsMatch[section].start_train_date) \(self.paymentDataListsMatch[section].start_train_time)"
+            label.font = UIFont.boldSystemFont(ofSize: 14.0)
+            label.numberOfLines = 1
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            let view = UIView()
+            view.backgroundColor = UIColor.clear
+            view.addSubview(label)
+            
+            let views = ["label": label, "view": view]
+            
+            let horizontalLayoutConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label(<=250)]-|", options: .alignAllCenterY, metrics: nil, views: views)
+            view.addConstraints(horizontalLayoutConstraints)
+            
+            let verticalLayoutConstraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+            view.addConstraint(verticalLayoutConstraint)
+            
+            return view
+        default:
+            return UIView()
+        }
     }
 
     @objc func handleExpandCollapse(headerBtn: UIButton) {
@@ -544,15 +647,19 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         if sender.selectedSegmentIndex == 0 {
             // Confirmation
+            self.progressTableView.reloadData()
         }
         if sender.selectedSegmentIndex == 1 {
             // Payment
+            self.progressTableView.reloadData()
         }
         if sender.selectedSegmentIndex == 2 {
             // Ongoing
+            self.progressTableView.reloadData()
         }
         if sender.selectedSegmentIndex == 3 {
             // Successful
+            self.progressTableView.reloadData()
         }
     }
 }
