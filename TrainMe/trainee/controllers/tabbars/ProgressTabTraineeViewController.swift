@@ -301,7 +301,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             cell.cancelBtn.setTitleColor(UIColor.red, for: .normal)
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TraineePaymentTableViewCell") as! PaymentTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TraineePaymentTableViewCell") as! PaymentTraineeTableViewCell
             
             cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.profileImageUrl)!,
                                name: (self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.fullName)!,

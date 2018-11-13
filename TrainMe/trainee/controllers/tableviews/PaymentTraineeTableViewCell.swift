@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PaymentTableViewCell: UITableViewCell {
+class PaymentTraineeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var trainerImg: UIImageView!
     @IBOutlet weak var trainerNameLb: UILabel!
