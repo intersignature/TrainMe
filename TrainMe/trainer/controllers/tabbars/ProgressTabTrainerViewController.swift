@@ -86,14 +86,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     }
     
     func getPendingDataList() {
-        
-        var tempPendingData: [PendingBookPlaceDetail] = []
+
         print("sadasd:\(self.currentUser.uid)")
         self.ref.child("pending_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 for pendingDataObjs in snapshot.children.allObjects as! [DataSnapshot] {
 //                    print("pendingobjscount: \(pendingDataObjs.childrenCount)")
-                    tempPendingData.removeAll()
                     let pendingDataObj = pendingDataObjs.value as! [String: NSDictionary]
 //                    print("aaa: \(pendingDataObj.values.count)")
                     pendingDataObj.forEach({ (pendingDataObjKey, pendingDataObjVal) in
@@ -111,7 +109,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         
                         if pendingData.is_trainer_accept == "-1" {
                             
-                            tempPendingData.append(pendingData)
                             self.pendingDetails.append(pendingData)
                             
                             if !self.pendingTimeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {

@@ -2625,6 +2625,7 @@ detail</string>
                     <connections>
                         <outlet property="menuBtn" destination="Akt-1F-a1b" id="jVY-8Q-pjF"/>
                         <outlet property="pendingTableView" destination="IMg-9l-be6" id="mSq-gr-7Fc"/>
+                        <outlet property="statusSegmented" destination="VMF-xb-88l" id="Doq-sh-qPP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P90-pF-JZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
