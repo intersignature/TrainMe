@@ -34,6 +34,7 @@
 		B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */; };
 		B23E7DB7213ECA5B005E7F7F /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7DB6213ECA5B005E7F7F /* Course.swift */; };
 		B23E7DB9213FB5E7005E7F7F /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E7DB8213FB5E7005E7F7F /* CustomSegmentedControl.swift */; };
+		B23E918B219AD387000AECF8 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E918A219AD387000AECF8 /* PaymentTableViewCell.swift */; };
 		B24144B221371ACF00F8315B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B24144B421371ACF00F8315B /* Localizable.strings */; };
 		B24144B72137F94D00F8315B /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24144B62137F94D00F8315B /* extension.swift */; };
 		B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B8A8D212D16F400C59074 /* Register2ViewController.swift */; };
@@ -142,6 +143,7 @@
 		B23E796F2132CA8F0082FD1E /* NotificationTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B23E7DB6213ECA5B005E7F7F /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		B23E7DB8213FB5E7005E7F7F /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		B23E918A219AD387000AECF8 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		B24144AC2137180A00F8315B /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Main.strings; sourceTree = "<group>"; };
 		B24144AD2137180B00F8315B /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B24144AF2137182E00F8315B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				B202BD2B21502AC400DE0790 /* CertificateTableViewCell.swift */,
 				B263566D218830C100277F67 /* ConfirmationTableViewCell.swift */,
+				B23E918A219AD387000AECF8 /* PaymentTableViewCell.swift */,
 			);
 			path = tableviews;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				B26B4BE921632E47003CB72C /* TimeButtonCollectionViewCell.swift in Sources */,
 				B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */,
 				B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */,
+				B23E918B219AD387000AECF8 /* PaymentTableViewCell.swift in Sources */,
 				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
 				B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */,

@@ -279,7 +279,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             }
             return self.pendingDataSorted[section].pendingDetail.count
         case 1:
-            return 1
+            return self.paymentDataSorted.count
         default:
             return 0
         }
@@ -297,24 +297,20 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                placeName: self.placeName[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]!,
                                position: "\(indexPath.section)-\(indexPath.row)")
             
-            cell.cancelBtn.removeTarget(self, action: #selector(self.paymentAction(cancelBtn:)), for: .touchUpInside)
             cell.cancelBtn.addTarget(self, action: #selector(self.cancelBtnAction(cancelBtn:)), for: .touchUpInside)
-            cell.cancelBtn.setTitle("Cancel", for: .normal)
             cell.cancelBtn.setTitleColor(UIColor.red, for: .normal)
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TraineeConfirmationTableViewCell") as! ConfirmationTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TraineePaymentTableViewCell") as! PaymentTableViewCell
             
             cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.profileImageUrl)!,
                                name: (self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.fullName)!,
                                courseName: self.courseName[self.paymentDataSorted[indexPath.row].course_id]!,
                                placeName: self.placeName[self.paymentDataSorted[indexPath.row].place_id]!,
+                               time: "\(self.paymentDataSorted[indexPath.row].start_train_date) \(self.paymentDataSorted[indexPath.row].start_train_time)",
                                position: "\(indexPath.section)-\(indexPath.row)")
             
-            cell.cancelBtn.removeTarget(self, action: #selector(self.cancelBtnAction(cancelBtn:)), for: .touchUpInside)
-            cell.cancelBtn.addTarget(self, action: #selector(self.paymentAction(cancelBtn:)), for: .touchUpInside)
-            cell.cancelBtn.setTitle("Pay", for: .normal)
-            cell.cancelBtn.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0), for: .normal)
+            cell.buyBtn.addTarget(self, action: #selector(self.paymentAction(buyBtn:)), for: .touchUpInside)
             return cell
         default:
             return UITableViewCell()
@@ -338,11 +334,11 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         self.present(alert, animated: true, completion: nil)
     }
     
-    @objc func paymentAction(cancelBtn: UIButton) {
+    @objc func paymentAction(buyBtn: UIButton) {
         
         //TODO: Payment with Omise
         
-        let payIndexPath = IndexPath(row: Int((cancelBtn.accessibilityLabel?.components(separatedBy: "-")[1])!)!, section: Int((cancelBtn.accessibilityLabel?.components(separatedBy: "-")[0])!)!)
+        let payIndexPath = IndexPath(row: Int((buyBtn.accessibilityLabel?.components(separatedBy: "-")[1])!)!, section: Int((buyBtn.accessibilityLabel?.components(separatedBy: "-")[0])!)!)
         
         print("pay at: \(payIndexPath.section) \(payIndexPath.row)")
     }
@@ -375,7 +371,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         case 0:
             return self.pendingDataSorted[section].date
         case 1:
-            return "\(self.paymentDataSorted[section].start_train_date) \(self.paymentDataSorted[section].start_train_time)"
+            return "Please select your course to pay"
         default:
             return ""
         }
@@ -386,7 +382,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         case 0:
             return self.pendingDataSorted.count
         case 1:
-            return self.paymentDataSorted.count
+            return 1
         default:
             return 0
         }
@@ -426,7 +422,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             return view
         case 1:
             let label = UILabel()
-            label.text = "\(self.paymentDataSorted[section].start_train_date) \(self.paymentDataSorted[section].start_train_time)"
+            label.text = "Please select your course to pay"
             label.font = UIFont.boldSystemFont(ofSize: 14.0)
             label.numberOfLines = 1
             label.translatesAutoresizingMaskIntoConstraints = false
