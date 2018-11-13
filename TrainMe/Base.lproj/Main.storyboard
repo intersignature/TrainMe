@@ -2670,7 +2670,7 @@ detail</string>
                                             <outlet property="trainerProfileImg" destination="9R2-cZ-xoI" id="hfT-jp-zIJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TraineePaymentTableViewCell" rowHeight="141" id="bxY-Xx-aUg" customClass="PaymentTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TraineePaymentTableViewCell" rowHeight="141" id="bxY-Xx-aUg" customClass="PaymentTraineeTableViewCell" customModule="TrainMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="138" width="414" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bxY-Xx-aUg" id="YSX-yi-hwk">
