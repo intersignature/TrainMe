@@ -69,6 +69,10 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.pendingDetails.removeAll()
         self.pendingTimeList.removeAll()
         self.pendingTimeListSorted.removeAll()
+        self.paymentDataListsMatch.removeAll()
+        self.paymentDetail.removeAll()
+        self.paymentTimeList.removeAll()
+        self.paymentTimeListSorted.removeAll()
         self.traineeObj.removeAll()
         self.traineeIds.removeAll()
         self.placeName.removeAll()
@@ -313,7 +317,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             }
             return self.pendingDataListsMatch[section].pendingDetail.count
         case 1:
-            return 1
+            return self.paymentDataListsMatch.count
         default:
             return 0
         }
@@ -325,7 +329,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         case 0:
             return self.pendingDataListsMatch.count
         case 1:
-            return self.paymentDataListsMatch.count
+            return 1
         default:
             return 1
         }
@@ -343,24 +347,18 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                                placeName: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!,
                                position: "\(indexPath.section)-\(indexPath.row)")
             
-            cell.acceptBtn.isHidden = false
-            cell.declineBtn.isHidden = false
-            
             cell.acceptBtn.addTarget(self, action: #selector(self.acceptBtnAction(acceptBtn:)), for: .touchUpInside)
             cell.declineBtn.addTarget(self, action: #selector(self.declineBtnAction(declineBtn:)), for: .touchUpInside)
             
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCell") as! ProgressTableViewCell
-            
-            cell.setDataToCell(traineeImgLink: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.profileImageUrl)!,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentTrainerTableViewCell") as! PaymentTrainerTableViewCell
+//
+            cell.setData(traineeImgLink: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.profileImageUrl)!,
                                traineeName: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.fullName)!,
                                courseName: (self.courseObj[self.paymentDataListsMatch[indexPath.row].course_id]?.course)!,
                                placeName: self.placeName[self.paymentDataListsMatch[indexPath.row].place_id]!,
-                               position: "\(indexPath.section)-\(indexPath.row)")
-            
-            cell.acceptBtn.isHidden = true
-            cell.declineBtn.isHidden = true
+                               time: "\(self.paymentDataListsMatch[indexPath.row].start_train_date) \(self.paymentDataListsMatch[indexPath.row].start_train_time)")
             
             return cell
         default:
@@ -428,8 +426,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
                 self.pendingDataListsMatch.remove(at: indexPath.section)
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.tabBarController?.tabBar.isHidden = false
+            } else {
+                self.deletePendingData(indexPath: indexPath, from: "accept")
             }
-            self.deletePendingData(indexPath: indexPath, from: "accept")
             self.progressTableView.reloadData()
         }
     }
@@ -545,7 +547,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         case 0:
             return self.pendingDataListsMatch[section].date
         case 1:
-            return ""
+            return "Wait your trainee for pay"
         default:
             return ""
         }
@@ -585,7 +587,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             return view
         case 1:
             let label = UILabel()
-            label.text = "\(self.paymentDataListsMatch[section].start_train_date) \(self.paymentDataListsMatch[section].start_train_time)"
+            label.text = "Wait your trainee for pay"
             label.font = UIFont.boldSystemFont(ofSize: 14.0)
             label.numberOfLines = 1
             label.translatesAutoresizingMaskIntoConstraints = false
