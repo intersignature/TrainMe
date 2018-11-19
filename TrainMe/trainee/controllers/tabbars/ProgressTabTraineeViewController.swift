@@ -13,7 +13,8 @@ import FirebaseDatabase
 import GooglePlaces
 import OmiseSDK
 
-class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CreditCardFormDelegate {
     
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var pendingTableView: UITableView!
@@ -37,10 +38,12 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     var trainerObj: [String: UserProfile] = [:]
     
     var courseId: [String] = []
-    var courseName: [String: String] = [:]
+    var courseObj: [String: Course] = [:]
     
     var placeId: [String] = []
     var placeName: [String: String] = [:]
+    
+    var payAt: IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +73,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         self.trainerId.removeAll()
         self.trainerObj.removeAll()
         self.courseId.removeAll()
-        self.courseName.removeAll()
+        self.courseObj.removeAll()
         self.placeId.removeAll()
         self.placeName.removeAll()
         
@@ -148,7 +151,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                                      profileImageUrl: (value["profileImageUrl"] as! String))
             
             if self.trainerId.count == self.trainerObj.count && self.trainerId.count != 0 &&
-                self.courseId.count == self.courseName.count && self.courseId.count != 0 &&
+                self.courseId.count == self.courseObj.count && self.courseId.count != 0 &&
                 self.placeId.count == self.placeName.count && self.placeId.count != 0 {
                 self.sortDate()
             }
@@ -163,10 +166,19 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         
         ref.child("courses").child(trainerId).child(courseId).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as! NSDictionary
-            self.courseName[courseId] = (value["course_name"] as! String)
+
+            self.courseObj[courseId] = Course(key: snapshot.key,
+                                               course: value["course_name"] as! String,
+                                               courseContent: value["course_content"] as! String,
+                                               courseType: value["course_type"] as! String,
+                                               timeOfCourse: value["time_of_course"] as! String,
+                                               courseDuration: value["course_duration"] as! String,
+                                               courseLevel: value["course_level"] as! String,
+                                               coursePrice: value["course_price"] as! String,
+                                               courseLanguage: value["course_language"] as! String)
             
             if self.trainerId.count == self.trainerObj.count && self.trainerId.count != 0 &&
-                self.courseId.count == self.courseName.count && self.courseId.count != 0 &&
+                self.courseId.count == self.courseObj.count && self.courseId.count != 0 &&
                 self.placeId.count == self.placeName.count && self.placeId.count != 0 {
                 self.sortDate()
             }
@@ -194,7 +206,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             self.placeName[placeId] = place.name
             
             if self.trainerId.count == self.trainerObj.count && self.trainerId.count != 0 &&
-                self.courseId.count == self.courseName.count && self.courseId.count != 0 &&
+                self.courseId.count == self.courseObj.count && self.courseId.count != 0 &&
                 self.placeId.count == self.placeName.count && self.placeId.count != 0 {
                 self.sortDate()
             }
@@ -297,7 +309,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             
             cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.profileImageUrl)!,
                                name: (self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.fullName)!,
-                               courseName: self.courseName[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].course_id]!,
+                               courseName: self.courseObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].course_id]!.course,
                                placeName: self.placeName[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]!,
                                position: "\(indexPath.section)-\(indexPath.row)")
             
@@ -309,7 +321,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             
             cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.profileImageUrl)!,
                                name: (self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.fullName)!,
-                               courseName: self.courseName[self.paymentDataSorted[indexPath.row].course_id]!,
+                               courseName: self.courseObj[self.paymentDataSorted[indexPath.row].course_id]!.course,
                                placeName: self.placeName[self.paymentDataSorted[indexPath.row].place_id]!,
                                time: "\(self.paymentDataSorted[indexPath.row].start_train_date) \(self.paymentDataSorted[indexPath.row].start_train_time)",
                                position: "\(indexPath.section)-\(indexPath.row)")
@@ -332,7 +344,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             self.tabBarController?.tabBar.isHidden = true
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             
-            self.deletePendingData(deletePendingIndexPath: cencelIndexPath)
+            self.deletePendingData(deletePendingIndexPath: cencelIndexPath, from: "Confirmation")
         }))
         alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -342,31 +354,145 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         
         //TODO: Payment with Omise
         
-        let payIndexPath = IndexPath(row: Int((buyBtn.accessibilityLabel?.components(separatedBy: "-")[1])!)!, section: Int((buyBtn.accessibilityLabel?.components(separatedBy: "-")[0])!)!)
+        self.view.showBlurLoader()
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
+        let omisePublicKey = "pkey_test_5dx71gf388qmfex790a"
+        let closeButton = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(self.dismissCreditCardForm))
+        let creditCardView = CreditCardFormController.makeCreditCardForm(withPublicKey: omisePublicKey)
+        creditCardView.delegate = self
+        creditCardView.handleErrors = true
+        creditCardView.navigationItem.rightBarButtonItem = closeButton
+
+        let navigation = UINavigationController(rootViewController: creditCardView)
+        self.present(navigation, animated: true, completion: nil)
+
+        let payIndexPath = IndexPath(row: Int((buyBtn.accessibilityLabel?.components(separatedBy: "-")[1])!)!, section: Int((buyBtn.accessibilityLabel?.components(separatedBy: "-")[0])!)!)
+        self.payAt = payIndexPath
         print("pay at: \(payIndexPath.section) \(payIndexPath.row)")
+        
+        let client = OmiseSDKClient(publicKey: omisePublicKey)
+        
+    }
+    
+    @objc func dismissCreditCardForm() {
+        
+        self.view.removeBluerLoader()
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.dismiss(animated: true, completion: nil)
     }
 
-    func deletePendingData(deletePendingIndexPath: IndexPath) {
+    func creditCardForm(_ controller: CreditCardFormController, didSucceedWithToken token: OmiseToken) {
+        print("token id: \(String(describing: token.tokenId))")
+        print("live mode: \(token.livemode)")
+
+        self.addProgressData(pendingData: paymentDataSorted[self.payAt.row])
+        self.deletePendingData(deletePendingIndexPath: self.payAt, from: "Payment")
         
-        let deletePendingData = self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail[deletePendingIndexPath.row]
-        self.ref.child("pending_schedule_detail").child(deletePendingData.trainer_id).child(deletePendingData.schedule_key).child(self.currentUser.uid).removeValue { (err, ref) in
+        self.dismissCreditCardForm()
+    }
+    
+    func creditCardForm(_ controller: CreditCardFormController, didFailWithError error: Error) {
+        print(error.localizedDescription)
+        
+        self.view.removeBluerLoader()
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.createAlert(alertTitle: error.localizedDescription, alertMessage: "")
+        self.dismissCreditCardForm()
+    }
+    
+    func addProgressData(pendingData: PendingBookPlaceDetail) {
+        
+        let mainData = ["course_id": pendingData.course_id,
+                        "place_id": pendingData.place_id,
+                        "transaction_to_admin": "-1"]
+        
+        var subData: [String: Any] = [:]
+        
+        for i in 1...Int((self.courseObj[pendingData.course_id]?.timeOfCourse)!)! {
             
-            self.view.removeBluerLoader()
-            self.tabBarController?.tabBar.isHidden = false
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            
+            if i == 1 {
+                
+                let timeSchedule = ["start_train_date": pendingData.start_train_date,
+                                    "start_train_time": pendingData.start_train_time,
+                                    "status": "1",
+                                    "transaction_to_trainer": "-1"]
+                subData["\(i)"] = timeSchedule
+            } else {
+                
+                let timeSchedule = ["start_train_date": "-1",
+                                    "start_train_time": "-1",
+                                    "status": "-1",
+                                    "transaction_to_trainer": "-1"]
+                subData["\(i)"] = timeSchedule
+            }
+        }
+        
+        print(subData)
+        self.ref.child("progress_schedule_detail").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).updateChildValues(mainData) { (err, progressRef) in
             if let err = err {
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
+            progressRef.updateChildValues(subData, withCompletionBlock: { (err1, subRef) in
+                if let err1 = err1 {
+                    print(err1.localizedDescription)
+                    self.createAlert(alertTitle: err1.localizedDescription, alertMessage: "")
+                    return
+                }
+            })
+        }
+    }
+    
+    func deletePendingData(deletePendingIndexPath: IndexPath, from: String) {
+
+        if from == "Confirmation" {
             
-            self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.remove(at: deletePendingIndexPath.row)
-            if self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.count == 0 {
-                self.pendingDataSorted.remove(at: deletePendingIndexPath.section)
+            let deletePendingData = self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail[deletePendingIndexPath.row]
+            
+            self.ref.child("pending_schedule_detail").child(deletePendingData.trainer_id).child(deletePendingData.schedule_key).child(self.currentUser.uid).removeValue { (err, ref) in
+                
+                self.view.removeBluerLoader()
+                self.tabBarController?.tabBar.isHidden = false
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+                if let err = err {
+                    print(err.localizedDescription)
+                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                    return
+                }
+                
+                self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.remove(at: deletePendingIndexPath.row)
+                if self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.count == 0 {
+                    self.pendingDataSorted.remove(at: deletePendingIndexPath.section)
+                }
+                self.pendingTableView.reloadData()
             }
-            self.pendingTableView.reloadData()
+        } else if from == "Payment" {
+            
+            let deletePendingData = self.paymentDataSorted[deletePendingIndexPath.row]
+            
+            self.ref.child("pending_schedule_detail").child(deletePendingData.trainer_id).child(deletePendingData.schedule_key).removeValue { (err, ref) in
+                
+                self.view.removeBluerLoader()
+                self.tabBarController?.tabBar.isHidden = false
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+                if let err = err {
+                    print(err.localizedDescription)
+                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                    return
+                }
+                
+                self.paymentDataSorted.remove(at: deletePendingIndexPath.row)
+                self.pendingTableView.reloadData()
+            }
         }
     }
     

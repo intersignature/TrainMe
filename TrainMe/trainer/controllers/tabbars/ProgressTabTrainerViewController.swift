@@ -379,9 +379,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             print("Accept OK at pos: section: \(acceptIndexPath.section) row: \(acceptIndexPath.row)")
             print(self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row].trainer_id)
- 
-            //payment zone
-//            self.addProgressData(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
             
             self.changeTrainerAcceptStatus(indexPath: acceptIndexPath)
 //            self.deleteSchedulePlaceBook(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
