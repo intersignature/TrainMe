@@ -35,6 +35,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     var paymentTimeList: [String] = []
     var paymentTimeListSorted: [Date] = []
     
+    var ongoingDatas: [OngoingDetail] = []
+    var ongoingDataSorted: [OngoingDetail] = []
+    var waitingOngoingDataIndex: [IndexPath] = []
+    var timeListOngoing: [String] = []
+    var timeListSortedOnging: [Data] = []
+    
     var ref: DatabaseReference!
     var currentUser: User!
     var placesClient: GMSPlacesClient!
@@ -73,6 +79,11 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.paymentDetail.removeAll()
         self.paymentTimeList.removeAll()
         self.paymentTimeListSorted.removeAll()
+        self.ongoingDatas.removeAll()
+        self.ongoingDataSorted.removeAll()
+        self.waitingOngoingDataIndex.removeAll()
+        self.timeListOngoing.removeAll()
+        self.timeListSortedOnging.removeAll()
         self.traineeObj.removeAll()
         self.traineeIds.removeAll()
         self.placeName.removeAll()
@@ -81,6 +92,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.courseIds.removeAll()
         
         self.getPendingDataList()
+        self.getOngoingData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,6 +159,70 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
 //                self.progressTableView.reloadData()
 //            }
             
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
+    }
+    
+    func getOngoingData() {
+        
+        var tempEachOngoings: [EachOngoingDetail] = []
+        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            let values = snapshot.value as! [String: [String: AnyObject]]
+            
+            values.forEach({ (traineeId, overallScheduleDetail) in
+                print("traineeId: \(traineeId)")
+                tempEachOngoings.removeAll()
+                overallScheduleDetail.forEach({ (btnKey, detail) in
+                    
+                    if !self.courseIds.contains(detail["course_id"] as! String) {
+                        self.courseIds.append(detail["course_id"] as! String)
+                        self.getCourseData(courseId: detail["course_id"] as! String)
+                    }
+                    
+                    if !self.placeIds.contains(detail["place_id"] as! String) {
+                        self.placeIds.append(detail["place_id"] as! String)
+                        self.getPlaceData(placeId: detail["place_id"] as! String)
+                    }
+                    
+                    if !self.traineeIds.contains(traineeId) {
+                        self.traineeIds.append(traineeId)
+                        self.getTraineeData(uid: traineeId)
+                    }
+                    
+                    for i in 1...(Int(detail.count)-4){
+                        print("courseId: \(i)")
+                        let eachDetailValue = detail[String(i)] as? NSDictionary
+                        let tempEachOngoing = EachOngoingDetail(start_train_date: eachDetailValue!["start_train_date"] as! String,
+                                                                start_train_time: eachDetailValue!["start_train_time"] as! String,
+                                                                status: eachDetailValue!["status"] as! String,
+                                                                count: "\(i)")
+                        tempEachOngoings.append(tempEachOngoing)
+                    }
+                    let tempOngoingDetail = OngoingDetail(traineeId: traineeId,
+                                                          courseId: (detail["course_id"] as? String)!,
+                                                          placeId: (detail["place_id"] as? String)!,
+                                                          transactionToAdmin: (detail["transaction_to_admin"] as? String)!,
+                                                          transactionToTrainer: (detail["transaction_to_trainer"] as? String)!,
+                                                          eachOngoingDetails: tempEachOngoings)
+                    self.ongoingDatas.append(tempOngoingDetail)
+                    tempEachOngoings.removeAll()
+
+                })
+            })
+            
+            for (eachOngoingIndex, eachOngoing) in self.ongoingDatas.enumerated() {
+                for (eachOnGoingDetailIndex, eachOngoingDetail) in eachOngoing.eachOngoingDetails.enumerated() {
+                    if eachOngoingDetail.status == "1" {
+                        print("\(eachOngoingIndex) \(eachOnGoingDetailIndex)")
+                        let waitingIndexPath = IndexPath(row: eachOnGoingDetailIndex, section: eachOngoingIndex)
+                        self.waitingOngoingDataIndex.append(waitingIndexPath)
+                        break
+                    }
+                }
+            }
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -318,6 +394,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             return self.pendingDataListsMatch[section].pendingDetail.count
         case 1:
             return self.paymentDataListsMatch.count
+        case 2:
+            return self.waitingOngoingDataIndex.count
         default:
             return 0
         }
@@ -329,6 +407,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         case 0:
             return self.pendingDataListsMatch.count
         case 1:
+            return 1
+        case 2:
             return 1
         default:
             return 1
@@ -359,6 +439,17 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                                courseName: (self.courseObj[self.paymentDataListsMatch[indexPath.row].course_id]?.course)!,
                                placeName: self.placeName[self.paymentDataListsMatch[indexPath.row].place_id]!,
                                time: "\(self.paymentDataListsMatch[indexPath.row].start_train_date) \(self.paymentDataListsMatch[indexPath.row].start_train_time)")
+            
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OngoingTrainerTableViewCell") as! OngoingTrainerTableViewCell
+            
+            cell.setDataToCell(traineeImgUrl: (self.traineeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].traineeId]?.profileImageUrl)!,
+                               traineeName: (self.traineeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].traineeId]?.fullName)!,
+                               courseName: (self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]?.course)!,
+                               time: "[\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].count)]",
+                               scheduleDate: "\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_time)",
+                                place: self.placeName[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!)
             
             return cell
         default:
@@ -545,6 +636,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             return self.pendingDataListsMatch[section].date
         case 1:
             return "Wait your trainee for pay"
+        case 2:
+            return "Ongoing schedule"
         default:
             return ""
         }
@@ -600,6 +693,26 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             let verticalLayoutConstraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
             view.addConstraint(verticalLayoutConstraint)
+            
+            return view
+        case 2:
+            let label = UILabel()
+            label.text = "Ongoing schedule"
+            label.font = UIFont.boldSystemFont(ofSize: 14.0)
+            label.numberOfLines = 1
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            let view = UIView()
+            view.backgroundColor = UIColor.clear
+            view.addSubview(label)
+            
+            let views = ["label": label, "view": view]
+            
+            let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label(<=250)]-|", options: .alignAllCenterY, metrics: nil, views: views)
+            view.addConstraints(horizontallayoutContraints)
+            
+            let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+            view.addConstraint(verticalLayoutContraint)
             
             return view
         default:

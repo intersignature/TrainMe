@@ -1125,7 +1125,7 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="113.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OG-2n-HVP">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OG-2n-HVP">
                                                     <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -1184,6 +1184,82 @@ TrainMe’s Privacy Policy</string>
                                             <outlet property="timeLb" destination="8ZD-AN-JOd" id="6aj-Ei-iBi"/>
                                             <outlet property="traineeImg" destination="6zE-aW-uQv" id="Jnd-Oj-4LI"/>
                                             <outlet property="traineeNameLb" destination="4OG-2n-HVP" id="WLF-fn-ego"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OngoingTrainerTableViewCell" rowHeight="116" id="L6Y-Ql-tkX" customClass="OngoingTrainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="252" width="414" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L6Y-Ql-tkX" id="5yl-qF-3fG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-7j-KYm">
+                                                    <rect key="frame" x="20" y="27" width="62" height="62"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="62" id="MDO-6U-O4l"/>
+                                                        <constraint firstAttribute="width" secondItem="FTV-7j-KYm" secondAttribute="height" multiplier="1:1" id="U1F-qo-hZ0"/>
+                                                        <constraint firstAttribute="height" constant="62" id="qdi-yz-26s"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu7-es-OB8">
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR7-6B-NdQ">
+                                                    <rect key="frame" x="90" y="37" width="287" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13/4/2017 01:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wC7-PK-9yU">
+                                                    <rect key="frame" x="90" y="61" width="304" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3h-W8-y4f">
+                                                    <rect key="frame" x="90" y="85" width="304" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="[1]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a6-bX-zxL">
+                                                    <rect key="frame" x="377" y="37" width="17" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="N3h-W8-y4f" firstAttribute="leading" secondItem="FTV-7j-KYm" secondAttribute="trailing" constant="8" id="1Za-bJ-8kn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fu7-es-OB8" secondAttribute="trailing" id="5fS-Lw-UwU"/>
+                                                <constraint firstItem="8a6-bX-zxL" firstAttribute="top" secondItem="fu7-es-OB8" secondAttribute="bottom" constant="4" id="6Dx-hX-Mjs"/>
+                                                <constraint firstItem="wC7-PK-9yU" firstAttribute="leading" secondItem="FTV-7j-KYm" secondAttribute="trailing" constant="8" id="731-iG-0u2"/>
+                                                <constraint firstItem="fu7-es-OB8" firstAttribute="leading" secondItem="FTV-7j-KYm" secondAttribute="trailing" constant="8" id="IGY-7n-wdz"/>
+                                                <constraint firstItem="wC7-PK-9yU" firstAttribute="top" secondItem="ZR7-6B-NdQ" secondAttribute="bottom" constant="4" id="LWZ-ua-S1g"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FTV-7j-KYm" secondAttribute="bottom" constant="16" id="Odu-Rp-GGK"/>
+                                                <constraint firstItem="8a6-bX-zxL" firstAttribute="leading" secondItem="ZR7-6B-NdQ" secondAttribute="trailing" id="RfP-qJ-vUz"/>
+                                                <constraint firstItem="FTV-7j-KYm" firstAttribute="leading" secondItem="5yl-qF-3fG" secondAttribute="leadingMargin" id="Wws-er-VBa"/>
+                                                <constraint firstItem="fu7-es-OB8" firstAttribute="top" secondItem="5yl-qF-3fG" secondAttribute="topMargin" id="Yuk-sC-T7A"/>
+                                                <constraint firstItem="N3h-W8-y4f" firstAttribute="top" secondItem="wC7-PK-9yU" secondAttribute="bottom" constant="4" id="Z35-UD-kiT"/>
+                                                <constraint firstItem="8a6-bX-zxL" firstAttribute="trailing" secondItem="5yl-qF-3fG" secondAttribute="trailingMargin" id="aYv-eS-cJ6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="N3h-W8-y4f" secondAttribute="trailing" id="dTQ-ft-OER"/>
+                                                <constraint firstItem="ZR7-6B-NdQ" firstAttribute="leading" secondItem="FTV-7j-KYm" secondAttribute="trailing" constant="8" id="dds-TB-Mkj"/>
+                                                <constraint firstItem="ZR7-6B-NdQ" firstAttribute="top" secondItem="fu7-es-OB8" secondAttribute="bottom" constant="4" id="hPZ-Av-wg4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wC7-PK-9yU" secondAttribute="trailing" id="yxe-I3-gTb"/>
+                                                <constraint firstItem="FTV-7j-KYm" firstAttribute="top" secondItem="5yl-qF-3fG" secondAttribute="topMargin" constant="16" id="z3C-qr-bgw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="courseLb" destination="ZR7-6B-NdQ" id="OyM-ZC-7pK"/>
+                                            <outlet property="placeLb" destination="N3h-W8-y4f" id="3YK-ij-P1C"/>
+                                            <outlet property="scheduleDateLb" destination="wC7-PK-9yU" id="QaN-e3-kVn"/>
+                                            <outlet property="timeLb" destination="8a6-bX-zxL" id="jm1-GS-1Ye"/>
+                                            <outlet property="traineeImg" destination="FTV-7j-KYm" id="iVI-ZZ-xxe"/>
+                                            <outlet property="traineeNameLb" destination="fu7-es-OB8" id="gLs-bj-3BG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2687,7 +2763,7 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0f-Jy-oNE">
-                                                    <rect key="frame" x="90" y="11" width="116.33333333333331" height="22"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2720,6 +2796,7 @@ detail</string>
                                                 <constraint firstItem="J0f-Jy-oNE" firstAttribute="top" secondItem="YSX-yi-hwk" secondAttribute="topMargin" id="BH6-ht-zIg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="yfq-px-nJl" secondAttribute="bottom" constant="28.5" id="HGZ-ZX-6iI"/>
                                                 <constraint firstItem="PI7-6P-Fxi" firstAttribute="leading" secondItem="yfq-px-nJl" secondAttribute="trailing" constant="8" id="Huj-QV-ewo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="J0f-Jy-oNE" secondAttribute="trailing" id="Jia-6D-xXP"/>
                                                 <constraint firstItem="yfq-px-nJl" firstAttribute="leading" secondItem="YSX-yi-hwk" secondAttribute="leadingMargin" id="KTv-xx-CjE"/>
                                                 <constraint firstItem="6Da-PI-F6D" firstAttribute="leading" secondItem="yfq-px-nJl" secondAttribute="trailing" constant="8" id="MQs-hR-d1m"/>
                                                 <constraint firstItem="CVm-fm-P4X" firstAttribute="leading" secondItem="yfq-px-nJl" secondAttribute="trailing" constant="8" id="Nbx-EP-N52"/>
@@ -2739,6 +2816,83 @@ detail</string>
                                             <outlet property="timeLb" destination="CVm-fm-P4X" id="diT-8Z-4aA"/>
                                             <outlet property="trainerImg" destination="yfq-px-nJl" id="hdZ-WD-9Jb"/>
                                             <outlet property="trainerNameLb" destination="J0f-Jy-oNE" id="FyC-h8-kAJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TraineeOngingTableViewCell" rowHeight="116" id="60g-S2-nCE" customClass="OngoingTraineeTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="279" width="414" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="60g-S2-nCE" id="z0g-6s-bVt">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XcE-Qy-jaY">
+                                                    <rect key="frame" x="20" y="27" width="62" height="62"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="XcE-Qy-jaY" secondAttribute="height" multiplier="1:1" id="4ni-F5-BkI"/>
+                                                        <constraint firstAttribute="width" constant="62" id="9WS-0R-pXm"/>
+                                                        <constraint firstAttribute="height" constant="62" id="q0P-x7-uN6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVy-qh-mhn">
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-xl-Ycp">
+                                                    <rect key="frame" x="90" y="37" width="283" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="[1]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs2-RO-XVC">
+                                                    <rect key="frame" x="377" y="37" width="17" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/05/2019 16:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZN-Kp-JGl">
+                                                    <rect key="frame" x="90" y="61" width="304" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ar5-qQ-y96">
+                                                    <rect key="frame" x="90" y="85" width="304" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ar5-qQ-y96" secondAttribute="trailing" id="0H0-vo-a8x"/>
+                                                <constraint firstItem="ar5-qQ-y96" firstAttribute="leading" secondItem="XcE-Qy-jaY" secondAttribute="trailing" constant="8" id="6YO-RU-nzu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nZN-Kp-JGl" secondAttribute="trailing" id="7hZ-9h-yak"/>
+                                                <constraint firstItem="q3c-xl-Ycp" firstAttribute="top" secondItem="IVy-qh-mhn" secondAttribute="bottom" constant="4" id="9vW-Vs-XQD"/>
+                                                <constraint firstItem="ar5-qQ-y96" firstAttribute="bottom" secondItem="z0g-6s-bVt" secondAttribute="bottomMargin" id="AD9-4b-KtQ"/>
+                                                <constraint firstItem="IVy-qh-mhn" firstAttribute="leading" secondItem="XcE-Qy-jaY" secondAttribute="trailing" constant="8" id="AWs-wR-JjU"/>
+                                                <constraint firstItem="XcE-Qy-jaY" firstAttribute="top" secondItem="z0g-6s-bVt" secondAttribute="topMargin" constant="16" id="EhE-N2-80V"/>
+                                                <constraint firstItem="XcE-Qy-jaY" firstAttribute="leading" secondItem="z0g-6s-bVt" secondAttribute="leadingMargin" id="Fif-JF-sKR"/>
+                                                <constraint firstItem="Fs2-RO-XVC" firstAttribute="leading" secondItem="q3c-xl-Ycp" secondAttribute="trailing" constant="4" id="GBh-mC-hOD"/>
+                                                <constraint firstItem="ar5-qQ-y96" firstAttribute="top" secondItem="nZN-Kp-JGl" secondAttribute="bottom" constant="4" id="HQ7-Z1-9DM"/>
+                                                <constraint firstItem="Fs2-RO-XVC" firstAttribute="top" secondItem="IVy-qh-mhn" secondAttribute="bottom" constant="4" id="M7k-YM-gNz"/>
+                                                <constraint firstItem="Fs2-RO-XVC" firstAttribute="trailing" secondItem="z0g-6s-bVt" secondAttribute="trailingMargin" id="OAw-rU-aZn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XcE-Qy-jaY" secondAttribute="bottom" constant="16" id="RlH-1Z-9rL"/>
+                                                <constraint firstItem="IVy-qh-mhn" firstAttribute="top" secondItem="z0g-6s-bVt" secondAttribute="topMargin" id="awU-ey-PB0"/>
+                                                <constraint firstItem="q3c-xl-Ycp" firstAttribute="leading" secondItem="XcE-Qy-jaY" secondAttribute="trailing" constant="8" id="epN-2V-QL0"/>
+                                                <constraint firstItem="nZN-Kp-JGl" firstAttribute="top" secondItem="q3c-xl-Ycp" secondAttribute="bottom" constant="4" id="g7x-Vo-LQM"/>
+                                                <constraint firstItem="nZN-Kp-JGl" firstAttribute="leading" secondItem="XcE-Qy-jaY" secondAttribute="trailing" constant="8" id="hdK-FH-1QL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IVy-qh-mhn" secondAttribute="trailing" id="iWR-rm-J14"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="courseNameLb" destination="q3c-xl-Ycp" id="hne-u9-hQu"/>
+                                            <outlet property="placeNameLb" destination="ar5-qQ-y96" id="N0H-dq-5QF"/>
+                                            <outlet property="scheduleDateLb" destination="nZN-Kp-JGl" id="da1-up-tXP"/>
+                                            <outlet property="timeLb" destination="Fs2-RO-XVC" id="UaK-gn-M74"/>
+                                            <outlet property="trainerImg" destination="XcE-Qy-jaY" id="anE-gU-Gta"/>
+                                            <outlet property="trainerNameLb" destination="IVy-qh-mhn" id="6pL-ZI-aS4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
