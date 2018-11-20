@@ -410,7 +410,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         
         let mainData = ["course_id": pendingData.course_id,
                         "place_id": pendingData.place_id,
-                        "transaction_to_admin": "-1"]
+                        "transaction_to_admin": "-1",
+                        "transaction_to_trainer": "-1"]
         
         var subData: [String: Any] = [:]
         
@@ -420,15 +421,13 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                 
                 let timeSchedule = ["start_train_date": pendingData.start_train_date,
                                     "start_train_time": pendingData.start_train_time,
-                                    "status": "1",
-                                    "transaction_to_trainer": "-1"]
+                                    "status": "1"]
                 subData["\(i)"] = timeSchedule
             } else {
                 
                 let timeSchedule = ["start_train_date": "-1",
                                     "start_train_time": "-1",
-                                    "status": "-1",
-                                    "transaction_to_trainer": "-1"]
+                                    "status": "-1"]
                 subData["\(i)"] = timeSchedule
             }
         }
