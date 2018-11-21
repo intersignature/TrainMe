@@ -37,6 +37,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     var ongoingDatas: [OngoingDetail] = []
     var ongoingDataSorted: [OngoingDetail] = []
     var waitingOngoingDataIndex: [IndexPath] = []
+    var successfulDataIndex: [IndexPath] = []
     var timeListOngoing: [String] = []
     var timeListSortedOnging: [Data] = []
     
@@ -79,6 +80,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         self.ongoingDatas.removeAll()
         self.ongoingDataSorted.removeAll()
         self.waitingOngoingDataIndex.removeAll()
+        self.successfulDataIndex.removeAll()
         self.timeListOngoing.removeAll()
         self.timeListSortedOnging.removeAll()
         self.trainerId.removeAll()
@@ -204,10 +206,15 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             for (eachOngoingIndex, eachOngoing) in self.ongoingDatas.enumerated() {
                 for (eachOnGoingDetailIndex, eachOngoingDetail) in eachOngoing.eachOngoingDetails.enumerated() {
                     if eachOngoingDetail.status == "1" {
-                        print("\(eachOngoingIndex) \(eachOnGoingDetailIndex)")
+                        print("status = 1: \(eachOngoingIndex) \(eachOnGoingDetailIndex)")
                         let waitingIndexPath = IndexPath(row: eachOnGoingDetailIndex, section: eachOngoingIndex)
                         self.waitingOngoingDataIndex.append(waitingIndexPath)
                         break
+                    }
+                    if eachOnGoingDetailIndex+1 == eachOngoing.eachOngoingDetails.count && eachOngoingDetail.status == "2" {
+                        print("status = 2: \(eachOngoingIndex)")
+                        let successIndexPath = IndexPath(row: eachOnGoingDetailIndex, section: eachOngoingIndex)
+                        self.successfulDataIndex.append(successIndexPath)
                     }
                 }
             }
@@ -380,6 +387,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             return self.paymentDataSorted.count
         case 2:
             return self.waitingOngoingDataIndex.count
+        case 3:
+            return self.successfulDataIndex.count
         default:
             return 0
         }
@@ -422,6 +431,15 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                scheduleDate: "\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_time)",
                                placeName: self.placeName[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!)
             
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TraineeSuccessfulTableViewCell") as! SuccessfulTraineeTableViewCell
+            
+            cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]?.profileImageUrl)!,
+                               trainerName: (self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]?.fullName)!,
+                               courseName: (self.courseObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].courseId]?.course)!,
+                               placeName: self.placeName[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]!,
+                               time: "\(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_time)")
             return cell
         default:
             return UITableViewCell()
@@ -621,6 +639,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             return "Please select your course to pay"
         case 2:
             return "Ongoing schedule"
+        case 3:
+            return "Successful schedule"
         default:
             return ""
         }
@@ -633,6 +653,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         case 1:
             return 1
         case 2:
+            return 1
+        case 3:
             return 1
         default:
             return 0
@@ -694,6 +716,26 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         case 2:
             let label = UILabel()
             label.text = "Ongoing schedule"
+            label.font = UIFont.boldSystemFont(ofSize: 14.0)
+            label.numberOfLines = 1
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            let view = UIView()
+            view.backgroundColor = UIColor.clear
+            view.addSubview(label)
+            
+            let views = ["label": label, "view": view]
+            
+            let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label(<=250)]-|", options: .alignAllCenterY, metrics: nil, views: views)
+            view.addConstraints(horizontallayoutContraints)
+            
+            let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+            view.addConstraint(verticalLayoutContraint)
+            
+            return view
+        case 3:
+            let label = UILabel()
+            label.text = "Successful schedule"
             label.font = UIFont.boldSystemFont(ofSize: 14.0)
             label.numberOfLines = 1
             label.translatesAutoresizingMaskIntoConstraints = false
