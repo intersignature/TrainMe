@@ -239,7 +239,8 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
                                 "weight": self.userProfile.weight,
                                 "height": self.userProfile.height,
                                 "gender": self.userProfile.gender,
-                                "profileImageUrl": "-1" ]
+                                "profileImageUrl": "-1",
+                                "omise_cus_id": "-1"]
         let values = [uid: dictionaryValues]
         Database.database().reference().child("user").updateChildValues(values) { (err, reference) in
             if let err = err {

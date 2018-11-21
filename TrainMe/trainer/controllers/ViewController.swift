@@ -176,7 +176,8 @@ class ViewController: UIViewController {
                                         "weight": "-1",
                                         "height": "-1",
                                         "gender": self.gender,
-                                        "profileImageUrl": url?.absoluteString]
+                                        "profileImageUrl": url?.absoluteString,
+                                        "omise_cus_id": "-1"]
                 let values = [uid: dictionaryValues]
                 
                 let profileChangeRequest = Auth.auth().currentUser?.createProfileChangeRequest()

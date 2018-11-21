@@ -236,7 +236,17 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             let value = snapshot.value as! NSDictionary
             print(value["name"] as! String)
-            let tempUserProfile = UserProfile(fullName: (value["name"] as! String), email: (value["email"] as! String), dateOfBirth: (value["dateOfBirth"] as! String), weight: (value["weight"] as! String), height: (value["height"] as! String), gender: (value["gender"] as! String), role: (value["role"] as! String), profileImageUrl: (value["profileImageUrl"] as! String), uid: uid)
+            let tempUserProfile = UserProfile(fullName: (value["name"] as! String),
+                                              email: (value["email"] as! String),
+                                              dateOfBirth: (value["dateOfBirth"] as! String),
+                                              weight: (value["weight"] as! String),
+                                              height: (value["height"] as! String),
+                                              gender: (value["gender"] as! String),
+                                              role: (value["role"] as! String),
+                                              profileImageUrl: (value["profileImageUrl"] as! String),
+                                              uid: uid,
+                                              omiseCusId: (value["omise_cus_id"] as! String))
+            
             self.traineeObj[uid] = tempUserProfile
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
