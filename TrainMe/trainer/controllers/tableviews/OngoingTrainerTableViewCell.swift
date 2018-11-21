@@ -25,6 +25,8 @@ class OngoingTrainerTableViewCell: UITableViewCell {
         self.timeLb.text = time
         self.scheduleDateLb.text = scheduleDate
         self.placeLb.text = place
+        
+        self.setProfileImageRound()
     }
     
     func setProfileImageRound() {

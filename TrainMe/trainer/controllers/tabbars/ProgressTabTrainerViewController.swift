@@ -170,9 +170,9 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         var tempEachOngoings: [EachOngoingDetail] = []
         self.ref.child("progress_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            let values = snapshot.value as! [String: [String: AnyObject]]
+            let values = snapshot.value as? [String: [String: AnyObject]]
             
-            values.forEach({ (traineeId, overallScheduleDetail) in
+            values?.forEach({ (traineeId, overallScheduleDetail) in
                 print("traineeId: \(traineeId)")
                 tempEachOngoings.removeAll()
                 overallScheduleDetail.forEach({ (btnKey, detail) in
@@ -204,7 +204,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                     let tempOngoingDetail = OngoingDetail(traineeId: traineeId,
                                                           courseId: (detail["course_id"] as? String)!,
                                                           placeId: (detail["place_id"] as? String)!,
-                                                          transactionToAdmin: (detail["transaction_to_admin"] as? String)!,
+                                                          transactionToAdmin: detail["transaction_to_admin"] as! String,
                                                           transactionToTrainer: (detail["transaction_to_trainer"] as? String)!,
                                                           eachOngoingDetails: tempEachOngoings)
                     self.ongoingDatas.append(tempOngoingDetail)

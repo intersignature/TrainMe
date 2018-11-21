@@ -190,7 +190,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                             let tempOngoingDetail = OngoingDetail(trainerId: trainerId,
                                                                   courseId: (detail["course_id"] as? String)!,
                                                                   placeId: (detail["place_id"] as? String)!,
-                                                                  transactionToAdmin: (detail["transaction_to_admin"] as? String)!,
+                                                                  transactionToAdmin: detail["transaction_to_admin"] as! String,
                                                                   transactionToTrainer: (detail["transaction_to_trainer"] as? String)!,
                                                                   eachOngoingDetails: tempEachOngoings)
                             self.ongoingDatas.append(tempOngoingDetail)
@@ -446,12 +446,6 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     
     @objc func paymentAction(buyBtn: UIButton) {
         
-        //TODO: Payment with Omise
-        
-        self.view.showBlurLoader()
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
         let omisePublicKey = "pkey_test_5dx71gf388qmfex790a"
         let closeButton = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(self.dismissCreditCardForm))
         let creditCardView = CreditCardFormController.makeCreditCardForm(withPublicKey: omisePublicKey)
@@ -465,46 +459,76 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         let payIndexPath = IndexPath(row: Int((buyBtn.accessibilityLabel?.components(separatedBy: "-")[1])!)!, section: Int((buyBtn.accessibilityLabel?.components(separatedBy: "-")[0])!)!)
         self.payAt = payIndexPath
         print("pay at: \(payIndexPath.section) \(payIndexPath.row)")
-        
-        let client = OmiseSDKClient(publicKey: omisePublicKey)
-        
     }
     
     @objc func dismissCreditCardForm() {
-        
-        self.view.removeBluerLoader()
-        self.tabBarController?.tabBar.isHidden = false
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         self.dismiss(animated: true, completion: nil)
     }
 
     func creditCardForm(_ controller: CreditCardFormController, didSucceedWithToken token: OmiseToken) {
+        
         print("token id: \(String(describing: token.tokenId))")
         print("live mode: \(token.livemode)")
-
-        self.addProgressData(pendingData: paymentDataSorted[self.payAt.row])
-        self.deletePendingData(deletePendingIndexPath: self.payAt, from: "Payment")
-        
-        self.dismissCreditCardForm()
+        self.chargeCoursePrice(price: (self.courseObj[self.paymentDataSorted[self.payAt.row].course_id]?.coursePrice)!, token: token.tokenId!)
     }
     
     func creditCardForm(_ controller: CreditCardFormController, didFailWithError error: Error) {
+       
         print(error.localizedDescription)
-        
-        self.view.removeBluerLoader()
-        self.tabBarController?.tabBar.isHidden = false
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        self.createAlert(alertTitle: error.localizedDescription, alertMessage: "")
         self.dismissCreditCardForm()
+        self.createAlert(alertTitle: error.localizedDescription, alertMessage: "")
     }
     
-    func addProgressData(pendingData: PendingBookPlaceDetail) {
+    func chargeCoursePrice(price: String, token: String) {
+        
+        let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        guard let URL = URL(string: "https://api.omise.co/charges") else {return}
+        
+        var request = URLRequest(url: URL)
+        request.httpMethod = "POST"
+        
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
+        
+        let params = "amount=\(Int(price)!*100)&currency=thb&card=\(token)"
+        request.httpBody = params.data(using: .utf8, allowLossyConversion: true)
+        
+        let task = session.dataTask(with: request) { (data, response, err) in
+            if err == nil {
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                let jsonData = try! JSONSerialization.jsonObject(with: data!, options: []) as AnyObject
+                
+                if statusCode == 200 {
+                    if jsonData["status"] as! String == "successful" {
+                        
+                        self.addProgressData(pendingData: self.paymentDataSorted[self.payAt.row], jsonData: jsonData["id"] as! String)
+                    } else if jsonData["status"] as! String == "failed" {
+                        
+                        print(jsonData["status"] as! String)
+                        self.dismissCreditCardForm()
+                        self.createAlert(alertTitle: (jsonData["failure_code"] as! String), alertMessage: (jsonData["failure_message"] as! String))
+                    }
+                }
+                print("JsonData: \(jsonData["status"] as! String)")
+                print("HTTP Response: \(statusCode)")
+            }
+            else {
+                print(err!.localizedDescription)
+                self.dismissCreditCardForm()
+            }
+        }
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    func addProgressData(pendingData: PendingBookPlaceDetail, jsonData: String) {
         
         let mainData = ["course_id": pendingData.course_id,
                         "place_id": pendingData.place_id,
-                        "transaction_to_admin": "-1",
+                        "transaction_to_admin": jsonData,
                         "transaction_to_trainer": "-1"]
         
         var subData: [String: Any] = [:]
@@ -539,6 +563,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                     self.createAlert(alertTitle: err1.localizedDescription, alertMessage: "")
                     return
                 }
+                self.deletePendingData(deletePendingIndexPath: self.payAt, from: "Payment")
             })
         }
     }
@@ -573,16 +598,14 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             
             self.ref.child("pending_schedule_detail").child(deletePendingData.trainer_id).child(deletePendingData.schedule_key).removeValue { (err, ref) in
                 
-                self.view.removeBluerLoader()
-                self.tabBarController?.tabBar.isHidden = false
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                
                 if let err = err {
                     print(err.localizedDescription)
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     return
                 }
                 
+                self.dismissCreditCardForm()
+                self.createAlert(alertTitle: "Your payment was successful", alertMessage: "")
                 self.paymentDataSorted.remove(at: deletePendingIndexPath.row)
                 self.pendingTableView.reloadData()
             }
