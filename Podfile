@@ -21,6 +21,7 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'SwiftyJSON'
 pod 'DTTextField'
+pod 'CreditCardForm'
 #pod 'SkeletonView'
 
   target 'TrainMeTests' do
