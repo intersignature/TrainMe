@@ -22,6 +22,7 @@ pod 'FacebookLogin'
 pod 'SwiftyJSON'
 pod 'DTTextField'
 pod 'CreditCardForm'
+pod 'Stripe'
 #pod 'SkeletonView'
 
   target 'TrainMeTests' do

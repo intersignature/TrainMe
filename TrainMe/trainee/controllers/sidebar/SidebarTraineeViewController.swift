@@ -15,6 +15,13 @@ class SidebarTraineeViewController: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var emailLb: UILabel!
+    @IBOutlet weak var profileBtn: UIButton!
+    @IBOutlet weak var creditCardBtn: UIButton!
+    @IBOutlet weak var helpBtn: UIButton!
+    @IBOutlet weak var settingBtn: UIButton!
+    @IBOutlet weak var becomeATrainerBtn: UIButton!
+    @IBOutlet weak var logoutBtn: UIButton!
+    
     private var currentUser: User?
     
     override func viewDidLoad() {
@@ -50,5 +57,10 @@ class SidebarTraineeViewController: UIViewController {
         profileImg.layer.borderColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1).cgColor
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         profileImg.clipsToBounds = true
+    }
+    
+    @IBAction func creditCardBtnAction(_ sender: UIButton) {
+        
+        
     }
 }

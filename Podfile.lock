@@ -115,6 +115,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
+  - Stripe (14.0.0)
   - SwiftyJSON (4.2.0)
   - SWRevealViewController (2.3.0)
 
@@ -133,6 +134,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - Stripe
   - SwiftyJSON
   - SWRevealViewController
 
@@ -165,6 +167,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - Stripe
     - SwiftyJSON
     - SWRevealViewController
 
@@ -196,9 +199,10 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: ae558ad1772d147de8b8bb76de8d79dac3c1e549
+PODFILE CHECKSUM: 118e844a54b38744bff447e8ec8db466c368981a
 
 COCOAPODS: 1.5.3
