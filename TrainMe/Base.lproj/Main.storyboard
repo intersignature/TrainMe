@@ -1278,25 +1278,25 @@ TrainMe’s Privacy Policy</string>
                                                         <constraint firstAttribute="width" secondItem="gGb-pr-egL" secondAttribute="height" multiplier="1:1" id="zWV-je-p71"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-Wr-myX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-Wr-myX">
                                                     <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BG0-Iv-I2C">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BG0-Iv-I2C">
                                                     <rect key="frame" x="90" y="37" width="304" height="20"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZe-qf-q8e">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZe-qf-q8e">
                                                     <rect key="frame" x="90" y="61" width="304" height="20"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="14/06/2018 14:54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W57-hX-cid">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/06/2018 14:54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W57-hX-cid">
                                                     <rect key="frame" x="90" y="85" width="304" height="20"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -1358,7 +1358,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwu-Yq-eC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3392.753623188406" y="1696.467391304348"/>
+            <point key="canvasLocation" x="4300" y="1696.467391304348"/>
         </scene>
         <!--Add schedule-->
         <scene sceneID="EWI-el-ymn">
@@ -1470,7 +1470,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8T-Sn-8fi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6063.7681159420299" y="1429.8913043478262"/>
+            <point key="canvasLocation" x="6971.0144927536239" y="1429.8913043478262"/>
         </scene>
         <!--Pick your place-->
         <scene sceneID="3aO-BX-3F8">
@@ -1949,7 +1949,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIe-wf-28B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4342.0289855072469" y="2452.989130434783"/>
+            <point key="canvasLocation" x="5249.275362318841" y="2452.989130434783"/>
         </scene>
         <!--Notification-->
         <scene sceneID="oG5-68-KEu">
@@ -2368,7 +2368,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gC4-nD-Ag8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043.4782608695652" y="1697.2826086956522"/>
+            <point key="canvasLocation" x="1950.7246376811595" y="1697.2826086956522"/>
         </scene>
         <!--BOOK-->
         <scene sceneID="Fqq-hV-Z9y">
@@ -2406,7 +2406,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecd-cx-Fu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2718.840579710145" y="1696.467391304348"/>
+            <point key="canvasLocation" x="3626.0869565217395" y="1696.467391304348"/>
         </scene>
         <!--COURSE-->
         <scene sceneID="Y6W-m4-4AE">
@@ -2680,7 +2680,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yN-vL-HH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5156.521739130435" y="1429.8913043478262"/>
+            <point key="canvasLocation" x="6063.7681159420299" y="1429.8913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OmQ-mF-bfW">
@@ -3146,6 +3146,46 @@ detail</string>
             </objects>
             <point key="canvasLocation" x="-2242.0289855072465" y="953.804347826087"/>
         </scene>
+        <!--Add Credit Card View Controller-->
+        <scene sceneID="mU3-Wy-3us">
+            <objects>
+                <viewController id="zSW-ft-GE2" customClass="AddCreditCardViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y9o-P0-qTt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EP1-fm-su2" customClass="CreditCardFormView" customModule="CreditCardForm">
+                                <rect key="frame" x="57" y="74" width="300" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="5iJ-m8-zPU"/>
+                                    <constraint firstAttribute="width" constant="300" id="uba-6n-Vj0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EP1-fm-su2" firstAttribute="centerX" secondItem="y9o-P0-qTt" secondAttribute="centerX" id="B2I-FR-69p"/>
+                            <constraint firstItem="EP1-fm-su2" firstAttribute="top" secondItem="lVP-ER-nUs" secondAttribute="top" constant="10" id="pnH-Mc-aXp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lVP-ER-nUs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Oa2-3n-klU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i73-ee-D8k">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelBtnAction:" destination="zSW-ft-GE2" id="k8C-72-rty"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="creditCardForm" destination="EP1-fm-su2" id="I0Q-fi-MwS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7r-FL-Fba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2113" y="1723"/>
+        </scene>
         <!--Add Citizencard-->
         <scene sceneID="MGj-tT-734">
             <objects>
@@ -3162,7 +3202,7 @@ detail</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign certified true copy and upload to admin for consider to be our trainer." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDV-6G-nIZ">
-                                <rect key="frame" x="20" y="297" width="374" height="35"/>
+                                <rect key="frame" x="20" y="297" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -3387,6 +3427,7 @@ detail</string>
                                 <state key="normal" title="     Credit card / Paypal" image="creditCard"/>
                                 <connections>
                                     <action selector="creditCardBtnAction:" destination="C4e-lZ-zmb" eventType="touchUpInside" id="4fP-HS-6nc"/>
+                                    <segue destination="Cxp-bp-Giv" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="InL-h2-KJ3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3S-1q-6zc">
@@ -3680,7 +3721,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P93-qt-vdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11818.840579710146" y="1284.7826086956522"/>
+            <point key="canvasLocation" x="12726.08695652174" y="1284.7826086956522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c58-4G-14s">
@@ -3698,7 +3739,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVE-LC-I5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10911.594202898552" y="1284.7826086956522"/>
+            <point key="canvasLocation" x="11818.840579710146" y="1284.7826086956522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tc6-cP-JtM">
@@ -3718,6 +3759,24 @@ detail</string>
             </objects>
             <point key="canvasLocation" x="8942.0289855072479" y="-968.47826086956525"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HlK-Vh-CKX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cxp-bp-Giv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iZH-tg-q7e">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zSW-ft-GE2" kind="relationship" relationship="rootViewController" id="cqe-si-urH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RU3-iG-Jhv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2891" y="1724"/>
+        </scene>
     </scenes>
     <resources>
         <image name="creditCard" width="34" height="28"/>
@@ -3736,10 +3795,11 @@ detail</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="2f7-5X-WCN"/>
         <segue reference="Api-oy-w4p"/>
         <segue reference="hNW-x5-lZ1"/>
-        <segue reference="EnY-te-5kK"/>
-        <segue reference="yaD-9q-IZ0"/>
+        <segue reference="jKP-sF-pe6"/>
+        <segue reference="CLL-yx-EIm"/>
         <segue reference="MDp-Zn-cGQ"/>
         <segue reference="iOR-r9-omW"/>
         <segue reference="CFy-02-wCg"/>

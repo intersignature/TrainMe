@@ -41,6 +41,8 @@
 		B23E918B219AD387000AECF8 /* PaymentTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23E918A219AD387000AECF8 /* PaymentTraineeTableViewCell.swift */; };
 		B24144B221371ACF00F8315B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B24144B421371ACF00F8315B /* Localizable.strings */; };
 		B24144B72137F94D00F8315B /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24144B62137F94D00F8315B /* extension.swift */; };
+		B24664E221AC46B10065655F /* AddCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24664E121AC46B10065655F /* AddCreditCardViewController.swift */; };
+		B24664E421AEB0EF0065655F /* ViewCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24664E321AEB0EF0065655F /* ViewCreditCardViewController.swift */; };
 		B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B8A8D212D16F400C59074 /* Register2ViewController.swift */; };
 		B25A8115212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
 		B25A8116212BD61600073C68 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */; };
@@ -161,6 +163,8 @@
 		B24144B321371ACF00F8315B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B24144B521371AD100F8315B /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B24144B62137F94D00F8315B /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		B24664E121AC46B10065655F /* AddCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardViewController.swift; sourceTree = "<group>"; };
+		B24664E321AEB0EF0065655F /* ViewCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCreditCardViewController.swift; sourceTree = "<group>"; };
 		B24B8A8D212D16F400C59074 /* Register2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register2ViewController.swift; sourceTree = "<group>"; };
 		B25A8111212BD59300073C68 /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Medium.ttf"; sourceTree = "<group>"; };
 		B25A8112212BD5B400073C68 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -455,6 +459,8 @@
 				B2B8BC5F212BC5D7009A3712 /* Info.plist */,
 				B224A060212BC92800DA7E47 /* GoogleService-Info.plist */,
 				B25A8110212BD53B00073C68 /* fonts */,
+				B24664E121AC46B10065655F /* AddCreditCardViewController.swift */,
+				B24664E321AEB0EF0065655F /* ViewCreditCardViewController.swift */,
 			);
 			path = TrainMe;
 			sourceTree = "<group>";
@@ -772,6 +778,7 @@
 				B2AB110F214655D900E84321 /* AddSchedulePlaceViewController.swift in Sources */,
 				B202BD1E214D712300DE0790 /* FindTabTraineeViewController.swift in Sources */,
 				B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */,
+				B24664E221AC46B10065655F /* AddCreditCardViewController.swift in Sources */,
 				B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */,
 				B2B62D2521A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift in Sources */,
 				B27F7E51219AE13400AA9520 /* PaymentTrainerTableViewCell.swift in Sources */,
@@ -805,6 +812,7 @@
 				B263566E218830C100277F67 /* ConfirmationTableViewCell.swift in Sources */,
 				B2B6CE56217F1A6D00869488 /* PendingBookPlaceDetail.swift in Sources */,
 				B21CCD4B2141CA610013EA56 /* EditCourseViewController.swift in Sources */,
+				B24664E421AEB0EF0065655F /* ViewCreditCardViewController.swift in Sources */,
 				B202BD22214D714900DE0790 /* NotificationTabTraineeViewController.swift in Sources */,
 				B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */,
 				B20ECAEF213FE4590084E685 /* AllCourseTrainerTableViewCell.swift in Sources */,
