@@ -79,6 +79,50 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
         session.finishTasksAndInvalidate()
     }
     
+    func deleteOmiseCard(deleteCardIndexPath: IndexPath) {
+        
+        let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        guard let URL = URL(string: "https://api.omise.co/customers/\(self.allData.id)/cards/\(self.allData.cards.data[deleteCardIndexPath.row].id)") else {return}
+        
+        var request = URLRequest(url: URL)
+        
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "DELETE"
+        
+        let _ = session.dataTask(with: request) { (data, response, err) in
+            
+            DispatchQueue.main.async {
+                if err == nil {
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    print(statusCode)
+                    
+                    guard let data = data else {
+                        print("no data")
+                        return
+                    }
+                    
+                    if statusCode == 200 {
+                        let jsonData = try! JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
+                        if jsonData["object"] as! String == "card" {
+                            self.createAlert(alertTitle: "Delete credit card successful", alertMessage: "")
+                        } else if jsonData["object"] as! String == "error"{
+                            self.createAlert(alertTitle: "Failed to delete credit card", alertMessage: "")
+                        }
+                    }
+                }
+            }
+            }.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    func deleteCardFromData(deleteDataIndexPath: IndexPath) {
+        
+        self.allData.cards.data.remove(at: deleteDataIndexPath.row)
+    }
+    
     @IBAction func backBtnAction(_ sender: UIBarButtonItem) {
 
     }
@@ -106,6 +150,26 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexpath) in
+            print(indexPath)
+            
+            let alert = UIAlertController(title: "", message: "Would you like to delete this credit card?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action1) in
+                self.deleteOmiseCard(deleteCardIndexPath: indexPath)
+                self.deleteCardFromData(deleteDataIndexPath: indexPath)
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        return [deleteAction]
     }
     
     override func viewWillAppear(_ animated: Bool) {

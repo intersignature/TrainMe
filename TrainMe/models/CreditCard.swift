@@ -15,7 +15,7 @@ struct CreditCard: Decodable {
     let location, defaultCard, email, description: String
     let metadata: Metadata
     let created: String
-    let cards: Cards
+    var cards: Cards
     enum CodingKeys: String, CodingKey {
         case object, id, livemode, location
         case defaultCard = "default_card"
@@ -30,7 +30,7 @@ struct Cards: Decodable {
     let offset, limit, total: Int
     let order: String?
     let location: String
-    let data: [Data]
+    var data: [Data]
 }
 
 struct Data: Decodable {
