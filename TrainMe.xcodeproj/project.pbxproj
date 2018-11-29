@@ -30,6 +30,7 @@
 		B224C71621A3EC7100DD33AB /* EachOngoingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B224C71521A3EC7100DD33AB /* EachOngoingDetail.swift */; };
 		B224C71821A41F3300DD33AB /* OngoingTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B224C71721A41F3300DD33AB /* OngoingTrainerTableViewCell.swift */; };
 		B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2307ED12135142E000CB3AB /* UserProfile.swift */; };
+		B2357E2621AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2357E2521AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift */; };
 		B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */; };
 		B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */; };
 		B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */; };
@@ -150,6 +151,7 @@
 		B224C71721A41F3300DD33AB /* OngoingTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTrainerTableViewCell.swift; sourceTree = "<group>"; };
 		B2307ED12135142E000CB3AB /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		B2309F07213D986D0030EA1C /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2357E2521AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCreditCardToChargeViewController.swift; sourceTree = "<group>"; };
 		B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerSelectedTableViewCell.swift; sourceTree = "<group>"; };
 		B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCourseTrainerSpecifiedViewController.swift; sourceTree = "<group>"; };
 		B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrainerCourseTableViewCell.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				B202BD1A214D6A4100DE0790 /* tabbars */,
 				B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */,
 				B2B9E358215261CA0048E501 /* NewProgressViewController.swift */,
+				B2357E2521AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				B224C71821A41F3300DD33AB /* OngoingTrainerTableViewCell.swift in Sources */,
 				B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */,
 				B2B6CE58217FB8F100869488 /* ProgressTableViewCell.swift in Sources */,
+				B2357E2621AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift in Sources */,
 				B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */,
 				B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */,
 				B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */,

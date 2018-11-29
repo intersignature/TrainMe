@@ -1470,7 +1470,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8T-Sn-8fi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7878.2608695652179" y="1429.8913043478262"/>
+            <point key="canvasLocation" x="8785.507246376812" y="1429.8913043478262"/>
         </scene>
         <!--Pick your place-->
         <scene sceneID="3aO-BX-3F8">
@@ -1523,7 +1523,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTf-Be-bpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3392.753623188406" y="953.804347826087"/>
+            <point key="canvasLocation" x="4300" y="953.804347826087"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="6Z7-di-P48">
@@ -1542,7 +1542,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAF-XO-Y5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5162.3188405797109" y="584.51086956521749"/>
+            <point key="canvasLocation" x="6069.5652173913049" y="584.51086956521749"/>
         </scene>
         <!--Sidebar Trainer View Controller-->
         <scene sceneID="08G-PF-GMG">
@@ -1642,7 +1642,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DP2-Oh-MYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6060.8695652173919" y="584.51086956521749"/>
+            <point key="canvasLocation" x="6968.115942028986" y="584.51086956521749"/>
         </scene>
         <!--Course-->
         <scene sceneID="oBU-BI-8PT">
@@ -2083,7 +2083,7 @@ detail</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jD4-jv-TV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="953.804347826087"/>
+            <point key="canvasLocation" x="2810.144927536232" y="953.804347826087"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="BEC-IE-QMh">
@@ -2103,7 +2103,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmX-6T-AUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213.04347826086959" y="953.804347826087"/>
+            <point key="canvasLocation" x="694.20289855072474" y="953.804347826087"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="9EV-lV-Qtj">
@@ -2257,7 +2257,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRD-dM-JKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="953.804347826087"/>
+            <point key="canvasLocation" x="1949.2753623188407" y="953.804347826087"/>
         </scene>
         <!--Forget Password View Controller-->
         <scene sceneID="9V5-pF-02D">
@@ -2387,7 +2387,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3t-Ef-AVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2718.840579710145" y="953.804347826087"/>
+            <point key="canvasLocation" x="3626.0869565217395" y="953.804347826087"/>
         </scene>
         <!--PROGRESS-->
         <scene sceneID="JtW-FM-yBP">
@@ -2680,7 +2680,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yN-vL-HH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6971.0144927536239" y="1429.8913043478262"/>
+            <point key="canvasLocation" x="7878.2608695652179" y="1429.8913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OmQ-mF-bfW">
@@ -2717,6 +2717,114 @@ detail</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nuy-uG-xhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10005.797101449276" y="-240.48913043478262"/>
+        </scene>
+        <!--Select your credit card-->
+        <scene sceneID="ecw-QE-utd">
+            <objects>
+                <viewController id="NoG-1D-1eY" customClass="SelectCreditCardToChargeViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hid-Hr-MfF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TlF-FI-mPP">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectCreditCardTableViewCell" rowHeight="160" id="Bx0-oW-SXZ" customClass="ViewCreditCardTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bx0-oW-SXZ" id="4fI-S5-fqk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="159.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h19-QY-YHH">
+                                                    <rect key="frame" x="30" y="16" width="354" height="128"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HX-O0-uTY">
+                                                            <rect key="frame" x="8" y="9.9999999999999982" width="338" height="23.333333333333329"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Bank" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="hoq-xV-IJE">
+                                                            <rect key="frame" x="8" y="37.333333333333336" width="338" height="24"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="****     ****     ****     1234" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvc-8s-cVB">
+                                                            <rect key="frame" x="8" y="65.333333333333329" width="338" height="24"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VISA" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cx7-ay-CfY">
+                                                            <rect key="frame" x="8" y="93.333333333333329" width="338" height="24"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Hvc-8s-cVB" firstAttribute="leading" secondItem="h19-QY-YHH" secondAttribute="leading" constant="8" id="Bwe-Ud-wZk"/>
+                                                        <constraint firstItem="cx7-ay-CfY" firstAttribute="leading" secondItem="h19-QY-YHH" secondAttribute="leading" constant="8" id="JdI-XA-kfM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cx7-ay-CfY" secondAttribute="trailing" constant="8" id="KLA-f9-TxA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="hoq-xV-IJE" secondAttribute="trailing" constant="8" id="Nmm-YX-FFU"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9HX-O0-uTY" secondAttribute="trailing" constant="8" id="PfU-gw-QLF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Hvc-8s-cVB" secondAttribute="trailing" constant="8" id="ZvJ-jn-2PV"/>
+                                                        <constraint firstItem="cx7-ay-CfY" firstAttribute="top" secondItem="Hvc-8s-cVB" secondAttribute="bottom" constant="4" id="a0i-dR-i0Q"/>
+                                                        <constraint firstItem="hoq-xV-IJE" firstAttribute="top" secondItem="9HX-O0-uTY" secondAttribute="bottom" constant="4" id="ccc-Yb-ydK"/>
+                                                        <constraint firstItem="Hvc-8s-cVB" firstAttribute="top" secondItem="hoq-xV-IJE" secondAttribute="bottom" constant="4" id="k3E-LX-lCc"/>
+                                                        <constraint firstItem="9HX-O0-uTY" firstAttribute="top" secondItem="h19-QY-YHH" secondAttribute="top" constant="10" id="oYq-kl-O66"/>
+                                                        <constraint firstItem="9HX-O0-uTY" firstAttribute="leading" secondItem="h19-QY-YHH" secondAttribute="leading" constant="8" id="pGC-Yq-SOd"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cx7-ay-CfY" secondAttribute="bottom" constant="10.67" id="xXb-pI-Y5I"/>
+                                                        <constraint firstItem="hoq-xV-IJE" firstAttribute="leading" secondItem="h19-QY-YHH" secondAttribute="leading" constant="8" id="yS9-Dr-gaL"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="h19-QY-YHH" firstAttribute="leading" secondItem="4fI-S5-fqk" secondAttribute="leadingMargin" constant="10" id="7ew-Zj-3Sp"/>
+                                                <constraint firstItem="h19-QY-YHH" firstAttribute="top" secondItem="4fI-S5-fqk" secondAttribute="topMargin" constant="5" id="dhE-1C-ckQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="h19-QY-YHH" secondAttribute="trailing" constant="10" id="oF3-xb-G5P"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="h19-QY-YHH" secondAttribute="bottom" constant="5" id="tci-AH-glJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bankLb" destination="hoq-xV-IJE" id="Vh0-Oy-dSo"/>
+                                            <outlet property="bgContainerView" destination="h19-QY-YHH" id="b9I-gB-KPb"/>
+                                            <outlet property="brandLb" destination="cx7-ay-CfY" id="LVU-ff-cXa"/>
+                                            <outlet property="last4digits" destination="Hvc-8s-cVB" id="ais-m1-faS"/>
+                                            <outlet property="nameLb" destination="9HX-O0-uTY" id="wfZ-WV-LLK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TlF-FI-mPP" firstAttribute="top" secondItem="4Ry-Mm-jwr" secondAttribute="top" id="cL8-jb-RmE"/>
+                            <constraint firstItem="4Ry-Mm-jwr" firstAttribute="trailing" secondItem="TlF-FI-mPP" secondAttribute="trailing" id="et2-fa-1OO"/>
+                            <constraint firstAttribute="bottom" secondItem="TlF-FI-mPP" secondAttribute="bottom" id="vqg-Gl-VJj"/>
+                            <constraint firstItem="TlF-FI-mPP" firstAttribute="leading" secondItem="Hid-Hr-MfF" secondAttribute="leading" id="xuO-f3-vfD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Ry-Mm-jwr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select your credit card" id="XGI-C7-tfJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BXa-IM-Nes">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelBtnAction:" destination="NoG-1D-1eY" id="C6f-x6-Uqe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="creditCardTableView" destination="TlF-FI-mPP" id="FcP-QI-IOv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zW7-cN-YiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6497" y="954"/>
         </scene>
         <!--Progress-->
         <scene sceneID="Zhu-SN-qJY">
@@ -2852,7 +2960,7 @@ detail</string>
                                                     <rect key="frame" x="90" y="90.666666666666671" width="30" height="42.333333333333329"/>
                                                     <state key="normal" title="Pay"/>
                                                     <connections>
-                                                        <segue destination="gbW-uY-edR" kind="presentation" identifier="PayToCreditCard" id="cX1-A8-dva"/>
+                                                        <segue destination="u2a-Ib-lsV" kind="presentation" identifier="PayToSelectCreditCard" id="fr6-Xu-hmF"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="14/07/2018 14:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVm-fm-P4X">
@@ -3062,7 +3170,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P90-pF-JZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5475.36231884058" y="953.804347826087"/>
+            <point key="canvasLocation" x="-5481" y="954"/>
         </scene>
         <!--Notification-->
         <scene sceneID="jgJ-aA-fKL">
@@ -3147,7 +3255,7 @@ detail</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5l-Av-oHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2242.0289855072465" y="953.804347826087"/>
+            <point key="canvasLocation" x="-1334.7826086956522" y="953.804347826087"/>
         </scene>
         <!--Add credit card-->
         <scene sceneID="mU3-Wy-3us">
@@ -3498,7 +3606,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cpr-bN-lFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1239.1304347826087" y="953.804347826087"/>
+            <point key="canvasLocation" x="-331.8840579710145" y="953.804347826087"/>
         </scene>
         <!--Find-->
         <scene sceneID="8TW-RE-fQh">
@@ -3536,7 +3644,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ZF-LU-5JH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4417.391304347826" y="953.804347826087"/>
+            <point key="canvasLocation" x="-4423" y="954"/>
         </scene>
         <!--Notification-->
         <scene sceneID="QlM-ok-mnq">
@@ -3683,7 +3791,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8X-hb-bgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11818.840579710146" y="584.51086956521749"/>
+            <point key="canvasLocation" x="12726.08695652174" y="584.51086956521749"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TJW-y2-KxK">
@@ -3701,7 +3809,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODE-dA-sdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10911.594202898552" y="584.51086956521749"/>
+            <point key="canvasLocation" x="11818.840579710146" y="584.51086956521749"/>
         </scene>
         <!--New Progress View Controller-->
         <scene sceneID="uHg-7M-M94">
@@ -3724,7 +3832,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P93-qt-vdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13633.333333333334" y="1284.7826086956522"/>
+            <point key="canvasLocation" x="14540.579710144928" y="1284.7826086956522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c58-4G-14s">
@@ -3742,7 +3850,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVE-LC-I5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12726.08695652174" y="1284.7826086956522"/>
+            <point key="canvasLocation" x="13633.333333333334" y="1284.7826086956522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tc6-cP-JtM">
@@ -3913,6 +4021,24 @@ detail</string>
             </objects>
             <point key="canvasLocation" x="-1866.6666666666667" y="1801.6304347826087"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vwi-Ht-RqE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u2a-Ib-lsV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3BR-Kc-KgN">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NoG-1D-1eY" kind="relationship" relationship="rootViewController" id="IsT-uO-Wzp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6a-Fr-CZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7404" y="954"/>
+        </scene>
     </scenes>
     <resources>
         <image name="creditCard" width="34" height="28"/>
@@ -3931,7 +4057,6 @@ detail</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cX1-A8-dva"/>
         <segue reference="Api-oy-w4p"/>
         <segue reference="hNW-x5-lZ1"/>
         <segue reference="ZMu-HA-Vlo"/>
