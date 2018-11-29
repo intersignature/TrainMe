@@ -108,19 +108,6 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
         print(indexPath)
     }
     
-    //TODO: Charge zone another view controller
-//    func chargeCoursePrice(cardIndexPath: IndexPath) {
-    //        //TODO: chargeCoursePrice
-//    }
-//
-//    func addProgressData(transactionId: String) {
-    //        //TODO: addProgressData
-//    }
-//
-//    func deletePendingData() {
-    //        //TODO: deletePendingData
-//    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
