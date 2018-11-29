@@ -227,7 +227,11 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
                 
                 if statusCode == 200 {
                     print(jsonData)
-                    self.createAlert(alertTitle: "Add credit card successful!", alertMessage: "")
+                    let alert = UIAlertController(title: "Add credit card successful!", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                 } else if statusCode == 404 {
                     print(jsonData["message"] as! String)
                     self.createAlert(alertTitle: jsonData["message"] as! String, alertMessage: "")
@@ -290,7 +294,12 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
             }
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.view.removeBluerLoader()
-            self.createAlert(alertTitle: "Add credit card successful!", alertMessage: "")
+
+            let alert = UIAlertController(title: "Add credit card successful!", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
