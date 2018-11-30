@@ -154,22 +154,41 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexpath) in
-            print(indexPath)
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (deleteRowAction, deleteRowIndexPath) in
+            print(deleteRowIndexPath)
             
             let alert = UIAlertController(title: "", message: "Would you like to delete this credit card?", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action1) in
-                self.deleteOmiseCard(deleteCardIndexPath: indexPath)
-                self.deleteCardFromData(deleteDataIndexPath: indexPath)
+                self.deleteOmiseCard(deleteCardIndexPath: deleteRowIndexPath)
+                self.deleteCardFromData(deleteDataIndexPath: deleteRowIndexPath)
                 tableView.beginUpdates()
-                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.deleteRows(at: [deleteRowIndexPath], with: .automatic)
                 tableView.endUpdates()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         
-        return [deleteAction]
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (editRowAction, editRowIndexPath) in
+            print(editRowIndexPath)
+            self.performSegue(withIdentifier: "ViewCreditCardToEditCreditCard", sender: editRowIndexPath)
+        }
+        return [editAction, deleteAction]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewCreditCardToEditCreditCard" {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! EditCreditCardViewController
+            
+            guard let selectedEditRowIndexPath = sender as? IndexPath else {
+                print("selectedEditRowIndexPath is not an IndexPath")
+                return
+            }
+            print("selectedEditRowIndexPath: \(selectedEditRowIndexPath)")
+            
+            containVc.selectedCardData = self.allData.cards.data[selectedEditRowIndexPath.row]
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -86,6 +86,7 @@
 		B2B9E3572152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */; };
 		B2B9E359215261CA0048E501 /* NewProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E358215261CA0048E501 /* NewProgressViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
+		B2EEE32C21B1AF0200E2AEB0 /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +210,7 @@
 		B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerByTraineeViewController.swift; sourceTree = "<group>"; };
 		B2B9E358215261CA0048E501 /* NewProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
+		B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -470,6 +472,7 @@
 				B24664E121AC46B10065655F /* AddCreditCardViewController.swift */,
 				B24664E321AEB0EF0065655F /* ViewCreditCardViewController.swift */,
 				B24664E521AEB3C60065655F /* ViewCreditCardTableViewCell.swift */,
+				B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */,
 			);
 			path = TrainMe;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				B24B8A8E212D16F400C59074 /* Register2ViewController.swift in Sources */,
 				B2B9E359215261CA0048E501 /* NewProgressViewController.swift in Sources */,
 				B224C71821A41F3300DD33AB /* OngoingTrainerTableViewCell.swift in Sources */,
+				B2EEE32C21B1AF0200E2AEB0 /* EditCreditCardViewController.swift in Sources */,
 				B2B8BC54212BC5D5009A3712 /* AppDelegate.swift in Sources */,
 				B2B6CE58217FB8F100869488 /* ProgressTableViewCell.swift in Sources */,
 				B2357E2621AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift in Sources */,
