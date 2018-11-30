@@ -30,10 +30,10 @@ struct Cards: Decodable {
     let offset, limit, total: Int
     let order: String?
     let location: String
-    var data: [Data]
+    var data: [CardData]
 }
 
-struct Data: Decodable {
+struct CardData: Decodable {
     let object, id: String
     let livemode: Bool
     let location, country: String
