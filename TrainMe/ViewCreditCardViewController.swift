@@ -188,6 +188,7 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
             print("selectedEditRowIndexPath: \(selectedEditRowIndexPath)")
             
             containVc.selectedCardData = self.allData.cards.data[selectedEditRowIndexPath.row]
+            containVc.omiseCustId = self.allData.id
         }
     }
     
