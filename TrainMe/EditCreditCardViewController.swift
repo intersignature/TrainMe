@@ -32,10 +32,14 @@ class EditCreditCardViewController: UIViewController {
     
     @IBAction func editCreditCardAction(_ sender: UIButton) {
         
-        self.expiryMonthCheckActionBtn()
-        
         let alert = UIAlertController(title: "Confirm to change card data", message: "Card holder: \(self.cardHolderLb.text!)\n Card expiration: \(self.cardExpiryLb.text!)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (yesAction) in
+            
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.view.showBlurLoader()
+            
+            self.expiryMonthCheckActionBtn()
+            
             let currentYear = self.calendar.component(.year, from: self.date) - 543
             let currentMonth = self.calendar.component(.month, from: self.date)
 
@@ -51,12 +55,18 @@ class EditCreditCardViewController: UIViewController {
                                             expiryMonth: (self.cardExpiryLb.text?.components(separatedBy: "/")[0])!,
                                             name: self.cardHolderLb.text!)
                     } else {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
                         self.createAlert(alertTitle: "Invalid expire", alertMessage: "")
                     }
                 } else {
+                    self.view.removeBluerLoader()
+                    self.navigationController?.setNavigationBarHidden(false, animated: true)
                     self.createAlert(alertTitle: "Invalid expire", alertMessage: "")
                 }
             } else {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.createAlert(alertTitle: "Invalid card holder", alertMessage: "")
             }
         }))
@@ -109,6 +119,8 @@ class EditCreditCardViewController: UIViewController {
         print(expiry)
         
         if expiry.count != 2 || expiry[0] == "" || expiry[1] == "" {
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.createAlert(alertTitle: "Invalid expire", alertMessage: "Expire format must be in mm/YYYY\nEx. 05/2018")
             return
         }
@@ -119,7 +131,7 @@ class EditCreditCardViewController: UIViewController {
     
     func changeCardData(expiryYear: String, expiryMonth: String, name: String) {
 
-        //TODO: Add loader view and change card holder
+        //TODO: change card holder
         let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -142,17 +154,27 @@ class EditCreditCardViewController: UIViewController {
                     if statusCode == 200 {
                         let jsonData = try! JSONSerialization.jsonObject(with: data!, options: []) as AnyObject
                         if jsonData["object"] as! String == "card" {
+                            self.view.removeBluerLoader()
+                            self.navigationController?.setNavigationBarHidden(false, animated: true)
                             let alert = UIAlertController(title: "Successful change card information", message: "", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (okAction) in
                                 self.dismiss(animated: true, completion: nil)
                             }))
                             self.present(alert, animated: true, completion: nil)
                         } else {
+                            self.view.removeBluerLoader()
+                            self.navigationController?.setNavigationBarHidden(false, animated: true)
                             self.createAlert(alertTitle: "Error change card information", alertMessage: "")
                         }
                     } else {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
                         self.createAlert(alertTitle: "Error change card information", alertMessage: "")
                     }
+                } else {
+                    self.view.removeBluerLoader()
+                    self.navigationController?.setNavigationBarHidden(false, animated: true)
+                    self.createAlert(alertTitle: err!.localizedDescription, alertMessage: "")
                 }
             }
             }.resume()
