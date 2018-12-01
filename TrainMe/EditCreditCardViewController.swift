@@ -37,8 +37,7 @@ class EditCreditCardViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (yesAction) in
             let currentYear = self.calendar.component(.year, from: self.date) - 543
             let currentMonth = self.calendar.component(.month, from: self.date)
-            
-            //TODO: Fail alert
+
             if self.checkCardHolder(name: self.cardHolderLb.text!) {
                 if self.checkRegex(expiry: self.cardExpiryLb.text!) {
                     let checkExpiry_ = self.checkExpiry(currentYear: currentYear,
@@ -48,8 +47,14 @@ class EditCreditCardViewController: UIViewController {
                     if checkExpiry_ {
                         print("All new data pass")
                         self.changeCardData()
+                    } else {
+                        self.createAlert(alertTitle: "Invalid expire", alertMessage: "")
                     }
+                } else {
+                    self.createAlert(alertTitle: "Invalid expire", alertMessage: "")
                 }
+            } else {
+                self.createAlert(alertTitle: "Invalid card holder", alertMessage: "")
             }
         }))
         alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
