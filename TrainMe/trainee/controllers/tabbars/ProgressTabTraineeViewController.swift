@@ -509,11 +509,9 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                 print("not indexpath")
                 return
             }
-            //(self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]?.profileImageUrl)!
+            
             containVc.selectedTrainer = self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]
-            //(self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]?.course)!
             containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]
-            //self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section]
             containVc.selectedOngoing = self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section]
         }
     }
