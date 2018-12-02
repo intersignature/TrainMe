@@ -85,6 +85,7 @@
 		B2B929D1216B14F600D61E0A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B929D0216B14F600D61E0A /* ProfileViewController.swift */; };
 		B2B9E3572152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */; };
 		B2B9E359215261CA0048E501 /* NewProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E358215261CA0048E501 /* NewProgressViewController.swift */; };
+		B2CEA43721B44C7100C6BCF5 /* OngoingProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEA43621B44C7100C6BCF5 /* OngoingProgressViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
 		B2EEE32C21B1AF0200E2AEB0 /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
@@ -209,6 +210,7 @@
 		B2B929D0216B14F600D61E0A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerByTraineeViewController.swift; sourceTree = "<group>"; };
 		B2B9E358215261CA0048E501 /* NewProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressViewController.swift; sourceTree = "<group>"; };
+		B2CEA43621B44C7100C6BCF5 /* OngoingProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingProgressViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
 		B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */,
 				B2B9E358215261CA0048E501 /* NewProgressViewController.swift */,
 				B2357E2521AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift */,
+				B2CEA43621B44C7100C6BCF5 /* OngoingProgressViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
 				B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */,
+				B2CEA43721B44C7100C6BCF5 /* OngoingProgressViewController.swift in Sources */,
 				B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */,
 				B2B62D2321A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift in Sources */,
 				B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */,

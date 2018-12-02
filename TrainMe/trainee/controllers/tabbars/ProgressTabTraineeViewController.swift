@@ -444,6 +444,24 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        // TODO: Ongoing layout
+        switch self.statusSegmented.selectedSegmentIndex {
+        case 0:
+            print("0: \(indexPath)")
+        case 1:
+            print("1: \(indexPath)")
+        case 2:
+            print("2: \(indexPath)")
+            performSegue(withIdentifier: "ProgressToOngoing", sender: indexPath)
+        case 3:
+            print("3: \(indexPath)")
+        default:
+            return
+        }
+    }
+    
     @objc func cancelBtnAction(cancelBtn: UIButton) {
         
         let cencelIndexPath = IndexPath(row: Int(cancelBtn.accessibilityLabel!.components(separatedBy: "-")[1])!, section: Int(cancelBtn.accessibilityLabel!.components(separatedBy: "-")[0])!)
@@ -467,6 +485,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if(segue.identifier == "PayToSelectCreditCard") {
             guard let buyBtn = sender as? UIButton else {
                 print("not btn")
@@ -478,6 +497,24 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             let containVc = vc.topViewController as! SelectCreditCardToChargeViewController
             containVc.selectedCourse = self.courseObj[self.paymentDataSorted[payIndexPath.row].course_id]
             containVc.pendingData = self.paymentDataSorted[payIndexPath.row]
+        }
+        
+        if segue.identifier == "ProgressToOngoing" {
+            
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! OngoingProgressViewController
+            print("ProgressToOngoing")
+            
+            guard let indexPath = sender as? IndexPath else {
+                print("not indexpath")
+                return
+            }
+            //(self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]?.profileImageUrl)!
+            containVc.selectedTrainer = self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]
+            //(self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]?.course)!
+            containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]
+            //self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section]
+            containVc.selectedOngoing = self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section]
         }
     }
     
