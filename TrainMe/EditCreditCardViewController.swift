@@ -14,6 +14,7 @@ class EditCreditCardViewController: UIViewController {
 
     @IBOutlet weak var cardHolderLb: DTTextField!
     @IBOutlet weak var cardExpiryLb: DTTextField!
+    @IBOutlet weak var editCardBtn: UIButton!
     
     var selectedCardData: CardData! = nil
     var omiseCustId: String!
@@ -24,6 +25,8 @@ class EditCreditCardViewController: UIViewController {
         super.viewDidLoad()
         
         print(self.selectedCardData)
+        
+        editCardBtn.layer.cornerRadius = 17
         
         self.cardExpiryLb.addTarget(self, action: #selector(self.expiryMonthCheckActionSelector), for: .editingChanged)
         self.cardHolderLb.text = self.selectedCardData.name

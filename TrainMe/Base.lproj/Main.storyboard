@@ -3893,25 +3893,25 @@ detail</string>
                                                     <rect key="frame" x="30" y="16" width="354" height="128"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEV-b5-iBJ">
-                                                            <rect key="frame" x="8" y="9.9999999999999982" width="338" height="23.333333333333329"/>
+                                                            <rect key="frame" x="8" y="10" width="338" height="20"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Bank" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="UYB-YD-Neo">
-                                                            <rect key="frame" x="8" y="37.333333333333336" width="338" height="24"/>
+                                                            <rect key="frame" x="8" y="34" width="338" height="20"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="****     ****     ****     1234" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3Q-ci-TOC">
-                                                            <rect key="frame" x="8" y="65.333333333333329" width="338" height="24"/>
+                                                            <rect key="frame" x="8" y="58" width="338" height="35.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VISA" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrK-2x-KTj">
-                                                            <rect key="frame" x="8" y="93.333333333333329" width="338" height="24"/>
+                                                            <rect key="frame" x="8" y="97.333333333333329" width="338" height="20"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -4043,8 +4043,12 @@ detail</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWQ-kB-bk3">
-                                <rect key="frame" x="154.66666666666666" y="234" width="104.99999999999997" height="30"/>
-                                <state key="normal" title="Edit credit card"/>
+                                <rect key="frame" x="8" y="234" width="398" height="33"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
+                                <state key="normal" title="Edit credit card">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="editCreditCardAction:" destination="Uad-49-hek" eventType="touchUpInside" id="1rQ-C7-rku"/>
                                 </connections>
@@ -4052,9 +4056,11 @@ detail</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="0Sy-pH-kkX" firstAttribute="trailing" secondItem="RWQ-kB-bk3" secondAttribute="trailing" constant="8" id="4gk-M9-074"/>
                             <constraint firstItem="iqB-Hf-rqs" firstAttribute="top" secondItem="aam-Ls-KI9" secondAttribute="bottom" constant="30" id="CW3-jN-Yv3"/>
                             <constraint firstItem="aam-Ls-KI9" firstAttribute="top" secondItem="0Sy-pH-kkX" secondAttribute="top" constant="50" id="FIC-mF-9bB"/>
                             <constraint firstItem="aam-Ls-KI9" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" constant="8" id="GIn-C9-8hq"/>
+                            <constraint firstItem="RWQ-kB-bk3" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" constant="8" id="RLc-Yo-IQZ"/>
                             <constraint firstItem="RWQ-kB-bk3" firstAttribute="centerX" secondItem="57m-HX-qoo" secondAttribute="centerX" id="ZQY-pY-QaZ"/>
                             <constraint firstItem="0Sy-pH-kkX" firstAttribute="trailing" secondItem="iqB-Hf-rqs" secondAttribute="trailing" constant="8" id="cP0-6c-vb9"/>
                             <constraint firstItem="RWQ-kB-bk3" firstAttribute="top" secondItem="iqB-Hf-rqs" secondAttribute="bottom" constant="30" id="fJq-Pl-dVJ"/>
@@ -4074,6 +4080,7 @@ detail</string>
                     <connections>
                         <outlet property="cardExpiryLb" destination="iqB-Hf-rqs" id="nll-Yn-LYk"/>
                         <outlet property="cardHolderLb" destination="aam-Ls-KI9" id="3RG-LL-oDf"/>
+                        <outlet property="editCardBtn" destination="RWQ-kB-bk3" id="lyD-MZ-JIR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKU-8e-QNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
