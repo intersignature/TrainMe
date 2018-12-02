@@ -34,6 +34,16 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         getCourseData()
         initSideMenu()
         self.title = NSLocalizedString("course", comment: "")
+        
+        let rightButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.setTableViewEditingMode(sender:)))
+        rightButton.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc func setTableViewEditingMode(sender: UIBarButtonItem)
+    {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        navigationItem.rightBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
     }
     
     override func viewDidAppear(_ animated: Bool) {
