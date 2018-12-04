@@ -1,14 +1,14 @@
 //
-//  OngoingProgressViewController.swift
+//  OngoingProgressTraineeTableViewController.swift
 //  TrainMe
 //
-//  Created by Sirichai Binchai on 3/12/2561 BE.
+//  Created by Sirichai Binchai on 5/12/2561 BE.
 //  Copyright © 2561 Sirichai Binchai. All rights reserved.
 //
 
 import UIKit
 
-class OngoingProgressViewController: UIViewController {
+class OngoingProgressTraineeTableViewController: UITableViewController {
 
     var selectedTrainer: UserProfile!
     var selectedCourse: Course!
@@ -19,7 +19,8 @@ class OngoingProgressViewController: UIViewController {
         
         print("selectedOngoing: \(self.selectedOngoing.eachOngoingDetails)")
     }
-    
+
+
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -29,4 +30,5 @@ class OngoingProgressViewController: UIViewController {
         
         self.setupNavigationStyle()
     }
+    
 }

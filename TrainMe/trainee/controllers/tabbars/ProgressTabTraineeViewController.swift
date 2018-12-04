@@ -502,7 +502,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         if segue.identifier == "ProgressToOngoing" {
             
             let vc = segue.destination as! UINavigationController
-            let containVc = vc.topViewController as! OngoingProgressViewController
+            let containVc = vc.topViewController as! OngoingProgressTraineeTableViewController
             print("ProgressToOngoing")
             
             guard let indexPath = sender as? IndexPath else {
