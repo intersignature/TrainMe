@@ -17,9 +17,15 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 600
+        
         print("selectedOngoing: \(self.selectedOngoing.eachOngoingDetails)")
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+    }
 
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
