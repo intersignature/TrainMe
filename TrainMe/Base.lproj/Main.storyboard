@@ -2858,25 +2858,25 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XF-vi-6Hr">
-                                                    <rect key="frame" x="90" y="11.000000000000002" width="304" height="18.666666666666671"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sve-uC-pMT">
-                                                    <rect key="frame" x="90" y="33.666666666666671" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="37" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmv-iI-IqT">
-                                                    <rect key="frame" x="90" y="54" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTF-pl-z3B">
-                                                    <rect key="frame" x="90" y="70.333333333333329" width="48" height="30"/>
+                                                    <rect key="frame" x="90" y="79.666666666666671" width="48" height="30"/>
                                                     <state key="normal" title="Cancel">
                                                         <color key="titleColor" red="1" green="0.28814054529999999" blue="0.33854433699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -2926,32 +2926,32 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0f-Jy-oNE">
-                                                    <rect key="frame" x="90" y="11.000000000000002" width="304" height="18.666666666666671"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PI7-6P-Fxi">
-                                                    <rect key="frame" x="90" y="33.666666666666664" width="87" height="16.333333333333336"/>
+                                                    <rect key="frame" x="90" y="37" width="87" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQr-RP-b92">
-                                                    <rect key="frame" x="90" y="54" width="41" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="39.666666666666657" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Da-PI-F6D">
-                                                    <rect key="frame" x="90" y="90.666666666666671" width="30" height="42.333333333333329"/>
+                                                    <rect key="frame" x="90" y="103" width="30" height="30"/>
                                                     <state key="normal" title="Pay"/>
                                                     <connections>
                                                         <segue destination="u2a-Ib-lsV" kind="presentation" identifier="PayToSelectCreditCard" id="fr6-Xu-hmF"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="14/07/2018 14:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVm-fm-P4X">
-                                                    <rect key="frame" x="90" y="74.333333333333329" width="110.66666666666669" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="83.666666666666671" width="113" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3001,31 +3001,31 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVy-qh-mhn">
-                                                    <rect key="frame" x="90" y="11" width="304" height="33"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-xl-Ycp">
-                                                    <rect key="frame" x="90" y="48" width="284.66666666666669" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="39" width="283" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="[1]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs2-RO-XVC">
-                                                    <rect key="frame" x="378.66666666666669" y="48" width="15.333333333333314" height="16.333333333333329"/>
+                                                    <rect key="frame" x="377" y="39" width="17" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/05/2019 16:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZN-Kp-JGl">
-                                                    <rect key="frame" x="90" y="68.333333333333329" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="62.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ar5-qQ-y96">
-                                                    <rect key="frame" x="90" y="88.666666666666671" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="85.666666666666671" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3078,25 +3078,25 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbP-h9-Kpa">
-                                                    <rect key="frame" x="90" y="11.000000000000002" width="304" height="18.666666666666671"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx7-tY-KZm">
-                                                    <rect key="frame" x="90" y="33.666666666666664" width="304" height="16.333333333333336"/>
+                                                    <rect key="frame" x="90" y="37" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEw-JT-wZQ">
-                                                    <rect key="frame" x="90" y="54" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="14/05/2019 16:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nb-wu-2cx">
-                                                    <rect key="frame" x="90" y="74.333333333333329" width="304" height="30.666666666666671"/>
+                                                    <rect key="frame" x="90" y="83.666666666666671" width="304" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3336,6 +3336,15 @@ detail</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="coureNameLb" destination="2ox-bV-BUX" id="XKa-XI-Sln"/>
+                        <outlet property="courseDescLb" destination="qAb-2g-ZHR" id="Jgc-iv-TNe"/>
+                        <outlet property="courseDetailLb" destination="RRa-Js-tie" id="gx9-1O-4B7"/>
+                        <outlet property="placeMapView" destination="ejq-kE-5ve" id="8SL-gX-gQL"/>
+                        <outlet property="placeNameLb" destination="LKw-cw-Gm5" id="zKw-sr-Kdp"/>
+                        <outlet property="trainerImg" destination="Gye-pF-W15" id="gX8-Rt-kWv"/>
+                        <outlet property="trainerNameLb" destination="JuM-tv-5SP" id="jus-DV-scK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDE-EB-AC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
