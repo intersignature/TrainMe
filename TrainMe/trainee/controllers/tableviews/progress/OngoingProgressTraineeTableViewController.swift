@@ -71,9 +71,12 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
         marker.snippet = ""
         marker.map = mapView
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? EachOngoingTraineeViewController {
+            destination.selectedOngoing = self.selectedOngoing
+        }
     }
 
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
@@ -85,5 +88,4 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
         
         self.setupNavigationStyle()
     }
-    
 }

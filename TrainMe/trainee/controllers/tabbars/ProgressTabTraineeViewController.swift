@@ -67,6 +67,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.statusSegmented.isEnabled = false
+        
         self.pendingDatas.removeAll()
         self.pendingDataSorted.removeAll()
         self.timeListPending.removeAll()
@@ -365,6 +367,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             print("------- \(a.getData())")
         }
         self.pendingTableView.reloadData()
+        self.statusSegmented.isEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

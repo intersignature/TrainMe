@@ -86,6 +86,8 @@
 		B2B929D1216B14F600D61E0A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B929D0216B14F600D61E0A /* ProfileViewController.swift */; };
 		B2B9E3572152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */; };
 		B2B9E359215261CA0048E501 /* NewProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9E358215261CA0048E501 /* NewProgressViewController.swift */; };
+		B2CE11A621BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */; };
+		B2CE11A821BC26730042E4A6 /* EachOngoingTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE11A721BC26730042E4A6 /* EachOngoingTraineeViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
 		B2EEE32C21B1AF0200E2AEB0 /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
@@ -211,6 +213,8 @@
 		B2B929D0216B14F600D61E0A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerByTraineeViewController.swift; sourceTree = "<group>"; };
 		B2B9E358215261CA0048E501 /* NewProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressViewController.swift; sourceTree = "<group>"; };
+		B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachOngoingTraineeTableViewCell.swift; sourceTree = "<group>"; };
+		B2CE11A721BC26730042E4A6 /* EachOngoingTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachOngoingTraineeViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
 		B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -297,6 +301,7 @@
 				B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */,
 				B2B9E358215261CA0048E501 /* NewProgressViewController.swift */,
 				B2357E2521AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift */,
+				B2CE11A721BC26730042E4A6 /* EachOngoingTraineeViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				B23E918A219AD387000AECF8 /* PaymentTraineeTableViewCell.swift */,
 				B224C71121A3D90B00DD33AB /* OngoingTraineeTableViewCell.swift */,
 				B2B62D2221A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift */,
+				B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -816,6 +822,7 @@
 				B224C71621A3EC7100DD33AB /* EachOngoingDetail.swift in Sources */,
 				B224C71421A3E49500DD33AB /* OngoingDetail.swift in Sources */,
 				B20E30C4212BFB18001B43B1 /* LoginViewController.swift in Sources */,
+				B2CE11A821BC26730042E4A6 /* EachOngoingTraineeViewController.swift in Sources */,
 				B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */,
 				B23E7DB9213FB5E7005E7F7F /* CustomSegmentedControl.swift in Sources */,
 				B26B4BE921632E47003CB72C /* TimeButtonCollectionViewCell.swift in Sources */,
@@ -848,6 +855,7 @@
 				B24664E421AEB0EF0065655F /* ViewCreditCardViewController.swift in Sources */,
 				B202BD22214D714900DE0790 /* NotificationTabTraineeViewController.swift in Sources */,
 				B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */,
+				B2CE11A621BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift in Sources */,
 				B24664E621AEB3C60065655F /* ViewCreditCardTableViewCell.swift in Sources */,
 				B24664E821AEFF700065655F /* CreditCard.swift in Sources */,
 				B20ECAEF213FE4590084E685 /* AllCourseTrainerTableViewCell.swift in Sources */,
