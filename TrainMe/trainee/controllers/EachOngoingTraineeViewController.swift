@@ -29,6 +29,10 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EachOngoingTableViewCell") as! EachOngoingTraineeTableViewCell
+        cell.countLb.text = self.selectedOngoing.eachOngoingDetails[indexPath.row].count
+        cell.dateAndTimeLb.text = "\(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_date) \(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_time)"
+        cell.statusLb.text = self.selectedOngoing.eachOngoingDetails[indexPath.row].status
+        
         return cell
     }
 }

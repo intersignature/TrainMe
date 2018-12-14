@@ -17,6 +17,7 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
     
     @IBOutlet weak var coureNameLb: UILabel!
     @IBOutlet weak var courseDetailLb: UILabel!
+    @IBOutlet weak var coursePrice: UILabel!
     @IBOutlet weak var courseDescLb: UILabel!
     
     @IBOutlet weak var placeNameLb: UILabel!
@@ -39,12 +40,14 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
         self.trainerImg.downloaded(from: self.selectedTrainer.profileImageUrl)
         self.trainerNameLb.text = self.selectedTrainer.fullName
         self.coureNameLb.text = self.selectedCourse.course
-        self.courseDetailLb.text = "\(self.selectedCourse.courseType), \(self.selectedCourse.courseLevel), \(self.selectedCourse.coursePrice) Bath"
+        self.courseDetailLb.text = "\(self.selectedCourse.courseLevel), \(self.selectedCourse.courseType), \(self.selectedCourse.courseLanguage), \(self.selectedCourse.timeOfCourse) times"
+        self.coursePrice.text = "\(self.selectedCourse.coursePrice) Bath"
         self.courseDescLb.text = self.selectedCourse.courseContent
         self.placeNameLb.text = self.selectedPlace.name
         self.setMapView()
         
         print("selectedOngoing: \(self.selectedOngoing.eachOngoingDetails)")
+        print("selectedCourse: \(self.selectedCourse.getData())")
     }
     
     func setProfileImageRound() {
