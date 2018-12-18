@@ -11,7 +11,7 @@ import GooglePlaces
 import GoogleMaps
 
 class OngoingProgressTraineeTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var trainerImg: UIImageView!
     @IBOutlet weak var trainerNameLb: UILabel!
     
@@ -79,6 +79,15 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
         
         if let destination = segue.destination as? EachOngoingTraineeViewController {
             destination.selectedOngoing = self.selectedOngoing
+        }
+        
+        if(segue.identifier == "EachOngoingProgressToReview") {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ReviewTrainerByTraineeViewController
+            let index = sender as! Int
+            containVc.trainerId = self.selectedTrainer.uid
+            containVc.ongoingId = self.selectedOngoing.ongoingId
+            containVc.count = self.selectedOngoing.eachOngoingDetails[index].count
         }
     }
 

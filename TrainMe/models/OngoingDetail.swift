@@ -10,6 +10,7 @@ import Foundation
 
 struct OngoingDetail {
     
+    var ongoingId: String = "-1"
     var traineeId: String = "-1"
     var trainerId: String = "-1"
     var courseId: String = "-1"
@@ -20,8 +21,9 @@ struct OngoingDetail {
     
     init() {}
     
-    init(traineeId: String, courseId: String, placeId: String, transactionToAdmin: String, transactionToTrainer: String, eachOngoingDetails: [EachOngoingDetail]) {
+    init(ongoingId: String, traineeId: String, courseId: String, placeId: String, transactionToAdmin: String, transactionToTrainer: String, eachOngoingDetails: [EachOngoingDetail]) {
         
+        self.ongoingId = ongoingId
         self.traineeId = traineeId
         self.courseId = courseId
         self.placeId = placeId
@@ -30,8 +32,9 @@ struct OngoingDetail {
         self.eachOngoingDetails = eachOngoingDetails
     }
     
-    init(trainerId: String, courseId: String, placeId: String, transactionToAdmin: String, transactionToTrainer: String, eachOngoingDetails: [EachOngoingDetail]) {
+    init(ongoingId: String, trainerId: String, courseId: String, placeId: String, transactionToAdmin: String, transactionToTrainer: String, eachOngoingDetails: [EachOngoingDetail]) {
         
+        self.ongoingId = ongoingId
         self.trainerId = trainerId
         self.courseId = courseId
         self.placeId = placeId

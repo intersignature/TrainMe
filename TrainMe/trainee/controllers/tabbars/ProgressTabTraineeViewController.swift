@@ -189,12 +189,15 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                                                         count: "\(i)")
                                 tempEachOngoings.append(tempEachOngoing)
                             }
-                            let tempOngoingDetail = OngoingDetail(trainerId: trainerId,
-                                                                  courseId: (detail["course_id"] as? String)!,
-                                                                  placeId: (detail["place_id"] as? String)!,
+                            
+                            let tempOngoingDetail = OngoingDetail(ongoingId: btnKey,
+                                                                  trainerId: trainerId,
+                                                                  courseId: detail["course_id"] as! String,
+                                                                  placeId: detail["place_id"] as! String,
                                                                   transactionToAdmin: detail["transaction_to_admin"] as! String,
-                                                                  transactionToTrainer: (detail["transaction_to_trainer"] as? String)!,
+                                                                  transactionToTrainer: detail["transaction_to_trainer"] as! String,
                                                                   eachOngoingDetails: tempEachOngoings)
+                            
                             self.ongoingDatas.append(tempOngoingDetail)
                             tempEachOngoings.removeAll()
                         })
@@ -205,7 +208,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             
             for (eachOngoingIndex, eachOngoing) in self.ongoingDatas.enumerated() {
                 for (eachOnGoingDetailIndex, eachOngoingDetail) in eachOngoing.eachOngoingDetails.enumerated() {
-                    if eachOngoingDetail.status == "1" {
+                    if eachOngoingDetail.status == "1" || eachOngoingDetail.status == "3"{
                         print("status = 1: \(eachOngoingIndex) \(eachOnGoingDetailIndex)")
                         let waitingIndexPath = IndexPath(row: eachOnGoingDetailIndex, section: eachOngoingIndex)
                         self.waitingOngoingDataIndex.append(waitingIndexPath)
@@ -238,6 +241,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                                      role: (value["role"] as! String),
                                                      profileImageUrl: (value["profileImageUrl"] as! String),
                                                      omiseCusId: (value["omise_cus_id"] as! String))
+            self.trainerObj[trainerId]?.uid = trainerId
             
             if self.trainerId.count == self.trainerObj.count && self.trainerId.count != 0 &&
                 self.courseId.count == self.courseObj.count && self.courseId.count != 0 &&

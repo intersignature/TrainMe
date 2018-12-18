@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 
 class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var eachOngoingScheduleTableView: UITableView!
     
     var selectedOngoing: OngoingDetail!
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print("EachOngoingTraineeViewController \(self.selectedOngoing)")
+        
+        self.currentUser = Auth.auth().currentUser
         
         self.eachOngoingScheduleTableView.dataSource = self
         self.eachOngoingScheduleTableView.delegate = self
@@ -29,10 +34,28 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EachOngoingTableViewCell") as! EachOngoingTraineeTableViewCell
-        cell.countLb.text = self.selectedOngoing.eachOngoingDetails[indexPath.row].count
-        cell.dateAndTimeLb.text = "\(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_date) \(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_time)"
-        cell.statusLb.text = self.selectedOngoing.eachOngoingDetails[indexPath.row].status
-        
+        cell.selectedOngoing = self.selectedOngoing.eachOngoingDetails[indexPath.row]
+        cell.changeScheduleBtn.tag = indexPath.row
+        cell.reviewBtn.tag = indexPath.row
+        cell.changeScheduleBtn.addTarget(self, action: #selector(self.requestScheduleBtnAction(sender:)), for: .touchUpInside)
+        cell.reviewBtn.addTarget(self, action: #selector(self.reviewBtnAction(sender:)), for: .touchUpInside)
+        cell.setDataToCell()
         return cell
+    }
+    
+    @objc func requestScheduleBtnAction(sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Confirm to request change schedule?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            print("Confirm to request")
+            //TODO: request
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func reviewBtnAction(sender: UIButton) {
+        
+        self.parent?.performSegue(withIdentifier: "EachOngoingProgressToReview", sender: sender.tag)
     }
 }

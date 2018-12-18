@@ -203,12 +203,15 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                                                                 count: "\(i)")
                         tempEachOngoings.append(tempEachOngoing)
                     }
-                    let tempOngoingDetail = OngoingDetail(traineeId: traineeId,
-                                                          courseId: (detail["course_id"] as? String)!,
-                                                          placeId: (detail["place_id"] as? String)!,
+                    
+                    let tempOngoingDetail = OngoingDetail(ongoingId: btnKey,
+                                                          traineeId: traineeId,
+                                                          courseId: detail["course_id"] as! String,
+                                                          placeId: detail["place_id"] as! String,
                                                           transactionToAdmin: detail["transaction_to_admin"] as! String,
-                                                          transactionToTrainer: (detail["transaction_to_trainer"] as? String)!,
+                                                          transactionToTrainer: detail["transaction_to_trainer"] as! String,
                                                           eachOngoingDetails: tempEachOngoings)
+            
                     self.ongoingDatas.append(tempOngoingDetail)
                     tempEachOngoings.removeAll()
 
