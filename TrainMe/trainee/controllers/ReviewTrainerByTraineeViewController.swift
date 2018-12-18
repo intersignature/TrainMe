@@ -15,6 +15,7 @@ class ReviewTrainerByTraineeViewController: UIViewController {
     @IBOutlet weak var ratingStackView: RatingController!
     @IBOutlet weak var reviewTv: UITextView!
     @IBOutlet weak var noteTv: UITextView!
+    @IBOutlet weak var scheduleNextSessionBtn: UIButton!
     
     var ref: DatabaseReference!
     var currentUser: User!
@@ -25,7 +26,10 @@ class ReviewTrainerByTraineeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.scheduleNextSessionBtn.layer.cornerRadius = 17
+        self.HideKeyboard()
+        
         self.currentUser = Auth.auth().currentUser
         self.ref = Database.database().reference()
         
