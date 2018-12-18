@@ -453,10 +453,10 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        // TODO: Ongoing layout
         switch self.statusSegmented.selectedSegmentIndex {
         case 0:
             print("0: \(indexPath)")
+            performSegue(withIdentifier: "ProgressToConfirmation", sender: indexPath)
         case 1:
             print("1: \(indexPath)")
         case 2:
@@ -521,6 +521,13 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]
             containVc.selectedOngoing = self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section]
             containVc.selectedPlace = self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!
+        }
+        
+        if segue.identifier == "ProgressToConfirmation" {
+            
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ConfirmationProgressTraineeTableViewController
+            print("ProgressToPayment")
         }
     }
     

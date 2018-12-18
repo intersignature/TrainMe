@@ -32,6 +32,7 @@
 		B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2307ED12135142E000CB3AB /* UserProfile.swift */; };
 		B2357E2621AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2357E2521AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift */; };
 		B236E7DA21C8FFC400FDFB0C /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E7D921C8FFC400FDFB0C /* RatingController.swift */; };
+		B236E7DC21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E7DB21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift */; };
 		B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */; };
 		B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */; };
 		B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */; };
@@ -159,6 +160,7 @@
 		B2309F07213D986D0030EA1C /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2357E2521AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCreditCardToChargeViewController.swift; sourceTree = "<group>"; };
 		B236E7D921C8FFC400FDFB0C /* RatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
+		B236E7DB21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationProgressTraineeTableViewController.swift; sourceTree = "<group>"; };
 		B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerSelectedTableViewCell.swift; sourceTree = "<group>"; };
 		B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCourseTrainerSpecifiedViewController.swift; sourceTree = "<group>"; };
 		B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrainerCourseTableViewCell.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */,
+				B236E7DB21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift */,
 			);
 			path = progress;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */,
 				B2B62D2321A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift in Sources */,
 				B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */,
+				B236E7DC21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift in Sources */,
 				B23E7DB7213ECA5B005E7F7F /* Course.swift in Sources */,
 				B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */,
 				B201C67F2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift in Sources */,
