@@ -147,13 +147,23 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                 
                 let timeSchedule = ["start_train_date": pendingData.start_train_date,
                                     "start_train_time": pendingData.start_train_time,
-                                    "status": "1"]
+                                    "status": "1",
+                                    "is_trainee_confirm": "-1",
+                                    "is_trainer_confirm": "-1",
+                                    "rate_point": "-1",
+                                    "review": "-1",
+                                    "note": "-1"]
                 subData["\(i)"] = timeSchedule
             } else {
                 
                 let timeSchedule = ["start_train_date": "-1",
                                     "start_train_time": "-1",
-                                    "status": "-1"]
+                                    "status": "-1",
+                                    "is_trainee_confirm": "-1",
+                                    "is_trainer_confirm": "-1",
+                                    "rate_point": "-1",
+                                    "review": "-1",
+                                    "note": "-1"]
                 subData["\(i)"] = timeSchedule
             }
         }
