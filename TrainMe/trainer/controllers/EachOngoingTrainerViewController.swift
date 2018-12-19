@@ -50,9 +50,11 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "1" {
             cell.changeScheduleBtn.isEnabled = true
             cell.confirmSuccessTrainBtn.isEnabled = true
-            if self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainer_confirm == "1" {
+            if self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainer_confirm == "1" && self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainee_confirm == "-1" {
                 cell.changeScheduleBtn.isEnabled = false
                 cell.confirmSuccessTrainBtn.isEnabled = false
+            } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainer_confirm == "-1" && self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainee_confirm == "1" {
+                cell.changeScheduleBtn.isEnabled = false
             }
             cell.statusLb.text = "Ongoing"
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "2" {
@@ -77,15 +79,29 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         
         let alert = UIAlertController(title: "Are you sure to confirm training?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-            self.confirmSuccessStatusToDatabase(sender: sender)
+//            self.confirmSuccessStatusToDatabase(sender: sender)
+            self.checkTraineeIsConfirm(sender: sender)
         }))
         alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
-    func confirmSuccessStatusToDatabase(sender: UIButton) {
+    func checkTraineeIsConfirm(sender: UIButton) {
         
-        let confirmData = ["is_trainer_confirm": "1"]
+        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[sender.tag].count).child("is_trainee_confirm").observeSingleEvent(of: .value) { (snapshot) in
+            let isTraineeConfirm = snapshot.value as! String
+            self.confirmSuccessStatusToDatabase(isTraineeConfirm: isTraineeConfirm, sender: sender)
+        }
+    }
+    
+    func confirmSuccessStatusToDatabase(isTraineeConfirm: String, sender: UIButton) {
+        
+        var confirmData = ["is_trainer_confirm": "1"]
+        
+        if isTraineeConfirm == "1" {
+            confirmData = ["is_trainer_confirm": "1",
+                           "status": "2"]
+        }
         
         self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[sender.tag].count).updateChildValues(confirmData) { (err, ref) in
             
@@ -95,12 +111,33 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
                 return
             }
             
-            //TODO: Change data to model and reload table
+            if isTraineeConfirm == "1" {
+                self.setStatusToNextSchedule(sender: sender)
+            } else if isTraineeConfirm == "-1" {
+                self.selectedOngoing.eachOngoingDetails[sender.tag].is_trainer_confirm = "1"
+                self.eachOngoingTrainerTableView.reloadData()
+                self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
+            }
+        }
+        print("confirmSuccessStatusToDatabase: \(sender.tag)")
+    }
+    
+    func setStatusToNextSchedule(sender: UIButton) {
+        
+        let statusNextScheduleData = ["status": "1"]
+        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[Int(sender.tag)+1].count).updateChildValues(statusNextScheduleData) { (err, ref) in
+            
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
             self.selectedOngoing.eachOngoingDetails[sender.tag].is_trainer_confirm = "1"
+            self.selectedOngoing.eachOngoingDetails[sender.tag].status = "2"
+            self.selectedOngoing.eachOngoingDetails[Int(sender.tag)+1].status = "1"
             self.eachOngoingTrainerTableView.reloadData()
             self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
         }
-        print("confirmSuccessStatusToDatabase: \(sender.tag)")
     }
     
 }
