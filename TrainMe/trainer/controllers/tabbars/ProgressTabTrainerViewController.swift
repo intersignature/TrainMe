@@ -72,6 +72,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.statusSegmented.isEnabled = false
+        
         self.pendingDataListsMatch.removeAll()
         self.pendingDetails.removeAll()
         self.pendingTimeList.removeAll()
@@ -391,6 +393,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         }
         
         self.progressTableView.reloadData()
+        self.statusSegmented.isEnabled = true
     }
     
     func initSideMenu() {
