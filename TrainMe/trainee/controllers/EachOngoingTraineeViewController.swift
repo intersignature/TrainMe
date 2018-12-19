@@ -40,6 +40,24 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
         cell.changeScheduleBtn.addTarget(self, action: #selector(self.requestScheduleBtnAction(sender:)), for: .touchUpInside)
         cell.reviewBtn.addTarget(self, action: #selector(self.reviewBtnAction(sender:)), for: .touchUpInside)
         cell.setDataToCell()
+        
+        if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "-1" {
+            cell.changeScheduleBtn.isEnabled = false
+            cell.reviewBtn.isEnabled = false
+            cell.statusLb.text = "Pending"
+        } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "1" {
+            cell.changeScheduleBtn.isEnabled = true
+            cell.reviewBtn.isEnabled = true
+            cell.statusLb.text = "Ongoing"
+        } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "2" {
+            cell.changeScheduleBtn.isEnabled = false
+            cell.reviewBtn.isEnabled = false
+            cell.statusLb.text = "Successful"
+        } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "3" {
+            cell.changeScheduleBtn.isEnabled = true
+            cell.reviewBtn.isEnabled = true
+            cell.statusLb.text = "Change schedule requested"
+        }
         return cell
     }
     

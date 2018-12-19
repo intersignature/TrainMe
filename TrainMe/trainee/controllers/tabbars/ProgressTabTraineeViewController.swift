@@ -527,6 +527,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             case 3:
                 let vc = segue.destination as! UINavigationController
                 let containVc = vc.topViewController as! OngoingProgressTraineeTableViewController
+                containVc.navigationController?.topViewController?.title = "Successful progress"
                 containVc.selectedTrainer = self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]
                 containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].courseId]
                 containVc.selectedOngoing = self.ongoingDatas[self.successfulDataIndex[indexPath.row].section]
