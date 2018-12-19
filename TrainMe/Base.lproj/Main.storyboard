@@ -5207,8 +5207,8 @@ detail</string>
                                                         <constraint firstAttribute="width" constant="8" id="uzw-zK-dip"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Successful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cr-mC-6xZ">
-                                                    <rect key="frame" x="265" y="15" width="75" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Successful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Cr-mC-6xZ">
+                                                    <rect key="frame" x="215" y="15" width="175" height="21"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -5222,7 +5222,7 @@ detail</string>
                                                 <constraint firstItem="aJY-di-nSB" firstAttribute="top" secondItem="5GT-zh-Ncf" secondAttribute="top" id="2lC-Wm-vTp"/>
                                                 <constraint firstItem="7Cr-mC-6xZ" firstAttribute="top" secondItem="5GT-zh-Ncf" secondAttribute="topMargin" constant="4" id="6Kh-Df-E6a"/>
                                                 <constraint firstItem="aJY-di-nSB" firstAttribute="leading" secondItem="TlI-u5-2dT" secondAttribute="trailing" constant="22" id="9aC-MP-aPG"/>
-                                                <constraint firstItem="7Cr-mC-6xZ" firstAttribute="leading" secondItem="aJY-di-nSB" secondAttribute="trailing" constant="54" id="Hif-Al-JKO"/>
+                                                <constraint firstItem="7Cr-mC-6xZ" firstAttribute="leading" secondItem="aJY-di-nSB" secondAttribute="trailing" constant="4" id="Hif-Al-JKO"/>
                                                 <constraint firstItem="frs-20-bLT" firstAttribute="top" secondItem="aJY-di-nSB" secondAttribute="bottom" constant="8" id="Ktv-qy-ib0"/>
                                                 <constraint firstItem="zOr-on-hqN" firstAttribute="leading" secondItem="5GT-zh-Ncf" secondAttribute="leadingMargin" constant="8" id="TLZ-2L-FKA"/>
                                                 <constraint firstItem="frs-20-bLT" firstAttribute="centerX" secondItem="5GT-zh-Ncf" secondAttribute="centerX" id="X3D-mc-0e2"/>
@@ -5230,7 +5230,7 @@ detail</string>
                                                 <constraint firstItem="aJY-di-nSB" firstAttribute="centerX" secondItem="5GT-zh-Ncf" secondAttribute="centerX" id="dEr-eR-rNO"/>
                                                 <constraint firstItem="TlI-u5-2dT" firstAttribute="leading" secondItem="zOr-on-hqN" secondAttribute="trailing" constant="21" id="hKX-II-CdV"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zOr-on-hqN" secondAttribute="bottom" constant="22.670000000000002" id="jYj-dE-aSA"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="7Cr-mC-6xZ" secondAttribute="trailing" constant="54" id="jl5-Pd-iO6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7Cr-mC-6xZ" secondAttribute="trailing" constant="4" id="jl5-Pd-iO6"/>
                                                 <constraint firstItem="TlI-u5-2dT" firstAttribute="top" secondItem="5GT-zh-Ncf" secondAttribute="topMargin" constant="4" id="wfw-a8-4f2"/>
                                             </constraints>
                                         </tableViewCellContentView>
