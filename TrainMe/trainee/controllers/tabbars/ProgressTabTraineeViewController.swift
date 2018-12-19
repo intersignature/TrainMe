@@ -527,6 +527,15 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ConfirmationProgressTraineeTableViewController
+            
+            guard let indexPath = sender as? IndexPath else {
+                print("not indexpath")
+                return
+            }
+            
+            containVc.selectedTrainer = self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]
+            containVc.selectedCourse = self.courseObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].course_id]
+            containVc.selectedPlace = self.placeObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]
             print("ProgressToPayment")
         }
     }

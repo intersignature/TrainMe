@@ -4315,7 +4315,7 @@ detail</string>
                         <sections>
                             <tableViewSection headerTitle="Trainer profile" id="4bW-Hg-LaS">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="JL8-l3-c2h">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="120" id="JL8-l3-c2h">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JL8-l3-c2h" id="BtC-69-41u">
@@ -4351,7 +4351,7 @@ detail</string>
                             </tableViewSection>
                             <tableViewSection headerTitle="Course detail" id="sBd-af-T9q">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="161" id="SgU-K3-Uuv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="161" id="SgU-K3-Uuv">
                                         <rect key="frame" x="0.0" y="231.33333333333337" width="414" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SgU-K3-Uuv" id="Ih2-1o-7zz">
@@ -4405,7 +4405,7 @@ detail</string>
                             </tableViewSection>
                             <tableViewSection headerTitle="Place" id="JSz-Rj-Sk1">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="182" id="sBi-pg-cEG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="182" id="sBi-pg-cEG">
                                         <rect key="frame" x="0.0" y="448.33333333333337" width="414" height="182"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sBi-pg-cEG" id="nAW-rj-2rM">
@@ -4454,6 +4454,16 @@ detail</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="courseDescLb" destination="Sn6-5X-YML" id="9i9-RY-ifL"/>
+                        <outlet property="courseDetailLb" destination="OCw-MT-lba" id="RtG-vT-v68"/>
+                        <outlet property="courseNameLb" destination="1Og-4e-tPl" id="x59-hy-tyv"/>
+                        <outlet property="placeNameLb" destination="SXk-9l-4Je" id="eYn-bp-fZK"/>
+                        <outlet property="placeView" destination="5Mk-Jp-015" id="WF5-TW-UfU"/>
+                        <outlet property="priceLb" destination="yzc-PL-xr1" id="260-vn-rwX"/>
+                        <outlet property="trainerImg" destination="5zS-U0-nX3" id="NIL-MQ-KbC"/>
+                        <outlet property="trainerNameLb" destination="Wbm-i3-ym8" id="I8g-mZ-vru"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miC-Tx-MOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
