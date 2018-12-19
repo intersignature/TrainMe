@@ -465,6 +465,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             performSegue(withIdentifier: "ProgressToOngoing", sender: indexPath)
         case 3:
             print("3: \(indexPath)")
+            performSegue(withIdentifier: "ProgressToOngoing", sender: indexPath)
         default:
             return
         }
@@ -509,19 +510,31 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         
         if segue.identifier == "ProgressToOngoing" {
             
-            let vc = segue.destination as! UINavigationController
-            let containVc = vc.topViewController as! OngoingProgressTraineeTableViewController
-            print("ProgressToOngoing")
-            
             guard let indexPath = sender as? IndexPath else {
                 print("not indexpath")
                 return
             }
             
-            containVc.selectedTrainer = self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]
-            containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]
-            containVc.selectedOngoing = self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section]
-            containVc.selectedPlace = self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!
+            switch self.statusSegmented.selectedSegmentIndex {
+            case 2:
+                let vc = segue.destination as! UINavigationController
+                let containVc = vc.topViewController as! OngoingProgressTraineeTableViewController
+                containVc.selectedTrainer = self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]
+                containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]
+                containVc.selectedOngoing = self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section]
+                containVc.selectedPlace = self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!
+                print("ProgressToOngoing: \(self.waitingOngoingDataIndex[indexPath.row])")
+            case 3:
+                let vc = segue.destination as! UINavigationController
+                let containVc = vc.topViewController as! OngoingProgressTraineeTableViewController
+                containVc.selectedTrainer = self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]
+                containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].courseId]
+                containVc.selectedOngoing = self.ongoingDatas[self.successfulDataIndex[indexPath.row].section]
+                containVc.selectedPlace = self.placeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]
+                print("ProgressToSuccessful: \(self.successfulDataIndex[indexPath.row])")
+            default:
+                return
+            }
         }
         
         if segue.identifier == "ProgressToConfirmation" {
