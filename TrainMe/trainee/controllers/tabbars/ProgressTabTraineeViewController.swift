@@ -459,6 +459,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             performSegue(withIdentifier: "ProgressToConfirmation", sender: indexPath)
         case 1:
             print("1: \(indexPath)")
+            performSegue(withIdentifier: "ProgressToConfirmation", sender: indexPath)
         case 2:
             print("2: \(indexPath)")
             performSegue(withIdentifier: "ProgressToOngoing", sender: indexPath)
@@ -525,18 +526,31 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         
         if segue.identifier == "ProgressToConfirmation" {
             
-            let vc = segue.destination as! UINavigationController
-            let containVc = vc.topViewController as! ConfirmationProgressTraineeTableViewController
-            
             guard let indexPath = sender as? IndexPath else {
                 print("not indexpath")
                 return
             }
             
-            containVc.selectedTrainer = self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]
-            containVc.selectedCourse = self.courseObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].course_id]
-            containVc.selectedPlace = self.placeObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]
-            print("ProgressToPayment")
+            switch self.statusSegmented.selectedSegmentIndex {
+            case 0:
+                let vc = segue.destination as! UINavigationController
+                let containVc = vc.topViewController as! ConfirmationProgressTraineeTableViewController
+                containVc.selectedTrainer = self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]
+                containVc.selectedCourse = self.courseObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].course_id]
+                containVc.selectedPlace = self.placeObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]
+                print("ProgressToConfirmation")
+            case 1:
+                let vc = segue.destination as! UINavigationController
+                let containVc = vc.topViewController as! ConfirmationProgressTraineeTableViewController
+                containVc.navigationController?.topViewController?.title = "Payment progress"
+                containVc.selectedTrainer = self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]
+                containVc.selectedCourse = self.courseObj[self.paymentDataSorted[indexPath.row].course_id]
+                containVc.selectedPlace = self.placeObj[self.paymentDataSorted[indexPath.row].place_id]
+                print("ProgressToPayment")
+            default:
+                return
+            }
+            
         }
     }
     
