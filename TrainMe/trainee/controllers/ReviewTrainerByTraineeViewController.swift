@@ -38,7 +38,7 @@ class ReviewTrainerByTraineeViewController: UIViewController {
     
     @IBAction func scheduleNextSessionBtnAction(_ sender: UIButton) {
         print(self.ratingStackView.starsRating)
-        //TODO: Add review data to firebase
+        
         self.addReviewDataToDatabase()
     }
     
@@ -54,6 +54,7 @@ class ReviewTrainerByTraineeViewController: UIViewController {
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
+            //TODO: Popup schedule next session
         }
     }
     

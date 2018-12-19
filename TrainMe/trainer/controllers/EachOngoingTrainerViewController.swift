@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
@@ -15,12 +16,14 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
     
     var selectedOngoing: OngoingDetail!
     var ref: DatabaseReference!
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("selectedOngoingzz: \(selectedOngoing)")
         
         self.ref = Database.database().reference()
+        self.currentUser = Auth.auth().currentUser
         
         self.eachOngoingTrainerTableView.delegate = self
         self.eachOngoingTrainerTableView.dataSource = self
@@ -38,7 +41,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         cell.changeScheduleBtn.tag = indexPath.row
         cell.changeScheduleBtn.addTarget(self, action: #selector(self.changeSchedule(sender:)), for: .touchUpInside)
         cell.confirmSuccessTrainBtn.tag = indexPath.row
-        cell.confirmSuccessTrainBtn.addTarget(self, action: #selector(self.confirmSuccessStatusToDatabase(sender:)), for: .touchUpInside)
+        cell.confirmSuccessTrainBtn.addTarget(self, action: #selector(self.confirmBtnAction(sender:)), for: .touchUpInside)
         
         if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "-1" {
             cell.changeScheduleBtn.isEnabled = false
@@ -66,9 +69,31 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         print("changeSchedule: \(sender.tag)")
     }
     
-    @objc func confirmSuccessStatusToDatabase(sender: UIButton) {
+    @objc func confirmBtnAction(sender: UIButton) {
         
-        //TODO: confirmSuccessStatusToDatabase
+        let alert = UIAlertController(title: "Are you sure to confirm training?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            self.confirmSuccessStatusToDatabase(sender: sender)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func confirmSuccessStatusToDatabase(sender: UIButton) {
+        
+        let confirmData = ["is_trainer_confirm": "1"]
+        
+        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[sender.tag].count).updateChildValues(confirmData) { (err, ref) in
+            
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            
+            //TODO: Change data to model and reload table
+            self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
+        }
         print("confirmSuccessStatusToDatabase: \(sender.tag)")
     }
     
