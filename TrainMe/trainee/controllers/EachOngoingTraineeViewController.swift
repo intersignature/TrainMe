@@ -59,8 +59,8 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
             cell.reviewBtn.isEnabled = false
             cell.statusLb.text = "Successful"
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "3" {
-            cell.changeScheduleBtn.isEnabled = true
-            cell.reviewBtn.isEnabled = true
+            cell.changeScheduleBtn.isEnabled = false
+            cell.reviewBtn.isEnabled = false
             cell.statusLb.text = "Change schedule requested"
         }
         return cell
