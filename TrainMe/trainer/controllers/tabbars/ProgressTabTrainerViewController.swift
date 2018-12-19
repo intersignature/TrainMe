@@ -49,7 +49,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     var traineeObj: [String: UserProfile] = [:]
     var traineeIds: [String] = []
     
-    var placeName: [String: String] = [:]
+    var placeObj: [String: GMSPlace] = [:]
     var placeIds: [String] = []
     
     var courseObj: [String: Course] = [:]
@@ -90,7 +90,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.timeListSortedOnging.removeAll()
         self.traineeObj.removeAll()
         self.traineeIds.removeAll()
-        self.placeName.removeAll()
+        self.placeObj.removeAll()
         self.placeIds.removeAll()
         self.courseObj.removeAll()
         self.courseIds.removeAll()
@@ -262,7 +262,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.traineeObj[uid] = tempUserProfile
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
-                self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
+                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 {
                 self.sortDate()
             }
         }) { (err) in
@@ -287,11 +287,11 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 return
             }
 
-            self.placeName[placeId] = place.name
+            self.placeObj[placeId] = place
             
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
-                self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
+                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 {
                 self.sortDate()
             }
         }
@@ -315,7 +315,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.courseObj[courseId] = course
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
-                self.placeName.count == self.placeIds.count && self.placeName.count != 0 {
+                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 {
                 self.sortDate()
             }
         }) { (err) in
@@ -451,7 +451,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
                                traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
                                courseName: self.courseObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!.course,
-                               placeName: self.placeName[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!,
+                               placeName: self.placeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!.name,
                                position: "\(indexPath.section)-\(indexPath.row)")
             
             cell.acceptBtn.addTarget(self, action: #selector(self.acceptBtnAction(acceptBtn:)), for: .touchUpInside)
@@ -464,7 +464,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             cell.setData(traineeImgLink: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.profileImageUrl)!,
                                traineeName: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.fullName)!,
                                courseName: (self.courseObj[self.paymentDataListsMatch[indexPath.row].course_id]?.course)!,
-                               placeName: self.placeName[self.paymentDataListsMatch[indexPath.row].place_id]!,
+                               placeName: self.placeObj[self.paymentDataListsMatch[indexPath.row].place_id]!.name,
                                time: "\(self.paymentDataListsMatch[indexPath.row].start_train_date) \(self.paymentDataListsMatch[indexPath.row].start_train_time)")
             
             return cell
@@ -476,7 +476,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                                courseName: (self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]?.course)!,
                                time: "[\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].count)]",
                                scheduleDate: "\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_time)",
-                                place: self.placeName[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!)
+                                place: self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!.name)
             
             return cell
         case 3:
@@ -485,7 +485,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             cell.setDataToCell(traineeProfileUrl: self.traineeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].traineeId]!.profileImageUrl,
                                traineeName: self.traineeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].traineeId]!.fullName,
                                courseName: self.courseObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].courseId]!.course,
-                               place: self.placeName[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]!,
+                               place: self.placeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]!.name,
                                date: "\(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_time)")
             
             return cell
@@ -804,6 +804,52 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         }
         
         print("indexPaths: \(indexPaths)")
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch self.statusSegmented.selectedSegmentIndex {
+        case 0:
+            print("0: \(indexPath)")
+            performSegue(withIdentifier: "ProgressToOngoingTrainer", sender: indexPath)
+        case 1:
+            print("1: \(indexPath)")
+            performSegue(withIdentifier: "ProgressToOngoingTrainer", sender: indexPath)
+        default:
+            return
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ProgressToOngoingTrainer" {
+            
+            guard let indexPath = sender as? IndexPath else {
+                print("not indexpath")
+                return
+            }
+            
+            switch self.statusSegmented.selectedSegmentIndex {
+            case 0:
+                let vc = segue.destination as! UINavigationController
+                let containVc = vc.topViewController as! ConfirmationProgressTrainerTableViewController
+                containVc.selectedTrainee = self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]
+                containVc.selectedCourse = self.courseObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]
+                containVc.selectedPlace = self.placeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]
+                print("ProgressToConfirmationTrainer")
+            case 1:
+                let vc = segue.destination as! UINavigationController
+                let containVc = vc.topViewController as! ConfirmationProgressTrainerTableViewController
+                containVc.navigationController?.topViewController?.title = "Payment progress"
+                containVc.selectedTrainee = self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]
+                containVc.selectedCourse = self.courseObj[self.paymentDataListsMatch[indexPath.row].course_id]
+                containVc.selectedPlace = self.placeObj[self.paymentDataListsMatch[indexPath.row].place_id]
+                print("ProgressToPayment")
+                return
+            default:
+                return
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
