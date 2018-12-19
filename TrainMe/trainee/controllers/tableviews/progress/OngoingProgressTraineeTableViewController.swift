@@ -65,7 +65,7 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
         self.mapView = GMSMapView.map(withFrame: self.placeMapView.bounds, camera: camera)
         self.mapView.settings.myLocationButton = false
         self.mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.mapView.settings.setAllGesturesEnabled(true)
+        self.mapView.settings.setAllGesturesEnabled(false)
         self.placeMapView.addSubview(mapView)
         
         let marker = GMSMarker()
