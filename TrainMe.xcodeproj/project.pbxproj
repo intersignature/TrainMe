@@ -34,6 +34,9 @@
 		B236E7DA21C8FFC400FDFB0C /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E7D921C8FFC400FDFB0C /* RatingController.swift */; };
 		B236E7DC21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E7DB21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift */; };
 		B236E7E021CA03EA00FDFB0C /* ConfirmationProgressTrainerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E7DF21CA03EA00FDFB0C /* ConfirmationProgressTrainerTableViewController.swift */; };
+		B236E7E221CA10DA00FDFB0C /* OngoingProgressTrainerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E7E121CA10DA00FDFB0C /* OngoingProgressTrainerTableViewController.swift */; };
+		B236E7E421CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E7E321CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift */; };
+		B236E7E621CA1ED300FDFB0C /* EachOngoingTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E7E521CA1ED300FDFB0C /* EachOngoingTrainerViewController.swift */; };
 		B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */; };
 		B23D2E0E214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */; };
 		B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */; };
@@ -163,6 +166,9 @@
 		B236E7D921C8FFC400FDFB0C /* RatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
 		B236E7DB21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationProgressTraineeTableViewController.swift; sourceTree = "<group>"; };
 		B236E7DF21CA03EA00FDFB0C /* ConfirmationProgressTrainerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationProgressTrainerTableViewController.swift; sourceTree = "<group>"; };
+		B236E7E121CA10DA00FDFB0C /* OngoingProgressTrainerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingProgressTrainerTableViewController.swift; sourceTree = "<group>"; };
+		B236E7E321CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachOngoingTrainerTableViewCell.swift; sourceTree = "<group>"; };
+		B236E7E521CA1ED300FDFB0C /* EachOngoingTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachOngoingTrainerViewController.swift; sourceTree = "<group>"; };
 		B23D2E0B2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerSelectedTableViewCell.swift; sourceTree = "<group>"; };
 		B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCourseTrainerSpecifiedViewController.swift; sourceTree = "<group>"; };
 		B23D2E0F214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrainerCourseTableViewCell.swift; sourceTree = "<group>"; };
@@ -359,6 +365,7 @@
 				B27F7E50219AE13400AA9520 /* PaymentTrainerTableViewCell.swift */,
 				B224C71721A41F3300DD33AB /* OngoingTrainerTableViewCell.swift */,
 				B2B62D2421A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift */,
+				B236E7E321CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -392,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				B236E7DF21CA03EA00FDFB0C /* ConfirmationProgressTrainerTableViewController.swift */,
+				B236E7E121CA10DA00FDFB0C /* OngoingProgressTrainerTableViewController.swift */,
 			);
 			path = progress;
 			sourceTree = "<group>";
@@ -439,6 +447,7 @@
 				B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */,
 				B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */,
 				B2B929D0216B14F600D61E0A /* ProfileViewController.swift */,
+				B236E7E521CA1ED300FDFB0C /* EachOngoingTrainerViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -846,6 +855,7 @@
 				B26783DA21C8BF53001EE44E /* ReviewTrainerByTraineeViewController.swift in Sources */,
 				B24664E221AC46B10065655F /* AddCreditCardViewController.swift in Sources */,
 				B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */,
+				B236E7E421CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift in Sources */,
 				B2B62D2521A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift in Sources */,
 				B27F7E51219AE13400AA9520 /* PaymentTrainerTableViewCell.swift in Sources */,
 				B224C71621A3EC7100DD33AB /* EachOngoingDetail.swift in Sources */,
@@ -865,6 +875,7 @@
 				B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */,
 				B2B62D2321A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift in Sources */,
 				B23D2E0C2148FD5100CFCAC0 /* TrainerSelectedTableViewCell.swift in Sources */,
+				B236E7E621CA1ED300FDFB0C /* EachOngoingTrainerViewController.swift in Sources */,
 				B236E7DC21C92E7B00FDFB0C /* ConfirmationProgressTraineeTableViewController.swift in Sources */,
 				B23E7DB7213ECA5B005E7F7F /* Course.swift in Sources */,
 				B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */,
@@ -877,6 +888,7 @@
 				B2B6CE58217FB8F100869488 /* ProgressTableViewCell.swift in Sources */,
 				B2357E2621AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift in Sources */,
 				B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */,
+				B236E7E221CA10DA00FDFB0C /* OngoingProgressTrainerTableViewController.swift in Sources */,
 				B23E79702132CA8F0082FD1E /* NotificationTabTrainerViewController.swift in Sources */,
 				B2307ED22135142E000CB3AB /* UserProfile.swift in Sources */,
 				B2B9E3572152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift in Sources */,
