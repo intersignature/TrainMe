@@ -15,6 +15,7 @@ class EachOngoingTrainerTableViewCell: UITableViewCell {
     @IBOutlet weak var dateAndTimeScheduleLb: UILabel!
     @IBOutlet weak var statusLb: UILabel!
     @IBOutlet weak var changeScheduleBtn: UIButton!
+    @IBOutlet weak var confirmSuccessTrainBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

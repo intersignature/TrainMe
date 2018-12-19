@@ -5200,10 +5200,10 @@ detail</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-di-nSB">
-                                                    <rect key="frame" x="203" y="0.0" width="8" height="40"/>
+                                                    <rect key="frame" x="203" y="0.0" width="8" height="75"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="QCl-vg-72N"/>
+                                                        <constraint firstAttribute="height" constant="75" id="QCl-vg-72N"/>
                                                         <constraint firstAttribute="width" constant="8" id="uzw-zK-dip"/>
                                                     </constraints>
                                                 </view>
@@ -5214,28 +5214,37 @@ detail</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frs-20-bLT">
-                                                    <rect key="frame" x="147" y="48" width="120" height="30"/>
+                                                    <rect key="frame" x="45" y="40" width="150" height="30"/>
                                                     <state key="normal" title="Change schedule"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4U-aU-CVK">
+                                                    <rect key="frame" x="219" y="40" width="167" height="30"/>
+                                                    <state key="normal" title="Confirm"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aJY-di-nSB" firstAttribute="top" secondItem="5GT-zh-Ncf" secondAttribute="top" id="2lC-Wm-vTp"/>
+                                                <constraint firstItem="aJY-di-nSB" firstAttribute="leading" secondItem="frs-20-bLT" secondAttribute="trailing" constant="8" id="3Dq-jp-iWv"/>
                                                 <constraint firstItem="7Cr-mC-6xZ" firstAttribute="top" secondItem="5GT-zh-Ncf" secondAttribute="topMargin" constant="4" id="6Kh-Df-E6a"/>
                                                 <constraint firstItem="aJY-di-nSB" firstAttribute="leading" secondItem="TlI-u5-2dT" secondAttribute="trailing" constant="22" id="9aC-MP-aPG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="p4U-aU-CVK" secondAttribute="trailing" constant="8" id="BvQ-Sq-Nsq"/>
                                                 <constraint firstItem="7Cr-mC-6xZ" firstAttribute="leading" secondItem="aJY-di-nSB" secondAttribute="trailing" constant="4" id="Hif-Al-JKO"/>
-                                                <constraint firstItem="frs-20-bLT" firstAttribute="top" secondItem="aJY-di-nSB" secondAttribute="bottom" constant="8" id="Ktv-qy-ib0"/>
+                                                <constraint firstItem="frs-20-bLT" firstAttribute="top" secondItem="TlI-u5-2dT" secondAttribute="bottom" constant="4" id="Iu7-Oj-agY"/>
+                                                <constraint firstItem="p4U-aU-CVK" firstAttribute="leading" secondItem="aJY-di-nSB" secondAttribute="trailing" constant="8" id="P5J-TQ-D0p"/>
                                                 <constraint firstItem="zOr-on-hqN" firstAttribute="leading" secondItem="5GT-zh-Ncf" secondAttribute="leadingMargin" constant="8" id="TLZ-2L-FKA"/>
-                                                <constraint firstItem="frs-20-bLT" firstAttribute="centerX" secondItem="5GT-zh-Ncf" secondAttribute="centerX" id="X3D-mc-0e2"/>
                                                 <constraint firstItem="zOr-on-hqN" firstAttribute="top" secondItem="5GT-zh-Ncf" secondAttribute="topMargin" constant="22.329999999999998" id="Z1z-eH-qBt"/>
-                                                <constraint firstItem="aJY-di-nSB" firstAttribute="centerX" secondItem="5GT-zh-Ncf" secondAttribute="centerX" id="dEr-eR-rNO"/>
+                                                <constraint firstItem="p4U-aU-CVK" firstAttribute="top" secondItem="7Cr-mC-6xZ" secondAttribute="bottom" constant="4" id="ZGj-Um-SSw"/>
+                                                <constraint firstItem="aJY-di-nSB" firstAttribute="centerX" secondItem="5GT-zh-Ncf" secondAttribute="centerX" id="ZJJ-UI-FWM"/>
                                                 <constraint firstItem="TlI-u5-2dT" firstAttribute="leading" secondItem="zOr-on-hqN" secondAttribute="trailing" constant="21" id="hKX-II-CdV"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zOr-on-hqN" secondAttribute="bottom" constant="22.670000000000002" id="jYj-dE-aSA"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7Cr-mC-6xZ" secondAttribute="trailing" constant="4" id="jl5-Pd-iO6"/>
+                                                <constraint firstItem="frs-20-bLT" firstAttribute="leading" secondItem="zOr-on-hqN" secondAttribute="trailing" constant="8" id="vak-Y6-kWf"/>
                                                 <constraint firstItem="TlI-u5-2dT" firstAttribute="top" secondItem="5GT-zh-Ncf" secondAttribute="topMargin" constant="4" id="wfw-a8-4f2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="changeScheduleBtn" destination="frs-20-bLT" id="Z8f-hW-c37"/>
+                                            <outlet property="confirmSuccessTrainBtn" destination="p4U-aU-CVK" id="XVx-fM-iHB"/>
                                             <outlet property="countLb" destination="zOr-on-hqN" id="SBf-ur-LYx"/>
                                             <outlet property="dateAndTimeScheduleLb" destination="TlI-u5-2dT" id="o5O-cw-qIK"/>
                                             <outlet property="statusLb" destination="7Cr-mC-6xZ" id="JDI-Db-gDx"/>
