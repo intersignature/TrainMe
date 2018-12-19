@@ -199,10 +199,16 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                     for i in 1...(Int(detail.count)-4){
                         print("courseId: \(i)")
                         let eachDetailValue = detail[String(i)] as? NSDictionary
+                        
                         let tempEachOngoing = EachOngoingDetail(start_train_date: eachDetailValue!["start_train_date"] as! String,
                                                                 start_train_time: eachDetailValue!["start_train_time"] as! String,
                                                                 status: eachDetailValue!["status"] as! String,
-                                                                count: "\(i)")
+                                                                count: "\(i)",
+                                                                is_trainee_confirm: eachDetailValue!["is_trainee_confirm"] as! String,
+                                                                is_trainer_confirm: eachDetailValue!["is_trainer_confirm"] as! String,
+                                                                note: eachDetailValue!["note"] as! String,
+                                                                rate_point: eachDetailValue!["rate_point"] as! String,
+                                                                review: eachDetailValue!["review"] as! String)
                         tempEachOngoings.append(tempEachOngoing)
                     }
                     

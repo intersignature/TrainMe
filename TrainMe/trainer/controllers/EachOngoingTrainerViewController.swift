@@ -50,6 +50,10 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "1" {
             cell.changeScheduleBtn.isEnabled = true
             cell.confirmSuccessTrainBtn.isEnabled = true
+            if self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainer_confirm == "1" {
+                cell.changeScheduleBtn.isEnabled = false
+                cell.confirmSuccessTrainBtn.isEnabled = false
+            }
             cell.statusLb.text = "Ongoing"
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "2" {
             cell.changeScheduleBtn.isEnabled = false
@@ -92,6 +96,8 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
             }
             
             //TODO: Change data to model and reload table
+            self.selectedOngoing.eachOngoingDetails[sender.tag].is_trainer_confirm = "1"
+            self.eachOngoingTrainerTableView.reloadData()
             self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
         }
         print("confirmSuccessStatusToDatabase: \(sender.tag)")

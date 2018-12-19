@@ -50,6 +50,9 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "1" {
             cell.changeScheduleBtn.isEnabled = true
             cell.reviewBtn.isEnabled = true
+            if self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainer_confirm == "1" {
+                cell.changeScheduleBtn.isEnabled = false
+            }
             cell.statusLb.text = "Ongoing"
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "2" {
             cell.changeScheduleBtn.isEnabled = false
