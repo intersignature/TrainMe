@@ -87,7 +87,8 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
             let index = sender as! Int
             containVc.trainerId = self.selectedTrainer.uid
             containVc.ongoingId = self.selectedOngoing.ongoingId
-            containVc.count = self.selectedOngoing.eachOngoingDetails[index].count
+            containVc.countAtIndex = self.selectedOngoing.eachOngoingDetails[index].count
+            containVc.summaryCount = String(self.selectedOngoing.eachOngoingDetails.count)
         }
     }
 

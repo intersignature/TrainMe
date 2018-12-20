@@ -111,10 +111,17 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
                 return
             }
             
+            self.selectedOngoing.eachOngoingDetails[sender.tag].is_trainer_confirm = "1"
             if isTraineeConfirm == "1" {
-                self.setStatusToNextSchedule(sender: sender)
-            } else if isTraineeConfirm == "-1" {
-                self.selectedOngoing.eachOngoingDetails[sender.tag].is_trainer_confirm = "1"
+                self.selectedOngoing.eachOngoingDetails[sender.tag].status = "2"
+                if self.selectedOngoing.eachOngoingDetails.count > Int(self.selectedOngoing.eachOngoingDetails[sender.tag].count)! {
+                    self.setStatusToNextSchedule(sender: sender)
+                } else {
+                    //TODO: Transfer money to trainer
+                    self.createAlert(alertTitle: "This course is finish!", alertMessage: "")
+                    self.eachOngoingTrainerTableView.reloadData()
+                }
+            } else {
                 self.eachOngoingTrainerTableView.reloadData()
                 self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
             }
@@ -132,8 +139,6 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
                 print(err.localizedDescription)
                 return
             }
-            self.selectedOngoing.eachOngoingDetails[sender.tag].is_trainer_confirm = "1"
-            self.selectedOngoing.eachOngoingDetails[sender.tag].status = "2"
             self.selectedOngoing.eachOngoingDetails[Int(sender.tag)+1].status = "1"
             self.eachOngoingTrainerTableView.reloadData()
             self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")

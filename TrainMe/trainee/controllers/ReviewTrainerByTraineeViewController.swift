@@ -26,7 +26,8 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     var trainerId: String!
     var traineeId: String!
     var ongoingId: String!
-    var count: String!
+    var countAtIndex: String!
+    var summaryCount: String!
     
     var datePicker: UIDatePicker!
     var timePicker: UIDatePicker!
@@ -48,6 +49,12 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         setupDatePicker()
         setupTimePicker()
         createPickerToolbar()
+        
+        if Int(self.countAtIndex)! >= Int(self.summaryCount)! {
+            self.nextScheduleDateTv.isHidden = true
+            self.nextScheduleTimeTv.isHidden = true
+            self.scheduleNextSessionBtn.setTitle("Finish this course", for: .normal)
+        }
     }
     
     @IBAction func scheduleNextSessionBtnAction(_ sender: UIButton) {
@@ -59,7 +66,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     func addReviewDataToDatabase() {
         
         if checkNextSchedule() {
-            
+            print("checkTrainerIsConfirm")
             self.checkTrainerIsConfirm()
         } else {
             self.createAlert(alertTitle: "Please fill next schedule date and time", alertMessage: "")
@@ -68,12 +75,13 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     }
     
     func checkNextSchedule() -> Bool{
-        return self.nextScheduleDateTv.text != "" && self.nextScheduleTimeTv.text != ""
+        return (self.nextScheduleDateTv.text != "" && self.nextScheduleTimeTv.text != "") ||
+        (Int(self.countAtIndex)! >= Int(self.summaryCount)!)
     }
     
     func checkTrainerIsConfirm() {
         
-        ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child(self.count!).child("is_trainer_confirm").observeSingleEvent(of: .value) { (snapshot) in
+        ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child(self.countAtIndex!).child("is_trainer_confirm").observeSingleEvent(of: .value) { (snapshot) in
             
             let isTrainerConfirm = snapshot.value as! String
             self.addReviewData(isTrainerConfirm: isTrainerConfirm)
@@ -95,20 +103,29 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
                 "status": "2"]
         }
         
-        ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child(self.count!).updateChildValues(reviewData) { (err, ref) in
+        ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child(self.countAtIndex!).updateChildValues(reviewData) { (err, ref) in
             if let err = err {
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-            self.addNextScheduleDateAndTimeToDatabase(isTrainerConfirm: isTrainerConfirm)
+            if Int(self.countAtIndex)! < Int(self.summaryCount)! {
+                self.addNextScheduleDateAndTimeToDatabase(isTrainerConfirm: isTrainerConfirm)
+            } else {
+                
+                //TODO: Transfer money to trainer
+                let alert = UIAlertController(title: "Finish this course succesfully!", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
     func addNextScheduleDateAndTimeToDatabase(isTrainerConfirm: String) {
         
         //TODO: Make protocol to notify ongoing progress trainee status and next schedule date and time
-        //TODO: Check is_trainer_confirm and is_trainee_confirm
         var nextScheduleData = ["start_train_date": self.nextScheduleDateTv.text!,
                                 "start_train_time": self.nextScheduleTimeTv.text!]
         
@@ -118,7 +135,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
                                 "status": "1"]
         }
         
-        self.ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child("\(Int(self.count)!+1)").updateChildValues(nextScheduleData) { (err, ref) in
+        self.ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child("\(Int(self.countAtIndex)!+1)").updateChildValues(nextScheduleData) { (err, ref) in
             if let err = err {
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
