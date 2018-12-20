@@ -124,7 +124,8 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @IBAction func backBtnAction(_ sender: UIBarButtonItem) {
-
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

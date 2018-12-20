@@ -3699,6 +3699,7 @@ detail</string>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="frG-QR-vnD" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="jKP-sF-pe6"/>
+                                <action selector="cancelBtnAction:" destination="a8h-Qh-6xb" id="Hh7-vl-1qQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3889,7 +3890,6 @@ detail</string>
                                 <state key="normal" title="     Credit card / Paypal" image="creditCard"/>
                                 <connections>
                                     <action selector="creditCardBtnAction:" destination="C4e-lZ-zmb" eventType="touchUpInside" id="4fP-HS-6nc"/>
-                                    <segue destination="gbW-uY-edR" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="gwU-18-Wqx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3S-1q-6zc">
@@ -3915,7 +3915,7 @@ detail</string>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Become a trainer" image="trainer"/>
                                 <connections>
-                                    <segue destination="gQH-Ot-cQz" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="2f7-5X-WCN"/>
+                                    <action selector="becomeATrainerBtnAction:" destination="C4e-lZ-zmb" eventType="touchUpInside" id="eUp-Fl-3Mo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -3954,6 +3954,8 @@ detail</string>
                         <outlet property="settingBtn" destination="wk1-7l-Xs7" id="Jwo-dF-Goj"/>
                         <segue destination="BYZ-38-t0r" kind="custom" identifier="LogoutTraineeSeg" customClass="SWRevealViewControllerSeguePushController" id="CFy-02-wCg"/>
                         <segue destination="4f9-ny-Mp3" kind="presentation" identifier="SidebarTraineeToProfileTrainee" id="p7p-h3-dr6"/>
+                        <segue destination="gbW-uY-edR" kind="presentation" identifier="SidebarToCreditcardView" id="sbZ-Vf-ldz"/>
+                        <segue destination="gQH-Ot-cQz" kind="presentation" identifier="SidebarTraineeToBecomeToATrainer" id="AUW-t0-weW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cpr-bN-lFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4342,7 +4344,6 @@ detail</string>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="tV1-UT-mE4" id="LsJ-XU-Cx1"/>
-                                <segue destination="frG-QR-vnD" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ZMu-HA-Vlo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JBE-XZ-wlu">
@@ -5353,10 +5354,9 @@ detail</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gwU-18-Wqx"/>
         <segue reference="Api-oy-w4p"/>
         <segue reference="IRS-Ta-5Mo"/>
-        <segue reference="ZMu-HA-Vlo"/>
+        <segue reference="QeP-9l-n5x"/>
         <segue reference="CLL-yx-EIm"/>
         <segue reference="MDp-Zn-cGQ"/>
         <segue reference="iOR-r9-omW"/>

@@ -60,12 +60,15 @@ class SidebarTraineeViewController: UIViewController {
     }
     
     @IBAction func creditCardBtnAction(_ sender: UIButton) {
-        
-        
+        self.performSegue(withIdentifier: "SidebarToCreditcardView", sender: nil)
     }
     
     @IBAction func profileBtnAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "SidebarTraineeToProfileTrainee", sender: self.currentUser?.uid)
+    }
+    
+    @IBAction func becomeATrainerBtnAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "SidebarTraineeToBecomeToATrainer", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -52,6 +52,10 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
         self.performSegue(withIdentifier: "AddCitizencardToAddCertificate", sender: self)
     }
     
+    @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "AddCitizencardToAddCertificate") {
             let vc = segue.destination as! UINavigationController
