@@ -795,10 +795,10 @@ TrainMe’s Privacy Policy</string>
             </objects>
             <point key="canvasLocation" x="11513.04347826087" y="-214.4021739130435"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile Trainer View Controller-->
         <scene sceneID="yJF-YS-OwT">
             <objects>
-                <viewController id="Iv1-Wf-HmN" customClass="ProfileViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Iv1-Wf-HmN" customClass="ProfileTrainerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4B-mn-fSf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5310,10 +5310,10 @@ detail</string>
     <inferredMetricsTieBreakers>
         <segue reference="Api-oy-w4p"/>
         <segue reference="IRS-Ta-5Mo"/>
-        <segue reference="QeP-9l-n5x"/>
+        <segue reference="4AV-5i-LAZ"/>
         <segue reference="CLL-yx-EIm"/>
         <segue reference="MDp-Zn-cGQ"/>
         <segue reference="iOR-r9-omW"/>
-        <segue reference="CFy-02-wCg"/>
+        <segue reference="g7V-sT-ulc"/>
     </inferredMetricsTieBreakers>
 </document>

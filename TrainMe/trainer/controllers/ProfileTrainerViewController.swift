@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileTrainerViewController: UIViewController {
 
     var trainerUid: String?
     
