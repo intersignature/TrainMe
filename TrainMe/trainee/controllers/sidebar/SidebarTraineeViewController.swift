@@ -63,4 +63,18 @@ class SidebarTraineeViewController: UIViewController {
         
         
     }
+    
+    @IBAction func profileBtnAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "SidebarTraineeToProfileTrainee", sender: self.currentUser?.uid)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SidebarTraineeToProfileTrainee" {
+            
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ProfileTraineeViewController
+            containVc.traineeUid = (sender as! String)
+        }
+    }
 }
