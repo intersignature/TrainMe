@@ -53,7 +53,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         if Int(self.countAtIndex)! >= Int(self.summaryCount)! {
             self.nextScheduleDateTv.isHidden = true
             self.nextScheduleTimeTv.isHidden = true
-            self.scheduleNextSessionBtn.setTitle("Finish this course", for: .normal)
+            self.scheduleNextSessionBtn.setTitle("   Finish this course   ", for: .normal)
         }
     }
     

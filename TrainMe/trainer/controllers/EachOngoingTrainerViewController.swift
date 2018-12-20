@@ -14,9 +14,15 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
    
     @IBOutlet weak var eachOngoingTrainerTableView: UITableView!
     
+    var newScheduleDate: UITextField!
+    var newScheduleTime: UITextField!
+    
     var selectedOngoing: OngoingDetail!
     var ref: DatabaseReference!
     var currentUser: User!
+    
+    var datePicker: UIDatePicker!
+    var timePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +45,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         cell.countLb.text = self.selectedOngoing.eachOngoingDetails[indexPath.row].count
         cell.dateAndTimeScheduleLb.text = "\(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_date) \(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_time)"
         cell.changeScheduleBtn.tag = indexPath.row
-        cell.changeScheduleBtn.addTarget(self, action: #selector(self.changeSchedule(sender:)), for: .touchUpInside)
+        cell.changeScheduleBtn.addTarget(self, action: #selector(self.changeScheduleBtnAction(sender:)), for: .touchUpInside)
         cell.confirmSuccessTrainBtn.tag = indexPath.row
         cell.confirmSuccessTrainBtn.addTarget(self, action: #selector(self.confirmBtnAction(sender:)), for: .touchUpInside)
         
@@ -69,12 +75,110 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         return cell
     }
     
-    @objc func changeSchedule(sender: UIButton) {
+    @objc func changeScheduleBtnAction(sender: UIButton) {
         
         //TODO: changeSchedule
         print("changeSchedule: \(sender.tag)")
+        let alert = UIAlertController(title: "Change schedule date", message: "", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: newScheduleDate)
+        alert.addTextField(configurationHandler: newScheduleTime)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+
+            if self.checkNewSchedule() {
+                self.changeSchdedule(sender: sender)
+            } else {
+                self.createAlert(alertTitle: "Plaese enter new schedule date and tiim", alertMessage: "")
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
+    func newScheduleDate(textField: UITextField) {
+        
+        self.newScheduleDate = textField
+        self.setupDatePicker()
+        self.newScheduleDate?.textAlignment = .center
+        self.newScheduleDate?.placeholder = "Change schedule date"
+    }
+    
+    func newScheduleTime(textField: UITextField) {
+        
+        self.newScheduleTime = textField
+        self.setupTimePicker()
+        self.newScheduleTime?.textAlignment = .center
+        self.newScheduleTime?.placeholder = "Change schedule time"
+    }
+    
+    func setupDatePicker() {
+        datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: .valueChanged)
+        
+        self.newScheduleDate!.inputView = datePicker
+    }
+    
+    func setupTimePicker() {
+        timePicker = UIDatePicker()
+        timePicker.datePickerMode = .time
+        timePicker.addTarget(self, action: #selector(timeChange(datePicker:)), for: .valueChanged)
+        
+        self.newScheduleTime!.inputView = timePicker
+    }
+    
+    
+    @objc func dateChange(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en")
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy")
+        
+        let tempDate = dateFormatter.string(from: datePicker.date).split(separator: "/")
+        self.newScheduleDate!.text = "\(tempDate[1])/\(tempDate[0])/\(tempDate[2])"
+    }
+    
+    @objc func timeChange(datePicker: UIDatePicker) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        
+        self.newScheduleTime!.text = timeFormatter.string(from: timePicker.date)
+    }
+    
+    func checkNewSchedule() -> Bool {
+        print("checkNewSchedule \(self.newScheduleDate?.text != "") \(self.newScheduleTime?.text != "")")
+        return self.newScheduleDate?.text != "" && self.newScheduleTime?.text != ""
+    }
+    
+    func changeSchdedule(sender: UIButton) {
+
+        guard let newDate = newScheduleDate.text else {
+            return
+        }
+        
+        guard let newTime = newScheduleTime.text else {
+            return
+        }
+        
+        let changeScheduleData = ["start_train_date": newDate,
+                                  "start_train_time": newTime,
+                                  "status": "1"]
+        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[sender.tag].count).updateChildValues(changeScheduleData) { (err, ref) in
+            
+            if let err = err {
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            
+            self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_date = newDate
+            self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_time = newTime
+            self.selectedOngoing.eachOngoingDetails[sender.tag].status = "1"
+            self.eachOngoingTrainerTableView.reloadData()
+            self.createAlert(alertTitle: "Change schedule date and time successfully", alertMessage: "")
+        }
+    }
+
     @objc func confirmBtnAction(sender: UIButton) {
         
         let alert = UIAlertController(title: "Are you sure to confirm training?", message: "", preferredStyle: .alert)
