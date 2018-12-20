@@ -3698,7 +3698,6 @@ detail</string>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="H0L-wh-7g7">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="frG-QR-vnD" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="jKP-sF-pe6"/>
                                 <action selector="cancelBtnAction:" destination="a8h-Qh-6xb" id="Hh7-vl-1qQ"/>
                             </connections>
                         </barButtonItem>
