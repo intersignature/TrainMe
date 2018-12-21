@@ -292,7 +292,6 @@
 		B202BD17214D698400DE0790 /* trainer */ = {
 			isa = PBXGroup;
 			children = (
-				B24664E021ABE5110065655F /* sidebar */,
 				B26B4BE721632E10003CB72C /* collectioncells */,
 				B280D84E21392C6C00A59DB0 /* controllers */,
 			);
@@ -437,6 +436,7 @@
 		B280D84E21392C6C00A59DB0 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B24664E021ABE5110065655F /* sidebar */,
 				B236E7DD21CA039A00FDFB0C /* tableviews */,
 				B2B8BC55212BC5D5009A3712 /* ViewController.swift */,
 				B20E30C3212BFB18001B43B1 /* LoginViewController.swift */,

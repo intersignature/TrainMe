@@ -70,4 +70,19 @@ class SidebarTrainerViewController: UIViewController {
         profileImg.layer.cornerRadius = profileImg.frame.height/2
         profileImg.clipsToBounds = true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SidebarTrainerToProfileTrainer" {
+            let vc = segue.destination as! UINavigationController
+            let containeVc = vc.topViewController as! ProfileTrainerViewController
+            containeVc.trainerUid = sender as? String
+        }
+    }
+    
+    @IBAction func profileBtnAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "SidebarTrainerToProfileTrainer", sender: self.currentUser?.uid)
+    }
+    @IBAction func creditcardBtnAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "SidebarTrainerToCreditCard", sender: nil)
+    }
 }
