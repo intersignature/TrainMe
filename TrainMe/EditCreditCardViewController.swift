@@ -43,7 +43,7 @@ class EditCreditCardViewController: UIViewController {
             
             self.expiryMonthCheckActionBtn()
             
-            let currentYear = self.calendar.component(.year, from: self.date) - 543
+            let currentYear = self.calendar.component(.year, from: self.date)
             let currentMonth = self.calendar.component(.month, from: self.date)
 
             if self.checkCardHolder(name: self.cardHolderLb.text!) {
