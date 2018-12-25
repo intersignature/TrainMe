@@ -141,6 +141,9 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.6):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - ImageSlideshow (1.7.0):
+    - ImageSlideshow/Core (= 1.7.0)
+  - ImageSlideshow/Core (1.7.0)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -170,6 +173,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - ImageSlideshow (~> 1.6)
   - Stripe
   - SwiftyJSON
   - SWRevealViewController
@@ -204,6 +208,7 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GoogleUtilities
     - GTMSessionFetcher
+    - ImageSlideshow
     - leveldb-library
     - nanopb
     - Protobuf
@@ -240,6 +245,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
@@ -247,6 +253,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: d6d07f6e042979d4fd9a6f1889b62316d36935de
+PODFILE CHECKSUM: 7eed52369736db19a9ca25fb5d1f525eb9ae2acb
 
 COCOAPODS: 1.5.3

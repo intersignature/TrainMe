@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F541E892DFA99967B2E7B65 /* Pods_TrainMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05703BEEA1300794C374882 /* Pods_TrainMeUITests.framework */; };
 		696D7F7C78288D0987CA153C /* Pods_TrainMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A39929C094749B12C461F47 /* Pods_TrainMeTests.framework */; };
+		B200E22621D2CDBA00135088 /* ReviewProfileTainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200E22521D2CDBA00135088 /* ReviewProfileTainerTableViewCell.swift */; };
 		B201C67F2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */; };
 		B202BD1C214D6F7300DE0790 /* SidebarTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD1B214D6F7300DE0790 /* SidebarTraineeViewController.swift */; };
 		B202BD1E214D712300DE0790 /* FindTabTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202BD1D214D712300DE0790 /* FindTabTraineeViewController.swift */; };
@@ -77,6 +78,7 @@
 		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
 		B28986AB21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */; };
 		B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */; };
+		B293FACD21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */; };
 		B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */; };
 		B2AB110F214655D900E84321 /* AddSchedulePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */; };
 		B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */; };
@@ -141,6 +143,7 @@
 		55C4A3547D6419CECA40BE2B /* Pods-TrainMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMeTests/Pods-TrainMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		6A39929C094749B12C461F47 /* Pods_TrainMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05703BEEA1300794C374882 /* Pods_TrainMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B200E22521D2CDBA00135088 /* ReviewProfileTainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewProfileTainerTableViewCell.swift; sourceTree = "<group>"; };
 		B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTrainerMarkerViewController.swift; sourceTree = "<group>"; };
 		B202BD1B214D6F7300DE0790 /* SidebarTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTraineeViewController.swift; sourceTree = "<group>"; };
 		B202BD1D214D712300DE0790 /* FindTabTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTabTraineeViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
 		B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingProgressTraineeTableViewController.swift; sourceTree = "<group>"; };
 		B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceDetail.swift; sourceTree = "<group>"; };
+		B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewProfileTraineeTableViewCell.swift; sourceTree = "<group>"; };
 		B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedulePlaceViewController.swift; sourceTree = "<group>"; };
 		B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTrainerViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 				B224C71121A3D90B00DD33AB /* OngoingTraineeTableViewCell.swift */,
 				B2B62D2221A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift */,
 				B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */,
+				B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				B236E7DE21CA03BB00FDFB0C /* progress */,
+				B200E22521D2CDBA00135088 /* ReviewProfileTainerTableViewCell.swift */,
 			);
 			path = tableviews;
 			sourceTree = "<group>";
@@ -750,6 +756,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
@@ -770,6 +777,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
@@ -862,6 +870,7 @@
 				B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */,
 				B236E7E421CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift in Sources */,
 				B2B62D2521A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift in Sources */,
+				B200E22621D2CDBA00135088 /* ReviewProfileTainerTableViewCell.swift in Sources */,
 				B27F7E51219AE13400AA9520 /* PaymentTrainerTableViewCell.swift in Sources */,
 				B224C71621A3EC7100DD33AB /* EachOngoingDetail.swift in Sources */,
 				B224C71421A3E49500DD33AB /* OngoingDetail.swift in Sources */,
@@ -875,6 +884,7 @@
 				B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */,
 				B23E918B219AD387000AECF8 /* PaymentTraineeTableViewCell.swift in Sources */,
 				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,
+				B293FACD21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
 				B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */,
 				B25BD02C21CBBE5000FC3FDF /* ProfileTraineeViewController.swift in Sources */,

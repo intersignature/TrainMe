@@ -30,6 +30,7 @@ pod 'DTTextField'
 pod 'CreditCardForm'
 pod 'Stripe'
 #pod 'SkeletonView'
+pod 'ImageSlideshow', '~> 1.6'
 
   target 'TrainMeTests' do
     inherit! :search_paths
