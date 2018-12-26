@@ -77,6 +77,8 @@
 		B27F7E51219AE13400AA9520 /* PaymentTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F7E50219AE13400AA9520 /* PaymentTrainerTableViewCell.swift */; };
 		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
 		B28986AB21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */; };
+		B2901ECC21D3F958005ED68D /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2901ECB21D3F958005ED68D /* Review.swift */; };
+		B2901ECE21D3FB4B005ED68D /* EachReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2901ECD21D3FB4B005ED68D /* EachReview.swift */; };
 		B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */; };
 		B293FACD21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */; };
 		B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */; };
@@ -208,6 +210,8 @@
 		B27F7E50219AE13400AA9520 /* PaymentTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTrainerTableViewCell.swift; sourceTree = "<group>"; };
 		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
 		B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingProgressTraineeTableViewController.swift; sourceTree = "<group>"; };
+		B2901ECB21D3F958005ED68D /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		B2901ECD21D3FB4B005ED68D /* EachReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachReview.swift; sourceTree = "<group>"; };
 		B2936DE221467CA700C0DB89 /* BookPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceDetail.swift; sourceTree = "<group>"; };
 		B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewProfileTraineeTableViewCell.swift; sourceTree = "<group>"; };
 		B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 				B224C71521A3EC7100DD33AB /* EachOngoingDetail.swift */,
 				B24664E721AEFF6F0065655F /* CreditCard.swift */,
 				B236E7D921C8FFC400FDFB0C /* RatingController.swift */,
+				B2901ECB21D3F958005ED68D /* Review.swift */,
+				B2901ECD21D3FB4B005ED68D /* EachReview.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -920,10 +926,12 @@
 				B24664E821AEFF700065655F /* CreditCard.swift in Sources */,
 				B20ECAEF213FE4590084E685 /* AllCourseTrainerTableViewCell.swift in Sources */,
 				B202BD2921501D3700DE0790 /* AddCertificateViewController.swift in Sources */,
+				B2901ECC21D3F958005ED68D /* Review.swift in Sources */,
 				B2B929D1216B14F600D61E0A /* ProfileTrainerViewController.swift in Sources */,
 				B202BD20214D713600DE0790 /* ProgressTabTraineeViewController.swift in Sources */,
 				B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */,
 				B28986AB21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift in Sources */,
+				B2901ECE21D3FB4B005ED68D /* EachReview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

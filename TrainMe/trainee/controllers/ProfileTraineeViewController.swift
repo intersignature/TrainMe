@@ -7,21 +7,163 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var headerView: UILabel!
     @IBOutlet weak var reviewProfileTraineeTableView: UITableView!
-    var traineeUid: String!
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLb: UILabel!
+    @IBOutlet weak var genderImageView: UIImageView!
+    @IBOutlet weak var bioLb: UILabel!
+    @IBOutlet weak var heightLb: UILabel!
+    @IBOutlet weak var birthdayLb: UILabel!
+    @IBOutlet weak var weightLb: UILabel!
+    
+    var isBlurProfile: Bool!
+    var ref: DatabaseReference!
+    var currentUser: User!
+    var traineeProfile: UserProfile!
+    var review: [Review] = []
+    var trainerObj: [String: UserProfile] = [:]
+    var courseObj: [String: Course] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("ProfileTraineeViewController \(String(describing: self.traineeUid))")
+        self.ref = Database.database().reference()
+        self.currentUser = Auth.auth().currentUser
+        self.getReviewData()
+        self.getTraineeProfile()
         
         self.navigationController?.isNavigationBarHidden = true
         self.reviewProfileTraineeTableView.delegate = self
         self.reviewProfileTraineeTableView.dataSource = self
+        
+        self.profileImageView.isBlur(self.isBlurProfile)
+        self.setProfileImageRound()
+    }
+    
+    func getTraineeProfile() {
+        
+        self.ref.child("user").child(self.currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
+            
+            let value = snapshot.value as! NSDictionary
+            
+            self.traineeProfile = UserProfile(fullName: (value["name"] as! String),
+                                              email: (value["email"] as! String),
+                                              dateOfBirth: (value["dateOfBirth"] as! String),
+                                              weight: (value["weight"] as! String),
+                                              height: (value["height"] as! String),
+                                              gender: (value["gender"] as! String),
+                                              role: (value["role"] as! String),
+                                              profileImageUrl: (value["profileImageUrl"] as! String),
+                                              uid: snapshot.key,
+                                              omiseCusId: (value["omise_cus_id"] as! String))
+            self.setDataToProfileView()
+        }
+    }
+    
+    func setDataToProfileView() {
+        
+        self.profileImageView.downloaded(from: self.traineeProfile.profileImageUrl)
+        self.nameLb.text = self.traineeProfile.fullName
+        if self.traineeProfile.gender == "male" {
+            self.genderImageView.image = UIImage(named: "male")
+        } else if self.traineeProfile.gender == "female" {
+            self.genderImageView.image = UIImage(named: "female")
+        } else {
+//            self.genderImageView.image = UIImage(named: "")
+        }
+        self.heightLb.text = "\(self.traineeProfile.height) cm"
+        self.weightLb.text = "\(self.traineeProfile.weight) kg"
+        self.birthdayLb.text = self.traineeProfile.dateOfBirth
+    }
+    
+    func getReviewData() {
+        
+        self.ref.child("progress_schedule_detail").observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as! [String: [String: [String: AnyObject]]]
+            print(value.count)
+            
+            value.forEach({ (trainerId, traineeList) in
+                traineeList.forEach({ (traineeId, overallScheduleDetail) in
+                    if traineeId == self.currentUser.uid {
+                        var allReview: [EachReview] = []
+                        overallScheduleDetail.forEach({ (btnKey, detail) in
+                            allReview.removeAll()
+                            let lastReviewDetail = detail[String(Int(detail.count)-4)] as! NSDictionary
+                            if lastReviewDetail["status"] as! String == "2" {
+                                if self.trainerObj[trainerId] == nil {
+                                    self.getTrainerData(trainerId: trainerId)
+                                }
+                                if self.courseObj[detail["course_id"] as! String] == nil {
+                                    self.getCourseObj(trainerId: trainerId, courseId: detail["course_id"] as! String)
+                                }
+                                for i in 1...(Int(detail.count)-4){
+                                    let eachReviewValue = detail[String(i)] as? NSDictionary
+                                    let eachReview = EachReview(rating: eachReviewValue!["rate_point"] as! String,
+                                                                reviewDesc: eachReviewValue!["review"] as! String)
+                                    allReview.append(eachReview)
+                                }
+                                let tempReview = Review(traineeUid: traineeId,
+                                                        trainerUid: trainerId,
+                                                        courseId: detail["course_id"] as! String,
+                                                        eachReview: allReview)
+                                self.review.append(tempReview)
+                                allReview.removeAll()
+                            }
+                        })
+                    }
+                })
+            })
+        }
+    }
+    
+    func getTrainerData(trainerId: String) {
+        
+        self.ref.child("user").child(trainerId).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as! NSDictionary
+            self.trainerObj[trainerId] = UserProfile(fullName: (value["name"] as! String),
+                                                     email: (value["email"] as! String),
+                                                     dateOfBirth: (value["dateOfBirth"] as! String),
+                                                     weight: (value["weight"] as! String),
+                                                     height: (value["height"] as! String),
+                                                     gender: (value["gender"] as! String),
+                                                     role: (value["role"] as! String),
+                                                     profileImageUrl: (value["profileImageUrl"] as! String),
+                                                     omiseCusId: (value["omise_cus_id"] as! String))
+            self.trainerObj[trainerId]?.uid = trainerId
+            self.reviewProfileTraineeTableView.reloadData()
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
+    }
+    
+    func getCourseObj(trainerId: String, courseId: String) {
+        
+        ref.child("courses").child(trainerId).child(courseId).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as! NSDictionary
+            
+            self.courseObj[courseId] = Course(key: snapshot.key,
+                                              course: value["course_name"] as! String,
+                                              courseContent: value["course_content"] as! String,
+                                              courseType: value["course_type"] as! String,
+                                              timeOfCourse: value["time_of_course"] as! String,
+                                              courseDuration: value["course_duration"] as! String,
+                                              courseLevel: value["course_level"] as! String,
+                                              coursePrice: value["course_price"] as! String,
+                                              courseLanguage: value["course_language"] as! String)
+            self.reviewProfileTraineeTableView.reloadData()
+        }) { (err) in
+            print(err.localizedDescription)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
+        }
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
@@ -35,12 +177,17 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return self.review.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewProfileTraineeTableViewCell") as! ReviewProfileTraineeTableViewCell
+        cell.profileImageView.downloaded(from: (self.trainerObj[self.review[indexPath.row].trainerUid]?.profileImageUrl)!)
+        cell.nameLb.text = self.trainerObj[self.review[indexPath.row].trainerUid]?.fullName
+        cell.ratingStackView.setStarsRating(rating: Int(self.review[indexPath.row].eachReiew[0].rating)!)
+        cell.courseNameLb.text = self.courseObj[self.review[indexPath.row].courseId]?.course
+        cell.reviewLb.text = self.review[indexPath.row].eachReiew[0].reviewDesc
         return cell
     }
     
@@ -58,5 +205,16 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         } else {
             self.navigationController?.setNavigationBarHidden(false, animated: false)
         }
+    }
+    
+    func setProfileImageRound() {
+        
+        self.profileImageView.layer.masksToBounds = false
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height / 2
+        self.profileImageView.clipsToBounds = true
+    }
+    
+    @IBAction func backBtnAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

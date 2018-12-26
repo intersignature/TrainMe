@@ -10,9 +10,24 @@ import UIKit
 
 class ReviewProfileTraineeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLb: UILabel!
+    @IBOutlet weak var ratingStackView: RatingController!
+    @IBOutlet weak var courseNameLb: UILabel!
+    @IBOutlet weak var reviewLb: UILabel!
+    
+    func setProfileImageRound() {
+        
+        self.profileImageView.layer.masksToBounds = false
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height / 2
+        self.profileImageView.clipsToBounds = true
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.ratingStackView.isEnabled(isEnable: false)
+        self.setProfileImageRound()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

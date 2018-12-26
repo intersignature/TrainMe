@@ -77,7 +77,7 @@ class SidebarTraineeViewController: UIViewController {
             
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ProfileTraineeViewController
-            containVc.traineeUid = (sender as! String)
+            containVc.isBlurProfile = false
         }
     }
 }
