@@ -195,6 +195,17 @@ extension UIImageView {
         }
         downloaded(from: url, contentMode: mode)
     }
+    
+    func isBlur(_ isBlur: Bool) {
+        
+        if isBlur {
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.addSubview(blurEffectView)
+        }
+    }
 }
 
 extension Auth{
