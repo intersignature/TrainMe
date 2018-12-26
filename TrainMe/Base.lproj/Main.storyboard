@@ -865,7 +865,7 @@ TrainMe’s Privacy Policy</string>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAM-Sz-hXU">
                                             <rect key="frame" x="169.66666666666666" y="216.66666666666666" width="75" height="52.999999999999972"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="16/08/2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpz-uU-9W5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="16/08/2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpz-uU-9W5">
                                                     <rect key="frame" x="2.6666666666666856" y="8" width="69.666666666666671" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1333,13 +1333,13 @@ TrainMe’s Privacy Policy</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-LC-vAO">
-                                                    <rect key="frame" x="68" y="11.000000000000002" width="326" height="20.666666666666671"/>
+                                                    <rect key="frame" x="68" y="11.000000000000002" width="326" height="17.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-ui-mPA" customClass="RatingController" customModule="TrainMe" customModuleProvider="target">
-                                                    <rect key="frame" x="68" y="35.666666666666664" width="91" height="15"/>
+                                                    <rect key="frame" x="68" y="32.666666666666664" width="91" height="15"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ior-7l-taE">
                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -1384,19 +1384,19 @@ TrainMe’s Privacy Policy</string>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Best training" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtJ-a8-hb1">
-                                                    <rect key="frame" x="20" y="58.999999999999993" width="374" height="20.666666666666664"/>
+                                                    <rect key="frame" x="20" y="58.999999999999993" width="374" height="17.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwK-2f-blW">
-                                                    <rect key="frame" x="20" y="83.666666666666671" width="374" height="18"/>
+                                                    <rect key="frame" x="20" y="80.666666666666671" width="374" height="27.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asu-1o-aH8">
-                                                    <rect key="frame" x="20" y="105.66666666666669" width="374" height="45"/>
+                                                    <rect key="frame" x="20" y="112.00000000000001" width="374" height="38.666666666666671"/>
                                                     <string key="text">kmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnksdfnjdskfnsdkjfnskjfdnsdjkfn</string>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="11"/>
                                                     <nil key="textColor"/>
