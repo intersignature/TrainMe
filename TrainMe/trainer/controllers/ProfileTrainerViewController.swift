@@ -227,7 +227,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
                                                      profileImageUrl: (value["profileImageUrl"] as! String),
                                                      omiseCusId: (value["omise_cus_id"] as! String))
             self.traineeObj[traineeId]?.uid = traineeId
-//            self.reviewProfileTraineeTableView.reloadData()
+            self.profileTrainerTableView.reloadData()
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -249,7 +249,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
                                               courseLevel: value["course_level"] as! String,
                                               coursePrice: value["course_price"] as! String,
                                               courseLanguage: value["course_language"] as! String)
-//            self.reviewProfileTraineeTableView.reloadData()
+            self.profileTrainerTableView.reloadData()
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -278,13 +278,18 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return self.review.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewProfileTrainerTableViewCell") as! ReviewProfileTainerTableViewCell
-        
+        cell.profileImageView.downloaded(from: (self.traineeObj[self.review[indexPath.row].traineeUid]?.profileImageUrl)!)
+        cell.nameLb.text = self.traineeObj[self.review[indexPath.row].traineeUid]?.fullName
+        cell.ratingStackView.setStarsRating(rating: Int(self.review[indexPath.row].eachReiew[0].rating)!)
+        cell.ratingStackView.isEnabled(isEnable: false)
+        cell.courseNameLb.text = self.courseObj[self.review[indexPath.row].courseId]?.course
+        cell.reviewDescLb.text = self.review[indexPath.row].eachReiew[0].reviewDesc
         return cell
     }
     

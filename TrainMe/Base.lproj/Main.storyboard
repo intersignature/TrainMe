@@ -803,7 +803,7 @@ TrainMe’s Privacy Policy</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IXc-p2-87b">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IXc-p2-87b">
                                 <rect key="frame" x="0.0" y="-20" width="414" height="756"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="vVS-Xk-rXF">
@@ -1285,29 +1285,28 @@ TrainMe’s Privacy Policy</string>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewProfileTrainerTableViewCell" rowHeight="166" id="pfb-zh-MnU" customClass="ReviewProfileTainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="617" width="414" height="166"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewProfileTrainerTableViewCell" rowHeight="141" id="pfb-zh-MnU" customClass="ReviewProfileTainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="617" width="414" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pfb-zh-MnU" id="2Rm-I0-xSY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="165.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NtY-HP-579">
                                                     <rect key="frame" x="20" y="11" width="40" height="40"/>
-                                                    <color key="backgroundColor" red="1" green="0.28814054529999999" blue="0.33854433699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="bH6-Y4-Z6a"/>
                                                         <constraint firstAttribute="height" constant="40" id="cD2-cz-6cn"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-LC-vAO">
-                                                    <rect key="frame" x="68" y="11.000000000000002" width="326" height="17.666666666666671"/>
+                                                    <rect key="frame" x="68" y="11.000000000000002" width="326" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-ui-mPA" customClass="RatingController" customModule="TrainMe" customModuleProvider="target">
-                                                    <rect key="frame" x="68" y="32.666666666666664" width="91" height="15"/>
+                                                    <rect key="frame" x="68" y="35.666666666666664" width="91" height="15"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ior-7l-taE">
                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -1351,20 +1350,14 @@ TrainMe’s Privacy Policy</string>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Best training" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtJ-a8-hb1">
-                                                    <rect key="frame" x="20" y="58.999999999999993" width="374" height="17.666666666666664"/>
-                                                    <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwK-2f-blW">
-                                                    <rect key="frame" x="20" y="80.666666666666671" width="374" height="27.333333333333329"/>
+                                                    <rect key="frame" x="20" y="55" width="374" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asu-1o-aH8">
-                                                    <rect key="frame" x="20" y="112.00000000000001" width="374" height="38.666666666666671"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asu-1o-aH8">
+                                                    <rect key="frame" x="20" y="77" width="374" height="45"/>
                                                     <string key="text">kmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnksdfnjdskfnsdkjfnskjfdnsdjkfn</string>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="11"/>
                                                     <nil key="textColor"/>
@@ -1372,25 +1365,29 @@ TrainMe’s Privacy Policy</string>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="qtJ-a8-hb1" firstAttribute="trailing" secondItem="2Rm-I0-xSY" secondAttribute="trailingMargin" id="04R-zH-wou"/>
                                                 <constraint firstItem="Y9b-LC-vAO" firstAttribute="leading" secondItem="NtY-HP-579" secondAttribute="trailing" constant="8" id="4U4-kq-6yb"/>
-                                                <constraint firstItem="qtJ-a8-hb1" firstAttribute="top" secondItem="NtY-HP-579" secondAttribute="bottom" constant="8" id="55y-Mx-LVf"/>
                                                 <constraint firstItem="e9e-ui-mPA" firstAttribute="top" secondItem="Y9b-LC-vAO" secondAttribute="bottom" constant="4" id="6ND-6M-jvi"/>
                                                 <constraint firstItem="Asu-1o-aH8" firstAttribute="leading" secondItem="2Rm-I0-xSY" secondAttribute="leadingMargin" id="7ob-Qh-GdH"/>
                                                 <constraint firstItem="Asu-1o-aH8" firstAttribute="top" secondItem="fwK-2f-blW" secondAttribute="bottom" constant="4" id="9Xp-kU-CeI"/>
-                                                <constraint firstItem="fwK-2f-blW" firstAttribute="top" secondItem="qtJ-a8-hb1" secondAttribute="bottom" constant="4" id="CkH-Bj-Z6E"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Asu-1o-aH8" secondAttribute="bottom" constant="4.3300000000000001" id="FPh-5Z-3Iw"/>
-                                                <constraint firstItem="qtJ-a8-hb1" firstAttribute="leading" secondItem="2Rm-I0-xSY" secondAttribute="leadingMargin" id="Fov-Wb-H1n"/>
                                                 <constraint firstItem="fwK-2f-blW" firstAttribute="leading" secondItem="2Rm-I0-xSY" secondAttribute="leadingMargin" id="LhZ-Wc-XoA"/>
                                                 <constraint firstItem="NtY-HP-579" firstAttribute="top" secondItem="2Rm-I0-xSY" secondAttribute="topMargin" id="Ml0-a1-DDL"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Y9b-LC-vAO" secondAttribute="trailing" id="Oid-B9-EWc"/>
                                                 <constraint firstItem="Y9b-LC-vAO" firstAttribute="top" secondItem="2Rm-I0-xSY" secondAttribute="topMargin" id="RD1-Qa-bPU"/>
                                                 <constraint firstItem="Asu-1o-aH8" firstAttribute="trailing" secondItem="2Rm-I0-xSY" secondAttribute="trailingMargin" id="V3r-wP-kaB"/>
+                                                <constraint firstItem="fwK-2f-blW" firstAttribute="top" secondItem="NtY-HP-579" secondAttribute="bottom" constant="4" id="VkF-Cq-yC7"/>
                                                 <constraint firstItem="e9e-ui-mPA" firstAttribute="leading" secondItem="NtY-HP-579" secondAttribute="trailing" constant="8" id="ZJL-D0-7ku"/>
                                                 <constraint firstItem="fwK-2f-blW" firstAttribute="trailing" secondItem="2Rm-I0-xSY" secondAttribute="trailingMargin" id="gOz-pq-U2N"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Asu-1o-aH8" secondAttribute="bottom" constant="8" id="j5H-PC-KBl"/>
                                                 <constraint firstItem="NtY-HP-579" firstAttribute="leading" secondItem="2Rm-I0-xSY" secondAttribute="leadingMargin" id="r8N-uL-w3h"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="courseNameLb" destination="fwK-2f-blW" id="LGL-04-ayy"/>
+                                            <outlet property="nameLb" destination="Y9b-LC-vAO" id="L4g-zi-BaB"/>
+                                            <outlet property="profileImageView" destination="NtY-HP-579" id="5ha-cd-cFG"/>
+                                            <outlet property="ratingStackView" destination="e9e-ui-mPA" id="2Uz-om-VNj"/>
+                                            <outlet property="reviewDescLb" destination="Asu-1o-aH8" id="iGq-hf-I1A"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
