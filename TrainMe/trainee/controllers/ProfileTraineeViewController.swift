@@ -14,6 +14,7 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
 
     @IBOutlet weak var reviewProfileTraineeTableView: UITableView!
     
+    @IBOutlet weak var editProfileBtn: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var genderImageView: UIImageView!
@@ -80,6 +81,7 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         self.heightLb.text = "\(self.traineeProfile.height) cm"
         self.weightLb.text = "\(self.traineeProfile.weight) kg"
         self.birthdayLb.text = self.traineeProfile.dateOfBirth
+        self.editProfileBtn.isEnabled = true
     }
     
     func getReviewData() {
@@ -174,6 +176,8 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         super.viewWillAppear(animated)
         
         self.setupNavigationStyle()
+        self.editProfileBtn.isEnabled = false
+        self.getTraineeProfile()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -212,6 +216,18 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         self.profileImageView.layer.masksToBounds = false
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height / 2
         self.profileImageView.clipsToBounds = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileTraineeToEditProfileTrainee" {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! EditProfileTraineeViewController
+            containVc.traineeProfile = self.traineeProfile
+        }
+    }
+    
+    @IBAction func editProfileBtnAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "ProfileTraineeToEditProfileTrainee", sender: nil)
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
