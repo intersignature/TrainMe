@@ -322,6 +322,10 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         self.profileImageView.clipsToBounds = true
     }
     
+    @IBAction func backBtnAction(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }

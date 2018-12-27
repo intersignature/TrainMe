@@ -815,6 +815,9 @@ TrainMe’s Privacy Policy</string>
                                             <state key="normal" image="leftArrow">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="backBtnAction:" destination="Iv1-Wf-HmN" eventType="touchUpInside" id="6yV-RH-o0U"/>
+                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-bk-7uH">
                                             <rect key="frame" x="162" y="60" width="90" height="90"/>
