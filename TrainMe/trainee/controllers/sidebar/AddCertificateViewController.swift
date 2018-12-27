@@ -170,6 +170,7 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
             certDic["cert\(countCertDb)"] = cert.certDetail
             countCertDb += 1
         }
+        certDic["status"] = "pending"
         
         self.dbRef.child("become_to_a_trainer").child(uid).updateChildValues(certDic) { (err, ref) in
             if let err = err {

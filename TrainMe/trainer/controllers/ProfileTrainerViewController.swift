@@ -10,6 +10,7 @@ import UIKit
 import ImageSlideshow
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -23,21 +24,22 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var weightLb: UILabel!
     
     var ref: DatabaseReference!
+    var storageRef: StorageReference!
     var currentUser: User!
     
     var trainerProfile: UserProfile!
-    var localSource: [ImageSource]!
+    var localSource: [ImageSource] = []
     var isBlurProfileImage: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.ref = Database.database().reference()
+        self.storageRef = Storage.storage().reference()
         self.currentUser = Auth.auth().currentUser
         
+        self.getCertCount()
         self.getTrainerProfile()
-        
-        localSource = [ImageSource(imageString: "menu")!, ImageSource(imageString: "star-filled")!]
         
         self.navigationController?.isNavigationBarHidden = true
         self.setProfileImageRound()
@@ -45,7 +47,6 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         
         self.profileTrainerTableView.delegate = self
         self.profileTrainerTableView.dataSource = self
-        self.setupImageSliderBar()
     }
     
     func setupImageSliderBar() {
@@ -88,6 +89,35 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
                                               omiseCusId: (value["omise_cus_id"] as! String))
             self.setDataToProfileView()
         }
+    }
+    
+    func getCertCount() {
+        
+        self.ref.child("become_to_a_trainer").child(self.currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as! NSDictionary
+            print(value.count - 1)
+            self.getCertImageFile(certCount: value.count - 1)
+        }
+    }
+    
+    func getCertImageFile(certCount: Int) {
+        
+        for i in 1...certCount {
+            print("cert_\(i)")
+            self.storageRef.child("BecomeToATrainer").child(self.currentUser.uid).child("certificate").child("cert_\(i).png").getData(maxSize: 30*1024*1024) { (data, err) in
+                if let err = err {
+                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                    print(err.localizedDescription)
+                    return
+                }
+                let tempImageSource = ImageSource(image: UIImage(data: data!)!)
+                self.localSource.append(tempImageSource)
+                if self.localSource.count == certCount {
+                    self.setupImageSliderBar()
+                }
+            }
+        }
+        
     }
     
     func setDataToProfileView() {
