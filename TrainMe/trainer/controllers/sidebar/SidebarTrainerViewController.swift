@@ -75,7 +75,7 @@ class SidebarTrainerViewController: UIViewController {
         if segue.identifier == "SidebarTrainerToProfileTrainer" {
             let vc = segue.destination as! UINavigationController
             let containeVc = vc.topViewController as! ProfileTrainerViewController
-            containeVc.trainerUid = sender as? String
+            containeVc.isBlurProfileImage = false
         }
     }
     

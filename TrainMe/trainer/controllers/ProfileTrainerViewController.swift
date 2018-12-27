@@ -8,21 +8,47 @@
 
 import UIKit
 import ImageSlideshow
+import FirebaseAuth
+import FirebaseDatabase
 
 class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
 
     @IBOutlet weak var profileTrainerTableView: UITableView!
     @IBOutlet weak var certificateImageSlideShow: ImageSlideshow!
-    var trainerUid: String?
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLb: UILabel!
+    @IBOutlet weak var genderImageView: UIImageView!
+    @IBOutlet weak var heightLb: UILabel!
+    @IBOutlet weak var birthdayLb: UILabel!
+    @IBOutlet weak var weightLb: UILabel!
+    
+    var ref: DatabaseReference!
+    var currentUser: User!
+    
+    var trainerProfile: UserProfile!
+    var localSource: [ImageSource]!
+    var isBlurProfileImage: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let localSource = [ImageSource(imageString: "menu")!, ImageSource(imageString: "star-filled")!]
+        self.ref = Database.database().reference()
+        self.currentUser = Auth.auth().currentUser
+        
+        self.getTrainerProfile()
+        
+        localSource = [ImageSource(imageString: "menu")!, ImageSource(imageString: "star-filled")!]
         
         self.navigationController?.isNavigationBarHidden = true
+        self.setProfileImageRound()
+        self.profileImageView.isBlur(self.isBlurProfileImage)
+        
+        self.profileTrainerTableView.delegate = self
+        self.profileTrainerTableView.dataSource = self
+        self.setupImageSliderBar()
+    }
+    
+    func setupImageSliderBar() {
         
         certificateImageSlideShow.slideshowInterval = 5.0
         certificateImageSlideShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
@@ -42,11 +68,40 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         certificateImageSlideShow.addGestureRecognizer(recognizer)
+    }
+    
+    func getTrainerProfile() {
         
-        self.profileTrainerTableView.delegate = self
-        self.profileTrainerTableView.dataSource = self
+        self.ref.child("user").child(self.currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
+            
+            let value = snapshot.value as! NSDictionary
+            
+            self.trainerProfile = UserProfile(fullName: (value["name"] as! String),
+                                              email: (value["email"] as! String),
+                                              dateOfBirth: (value["dateOfBirth"] as! String),
+                                              weight: (value["weight"] as! String),
+                                              height: (value["height"] as! String),
+                                              gender: (value["gender"] as! String),
+                                              role: (value["role"] as! String),
+                                              profileImageUrl: (value["profileImageUrl"] as! String),
+                                              uid: snapshot.key,
+                                              omiseCusId: (value["omise_cus_id"] as! String))
+            self.setDataToProfileView()
+        }
+    }
+    
+    func setDataToProfileView() {
         
-        print("nnn\(self.trainerUid)")
+        self.profileImageView.downloaded(from: self.trainerProfile.profileImageUrl)
+        self.nameLb.text = self.trainerProfile.fullName
+        if self.trainerProfile.gender == "male"{
+            self.genderImageView.image = UIImage(named: "male")
+        } else if self.trainerProfile.gender == "female" {
+            self.genderImageView.image = UIImage(named: "female")
+        }
+        self.heightLb.text = "\(self.trainerProfile.height) cm"
+        self.birthdayLb.text = "\(self.trainerProfile.dateOfBirth)"
+        self.weightLb.text = "\(self.trainerProfile.weight) kg"
     }
     
     @objc func didTap() {
@@ -86,6 +141,13 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         super.viewWillAppear(animated)
         
         self.setupNavigationStyle()
+    }
+    
+    func setProfileImageRound() {
+        
+        self.profileImageView.layer.masksToBounds = false
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height / 2
+        self.profileImageView.clipsToBounds = true
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {

@@ -286,7 +286,6 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
         if(segue.identifier == "SelectTrainerToShowProfile") {
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ProfileTrainerViewController
-           containVc.trainerUid = self.selectedTrainerForShowProfile
         }
         if segue.identifier == "ShowTrainerMarkerToShowCourseTrainerSpecified" {
             let vc = segue.destination as! UINavigationController

@@ -818,14 +818,13 @@ TrainMe’s Privacy Policy</string>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-bk-7uH">
                                             <rect key="frame" x="162" y="60" width="90" height="90"/>
-                                            <color key="backgroundColor" red="1" green="0.28814054529999999" blue="0.33854433699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="90" id="1XW-0j-URT"/>
                                                 <constraint firstAttribute="width" constant="90" id="gcl-P5-AaD"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFe-9D-Z9N">
-                                            <rect key="frame" x="145.33333333333334" y="166" width="123.66666666666666" height="23.333333333333343"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFe-9D-Z9N">
+                                            <rect key="frame" x="165" y="166" width="84" height="23.333333333333343"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -839,8 +838,8 @@ TrainMe’s Privacy Policy</string>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbn-eA-vVv">
                                             <rect key="frame" x="100.66666666666667" y="216.66666666666666" width="53.000000000000014" height="53.999999999999972"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="176 cm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSd-ia-zQh">
-                                                    <rect key="frame" x="4" y="8" width="44.666666666666664" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSd-ia-zQh">
+                                                    <rect key="frame" x="-5.6666666666666714" y="8" width="64.333333333333329" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -865,8 +864,8 @@ TrainMe’s Privacy Policy</string>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAM-Sz-hXU">
                                             <rect key="frame" x="169.66666666666666" y="216.66666666666666" width="75" height="52.999999999999972"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="16/08/2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpz-uU-9W5">
-                                                    <rect key="frame" x="2.6666666666666856" y="8" width="69.666666666666671" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpz-uU-9W5">
+                                                    <rect key="frame" x="5.3333333333333428" y="8" width="64.333333333333329" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -892,8 +891,8 @@ TrainMe’s Privacy Policy</string>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMV-eY-AmZ">
                                             <rect key="frame" x="260.66666666666669" y="216.66666666666666" width="50" height="53.999999999999972"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j32-2k-f60">
-                                                    <rect key="frame" x="8" y="8" width="33.666666666666664" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j32-2k-f60">
+                                                    <rect key="frame" x="-7.3333333333333428" y="8" width="64.333333333333329" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -916,8 +915,7 @@ TrainMe’s Privacy Policy</string>
                                             </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJR-f6-9kj">
-                                            <rect key="frame" x="277" y="167" width="20" height="20"/>
-                                            <color key="backgroundColor" red="1" green="0.28814054529999999" blue="0.33854433699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="257" y="167" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="DqY-fs-bLM"/>
                                                 <constraint firstAttribute="width" constant="20" id="RS8-qp-4A8"/>
@@ -1445,8 +1443,14 @@ TrainMe’s Privacy Policy</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="birthdayLb" destination="hpz-uU-9W5" id="Xp6-Jl-Xfu"/>
                         <outlet property="certificateImageSlideShow" destination="N9H-ho-aUd" id="Edq-Ft-IWm"/>
+                        <outlet property="genderImageView" destination="iJR-f6-9kj" id="KNA-te-ZaI"/>
+                        <outlet property="heightLb" destination="DSd-ia-zQh" id="bmM-zd-CD6"/>
+                        <outlet property="nameLb" destination="rFe-9D-Z9N" id="pjv-PT-ygc"/>
+                        <outlet property="profileImageView" destination="LeV-bk-7uH" id="xVd-n2-rwa"/>
                         <outlet property="profileTrainerTableView" destination="IXc-p2-87b" id="yL1-5h-S7i"/>
+                        <outlet property="weightLb" destination="j32-2k-f60" id="mId-YT-jTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnE-zf-5IX" userLabel="First Responder" sceneMemberID="firstResponder"/>
