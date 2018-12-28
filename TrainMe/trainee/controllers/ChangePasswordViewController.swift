@@ -36,6 +36,29 @@ class ChangePasswordViewController: UIViewController {
     }
     
     @IBAction func saveBtnAction(_ sender: UIButton) {
+        
+        if checkPassword() {
+            let credential = EmailAuthProvider.credential(withEmail: self.currentUser.email!, password: self.oldPasswordTf.text!)
+            self.currentUser.reauthenticateAndRetrieveData(with: credential) { (result, err) in
+                if let err = err {
+                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                    print(err.localizedDescription)
+                    return
+                }
+                self.currentUser.updatePassword(to: self.newPasswordTf.text!, completion: { (err1) in
+                    if let err1 = err1 {
+                        self.createAlert(alertTitle: err1.localizedDescription, alertMessage: "")
+                        print(err1.localizedDescription)
+                        return
+                    }
+                    let alert = UIAlertController(title: "Change password successfull", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                })
+            }
+        }
     }
     
     func checkPassword() -> Bool{
