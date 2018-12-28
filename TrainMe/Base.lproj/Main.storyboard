@@ -4945,6 +4945,79 @@ detail</string>
             </objects>
             <point key="canvasLocation" x="764" y="-297"/>
         </scene>
+        <!--Change Password-->
+        <scene sceneID="H3n-Yf-ZGO">
+            <objects>
+                <viewController id="Oyd-a8-S6e" customClass="ChangePasswordViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RjF-ze-Zt4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-YY-ylR" customClass="DTTextField" customModule="DTTextField">
+                                <rect key="frame" x="20" y="89" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm new password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x3Z-fq-oVa" customClass="DTTextField" customModule="DTTextField">
+                                <rect key="frame" x="20" y="199" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD2-E7-hxW">
+                                <rect key="frame" x="60" y="254" width="294" height="30"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveBtnAction:" destination="Oyd-a8-S6e" eventType="touchUpInside" id="DMp-rL-Dm8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sXw-m5-ye1" customClass="DTTextField" customModule="DTTextField">
+                                <rect key="frame" x="20" y="144" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GoB-vc-U6T" firstAttribute="trailing" secondItem="Ctu-YY-ylR" secondAttribute="trailing" constant="20" id="Byr-Tn-3nX"/>
+                            <constraint firstItem="x3Z-fq-oVa" firstAttribute="leading" secondItem="GoB-vc-U6T" secondAttribute="leading" constant="20" id="GE3-AY-0UC"/>
+                            <constraint firstItem="GoB-vc-U6T" firstAttribute="trailing" secondItem="x3Z-fq-oVa" secondAttribute="trailing" constant="20" id="L1W-0P-5xU"/>
+                            <constraint firstItem="Ctu-YY-ylR" firstAttribute="leading" secondItem="GoB-vc-U6T" secondAttribute="leading" constant="20" id="Pem-pn-0NX"/>
+                            <constraint firstItem="sXw-m5-ye1" firstAttribute="leading" secondItem="GoB-vc-U6T" secondAttribute="leading" constant="20" id="Y5e-PH-n0K"/>
+                            <constraint firstItem="Ctu-YY-ylR" firstAttribute="top" secondItem="GoB-vc-U6T" secondAttribute="top" constant="25" id="YOt-EO-9jg"/>
+                            <constraint firstItem="sXw-m5-ye1" firstAttribute="top" secondItem="Ctu-YY-ylR" secondAttribute="bottom" constant="25" id="dvc-W2-L0c"/>
+                            <constraint firstItem="x3Z-fq-oVa" firstAttribute="top" secondItem="sXw-m5-ye1" secondAttribute="bottom" constant="25" id="jDC-vF-tFh"/>
+                            <constraint firstItem="eD2-E7-hxW" firstAttribute="leading" secondItem="GoB-vc-U6T" secondAttribute="leading" constant="60" id="muO-D1-H2q"/>
+                            <constraint firstItem="eD2-E7-hxW" firstAttribute="top" secondItem="x3Z-fq-oVa" secondAttribute="bottom" constant="25" id="nB2-AS-D22"/>
+                            <constraint firstItem="GoB-vc-U6T" firstAttribute="trailing" secondItem="sXw-m5-ye1" secondAttribute="trailing" constant="20" id="pMo-b5-7Zc"/>
+                            <constraint firstItem="GoB-vc-U6T" firstAttribute="trailing" secondItem="eD2-E7-hxW" secondAttribute="trailing" constant="60" id="w7E-Ry-cuy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GoB-vc-U6T"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Change Password" id="Nt4-kv-9Xh">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="c0F-bd-MMY">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelBtnAction:" destination="Oyd-a8-S6e" id="wBP-Ug-YZF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="confirmNewPasswordTf" destination="x3Z-fq-oVa" id="dDj-y4-y6Q"/>
+                        <outlet property="newPasswordTf" destination="sXw-m5-ye1" id="bBl-yg-PmS"/>
+                        <outlet property="oldPasswordTf" destination="Ctu-YY-ylR" id="I2v-o6-JwS"/>
+                        <outlet property="saveBtn" destination="eD2-E7-hxW" id="wQF-ei-o8I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f28-Er-Lb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="-1806"/>
+        </scene>
         <!--Edit Profile-->
         <scene sceneID="fa2-Si-ppt">
             <objects>
@@ -5020,6 +5093,7 @@ detail</string>
                                 </state>
                                 <connections>
                                     <action selector="changePasswordBtnAction:" destination="EIt-vx-JAJ" eventType="touchUpInside" id="Cz6-Qa-FKc"/>
+                                    <segue destination="fSa-l9-Ecd" kind="presentation" id="AeA-Pf-y3X"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gp-L7-Igg">
@@ -6440,6 +6514,24 @@ detail</string>
             </objects>
             <point key="canvasLocation" x="-109" y="-1052"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PUp-Mx-yG7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fSa-l9-Ecd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2MR-4j-oM4">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oyd-a8-S6e" kind="relationship" relationship="rootViewController" id="qje-m6-Rdi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTK-bX-Veg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-110" y="-1806"/>
+        </scene>
     </scenes>
     <resources>
         <image name="creditCard" width="34" height="28"/>
@@ -6459,7 +6551,7 @@ detail</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dM1-HA-QSq"/>
+        <segue reference="lwg-sn-Rgh"/>
         <segue reference="HQg-sh-Dc0"/>
         <segue reference="LED-SU-iWE"/>
         <segue reference="Api-oy-w4p"/>

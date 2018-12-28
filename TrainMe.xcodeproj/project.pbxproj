@@ -84,6 +84,7 @@
 		B293FACD21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */; };
 		B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */; };
 		B2AB110F214655D900E84321 /* AddSchedulePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */; };
+		B2AD810021D68E2B0077B802 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AD80FF21D68E2B0077B802 /* ChangePasswordViewController.swift */; };
 		B2AE2C872133B46300B0B9B1 /* SidebarTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */; };
 		B2B62D2321A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B62D2221A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift */; };
 		B2B62D2521A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B62D2421A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift */; };
@@ -218,6 +219,7 @@
 		B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewProfileTraineeTableViewCell.swift; sourceTree = "<group>"; };
 		B2AB110821455EB900E84321 /* CourseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedulePlaceViewController.swift; sourceTree = "<group>"; };
+		B2AD80FF21D68E2B0077B802 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B2AE2C862133B46300B0B9B1 /* SidebarTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTrainerViewController.swift; sourceTree = "<group>"; };
 		B2B62D2221A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulTraineeTableViewCell.swift; sourceTree = "<group>"; };
 		B2B62D2421A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulTrainerTableViewCell.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				B26783D921C8BF53001EE44E /* ReviewTrainerByTraineeViewController.swift */,
 				B25BD02B21CBBE5000FC3FDF /* ProfileTraineeViewController.swift */,
 				B2115E1B21D561AB0074C02A /* EditProfileTraineeViewController.swift */,
+				B2AD80FF21D68E2B0077B802 /* ChangePasswordViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -871,6 +874,7 @@
 				B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */,
 				B202BD2C21502AC400DE0790 /* CertificateTableViewCell.swift in Sources */,
 				B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */,
+				B2AD810021D68E2B0077B802 /* ChangePasswordViewController.swift in Sources */,
 				B202BD1C214D6F7300DE0790 /* SidebarTraineeViewController.swift in Sources */,
 				B24144B72137F94D00F8315B /* extension.swift in Sources */,
 				B2AB110F214655D900E84321 /* AddSchedulePlaceViewController.swift in Sources */,
