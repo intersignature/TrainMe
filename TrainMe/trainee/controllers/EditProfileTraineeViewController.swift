@@ -11,8 +11,9 @@ import DTTextField
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
+import CropViewController
 
-class EditProfileTraineeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileTraineeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
 
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var nameTf: DTTextField!
@@ -29,9 +30,14 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
     var successTask: [String] = []
     var currentUser: User = Auth.auth().currentUser!
     
+    private var croppingStyle = CropViewCroppingStyle.circular
+    private var croppedRect = CGRect.zero
+    private var croppedAngle = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.profileImg.contentMode = .scaleAspectFit
         self.ref = Database.database().reference()
         self.storageRef = Storage.storage().reference()
         self.changePasswordBtn.layer.cornerRadius = 17
@@ -54,13 +60,100 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print(info["UIImagePickerControllerOriginalImage"])
+//        print(info["UIImagePickerControllerOriginalImage"])
         
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.profileImg.image = image
-            self.checkNewImage = true
+//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            self.profileImg.image = image
+//            self.checkNewImage = true
+//        }
+//        dismiss(animated: true, completion: nil)
+        
+        guard let image = (info[UIImagePickerControllerOriginalImage] as? UIImage) else { return }
+        
+        let cropController = CropViewController(croppingStyle: croppingStyle, image: image)
+        cropController.delegate = self
+        cropController.aspectRatioPreset = .presetSquare
+        cropController.aspectRatioLockEnabled = true
+        cropController.resetAspectRatioEnabled = false
+        cropController.aspectRatioPickerButtonHidden = true
+
+//        self.profileImg.image = image
+        
+        if croppingStyle == .circular {
+            if picker.sourceType == .camera {
+                picker.dismiss(animated: true, completion: {
+                    self.present(cropController, animated: true, completion: nil)
+                })
+            } else {
+                picker.pushViewController(cropController, animated: true)
+            }
         }
-        dismiss(animated: true, completion: nil)
+        else { //otherwise dismiss, and then present from the main controller
+            picker.dismiss(animated: true, completion: {
+                self.present(cropController, animated: true, completion: nil)
+                //self.navigationController!.pushViewController(cropController, animated: true)
+            })
+        }
+    }
+    
+    public func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.croppedRect = cropRect
+        self.croppedAngle = angle
+        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+    }
+    
+    public func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.croppedRect = cropRect
+        self.croppedAngle = angle
+        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+    }
+    
+    public func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
+        profileImg.image = image
+        self.checkNewImage = true
+        layoutImageView()
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        
+        if cropViewController.croppingStyle != .circular {
+            profileImg.isHidden = true
+            
+            cropViewController.dismissAnimatedFrom(self, withCroppedImage: image,
+                                                   toView: profileImg,
+                                                   toFrame: CGRect.zero,
+                                                   setup: { self.layoutImageView() },
+                                                   completion: { self.profileImg.isHidden = false })
+        }
+        else {
+            self.profileImg.isHidden = false 
+            cropViewController.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    public func layoutImageView() {
+        guard profileImg.image != nil else { return }
+        
+        let padding: CGFloat = 20.0
+        
+        var viewFrame = self.view.bounds
+        viewFrame.size.width -= (padding * 2.0)
+        viewFrame.size.height -= ((padding * 2.0))
+        
+        var imageFrame = CGRect.zero
+        imageFrame.size = profileImg.image!.size;
+        
+        if profileImg.image!.size.width > viewFrame.size.width || profileImg.image!.size.height > viewFrame.size.height {
+            let scale = min(viewFrame.size.width / imageFrame.size.width, viewFrame.size.height / imageFrame.size.height)
+            imageFrame.size.width *= scale
+            imageFrame.size.height *= scale
+            imageFrame.origin.x = (self.view.bounds.size.width - imageFrame.size.width) * 0.5
+            imageFrame.origin.y = (self.view.bounds.size.height - imageFrame.size.height) * 0.5
+            profileImg.frame = imageFrame
+        }
+        else {
+            self.profileImg.frame = imageFrame;
+            self.profileImg.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

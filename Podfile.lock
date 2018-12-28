@@ -7,6 +7,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - CreditCardForm (0.1.8)
+  - CropViewController (2.4.0)
   - DTTextField (0.3.0)
   - FacebookCore (0.5.0):
     - Bolts (~> 1.9)
@@ -158,6 +159,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - CreditCardForm
+  - CropViewController
   - DTTextField
   - FacebookCore
   - FacebookLogin
@@ -183,6 +185,7 @@ SPEC REPOS:
     - Alamofire
     - Bolts
     - CreditCardForm
+    - CropViewController
     - DTTextField
     - FacebookCore
     - FacebookLogin
@@ -220,6 +223,7 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CreditCardForm: 7e67bc394545eda9e502652af0858552b4931728
+  CropViewController: a090820b15fc3da68e694d7c192a4708c576828b
   DTTextField: c26deead1a51c92156e2a638ac7d2c702c2f345e
   FacebookCore: 74288d0add931d361b1596beae787ab72c438249
   FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
@@ -253,6 +257,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 7eed52369736db19a9ca25fb5d1f525eb9ae2acb
+PODFILE CHECKSUM: 8ad3da4ec4b8a01d678f7fe2991bd6dc8af091ad
 
 COCOAPODS: 1.5.3

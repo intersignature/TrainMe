@@ -31,6 +31,7 @@ pod 'CreditCardForm'
 pod 'Stripe'
 #pod 'SkeletonView'
 pod 'ImageSlideshow', '~> 1.6'
+pod 'CropViewController'
 
   target 'TrainMeTests' do
     inherit! :search_paths
