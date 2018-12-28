@@ -152,8 +152,10 @@ class ViewController: UIViewController {
         
         guard let profilePicture = self.profilePicture else {return}
         guard let uploadData = UIImageJPEGRepresentation(profilePicture, 0.7) else {return}
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
         
-        Storage.storage().reference().child("profile").child((Auth.auth().currentUser?.uid)!).child("imageProfile"+".jpg").putData(uploadData, metadata: nil) { (metadata, err) in
+        Storage.storage().reference().child("profile").child((Auth.auth().currentUser?.uid)!).child("imageProfile"+".png").putData(uploadData, metadata: metadata) { (metadata, err) in
             if let err = err {
                 print(err)
                 return
