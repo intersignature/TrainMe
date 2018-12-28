@@ -132,9 +132,11 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     
     func uploadFileToStorage() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
         
         if let uploadImg = UIImagePNGRepresentation(self.citizenImg) {
-            self.storeRef.child("BecomeToATrainer").child(uid).child("citizen.png").putData(uploadImg, metadata: nil) { (metadata, err) in
+            self.storeRef.child("BecomeToATrainer").child(uid).child("citizen.png").putData(uploadImg, metadata: metadata) { (metadata, err) in
                 if let err = err {
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     print(err.localizedDescription)
@@ -148,7 +150,7 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         let strRef = self.storeRef.child("BecomeToATrainer").child(uid).child("certificate")
         self.selectedCerts.forEach { (cert) in
             if let uploadCert = UIImagePNGRepresentation(cert.certImg) {
-                strRef.child("cert_\(countCertFilename).png").putData(uploadCert, metadata: nil, completion: { (metadata, err) in
+                strRef.child("cert_\(countCertFilename).png").putData(uploadCert, metadata: metadata, completion: { (metadata, err) in
                     if let err = err {
                         self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                         print(err)
