@@ -29,10 +29,13 @@ class SidebarTraineeViewController: UIViewController {
         
         currentUser = Auth.auth().currentUser
         self.setProfileImageRound()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         nameLb.text = currentUser?.displayName
         emailLb.text = currentUser?.email
-        
         if currentUser?.photoURL != nil {
             profileImg.downloaded(from: (currentUser?.photoURL)!)
         } else {

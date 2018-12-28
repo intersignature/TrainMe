@@ -37,11 +37,14 @@ class SidebarTrainerViewController: UIViewController {
         print(currentUser?.displayName)
         print(currentUser?.photoURL?.absoluteString)
         
+        setLocalizeText()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         nameLb.text = currentUser?.displayName
         emailLb.text = currentUser?.email
-        
-        setLocalizeText()
-        
         if currentUser?.photoURL != nil {
             profileImg.downloaded(from: (currentUser?.photoURL)!)
         } else {
