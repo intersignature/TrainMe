@@ -49,6 +49,12 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
         self.changeLb.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImg)))
         self.setProfileImageRound()
         self.setOldProfileToTextfield()
+        
+        let providerData = self.currentUser.providerData
+        print("providerData: \(providerData[0].providerID)")
+        if providerData[0].providerID == "facebook.com" {
+            self.changePasswordBtn.isHidden = true
+        }
     }
     
     @objc func handleSelectProfileImg() {
