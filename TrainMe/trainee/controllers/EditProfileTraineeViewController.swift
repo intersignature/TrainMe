@@ -10,6 +10,7 @@ import UIKit
 import DTTextField
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class EditProfileTraineeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -26,6 +27,7 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
     var traineeProfile: UserProfile!
     var checkNewImage: Bool = false
     var successTask: [String] = []
+    var currentUser: User = Auth.auth().currentUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +122,33 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
                 print(err.localizedDescription)
                 return
             }
+            
+            if from == "Image" {
+                let changeRequest = self.currentUser.createProfileChangeRequest()
+                changeRequest.photoURL = URL(string: url)
+                changeRequest.commitChanges(completion: { (err) in
+                    if let err = err {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
+                        self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                        print(err.localizedDescription)
+                        return
+                    }
+                })
+            } else if from == "Data" {
+                let changeRequest = self.currentUser.createProfileChangeRequest()
+                changeRequest.displayName = self.nameTf.text!
+                changeRequest.commitChanges(completion: { (err) in
+                    if let err = err {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
+                        self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                        print(err.localizedDescription)
+                        return
+                    }
+                })
+            }
+            
             self.successTask.append(from)
             
             if (self.checkNewImage && self.successTask.contains("Image") && self.successTask.contains("Data")) || (self.checkNewImage == false && self.successTask.contains("Data")) {
