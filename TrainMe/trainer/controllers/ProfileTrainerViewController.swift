@@ -33,6 +33,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var threeRatingProgressbar: UIProgressView!
     @IBOutlet weak var twoRatingProgressbar: UIProgressView!
     @IBOutlet weak var oneRatingProgressbar: UIProgressView!
+    @IBOutlet weak var editProfileBtn: UIButton!
     
     var ref: DatabaseReference!
     var storageRef: StorageReference!
@@ -55,7 +56,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         
         self.getCertCount()
         self.getReviewData()
-        self.getTrainerProfile()
+//        self.getTrainerProfile()
         
         self.navigationController?.isNavigationBarHidden = true
         self.setProfileImageRound()
@@ -269,6 +270,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         self.heightLb.text = "\(self.trainerProfile.height) cm"
         self.birthdayLb.text = "\(self.trainerProfile.dateOfBirth)"
         self.weightLb.text = "\(self.trainerProfile.weight) kg"
+        self.editProfileBtn.isEnabled = true
     }
     
     @objc func didTap() {
@@ -313,6 +315,8 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         super.viewWillAppear(animated)
         
         self.setupNavigationStyle()
+        self.editProfileBtn.isEnabled = false
+        self.getTrainerProfile()
     }
     
     func setProfileImageRound() {
@@ -322,6 +326,17 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         self.profileImageView.clipsToBounds = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileTrainerToEditProfileTrainer" {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! EditProfileTraineeViewController
+            containVc.traineeProfile = self.trainerProfile
+        }
+    }
+    
+    @IBAction func editProfileBtnAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "ProfileTrainerToEditProfileTrainer", sender: nil)
+    }
     @IBAction func backBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
