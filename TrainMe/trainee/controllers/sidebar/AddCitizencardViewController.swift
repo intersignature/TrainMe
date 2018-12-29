@@ -32,9 +32,24 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
 
     @objc func handleSelectCitizenImg() {
         
-        let imgPicker = UIImagePickerController()
-        imgPicker.delegate = self
-        present(imgPicker, animated: true, completion: nil)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "From camera", style: .default, handler: { (action) in
+            let imgPicker = UIImagePickerController()
+            imgPicker.delegate = self
+            imgPicker.sourceType = .camera
+            imgPicker.allowsEditing = false
+            self.present(imgPicker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "From photo library", style: .default, handler: { (action) in
+            let imgPicker = UIImagePickerController()
+            imgPicker.delegate = self
+            imgPicker.sourceType = .photoLibrary
+            imgPicker.allowsEditing = false
+            self.present(imgPicker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
