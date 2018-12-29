@@ -799,7 +799,7 @@ TrainMe’s Privacy Policy</string>
                                                 <action selector="backBtnAction:" destination="Iv1-Wf-HmN" eventType="touchUpInside" id="6yV-RH-o0U"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-bk-7uH">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-bk-7uH">
                                             <rect key="frame" x="162" y="60" width="90" height="90"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="90" id="1XW-0j-URT"/>
@@ -1276,7 +1276,7 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NtY-HP-579">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="NtY-HP-579">
                                                     <rect key="frame" x="20" y="11" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="bH6-Y4-Z6a"/>
@@ -1284,13 +1284,13 @@ TrainMe’s Privacy Policy</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-LC-vAO">
-                                                    <rect key="frame" x="68" y="11.000000000000002" width="326" height="17.666666666666671"/>
+                                                    <rect key="frame" x="68" y="11.000000000000002" width="326" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-ui-mPA" customClass="RatingController" customModule="TrainMe" customModuleProvider="target">
-                                                    <rect key="frame" x="68" y="32.666666666666664" width="91" height="15"/>
+                                                    <rect key="frame" x="68" y="35.666666666666664" width="91" height="15"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ior-7l-taE">
                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -1335,13 +1335,13 @@ TrainMe’s Privacy Policy</string>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwK-2f-blW">
-                                                    <rect key="frame" x="20" y="55" width="374" height="15.333333333333329"/>
+                                                    <rect key="frame" x="20" y="55" width="374" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asu-1o-aH8">
-                                                    <rect key="frame" x="20" y="74.333333333333329" width="374" height="47.666666666666671"/>
+                                                    <rect key="frame" x="20" y="77" width="374" height="45"/>
                                                     <string key="text">kmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnksdfnjdskfnsdkjfnskjfdnsdjkfn</string>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="11"/>
                                                     <nil key="textColor"/>
@@ -1440,22 +1440,21 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-pM-gZF">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-pM-gZF">
                                                     <rect key="frame" x="25" y="24" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="nZr-kC-RZo"/>
                                                         <constraint firstAttribute="width" constant="62" id="uu3-Ig-4kS"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-Nh-7dY">
-                                                    <rect key="frame" x="117" y="26" width="272" height="18.666666666666671"/>
+                                                    <rect key="frame" x="117" y="26" width="272" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CaO-CT-b2F">
-                                                    <rect key="frame" x="115" y="44.666666666666657" width="299" height="65"/>
+                                                    <rect key="frame" x="115" y="48" width="299" height="61.666666666666657"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rag-4W-aIa">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -1465,7 +1464,7 @@ TrainMe’s Privacy Policy</string>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeButtonCollection" id="9q2-uV-IuJ" customClass="TimeButtonCollectionViewCell" customModule="TrainMe" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="7.666666666666667" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="5.666666666666667" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1650,9 +1649,8 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D19-J1-uza">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="D19-J1-uza">
                                                     <rect key="frame" x="20" y="19" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="D19-J1-uza" secondAttribute="height" multiplier="1:1" id="JUP-9U-mhx"/>
                                                         <constraint firstAttribute="height" constant="62" id="ZgB-xb-KQO"/>
@@ -1660,33 +1658,33 @@ TrainMe’s Privacy Policy</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gcI-af-rC1">
-                                                    <rect key="frame" x="90" y="11.000000000000002" width="304" height="18.666666666666671"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="rWc-sW-fZA">
-                                                    <rect key="frame" x="90" y="33.666666666666664" width="304" height="16.333333333333336"/>
+                                                    <rect key="frame" x="90" y="37" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGD-rV-tVm">
-                                                    <rect key="frame" x="90" y="70.333333333333329" width="49" height="39.333333333333329"/>
+                                                    <rect key="frame" x="90" y="79.666666666666671" width="49" height="30"/>
                                                     <state key="normal" title="Accept"/>
                                                     <connections>
                                                         <action selector="acceptBtnAction:" destination="LCw-tt-cS7" eventType="touchUpInside" id="2Wi-Nz-GRL"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMF-jC-QeN">
-                                                    <rect key="frame" x="159" y="70.333333333333329" width="52" height="39.333333333333329"/>
+                                                    <rect key="frame" x="159" y="79.666666666666671" width="52" height="30"/>
                                                     <state key="normal" title="Decline"/>
                                                     <connections>
                                                         <action selector="declineBtnAction:" destination="LCw-tt-cS7" eventType="touchUpInside" id="MyS-ki-WsA"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="DF2-RT-XbB">
-                                                    <rect key="frame" x="90" y="54" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1729,32 +1727,31 @@ TrainMe’s Privacy Policy</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OG-2n-HVP">
-                                                    <rect key="frame" x="90" y="11" width="304" height="31"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBN-By-PsN">
-                                                    <rect key="frame" x="90" y="46" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="37" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqn-lu-kRD">
-                                                    <rect key="frame" x="90" y="66.333333333333329" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="14/07/2018 14:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZD-AN-JOd">
-                                                    <rect key="frame" x="90" y="86.666666666666671" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="83.666666666666671" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6zE-aW-uQv">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="6zE-aW-uQv">
                                                     <rect key="frame" x="20" y="26" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="JiO-WA-0Wp"/>
                                                         <constraint firstAttribute="width" secondItem="6zE-aW-uQv" secondAttribute="height" multiplier="1:1" id="WXU-Gl-PAO"/>
@@ -1796,9 +1793,8 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-7j-KYm">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-7j-KYm">
                                                     <rect key="frame" x="20" y="27" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="62" id="MDO-6U-O4l"/>
                                                         <constraint firstAttribute="width" secondItem="FTV-7j-KYm" secondAttribute="height" multiplier="1:1" id="U1F-qo-hZ0"/>
@@ -1806,31 +1802,31 @@ TrainMe’s Privacy Policy</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu7-es-OB8">
-                                                    <rect key="frame" x="90" y="11.000000000000002" width="304" height="18.666666666666671"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR7-6B-NdQ">
-                                                    <rect key="frame" x="90" y="33.666666666666664" width="284.66666666666669" height="16.333333333333336"/>
+                                                    <rect key="frame" x="90" y="37" width="283" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13/4/2017 01:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wC7-PK-9yU">
-                                                    <rect key="frame" x="90" y="54" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3h-W8-y4f">
-                                                    <rect key="frame" x="90" y="74.333333333333329" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="83.666666666666671" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="[1]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a6-bX-zxL">
-                                                    <rect key="frame" x="378.66666666666669" y="33.666666666666664" width="15.333333333333314" height="16.333333333333336"/>
+                                                    <rect key="frame" x="377" y="37" width="17" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1872,9 +1868,8 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-pr-egL">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-pr-egL">
                                                     <rect key="frame" x="20" y="27" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="Qb4-Qe-YC4"/>
                                                         <constraint firstAttribute="width" constant="62" id="ylF-9c-Auo"/>
@@ -1882,25 +1877,25 @@ TrainMe’s Privacy Policy</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-Wr-myX">
-                                                    <rect key="frame" x="90" y="11" width="304" height="33"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BG0-Iv-I2C">
-                                                    <rect key="frame" x="90" y="48" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="39" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZe-qf-q8e">
-                                                    <rect key="frame" x="90" y="68.333333333333329" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="62.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/06/2018 14:54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W57-hX-cid">
-                                                    <rect key="frame" x="90" y="88.666666666666671" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="85.666666666666671" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1983,16 +1978,15 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MiN-zA-bll">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="MiN-zA-bll">
                                                     <rect key="frame" x="28" y="15" width="90" height="90"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="XCh-ji-283"/>
                                                         <constraint firstAttribute="width" constant="90" id="prJ-HN-sM3"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppq-5V-i2m">
-                                                    <rect key="frame" x="134" y="50" width="260" height="20"/>
+                                                    <rect key="frame" x="134" y="48.333333333333336" width="260" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2322,7 +2316,7 @@ TrainMe’s Privacy Policy</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gVH-mN-Wbb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="gVH-mN-Wbb">
                                 <rect key="frame" x="67.666666666666686" y="35" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="GJD-ds-tj9"/>
@@ -2330,7 +2324,7 @@ TrainMe’s Privacy Policy</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5m-Hn-cJA">
-                                <rect key="frame" x="67.666666666666686" y="190" width="140" height="23.333333333333343"/>
+                                <rect key="frame" x="67.666666666666686" y="190" width="140" height="27.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="5YN-rQ-Vax"/>
                                 </constraints>
@@ -2339,7 +2333,7 @@ TrainMe’s Privacy Policy</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-c4-Tbs">
-                                <rect key="frame" x="27" y="217.33333333333334" width="220" height="17.666666666666657"/>
+                                <rect key="frame" x="27" y="221.33333333333334" width="220" height="20.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="cn0-QK-MyT"/>
                                 </constraints>
@@ -2348,7 +2342,7 @@ TrainMe’s Privacy Policy</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPu-cg-uMS">
-                                <rect key="frame" x="47" y="250" width="126" height="33"/>
+                                <rect key="frame" x="47" y="257" width="130" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     User Profile" image="user1"/>
                                 <connections>
@@ -2356,7 +2350,7 @@ TrainMe’s Privacy Policy</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyx-wN-iz9">
-                                <rect key="frame" x="47" y="298" width="178" height="28"/>
+                                <rect key="frame" x="47" y="305" width="183" height="28"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Credit card / Paypal" image="creditCard"/>
                                 <connections>
@@ -2364,17 +2358,17 @@ TrainMe’s Privacy Policy</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-Ru-1p5">
-                                <rect key="frame" x="47" y="341" width="82" height="33"/>
+                                <rect key="frame" x="47" y="348" width="83" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Help" image="help"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYV-tv-ck5">
-                                <rect key="frame" x="47" y="389" width="104" height="33"/>
+                                <rect key="frame" x="47" y="396" width="106" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Settings" image="settings"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRj-hY-53J">
-                                <rect key="frame" x="47" y="437" width="95" height="31"/>
+                                <rect key="frame" x="47" y="444" width="97" height="31"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Logout" image="logout"/>
                                 <connections>
@@ -3625,9 +3619,8 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-cZ-xoI">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-cZ-xoI">
                                                     <rect key="frame" x="20" y="24" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9R2-cZ-xoI" secondAttribute="height" multiplier="1:1" id="f59-Fl-vmK"/>
                                                         <constraint firstAttribute="height" constant="62" id="uTG-gi-qxe"/>
@@ -3635,25 +3628,25 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XF-vi-6Hr">
-                                                    <rect key="frame" x="90" y="11.000000000000002" width="304" height="18.666666666666671"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sve-uC-pMT">
-                                                    <rect key="frame" x="90" y="33.666666666666671" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="37" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmv-iI-IqT">
-                                                    <rect key="frame" x="90" y="54" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTF-pl-z3B">
-                                                    <rect key="frame" x="90" y="70.333333333333329" width="48" height="30"/>
+                                                    <rect key="frame" x="90" y="79.666666666666671" width="48" height="30"/>
                                                     <state key="normal" title="Cancel">
                                                         <color key="titleColor" red="1" green="0.28814054529999999" blue="0.33854433699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -3693,9 +3686,8 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yfq-px-nJl">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="yfq-px-nJl">
                                                     <rect key="frame" x="20" y="39.666666666666657" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="Ggs-eY-Hgv"/>
                                                         <constraint firstAttribute="width" secondItem="yfq-px-nJl" secondAttribute="height" multiplier="1:1" id="bMx-Kq-mXu"/>
@@ -3703,32 +3695,32 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0f-Jy-oNE">
-                                                    <rect key="frame" x="90" y="11.000000000000002" width="304" height="18.666666666666671"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PI7-6P-Fxi">
-                                                    <rect key="frame" x="90" y="33.666666666666664" width="87" height="16.333333333333336"/>
+                                                    <rect key="frame" x="90" y="37" width="87" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQr-RP-b92">
-                                                    <rect key="frame" x="90" y="54" width="41" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="39.666666666666657" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Da-PI-F6D">
-                                                    <rect key="frame" x="90" y="90.666666666666671" width="30" height="42.333333333333329"/>
+                                                    <rect key="frame" x="90" y="103" width="30" height="30"/>
                                                     <state key="normal" title="Pay"/>
                                                     <connections>
                                                         <segue destination="u2a-Ib-lsV" kind="presentation" identifier="PayToSelectCreditCard" id="fr6-Xu-hmF"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="14/07/2018 14:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVm-fm-P4X">
-                                                    <rect key="frame" x="90" y="74.333333333333329" width="110.66666666666669" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="83.666666666666671" width="113" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3768,9 +3760,8 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XcE-Qy-jaY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="XcE-Qy-jaY">
                                                     <rect key="frame" x="20" y="27" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="XcE-Qy-jaY" secondAttribute="height" multiplier="1:1" id="4ni-F5-BkI"/>
                                                         <constraint firstAttribute="width" constant="62" id="9WS-0R-pXm"/>
@@ -3778,31 +3769,31 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVy-qh-mhn">
-                                                    <rect key="frame" x="90" y="11" width="304" height="33"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-xl-Ycp">
-                                                    <rect key="frame" x="90" y="48" width="284.66666666666669" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="39" width="283" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="[1]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs2-RO-XVC">
-                                                    <rect key="frame" x="378.66666666666669" y="48" width="15.333333333333314" height="16.333333333333329"/>
+                                                    <rect key="frame" x="377" y="39" width="17" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/05/2019 16:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZN-Kp-JGl">
-                                                    <rect key="frame" x="90" y="68.333333333333329" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="62.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ar5-qQ-y96">
-                                                    <rect key="frame" x="90" y="88.666666666666671" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="85.666666666666671" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3845,9 +3836,8 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Csv-TM-3sc">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Csv-TM-3sc">
                                                     <rect key="frame" x="20" y="27" width="62" height="62"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Csv-TM-3sc" secondAttribute="height" multiplier="1:1" id="YCs-xm-O8g"/>
                                                         <constraint firstAttribute="width" constant="62" id="fGP-GJ-oDc"/>
@@ -3855,25 +3845,25 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbP-h9-Kpa">
-                                                    <rect key="frame" x="90" y="11.000000000000002" width="304" height="18.666666666666671"/>
+                                                    <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx7-tY-KZm">
-                                                    <rect key="frame" x="90" y="33.666666666666664" width="304" height="16.333333333333336"/>
+                                                    <rect key="frame" x="90" y="37" width="304" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KMITL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEw-JT-wZQ">
-                                                    <rect key="frame" x="90" y="54" width="304" height="16.333333333333329"/>
+                                                    <rect key="frame" x="90" y="60.333333333333336" width="304" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="14/05/2019 16:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nb-wu-2cx">
-                                                    <rect key="frame" x="90" y="74.333333333333329" width="304" height="30.666666666666671"/>
+                                                    <rect key="frame" x="90" y="83.666666666666671" width="304" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3979,16 +3969,15 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-pF-W15">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-pF-W15">
                                                     <rect key="frame" x="28" y="15" width="90" height="90"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="2Zz-SU-klh"/>
                                                         <constraint firstAttribute="width" constant="90" id="D1k-5K-S2b"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuM-tv-5SP">
-                                                    <rect key="frame" x="134" y="50" width="260" height="20"/>
+                                                    <rect key="frame" x="134" y="48.333333333333336" width="260" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4459,16 +4448,15 @@ detail</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-UB-wbf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-UB-wbf">
                                 <rect key="frame" x="67.666666666666686" y="35" width="140" height="140"/>
-                                <color key="backgroundColor" red="0.27162000870000003" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="pcg-CN-gzB"/>
                                     <constraint firstAttribute="height" constant="140" id="xTU-85-mGx"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1i-et-5gj">
-                                <rect key="frame" x="67.666666666666686" y="190" width="140" height="23.333333333333343"/>
+                                <rect key="frame" x="67.666666666666686" y="190" width="140" height="27.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="e3o-9j-CgK"/>
                                 </constraints>
@@ -4477,7 +4465,7 @@ detail</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhv-OY-cxd">
-                                <rect key="frame" x="27" y="217.33333333333334" width="220" height="17.666666666666657"/>
+                                <rect key="frame" x="27" y="221.33333333333334" width="220" height="20.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="7fD-L5-fNP"/>
                                 </constraints>
@@ -4486,7 +4474,7 @@ detail</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zO-i1-Lk5">
-                                <rect key="frame" x="47" y="250" width="126" height="33"/>
+                                <rect key="frame" x="47" y="257" width="130" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     User Profile" image="user1"/>
                                 <connections>
@@ -4494,7 +4482,7 @@ detail</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odh-GH-79p">
-                                <rect key="frame" x="47" y="298" width="178" height="28"/>
+                                <rect key="frame" x="47" y="305" width="183" height="28"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Credit card / Paypal" image="creditCard"/>
                                 <connections>
@@ -4502,17 +4490,17 @@ detail</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3S-1q-6zc">
-                                <rect key="frame" x="47" y="341" width="82" height="33"/>
+                                <rect key="frame" x="47" y="348" width="83" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Help" image="help"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk1-7l-Xs7">
-                                <rect key="frame" x="47" y="389" width="104" height="33"/>
+                                <rect key="frame" x="47" y="396" width="106" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Settings" image="settings"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep5-Oc-a8J">
-                                <rect key="frame" x="47" y="484" width="95" height="31"/>
+                                <rect key="frame" x="47" y="491" width="97" height="31"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Logout" image="logout"/>
                                 <connections>
@@ -4520,7 +4508,7 @@ detail</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fs-Ng-gWL">
-                                <rect key="frame" x="47" y="437" width="155" height="32"/>
+                                <rect key="frame" x="47" y="444" width="162" height="32"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Become a trainer" image="trainer"/>
                                 <connections>
@@ -4615,7 +4603,7 @@ detail</string>
                                                 <action selector="backBtnAction:" destination="bbF-by-4No" eventType="touchUpInside" id="bXc-yX-lOt"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vVJ-dy-9UO">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="vVJ-dy-9UO">
                                             <rect key="frame" x="162" y="60" width="90" height="90"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="90" id="0PX-RS-AIS"/>
@@ -4772,7 +4760,7 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="129.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1nM-7X-leE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="1nM-7X-leE">
                                                     <rect key="frame" x="20" y="11" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="Taj-jw-Ebu"/>
@@ -4780,13 +4768,13 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6i-L7-ux2">
-                                                    <rect key="frame" x="68" y="11.000000000000002" width="326" height="17.666666666666671"/>
+                                                    <rect key="frame" x="68" y="11.000000000000002" width="326" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BaB-x8-A9P" customClass="RatingController" customModule="TrainMe" customModuleProvider="target">
-                                                    <rect key="frame" x="68" y="32.666666666666664" width="91" height="15"/>
+                                                    <rect key="frame" x="68" y="35.666666666666664" width="91" height="15"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBX-Yw-ypY">
                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -4831,13 +4819,13 @@ detail</string>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ws9-6A-ZsS">
-                                                    <rect key="frame" x="20" y="59.000000000000007" width="374" height="15.333333333333336"/>
+                                                    <rect key="frame" x="20" y="59" width="374" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHk-70-feC">
-                                                    <rect key="frame" x="20" y="78.333333333333329" width="374" height="47.666666666666671"/>
+                                                    <rect key="frame" x="20" y="81" width="374" height="45"/>
                                                     <string key="text">kmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnkmfjmdfsjdnfmjdsnkfmjksdfksdfnjdskfnsdkjfnskjfdnsdjkfnksdfnjdskfnsdkjfnskjfdnsdjkfn</string>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="11"/>
                                                     <nil key="textColor"/>
@@ -4986,9 +4974,8 @@ detail</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rIl-DK-iwF">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="rIl-DK-iwF">
                                 <rect key="frame" x="162" y="93" width="90" height="90"/>
-                                <color key="backgroundColor" red="1" green="0.28814054529999999" blue="0.33854433699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="bnD-bu-3pe"/>
                                     <constraint firstAttribute="width" constant="90" id="se8-Dt-eUp"/>
@@ -5637,16 +5624,15 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zS-U0-nX3">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="5zS-U0-nX3">
                                                     <rect key="frame" x="28" y="15" width="90" height="90"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="4Kz-Fu-stv"/>
                                                         <constraint firstAttribute="height" constant="90" id="oYI-js-rJs"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-i3-ym8">
-                                                    <rect key="frame" x="134" y="50" width="260" height="20"/>
+                                                    <rect key="frame" x="134" y="48.333333333333336" width="260" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -6145,16 +6131,15 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oKl-gL-fQk">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="oKl-gL-fQk">
                                                     <rect key="frame" x="28" y="15" width="90" height="90"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="g29-mU-JLE"/>
                                                         <constraint firstAttribute="height" constant="90" id="sg8-cv-s7W"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjz-uY-1aN">
-                                                    <rect key="frame" x="134" y="50" width="260" height="20"/>
+                                                    <rect key="frame" x="134" y="48.333333333333336" width="260" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -6502,6 +6487,7 @@ detail</string>
         <image name="logout" width="31" height="31"/>
         <image name="mailBlackEnvelopeSymbol" width="34" height="26"/>
         <image name="menu" width="22" height="16"/>
+        <image name="profile-default" width="42.421173095703125" height="42.421173095703125"/>
         <image name="settings" width="33" height="33"/>
         <image name="star" width="24" height="24"/>
         <image name="star-filled" width="24" height="24"/>
@@ -6511,15 +6497,15 @@ detail</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dM1-HA-QSq"/>
-        <segue reference="HQg-sh-Dc0"/>
-        <segue reference="LED-SU-iWE"/>
+        <segue reference="lwg-sn-Rgh"/>
+        <segue reference="sbZ-Vf-ldz"/>
+        <segue reference="DwY-7P-htQ"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="IRS-Ta-5Mo"/>
         <segue reference="4AV-5i-LAZ"/>
         <segue reference="yaD-9q-IZ0"/>
         <segue reference="MDp-Zn-cGQ"/>
         <segue reference="GhO-HN-2gJ"/>
-        <segue reference="g7V-sT-ulc"/>
+        <segue reference="CFy-02-wCg"/>
     </inferredMetricsTieBreakers>
 </document>
