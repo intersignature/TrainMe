@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import DTTextField
 
 class RegisterViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var registerLb: UILabel!
-    @IBOutlet weak var fullnameTf: UITextField!
+    @IBOutlet weak var fullnameTf: DTTextField!
     @IBOutlet weak var fullnameView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
     var userProfile: UserProfile = UserProfile()

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import DTTextField
 
 class Register2ViewController: UIViewController, UITextFieldDelegate {
 
@@ -18,9 +19,9 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var verifyPasswordView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var emailTf: UITextField!
-    @IBOutlet weak var passwordTf: UITextField!
-    @IBOutlet weak var verifyPasswordTf: UITextField!
+    @IBOutlet weak var emailTf: DTTextField!
+    @IBOutlet weak var passwordTf: DTTextField!
+    @IBOutlet weak var verifyPasswordTf: DTTextField!
     @IBOutlet weak var registerLb: UILabel!
     @IBOutlet weak var emailDescription: UILabel!
     @IBOutlet weak var passwordDescription: UILabel!

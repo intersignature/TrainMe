@@ -9,28 +9,26 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import DTTextField
 
 class Register3ViewController: UIViewController, UITextFieldDelegate {
 
-//    @IBOutlet weak var dateOfBirthTf: UITextField!
-//    private var datePicker: UIDatePicker!
+    private var datePicker: UIDatePicker!
     
+    @IBOutlet weak var dateOfBirthView: UIView!
     @IBOutlet weak var weightView: UIView!
     @IBOutlet weak var heightView: UIView!
     @IBOutlet weak var genderView: UIView!
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var dayOfBirthTf: UITextField!
-    @IBOutlet weak var monthOfBirthTf: UITextField!
-    @IBOutlet weak var yearOfBirthTf: UITextField!
-    @IBOutlet weak var weightTf: UITextField!
-    @IBOutlet weak var heightTf: UITextField!
+    @IBOutlet weak var dateOfBirthTf: DTTextField!
+    @IBOutlet weak var weightTf: DTTextField!
+    @IBOutlet weak var heightTf: DTTextField!
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     @IBOutlet weak var noneBtn: UIButton!
     @IBOutlet weak var registerLb: UILabel!
-    @IBOutlet weak var dateOfBirthLb: UILabel!
     @IBOutlet weak var kgLb: UILabel!
     @IBOutlet weak var cmLb: UILabel!
     @IBOutlet weak var termLineOneLb: UILabel!
@@ -44,6 +42,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        dateOfBirthView.layer.cornerRadius = 17
         weightView.layer.cornerRadius = 17
         heightView.layer.cornerRadius = 17
         genderView.layer.cornerRadius = 17
@@ -52,36 +51,29 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         femaleBtn.layer.cornerRadius = 5
         noneBtn.layer.cornerRadius = 5
         
-        self.dayOfBirthTf.delegate = self
-        self.monthOfBirthTf.delegate = self
-        self.yearOfBirthTf.delegate = self
         self.weightTf.delegate = self
         self.heightTf.delegate = self
         
         self.HideKeyboard()
         print(self.userProfile.getData())
         print(self.email)
-        print(self.password)
+        self.createPickerToolbar()
         setLocalizeText()
-//        dateOfBirthTf.layer.cornerRadius = 17
-//
-//        datePicker = UIDatePicker()
-//        datePicker.datePickerMode = .date
-//        datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: .valueChanged)
-//
-//        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
-//        view.addGestureRecognizer(tabGesture)
-//
-//        dateOfBirthTf.inputView = datePicker
+        dateOfBirthTf.layer.cornerRadius = 17
+
+        datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: .valueChanged)
+
+        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tabGesture)
+
+        dateOfBirthTf.inputView = datePicker
     }
     
     func setLocalizeText() {
         
         registerLb.text = NSLocalizedString("register", comment: "")
-        dateOfBirthLb.text = NSLocalizedString("date_of_birth", comment: "")
-        dayOfBirthTf.placeholder = NSLocalizedString("dd", comment: "")
-        monthOfBirthTf.placeholder = NSLocalizedString("mm", comment: "")
-        yearOfBirthTf.placeholder = NSLocalizedString("yyyy", comment: "")
         weightTf.placeholder = NSLocalizedString("weight", comment: "")
         kgLb.text = NSLocalizedString("kg", comment: "")
         heightTf.placeholder = NSLocalizedString("height", comment: "")
@@ -94,23 +86,31 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         submitBtn.setTitle(NSLocalizedString("submit", comment: ""), for: .normal)
     }
     
-//    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+    func createPickerToolbar() {
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        toolbar.setItems([doneBtn], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        self.dateOfBirthTf.inputAccessoryView = toolbar
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+
+    @objc func dateChange(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+
+        dateOfBirthTf.text = dateFormatter.string(from: datePicker.date)
 //        view.endEditing(true)
-//    }
-//
-//    @objc func dateChange(datePicker: UIDatePicker) {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "dd/MM/yyyy"
-//
-//        dateOfBirthTf.text = dateFormatter.string(from: datePicker.date)
-////        view.endEditing(true)
-//    }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        dayOfBirthTf.resignFirstResponder()
-        monthOfBirthTf.resignFirstResponder()
-        yearOfBirthTf.resignFirstResponder()
+//        dayOfBirthTf.resignFirstResponder()
         weightTf.resignFirstResponder()
         heightTf.resignFirstResponder()
         return true
@@ -167,12 +167,12 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func submitBtnAction(_ sender: UIButton) {
         
-        if dayOfBirthTf.text == "" && monthOfBirthTf.text == "" && yearOfBirthTf.text == "" {
+        if self.dateOfBirthTf.text == "" {
             
             createAlert(alertTitle: NSLocalizedString("please_enter_your_date_of_birth", comment: ""), alertMessage: "")
             return
         } else {
-            userProfile.dateOfBirth = "\(String(describing: dayOfBirthTf.text!))/\(String(describing: monthOfBirthTf.text!))/\(String(describing: yearOfBirthTf.text!))"
+            userProfile.dateOfBirth = self.dateOfBirthTf.text!
         }
         
         if weightTf.text == "" {
