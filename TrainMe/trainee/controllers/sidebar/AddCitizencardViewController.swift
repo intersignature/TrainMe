@@ -8,11 +8,16 @@
 
 import UIKit
 import FirebaseAuth
+import CropViewController
 
-class AddCitizencardViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddCitizencardViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
 
     @IBOutlet weak var citizencardImg: UIImageView!
     @IBOutlet weak var nextBtn: UIButton!
+    
+    private var croppingStyle = CropViewCroppingStyle.default
+    private var croppedRect = CGRect.zero
+    private var croppedAngle = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +39,92 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        print(info["UIImagePickerControllerOriginalImage"])
+//        print(info["UIImagePickerControllerOriginalImage"])
+//
+//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            citizencardImg.image = image
+//        }
+//        dismiss(animated: true, completion: nil)
         
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            citizencardImg.image = image
+        guard let image = (info[UIImagePickerControllerOriginalImage] as? UIImage) else { return }
+        
+        let cropController = CropViewController(croppingStyle: croppingStyle, image: image)
+        cropController.delegate = self
+        
+        if croppingStyle == .circular {
+            if picker.sourceType == .camera {
+                picker.dismiss(animated: true, completion: {
+                    self.present(cropController, animated: true, completion: nil)
+                })
+            } else {
+                picker.pushViewController(cropController, animated: true)
+            }
         }
-        dismiss(animated: true, completion: nil)
+        else { //otherwise dismiss, and then present from the main controller
+            picker.dismiss(animated: true, completion: {
+                self.present(cropController, animated: true, completion: nil)
+                //self.navigationController!.pushViewController(cropController, animated: true)
+            })
+        }
+    }
+    
+    public func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.croppedRect = cropRect
+        self.croppedAngle = angle
+        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+    }
+    
+    public func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.croppedRect = cropRect
+        self.croppedAngle = angle
+        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+    }
+    
+    public func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
+        citizencardImg.image = image
+        layoutImageView()
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        
+        if cropViewController.croppingStyle != .circular {
+            citizencardImg.isHidden = true
+            
+            cropViewController.dismissAnimatedFrom(self, withCroppedImage: image,
+                                                   toView: citizencardImg,
+                                                   toFrame: CGRect.zero,
+                                                   setup: { self.layoutImageView() },
+                                                   completion: { self.citizencardImg.isHidden = false })
+        }
+        else {
+            self.citizencardImg.isHidden = false
+            cropViewController.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    public func layoutImageView() {
+        guard citizencardImg.image != nil else { return }
+        
+        let padding: CGFloat = 20.0
+        
+        var viewFrame = self.view.bounds
+        viewFrame.size.width -= (padding * 2.0)
+        viewFrame.size.height -= ((padding * 2.0))
+        
+        var imageFrame = CGRect.zero
+        imageFrame.size = citizencardImg.image!.size;
+        
+        if citizencardImg.image!.size.width > viewFrame.size.width || citizencardImg.image!.size.height > viewFrame.size.height {
+            let scale = min(viewFrame.size.width / imageFrame.size.width, viewFrame.size.height / imageFrame.size.height)
+            imageFrame.size.width *= scale
+            imageFrame.size.height *= scale
+            imageFrame.origin.x = (self.view.bounds.size.width - imageFrame.size.width) * 0.5
+            imageFrame.origin.y = (self.view.bounds.size.height - imageFrame.size.height) * 0.5
+            citizencardImg.frame = imageFrame
+        }
+        else {
+            self.citizencardImg.frame = imageFrame;
+            self.citizencardImg.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

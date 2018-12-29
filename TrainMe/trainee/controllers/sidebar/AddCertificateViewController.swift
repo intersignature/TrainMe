@@ -10,13 +10,18 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
+import CropViewController
 
-class AddCertificateViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
+class AddCertificateViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, CropViewControllerDelegate {
 
     @IBOutlet weak var certificateImg: UIImageView!
     @IBOutlet weak var certificateDetailTv: UITextView!
     @IBOutlet weak var cerificateTableView: UITableView!
     @IBOutlet weak var addCertBtn: UIButton!
+    
+    private var croppingStyle = CropViewCroppingStyle.default
+    private var croppedRect = CGRect.zero
+    private var croppedAngle = 0
     
     var citizenImg: UIImage!
     var selectedCerts: [Certificate] = []
@@ -50,13 +55,93 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print(info["UIImagePickerControllerOriginalImage"])
+//        print(info["UIImagePickerControllerOriginalImage"])
+//
+//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            certificateImg.image = image
+//            self.selectCertImg = image
+//        }
+//        dismiss(animated: true, completion: nil)
         
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            certificateImg.image = image
-            self.selectCertImg = image
+        guard let image = (info[UIImagePickerControllerOriginalImage] as? UIImage) else { return }
+        
+        let cropController = CropViewController(croppingStyle: croppingStyle, image: image)
+        cropController.delegate = self
+        
+        if croppingStyle == .circular {
+            if picker.sourceType == .camera {
+                picker.dismiss(animated: true, completion: {
+                    self.present(cropController, animated: true, completion: nil)
+                })
+            } else {
+                picker.pushViewController(cropController, animated: true)
+            }
         }
-        dismiss(animated: true, completion: nil)
+        else { //otherwise dismiss, and then present from the main controller
+            picker.dismiss(animated: true, completion: {
+                self.present(cropController, animated: true, completion: nil)
+                //self.navigationController!.pushViewController(cropController, animated: true)
+            })
+        }
+    }
+    
+    public func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.croppedRect = cropRect
+        self.croppedAngle = angle
+        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+    }
+    
+    public func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.croppedRect = cropRect
+        self.croppedAngle = angle
+        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+    }
+    
+    public func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
+        certificateImg.image = image
+        layoutImageView()
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        
+        if cropViewController.croppingStyle != .circular {
+            certificateImg.isHidden = true
+            
+            cropViewController.dismissAnimatedFrom(self, withCroppedImage: image,
+                                                   toView: certificateImg,
+                                                   toFrame: CGRect.zero,
+                                                   setup: { self.layoutImageView() },
+                                                   completion: { self.certificateImg.isHidden = false })
+        }
+        else {
+            self.certificateImg.isHidden = false
+            cropViewController.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    public func layoutImageView() {
+        guard certificateImg.image != nil else { return }
+        
+        let padding: CGFloat = 20.0
+        
+        var viewFrame = self.view.bounds
+        viewFrame.size.width -= (padding * 2.0)
+        viewFrame.size.height -= ((padding * 2.0))
+        
+        var imageFrame = CGRect.zero
+        imageFrame.size = certificateImg.image!.size;
+        
+        if certificateImg.image!.size.width > viewFrame.size.width || certificateImg.image!.size.height > viewFrame.size.height {
+            let scale = min(viewFrame.size.width / imageFrame.size.width, viewFrame.size.height / imageFrame.size.height)
+            imageFrame.size.width *= scale
+            imageFrame.size.height *= scale
+            imageFrame.origin.x = (self.view.bounds.size.width - imageFrame.size.width) * 0.5
+            imageFrame.origin.y = (self.view.bounds.size.height - imageFrame.size.height) * 0.5
+            certificateImg.frame = imageFrame
+        }
+        else {
+            self.certificateImg.frame = imageFrame;
+            self.certificateImg.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -99,7 +184,7 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         
         print("addCertBtnAction \(self.certificateImg.image)")
         if self.certificateImg.image != nil {
-            let addCert = Certificate(certImg: selectCertImg, certDetail: self.certificateDetailTv.text)
+            let addCert = Certificate(certImg: self.certificateImg.image!, certDetail: self.certificateDetailTv.text)
             self.selectedCerts.append(addCert)
             self.cerificateTableView.reloadData()
             self.certificateImg.image = nil // Clear image
