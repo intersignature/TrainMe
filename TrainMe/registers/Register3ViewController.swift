@@ -167,22 +167,31 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func submitBtnAction(_ sender: UIButton) {
         
+        if self.checkData() {
+            self.view.showBlurLoader()
+            self.createUserWithEmail()
+        }
+    }
+    
+    func checkData() -> Bool{
+        
         if self.dateOfBirthTf.text == "" {
-            
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_date_of_birth", comment: ""), alertMessage: "")
-            return
+            self.createAlert(alertTitle: NSLocalizedString("please_enter_your_date_of_birth", comment: ""), alertMessage: "")
+            return false
         } else {
             userProfile.dateOfBirth = self.dateOfBirthTf.text!
         }
         
         if weightTf.text == "" {
-            userProfile.weight = "-1"
+            self.createAlert(alertTitle: "Please enter your weight", alertMessage: "")
+            return false
         } else {
             userProfile.weight = weightTf.text!
         }
         
         if heightTf.text == "" {
-            userProfile.height = "-1"
+            self.createAlert(alertTitle: "Please enter your height", alertMessage: "")
+            return false
         } else {
             userProfile.height = heightTf.text!
         }
@@ -194,12 +203,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         } else if checkGender == 2 {
             userProfile.gender = "female"
         }
-        
-        print(self.userProfile.getData())
-        print(self.email!)
-        print(self.password!)
-        self.view.showBlurLoader()
-        self.createUserWithEmail()
+        return true
     }
     
     func createUserWithEmail() {
