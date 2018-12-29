@@ -49,7 +49,11 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
     }
 
     @IBAction func nextBtnAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "AddCitizencardToAddCertificate", sender: self)
+        if self.citizencardImg.image != nil {
+            self.performSegue(withIdentifier: "AddCitizencardToAddCertificate", sender: self)
+        } else {
+            self.createAlert(alertTitle: "Please select citizen image", alertMessage: "")
+        }
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {

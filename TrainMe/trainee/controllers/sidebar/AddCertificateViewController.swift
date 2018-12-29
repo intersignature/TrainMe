@@ -23,6 +23,7 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     var selectCertImg = UIImage()
     var dbRef: DatabaseReference!
     var storeRef: StorageReference!
+    var successfulTask: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,10 +97,17 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
 
     @IBAction func addCertBtnAction(_ sender: UIButton) {
         
-        let addCert = Certificate(certImg: selectCertImg, certDetail: self.certificateDetailTv.text)
-        self.selectedCerts.append(addCert)
-        self.cerificateTableView.reloadData()
-        self.selectedCerts.forEach { print($0.getData()) }
+        print("addCertBtnAction \(self.certificateImg.image)")
+        if self.certificateImg.image != nil {
+            let addCert = Certificate(certImg: selectCertImg, certDetail: self.certificateDetailTv.text)
+            self.selectedCerts.append(addCert)
+            self.cerificateTableView.reloadData()
+            self.certificateImg.image = nil // Clear image
+            self.certificateDetailTv.text = "Certificate detail"
+            self.selectedCerts.forEach { print($0.getData()) }
+        } else {
+            self.createAlert(alertTitle: "Please select certificate image", alertMessage: "")
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -124,10 +132,13 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBAction func saveBtnAction(_ sender: UIBarButtonItem) {
 
-        self.view.showBlurLoader()
-        self.uploadFileToStorage()
-        self.uploadDataToDatabase()
-        performSegue(withIdentifier: "AddCertificateToMain", sender: nil)
+        if self.selectedCerts.count > 0 {
+            self.view.showBlurLoader()
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.uploadFileToStorage()
+        } else {
+            self.createAlert(alertTitle: "Please select certificate image", alertMessage: "")
+        }
     }
     
     func uploadFileToStorage() {
@@ -136,13 +147,27 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         metadata.contentType = "image/png"
         
         if let uploadImg = UIImagePNGRepresentation(self.citizenImg) {
-            self.storeRef.child("BecomeToATrainer").child(uid).child("citizen.png").putData(uploadImg, metadata: metadata) { (metadata, err) in
+            let uploadCitizenTask = self.storeRef.child("BecomeToATrainer").child(uid).child("citizen.png").putData(uploadImg, metadata: metadata) { (metadata, err) in
                 if let err = err {
+                    self.view.removeBluerLoader()
+                    self.navigationController?.setNavigationBarHidden(false, animated: true)
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     print(err.localizedDescription)
                     return
                 }
                 print(metadata)
+            }
+            uploadCitizenTask.observe(.progress) { (snapshot) in
+                let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                    / Double(snapshot.progress!.totalUnitCount)
+                print("uploadtask: \(snapshot.reference.name)")
+                print("uploadtask: \(percentComplete)")
+            }
+            uploadCitizenTask.observe(.success) { (snapshot) in
+                print("uploadsuccesstask: \(snapshot.reference.name)")
+                self.successfulTask.append(snapshot.reference.name)
+                print("successfulTask: \(self.successfulTask)")
+                self.checkSuccesfulUploadImageFileToStorage()
             }
         }
         
@@ -150,16 +175,42 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         let strRef = self.storeRef.child("BecomeToATrainer").child(uid).child("certificate")
         self.selectedCerts.forEach { (cert) in
             if let uploadCert = UIImagePNGRepresentation(cert.certImg) {
-                strRef.child("cert_\(countCertFilename).png").putData(uploadCert, metadata: metadata, completion: { (metadata, err) in
+                let uploadCertTask = strRef.child("cert_\(countCertFilename).png").putData(uploadCert, metadata: metadata, completion: { (metadata, err) in
                     if let err = err {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
                         self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                         print(err)
                         return
                     }
-                    print("\(metadata)\n--------------------------------------")
+                })
+                uploadCertTask.observe(.progress, handler: { (snapshot) in
+                    let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                        / Double(snapshot.progress!.totalUnitCount)
+                    print("uploadtask: \(snapshot.reference.name)")
+                    print("uploadtask: \(percentComplete)")
+                })
+                uploadCertTask.observe(.success, handler: { (snapshot) in
+                    print("uploadsuccesstask: \(snapshot.reference.name)")
+                    self.successfulTask.append(snapshot.reference.name)
+                    print("successfulTask: \(self.successfulTask)")
+                    self.checkSuccesfulUploadImageFileToStorage()
                 })
             }
             countCertFilename += 1
+        }
+    }
+    
+    func checkSuccesfulUploadImageFileToStorage() {
+        var checkFile = true
+        for i in 1...self.selectedCerts.count {
+            if !self.successfulTask.contains("cert_\(i).png") || !self.successfulTask.contains("citizen.png") {
+                checkFile = false
+                break
+            }
+        }
+        if checkFile {
+            self.uploadDataToDatabase()
         }
     }
     
@@ -176,27 +227,24 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         
         self.dbRef.child("become_to_a_trainer").child(uid).updateChildValues(certDic) { (err, ref) in
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 print(err.localizedDescription)
                 return
             }
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            let alert = UIAlertController(title: "Successful add trainer request", message: "Please wait for admin approve", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.performSegue(withIdentifier: "AddCertificateToMain", sender: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
             print("successfully add BecomeToATrainer to database")
         }
         
         certDic.forEach { (key, value) in
             print("\(key)------------\(value)")
         }
-    }
-    
-    func showLoader() {
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-        
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        loadingIndicator.startAnimating();
-        
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
     }
 }
