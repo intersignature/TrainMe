@@ -775,7 +775,7 @@ TrainMe’s Privacy Policy</string>
             </objects>
             <point key="canvasLocation" x="14234.782608695654" y="-214.4021739130435"/>
         </scene>
-        <!--Profile Trainer View Controller-->
+        <!--Profile-->
         <scene sceneID="yJF-YS-OwT">
             <objects>
                 <viewController id="Iv1-Wf-HmN" customClass="ProfileTrainerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -1385,7 +1385,7 @@ TrainMe’s Privacy Policy</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QJe-Nl-JWF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZLb-wT-Ugq">
+                    <navigationItem key="navigationItem" title="Profile" id="ZLb-wT-Ugq">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="y1Q-HH-ks9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
