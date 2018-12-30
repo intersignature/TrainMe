@@ -212,6 +212,12 @@ extension UIImageView {
         }
     }
     
+    func saveToCache(imageStringUrl: String) {
+        
+        guard let imageToCache = self.image else { return }
+        imageCache.setObject(imageToCache, forKey: imageStringUrl as AnyObject)
+    }
+    
     func isBlur(_ isBlur: Bool) {
         
         if isBlur {
@@ -221,6 +227,13 @@ extension UIImageView {
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.addSubview(blurEffectView)
         }
+    }
+}
+
+extension UIImage {
+    func saveToCache(imageStringUrl: String) {
+        
+        imageCache.setObject(self, forKey: imageStringUrl as AnyObject)
     }
 }
 

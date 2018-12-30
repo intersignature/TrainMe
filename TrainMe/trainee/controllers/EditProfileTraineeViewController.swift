@@ -248,6 +248,7 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
                         return
                     }
                 })
+                self.profileImg.saveToCache(imageStringUrl: url)
             } else if from == "Data" {
                 let changeRequest = self.currentUser.createProfileChangeRequest()
                 changeRequest.displayName = self.nameTf.text!
