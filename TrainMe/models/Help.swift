@@ -7,19 +7,22 @@
 //
 
 import Foundation
+import UIKit
 
 class Help {
     
     var topic: String = "-1"
     var desc: String = "-1"
+    var imageSource: UIImage? = nil
     
-    init(topic: String, desc: String) {
+    init(topic: String, desc: String, imageSource: UIImage?) {
         
         self.topic = topic
         self.desc = desc
+        self.imageSource = imageSource
     }
     
     func getData() -> String {
-        return "topic: \(self.topic)\ndesc: \(self.desc)"
+        return "topic: \(self.topic)\ndesc: \(self.desc)\nimageSource: \(self.imageSource)"
     }
 }
