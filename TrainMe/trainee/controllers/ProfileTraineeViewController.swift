@@ -195,6 +195,11 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        performSegue(withIdentifier: "ProfileToEachReview", sender: indexPath)
+    }
+    
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         return true
     }
@@ -223,6 +228,15 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! EditProfileTraineeViewController
             containVc.traineeProfile = self.traineeProfile
+        }
+        if segue.identifier == "ProfileToEachReview" {
+            guard let selectedIndexPath = sender as? IndexPath else { return }
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! FullReviewProfileViewController
+            containVc.selectedFullReview = self.review[selectedIndexPath.row]
+            containVc.selectedCourseName = self.courseObj[self.review[selectedIndexPath.row].courseId]?.course
+            containVc.selectedProfileLink = self.traineeProfile.profileImageUrl
+            containVc.selectedTraineeName = self.traineeProfile.fullName
         }
     }
     

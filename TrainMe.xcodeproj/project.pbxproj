@@ -25,6 +25,7 @@
 		B20ECAEF213FE4590084E685 /* AllCourseTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20ECAEE213FE4590084E685 /* AllCourseTrainerTableViewCell.swift */; };
 		B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20ECAF02141505F0084E685 /* ViewCourseTrainerViewController.swift */; };
 		B2115E1C21D561AC0074C02A /* EditProfileTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2115E1B21D561AB0074C02A /* EditProfileTraineeViewController.swift */; };
+		B212FA0721D8FFCC008D6956 /* FullReviewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212FA0621D8FFCC008D6956 /* FullReviewProfileViewController.swift */; };
 		B21CCD4B2141CA610013EA56 /* EditCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CCD4A2141CA610013EA56 /* EditCourseViewController.swift */; };
 		B224A061212BC92900DA7E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B224A060212BC92800DA7E47 /* GoogleService-Info.plist */; };
 		B224C71221A3D90B00DD33AB /* OngoingTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B224C71121A3D90B00DD33AB /* OngoingTraineeTableViewCell.swift */; };
@@ -103,6 +104,7 @@
 		B2CE11A621BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */; };
 		B2CE11A821BC26730042E4A6 /* EachOngoingTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE11A721BC26730042E4A6 /* EachOngoingTraineeViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
+		B2EB023E21D90B4E00CE586D /* FullReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EB023D21D90B4E00CE586D /* FullReviewTableViewCell.swift */; };
 		B2EEE32C21B1AF0200E2AEB0 /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
 /* End PBXBuildFile section */
@@ -163,6 +165,7 @@
 		B20ECAEE213FE4590084E685 /* AllCourseTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCourseTrainerTableViewCell.swift; sourceTree = "<group>"; };
 		B20ECAF02141505F0084E685 /* ViewCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCourseTrainerViewController.swift; sourceTree = "<group>"; };
 		B2115E1B21D561AB0074C02A /* EditProfileTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTraineeViewController.swift; sourceTree = "<group>"; };
+		B212FA0621D8FFCC008D6956 /* FullReviewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullReviewProfileViewController.swift; sourceTree = "<group>"; };
 		B21CCD4A2141CA610013EA56 /* EditCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCourseViewController.swift; sourceTree = "<group>"; };
 		B224A060212BC92800DA7E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B224C71121A3D90B00DD33AB /* OngoingTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTraineeTableViewCell.swift; sourceTree = "<group>"; };
@@ -244,6 +247,7 @@
 		B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachOngoingTraineeTableViewCell.swift; sourceTree = "<group>"; };
 		B2CE11A721BC26730042E4A6 /* EachOngoingTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachOngoingTraineeViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
+		B2EB023D21D90B4E00CE586D /* FullReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullReviewTableViewCell.swift; sourceTree = "<group>"; };
 		B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -333,6 +337,7 @@
 				B25BD02B21CBBE5000FC3FDF /* ProfileTraineeViewController.swift */,
 				B2115E1B21D561AB0074C02A /* EditProfileTraineeViewController.swift */,
 				B2AD80FF21D68E2B0077B802 /* ChangePasswordViewController.swift */,
+				B212FA0621D8FFCC008D6956 /* FullReviewProfileViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				B2B62D2221A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift */,
 				B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */,
 				B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */,
+				B2EB023D21D90B4E00CE586D /* FullReviewTableViewCell.swift */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -880,6 +886,7 @@
 				B2AB110F214655D900E84321 /* AddSchedulePlaceViewController.swift in Sources */,
 				B202BD1E214D712300DE0790 /* FindTabTraineeViewController.swift in Sources */,
 				B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */,
+				B212FA0721D8FFCC008D6956 /* FullReviewProfileViewController.swift in Sources */,
 				B26783DA21C8BF53001EE44E /* ReviewTrainerByTraineeViewController.swift in Sources */,
 				B24664E221AC46B10065655F /* AddCreditCardViewController.swift in Sources */,
 				B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */,
@@ -903,6 +910,7 @@
 				B293FACD21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
 				B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */,
+				B2EB023E21D90B4E00CE586D /* FullReviewTableViewCell.swift in Sources */,
 				B25BD02C21CBBE5000FC3FDF /* ProfileTraineeViewController.swift in Sources */,
 				B20ECAF12141505F0084E685 /* ViewCourseTrainerViewController.swift in Sources */,
 				B2B62D2321A5FDAF0002B0E6 /* SuccessfulTraineeTableViewCell.swift in Sources */,
