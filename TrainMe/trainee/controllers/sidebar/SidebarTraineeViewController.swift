@@ -37,7 +37,7 @@ class SidebarTraineeViewController: UIViewController {
         nameLb.text = currentUser?.displayName
         emailLb.text = currentUser?.email
         if currentUser?.photoURL != nil {
-            profileImg.downloaded(from: (currentUser?.photoURL)!)
+            profileImg.downloaded(from: (currentUser?.photoURL?.absoluteString)!)
         } else {
             // profileImg.downloaded(from: (Auth.auth().currentUser?.photoURL)!) -> use default image link
         }

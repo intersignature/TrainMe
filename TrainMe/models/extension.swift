@@ -15,6 +15,10 @@ import GooglePlaces
 
 extension UIViewController : GMSAutocompleteViewControllerDelegate, GMSMapViewDelegate{
     
+    func clearImageCache() {
+        imageCache.removeAllObjects()
+    }
+    
     func HideKeyboard() {
         
         let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -169,6 +173,7 @@ extension UIViewController {
     }
 }
 
+let imageCache = NSCache<AnyObject, AnyObject>()
 extension UIImageView {
     
     func downloaded(from url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
@@ -182,18 +187,29 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             DispatchQueue.main.async() {
+                self.contentMode = .scaleAspectFit
+                let imageToCache = image
+                imageCache.setObject(imageToCache, forKey: url.absoluteString as AnyObject)
                 self.image = image
             }
             }.resume()
     }
     
     func downloaded(from link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        
         guard let url = URL(string: link) else { return }
         if link == "" || link == "-1" || link == nil {
             return
         }
-        downloaded(from: url, contentMode: mode)
+        
+        if let imageFromCache = imageCache.object(forKey: link as AnyObject) as? UIImage {
+            print("Cache result: true")
+            self.image = imageFromCache
+            self.contentMode = .scaleAspectFit
+            return
+        } else {
+            print("Cache result: false")
+            downloaded(from: url, contentMode: mode)
+        }
     }
     
     func isBlur(_ isBlur: Bool) {
