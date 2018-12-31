@@ -9,6 +9,7 @@ PODS:
   - CreditCardForm (0.1.8)
   - CropViewController (2.4.0)
   - DTTextField (0.3.0)
+  - ExpandableLabel (0.5.1)
   - FacebookCore (0.5.0):
     - Bolts (~> 1.9)
     - FBSDKCoreKit (~> 4.37)
@@ -161,6 +162,7 @@ DEPENDENCIES:
   - CreditCardForm
   - CropViewController
   - DTTextField
+  - ExpandableLabel
   - FacebookCore
   - FacebookLogin
   - FBSDKCoreKit (~> 4.38.0)
@@ -187,6 +189,7 @@ SPEC REPOS:
     - CreditCardForm
     - CropViewController
     - DTTextField
+    - ExpandableLabel
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
@@ -225,6 +228,7 @@ SPEC CHECKSUMS:
   CreditCardForm: 7e67bc394545eda9e502652af0858552b4931728
   CropViewController: a090820b15fc3da68e694d7c192a4708c576828b
   DTTextField: c26deead1a51c92156e2a638ac7d2c702c2f345e
+  ExpandableLabel: 80783721b4d849bc62c19b44bbb88aa8bb518423
   FacebookCore: 74288d0add931d361b1596beae787ab72c438249
   FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
@@ -257,6 +261,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 8ad3da4ec4b8a01d678f7fe2991bd6dc8af091ad
+PODFILE CHECKSUM: 942e51464979319a4889941a899b71d09d780924
 
 COCOAPODS: 1.5.3

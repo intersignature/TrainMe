@@ -32,6 +32,7 @@ pod 'Stripe'
 #pod 'SkeletonView'
 pod 'ImageSlideshow', '~> 1.6'
 pod 'CropViewController'
+pod 'ExpandableLabel'
 
   target 'TrainMeTests' do
     inherit! :search_paths
