@@ -104,8 +104,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
 
         let trainerTapImg = tapGesture.view as! UIImageView
         print(trainerTapImg.accessibilityLabel)
-        self.selectedTrainerForShowProfile = trainerTapImg.accessibilityLabel as? String
-        performSegue(withIdentifier: "SelectTrainerToShowProfile", sender: self)
+//        performSegue(withIdentifier: "SelectTrainerToShowProfile", sender: trainerTapImg.accessibilityLabel)
     }
     
     override func didReceiveMemoryWarning() {
@@ -283,10 +282,11 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //SelectTrainerToShowProfile
-        if(segue.identifier == "SelectTrainerToShowProfile") {
-            let vc = segue.destination as! UINavigationController
-            let containVc = vc.topViewController as! ProfileTrainerViewController
-        }
+//        if(segue.identifier == "SelectTrainerToShowProfile") {
+//            guard let selectedTrainerForShowProfile = sender as? String else { return }
+//            let vc = segue.destination as! UINavigationController
+//            let containVc = vc.topViewController as! ProfileTrainerViewController
+//        }
         if segue.identifier == "ShowTrainerMarkerToShowCourseTrainerSpecified" {
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ShowCourseTrainerSpecifiedViewController
