@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ExpandableLabel
 
 class FullReviewTableViewCell: UITableViewCell {
 
@@ -14,10 +15,11 @@ class FullReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var ratingStackView: RatingController!
-    @IBOutlet weak var reviewDescLb: UILabel!
+    @IBOutlet weak var reviewDescLb: ExpandableLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.reviewDescLb.collapsed = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

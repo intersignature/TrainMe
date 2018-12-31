@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import ExpandableLabel
 
 class CourseDetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLb: UILabel!
-    @IBOutlet weak var descriptionLb: UILabel!
+//    @IBOutlet weak var descriptionLb: UILabel!
+    @IBOutlet weak var descriptionLb: ExpandableLabel!
     
     func setCourseDetail(title: String, description: String) {
         titleLb.text = title
@@ -21,6 +23,7 @@ class CourseDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        descriptionLb.collapsed = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

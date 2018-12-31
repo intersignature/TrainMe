@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import ExpandableLabel
 
-class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandableLabelDelegate {
     
     @IBOutlet weak var courseDetailTableView: UITableView!
     @IBOutlet weak var bookBtn: UIButton!
@@ -26,11 +27,15 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     var titleList: [String] = ["Name", "Detail", "Type", "Time", "Duration", "Level", "Price", "Language"]
     var descriptionList: [String] = []
     
+    var states : Array<Bool>!
+    var courseDescArray: [(text: String, textReplacementType: ExpandableLabel.TextReplacementType, numberOfLines: Int, textAlignment: NSTextAlignment)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(course.getData())
         print(selectedBookDetail.getData())
+        
+        states = [Bool](repeating: true, count: self.titleList.count)
         
         self.ref = Database.database().reference()
         self.currentUser = Auth.auth().currentUser
@@ -39,6 +44,8 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
         self.courseToList()
         self.courseDetailTableView.delegate = self
         self.courseDetailTableView.dataSource = self
+        self.courseDetailTableView.estimatedRowHeight = 44
+        self.courseDetailTableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func courseToList() {
@@ -69,11 +76,60 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let currentSource = courseDescArray[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseDetailByTraineeTableViewCell") as! CourseDetailTableViewCell
         
-        cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
+//        cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
+        cell.titleLb.text = titleList[indexPath.row]
+        cell.descriptionLb.delegate = self
+        cell.descriptionLb.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: nil)
+        cell.layoutIfNeeded()
+        cell.descriptionLb.shouldCollapse = true
+        cell.descriptionLb.textReplacementType = currentSource.textReplacementType
+        cell.descriptionLb.numberOfLines = currentSource.numberOfLines
+        cell.descriptionLb.collapsed = states[indexPath.row]
+        cell.descriptionLb.text = currentSource.text
         
         return cell
+    }
+    
+    func preparedSources() {
+        
+        self.descriptionList.forEach { (desc) in
+            courseDescArray.append((text: desc, textReplacementType: .word, numberOfLines: 3, textAlignment: .right))
+        }
+    }
+    
+    func willExpandLabel(_ label: ExpandableLabel) {
+        courseDetailTableView.beginUpdates()
+    }
+    
+    func didExpandLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: courseDetailTableView)
+        if let indexPath = self.courseDetailTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.courseDetailTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        courseDetailTableView.endUpdates()
+    }
+    
+    func willCollapseLabel(_ label: ExpandableLabel) {
+        courseDetailTableView.beginUpdates()
+    }
+    
+    func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: courseDetailTableView)
+        if let indexPath = self.courseDetailTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.courseDetailTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        courseDetailTableView.endUpdates()
     }
     
     @IBAction func backBtnAction(_ sender: UIBarButtonItem) {
@@ -120,9 +176,16 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        courseDetailTableView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.setupNavigationStyle()
+        self.preparedSources()
     }
 }

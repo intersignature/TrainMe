@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import ExpandableLabel
 
-class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ExpandableLabelDelegate {
     @IBOutlet weak var courseDetailTableView: UITableView!
     
     var course:Course = Course()
@@ -19,15 +20,22 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
     var currentUser: User?
     var ref: DatabaseReference!
     
+    var states : Array<Bool>!
+    var courseDescArray: [(text: String, textReplacementType: ExpandableLabel.TextReplacementType, numberOfLines: Int, textAlignment: NSTextAlignment)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentUser = Auth.auth().currentUser
-        ref = Database.database().reference()
-        courseToList()
-        courseDetailTableView.delegate = self
-        courseDetailTableView.dataSource = self
-        // Do any additional setup after loading the view.
+        states = [Bool](repeating: true, count: self.titleList.count)
+        
+        self.ref = Database.database().reference()
+        self.currentUser = Auth.auth().currentUser
+        
+        self.courseToList()
+        self.courseDetailTableView.delegate = self
+        self.courseDetailTableView.dataSource = self
+        self.courseDetailTableView.estimatedRowHeight = 44
+        self.courseDetailTableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func courseToList() {
@@ -62,35 +70,66 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let currentSource = courseDescArray[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseDetailTableViewCell") as! CourseDetailTableViewCell
         
-        cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
+//        cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
+        cell.titleLb.text = titleList[indexPath.row]
+        cell.descriptionLb.delegate = self
+        cell.descriptionLb.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: nil)
+        cell.layoutIfNeeded()
+        cell.descriptionLb.shouldCollapse = true
+        cell.descriptionLb.textReplacementType = currentSource.textReplacementType
+        cell.descriptionLb.numberOfLines = currentSource.numberOfLines
+        cell.descriptionLb.collapsed = states[indexPath.row]
+        cell.descriptionLb.text = currentSource.text
         
         return cell
     }
     
-    func getCourseData() {
+    func preparedSources() {
         
-        let userID = currentUser?.uid
-        ref.child("courses").child(userID!).child(course.key).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            self.course = Course(key: snapshot.key, course: value?["course_name"] as? String ?? "", courseContent: value?["course_content"] as? String ?? "", courseType: value?["course_type"] as? String ?? "", timeOfCourse: value?["time_of_course"] as? String ?? "", courseDuration: value?["course_duration"] as? String ?? "", courseLevel: value?["course_level"] as? String ?? "", coursePrice: value?["course_price"] as? String ?? "", courseLanguage: value?["course_language"] as? String ?? "")
-            self.courseToList()
-            print(self.course.course+"fldsknjikfdji")
-            
-        }) { (err) in
-            print(err.localizedDescription)
-            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
-            return
+        self.descriptionList.forEach { (desc) in
+            courseDescArray.append((text: desc, textReplacementType: .word, numberOfLines: 3, textAlignment: .right))
         }
-        
-        
+    }
+    
+    func willExpandLabel(_ label: ExpandableLabel) {
+        courseDetailTableView.beginUpdates()
+    }
+    
+    func didExpandLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: courseDetailTableView)
+        if let indexPath = self.courseDetailTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.courseDetailTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        courseDetailTableView.endUpdates()
+    }
+    
+    func willCollapseLabel(_ label: ExpandableLabel) {
+        courseDetailTableView.beginUpdates()
+    }
+    
+    func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: courseDetailTableView)
+        if let indexPath = self.courseDetailTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.courseDetailTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        courseDetailTableView.endUpdates()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getCourseData()
-        
+
+        self.courseDetailTableView.reloadData()
         
 //        self.performSegue(withIdentifier: "ViewCourseTableViewEmbed", sender: self)
     }
@@ -108,6 +147,6 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationStyle()
-       
+        self.preparedSources()
     }
 }
