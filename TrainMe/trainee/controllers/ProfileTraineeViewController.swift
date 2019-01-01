@@ -23,6 +23,7 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var birthdayLb: UILabel!
     @IBOutlet weak var weightLb: UILabel!
     
+    var traineeProfileUid: String!
     var isBlurProfile: Bool!
     var ref: DatabaseReference!
     var currentUser: User!
@@ -36,6 +37,8 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         
         self.ref = Database.database().reference()
         self.currentUser = Auth.auth().currentUser
+        
+        self.checkShowEditBtn()
         self.getReviewData()
         self.getTraineeProfile()
         
@@ -47,9 +50,16 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         self.setProfileImageRound()
     }
     
+    func checkShowEditBtn() {
+        
+        if self.traineeProfileUid != self.currentUser.uid {
+            self.editProfileBtn.isHidden = true
+        }
+    }
+    
     func getTraineeProfile() {
         
-        self.ref.child("user").child(self.currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
+        self.ref.child("user").child(traineeProfileUid).observeSingleEvent(of: .value) { (snapshot) in
             
             let value = snapshot.value as! NSDictionary
             
@@ -92,7 +102,7 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
             
             value.forEach({ (trainerId, traineeList) in
                 traineeList.forEach({ (traineeId, overallScheduleDetail) in
-                    if traineeId == self.currentUser.uid {
+                    if traineeId == self.traineeProfileUid {
                         var allReview: [EachReview] = []
                         overallScheduleDetail.forEach({ (btnKey, detail) in
                             allReview.removeAll()

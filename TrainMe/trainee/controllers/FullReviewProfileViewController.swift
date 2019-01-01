@@ -16,7 +16,9 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var courseNameLb: UILabel!
     @IBOutlet weak var totalTimeLb: UILabel!
     
+    var from: String!
     var selectedFullReview: Review!
+    var selectedProfileUid: String!
     var selectedCourseName: String!
     var selectedProfileLink: String!
     var selectedTraineeName: String!
@@ -55,8 +57,12 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
         } else {
             cell.timeLb.text = "\(indexPath.row+1) th Time"
         }
+        cell.profileImg.accessibilityLabel = self.selectedProfileUid
         cell.profileImg.downloaded(from: self.selectedProfileLink)
+        cell.profileImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(traineeImgTapAction(tapGesture:))))
+        cell.nameLb.accessibilityLabel = self.selectedProfileUid
         cell.nameLb.text = self.selectedTraineeName
+        cell.nameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(traineeImgTapAction(tapGesture:))))
         cell.ratingStackView.setStarsRating(rating: Int(self.selectedFullReview.eachReiew[indexPath.row].rating)!)
         cell.ratingStackView.isEnabled(isEnable: false)
 //        cell.reviewDescLb.text = self.selectedFullReview.eachReiew[indexPath.row].reviewDesc
@@ -70,6 +76,33 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
         cell.reviewDescLb.text = currentSource.text
         
         return cell
+    }
+    
+    @objc func traineeImgTapAction(tapGesture: UITapGestureRecognizer) {
+        
+        var uid: String!
+        if let tapImg = tapGesture.view as? UIImageView {
+            uid = tapImg.accessibilityLabel
+        } else if let tapLabel = tapGesture.view as? UILabel {
+            uid = tapLabel.accessibilityLabel
+        } else {
+            return
+        }
+        if from == "trainer" {
+            performSegue(withIdentifier: "FullReviewToProfileTrainee", sender: uid)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "FullReviewToProfileTrainee" {
+            
+            guard let selectedTrainerForShowProfile = sender as? String else { return }
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ProfileTraineeViewController
+            containVc.isBlurProfile = false
+            containVc.traineeProfileUid = selectedTrainerForShowProfile
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

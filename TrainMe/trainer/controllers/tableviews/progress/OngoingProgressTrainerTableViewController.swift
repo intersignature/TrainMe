@@ -35,7 +35,11 @@ class OngoingProgressTrainerTableViewController: UITableViewController {
         self.setProfileImageRound()
         
         self.traineeImg.downloaded(from: self.selectedTrainee.profileImageUrl)
+        self.traineeImg.accessibilityLabel = self.selectedTrainee.uid
+        self.traineeImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(traineeImgTapAction(tapGesture:))))
         self.traineeNameLb.text = self.selectedTrainee.fullName
+        self.traineeNameLb.accessibilityLabel = self.selectedTrainee.uid
+        self.traineeNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(traineeImgTapAction(tapGesture:))))
         
         self.courseNameLb.text = self.selectedCourse.course
         self.courseDetailLb.text = "\(self.selectedCourse.courseLevel), \(self.selectedCourse.courseType), \(self.selectedCourse.courseLanguage), \(self.selectedCourse.timeOfCourse) times"
@@ -44,6 +48,19 @@ class OngoingProgressTrainerTableViewController: UITableViewController {
         
         self.placeNameLb.text = self.selectedPlace.name
         self.setupMapView()
+    }
+    
+    @objc func traineeImgTapAction(tapGesture: UITapGestureRecognizer) {
+        
+        var uid: String!
+        if let tapImg = tapGesture.view as? UIImageView {
+            uid = tapImg.accessibilityLabel
+        } else if let tapLabel = tapGesture.view as? UILabel {
+            uid = tapLabel.accessibilityLabel
+        } else {
+            return
+        }
+        performSegue(withIdentifier: "OngoingProgressTrainerToProfileTrainee", sender: uid)
     }
     
     func setupMapView() {
@@ -75,6 +92,15 @@ class OngoingProgressTrainerTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EachOngoingTrainerViewController {
             destination.selectedOngoing = self.selectedOngoing
+        }
+        
+        if segue.identifier == "OngoingProgressTrainerToProfileTrainee" {
+            
+            guard let selectedTrainerForShowProfile = sender as? String else { return }
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ProfileTraineeViewController
+            containVc.isBlurProfile = false
+            containVc.traineeProfileUid = selectedTrainerForShowProfile
         }
     }
     

@@ -1276,14 +1276,14 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="NtY-HP-579">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="NtY-HP-579">
                                                     <rect key="frame" x="20" y="11" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="bH6-Y4-Z6a"/>
                                                         <constraint firstAttribute="height" constant="40" id="cD2-cz-6cn"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-LC-vAO">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-LC-vAO">
                                                     <rect key="frame" x="68" y="11.000000000000002" width="326" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -1416,6 +1416,7 @@ TrainMe’s Privacy Policy</string>
                         <outlet property="weightLb" destination="j32-2k-f60" id="mId-YT-jTW"/>
                         <segue destination="DTj-KS-HCf" kind="presentation" identifier="ProfileTrainerToEditProfileTrainer" id="dM1-HA-QSq"/>
                         <segue destination="9Ow-Pv-dqI" kind="presentation" identifier="ProfileTrainerToFullReview" id="dSZ-fv-Sp2"/>
+                        <segue destination="4f9-ny-Mp3" kind="presentation" identifier="ProfileTrainerToProfileTrainee" id="qPD-dT-Juv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnE-zf-5IX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1650,7 +1651,7 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="D19-J1-uza">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="D19-J1-uza">
                                                     <rect key="frame" x="20" y="19" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="D19-J1-uza" secondAttribute="height" multiplier="1:1" id="JUP-9U-mhx"/>
@@ -1658,7 +1659,7 @@ TrainMe’s Privacy Policy</string>
                                                         <constraint firstAttribute="width" constant="62" id="b18-9I-rUm"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gcI-af-rC1">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gcI-af-rC1">
                                                     <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -1727,7 +1728,7 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="113.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OG-2n-HVP">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OG-2n-HVP">
                                                     <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -1751,7 +1752,7 @@ TrainMe’s Privacy Policy</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="6zE-aW-uQv">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="6zE-aW-uQv">
                                                     <rect key="frame" x="20" y="26" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="JiO-WA-0Wp"/>
@@ -1794,7 +1795,7 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-7j-KYm">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-7j-KYm">
                                                     <rect key="frame" x="20" y="27" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="62" id="MDO-6U-O4l"/>
@@ -1802,7 +1803,7 @@ TrainMe’s Privacy Policy</string>
                                                         <constraint firstAttribute="height" constant="62" id="qdi-yz-26s"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu7-es-OB8">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu7-es-OB8">
                                                     <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -1869,7 +1870,7 @@ TrainMe’s Privacy Policy</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-pr-egL">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-pr-egL">
                                                     <rect key="frame" x="20" y="27" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="Qb4-Qe-YC4"/>
@@ -1877,7 +1878,7 @@ TrainMe’s Privacy Policy</string>
                                                         <constraint firstAttribute="width" secondItem="gGb-pr-egL" secondAttribute="height" multiplier="1:1" id="zWV-je-p71"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-Wr-myX">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-Wr-myX">
                                                     <rect key="frame" x="90" y="11" width="304" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -1955,6 +1956,7 @@ TrainMe’s Privacy Policy</string>
                         <outlet property="statusSegmented" destination="sde-hb-vOC" id="6RZ-hW-UA0"/>
                         <segue destination="KbB-jP-vx6" kind="presentation" identifier="ProgressToConfirmationTrainer" id="t0F-HC-gxE"/>
                         <segue destination="Ll9-7F-ma2" kind="presentation" identifier="ProgressToOngoingTrainer" id="tbW-bm-Udm"/>
+                        <segue destination="4f9-ny-Mp3" kind="presentation" identifier="ProgressTrainerToProfileTrainee" id="QBL-zq-jxZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwu-Yq-eC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1972,21 +1974,21 @@ TrainMe’s Privacy Policy</string>
                         <sections>
                             <tableViewSection headerTitle="trainee profile" id="uj5-ba-MgN">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="uVi-9K-2ed">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="uVi-9K-2ed">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uVi-9K-2ed" id="2q4-fG-FDh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="MiN-zA-bll">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="MiN-zA-bll">
                                                     <rect key="frame" x="28" y="15" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="XCh-ji-283"/>
                                                         <constraint firstAttribute="width" constant="90" id="prJ-HN-sM3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppq-5V-i2m">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppq-5V-i2m">
                                                     <rect key="frame" x="134" y="48.333333333333336" width="260" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2119,6 +2121,7 @@ TrainMe’s Privacy Policy</string>
                         <outlet property="priceLb" destination="NAx-CA-uRa" id="Fz2-nN-m0i"/>
                         <outlet property="traineeImg" destination="MiN-zA-bll" id="Xgc-cF-maL"/>
                         <outlet property="traineeLb" destination="Ppq-5V-i2m" id="hqj-8T-RY6"/>
+                        <segue destination="4f9-ny-Mp3" kind="presentation" identifier="ConfirmationProgressTrainerToProfileTrainee" id="wZT-TI-L7O"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33f-5J-If9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5212,14 +5215,14 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="153.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="zME-9j-JFd">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="zME-9j-JFd">
                                                     <rect key="frame" x="20" y="41.666666666666664" width="40" height="39.999999999999993"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="3wI-wL-K1d"/>
                                                         <constraint firstAttribute="height" constant="40" id="iuH-s5-jci"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEW-km-Er0">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEW-km-Er0">
                                                     <rect key="frame" x="68" y="41.666666666666664" width="326" height="20.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -5342,6 +5345,7 @@ detail</string>
                         <outlet property="courseNameLb" destination="Mv8-Ch-CvB" id="M9q-LO-fNc"/>
                         <outlet property="fullReviewTableView" destination="0o9-87-Y8D" id="Ls0-Ti-eKq"/>
                         <outlet property="totalTimeLb" destination="SMd-Yi-QA5" id="8i2-NM-5Hm"/>
+                        <segue destination="4f9-ny-Mp3" kind="presentation" identifier="FullReviewToProfileTrainee" id="JV0-af-7oo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDJ-P8-Q2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6346,21 +6350,21 @@ detail</string>
                         <sections>
                             <tableViewSection headerTitle="trainee profile" id="beD-2X-Udn">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="EuP-A9-W0R">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="EuP-A9-W0R">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EuP-A9-W0R" id="qUy-lE-SbP">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="oKl-gL-fQk">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="oKl-gL-fQk">
                                                     <rect key="frame" x="28" y="15" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="g29-mU-JLE"/>
                                                         <constraint firstAttribute="height" constant="90" id="sg8-cv-s7W"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjz-uY-1aN">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjz-uY-1aN">
                                                     <rect key="frame" x="134" y="48.333333333333336" width="260" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -6519,6 +6523,7 @@ detail</string>
                         <outlet property="priceLb" destination="bqF-xQ-O2A" id="IPj-as-Sus"/>
                         <outlet property="traineeImg" destination="oKl-gL-fQk" id="s4h-Or-tCs"/>
                         <outlet property="traineeNameLb" destination="Kjz-uY-1aN" id="83X-qt-gHe"/>
+                        <segue destination="4f9-ny-Mp3" kind="presentation" identifier="OngoingProgressTrainerToProfileTrainee" id="CWg-Lh-cP9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oqc-rW-A9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6796,8 +6801,9 @@ detail</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dSZ-fv-Sp2"/>
-        <segue reference="dM1-HA-QSq"/>
+        <segue reference="L1Y-Q7-OXJ"/>
+        <segue reference="lwg-sn-Rgh"/>
+        <segue reference="CWg-Lh-cP9"/>
         <segue reference="HQg-sh-Dc0"/>
         <segue reference="LED-SU-iWE"/>
         <segue reference="CFl-Dl-pmF"/>
