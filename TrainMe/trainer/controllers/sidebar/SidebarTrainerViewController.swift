@@ -79,6 +79,7 @@ class SidebarTrainerViewController: UIViewController {
             let vc = segue.destination as! UINavigationController
             let containeVc = vc.topViewController as! ProfileTrainerViewController
             containeVc.isBlurProfileImage = false
+            containeVc.trainerProfileUid = self.currentUser?.uid
         }
     }
     

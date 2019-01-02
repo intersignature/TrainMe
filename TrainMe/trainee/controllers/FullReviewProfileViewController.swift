@@ -90,6 +90,8 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
         }
         if from == "trainer" {
             performSegue(withIdentifier: "FullReviewToProfileTrainee", sender: uid)
+        } else if from == "trainee"{
+            performSegue(withIdentifier: "FullReviewToProfileTrainer", sender: uid)
         }
     }
     
@@ -102,6 +104,13 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
             let containVc = vc.topViewController as! ProfileTraineeViewController
             containVc.isBlurProfile = false
             containVc.traineeProfileUid = selectedTrainerForShowProfile
+        }
+        if segue.identifier == "FullReviewToProfileTrainer" {
+            guard let selectedTrainerForShowProfile = sender as? String else { return }
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ProfileTrainerViewController
+            containVc.isBlurProfileImage = true
+            containVc.trainerProfileUid = selectedTrainerForShowProfile
         }
     }
     

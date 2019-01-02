@@ -44,6 +44,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     var review: [Review] = []
     var traineeObj: [String: UserProfile] = [:]
     var courseObj: [String: Course] = [:]
+    var trainerProfileUid: String!
     var isBlurProfileImage: Bool!
     var rating: [Int] = []
     
@@ -53,6 +54,8 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         self.ref = Database.database().reference()
         self.storageRef = Storage.storage().reference()
         self.currentUser = Auth.auth().currentUser
+        
+        self.checkShowEditButton()
         
         self.getCertCount()
         self.getReviewData()
@@ -64,6 +67,13 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         
         self.profileTrainerTableView.delegate = self
         self.profileTrainerTableView.dataSource = self
+    }
+    
+    func checkShowEditButton() {
+        
+        if self.currentUser.uid != self.trainerProfileUid {
+            self.editProfileBtn.isHidden =  true
+        }
     }
     
     func setupImageSliderBar() {
@@ -90,7 +100,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     
     func getTrainerProfile() {
         
-        self.ref.child("user").child(self.currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
+        self.ref.child("user").child(self.trainerProfileUid).observeSingleEvent(of: .value) { (snapshot) in
             
             let value = snapshot.value as! NSDictionary
             
@@ -110,7 +120,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     
     func getCertCount() {
         
-        self.ref.child("become_to_a_trainer").child(self.currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
+        self.ref.child("become_to_a_trainer").child(self.trainerProfileUid).observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! NSDictionary
             print(value.count - 1)
             self.getCertImageFile(certCount: value.count - 1)
@@ -121,7 +131,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         
         for i in 1...certCount {
             print("cert_\(i)")
-            self.storageRef.child("BecomeToATrainer").child(self.currentUser.uid).child("certificate").child("cert_\(i).png").getData(maxSize: 30*1024*1024) { (data, err) in
+            self.storageRef.child("BecomeToATrainer").child(self.trainerProfileUid).child("certificate").child("cert_\(i).png").getData(maxSize: 30*1024*1024) { (data, err) in
                 if let err = err {
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     print(err.localizedDescription)
@@ -139,7 +149,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     
     func getReviewData() {
         
-        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
+        self.ref.child("progress_schedule_detail").child(self.trainerProfileUid).observeSingleEvent(of: .value) { (snapshot) in
             
             let values = snapshot.value as? [String: [String: AnyObject]]
             values?.forEach({ (traineeId, overallScheduleDetail) in
@@ -153,7 +163,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
                             self.getTraineeData(traineeId: traineeId)
                         }
                         if self.courseObj[detail["course_id"] as! String] == nil {
-                            self.getCourseObj(trainerId: self.currentUser.uid, courseId: detail["course_id"] as! String)
+                            self.getCourseObj(trainerId: self.trainerProfileUid, courseId: detail["course_id"] as! String)
                         }
                         for i in 1...(Int(detail.count)-4){
                             let eachReviewValue = detail[String(i)] as? NSDictionary
@@ -166,7 +176,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
                             allReview.append(eachReview)
                         }
                         let tempReview = Review(traineeUid: traineeId,
-                                                trainerUid: self.currentUser.uid,
+                                                trainerUid: self.trainerProfileUid,
                                                 courseId: detail["course_id"] as! String,
                                                 eachReview: allReview)
                         self.review.append(tempReview)

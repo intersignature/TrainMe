@@ -87,9 +87,9 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
                 tempTimes.append(bookDetail)
             }
         }
-        
-        let tapGesture = UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:)))
-        cell.trainerImg.addGestureRecognizer(tapGesture)
+
+        cell.trainerImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
+        cell.trainerNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
         cell.delegate = self
         
         if indexPath.section == 5 {
@@ -102,9 +102,15 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     
     @objc func trainerImgTapAction(tapGesture: UITapGestureRecognizer) {
 
-        let trainerTapImg = tapGesture.view as! UIImageView
-        print(trainerTapImg.accessibilityLabel)
-//        performSegue(withIdentifier: "SelectTrainerToShowProfile", sender: trainerTapImg.accessibilityLabel)
+        var uid: String!
+        if let tapImg = tapGesture.view as? UIImageView {
+            uid = tapImg.accessibilityLabel
+        } else if let tapLabel = tapGesture.view as? UILabel {
+            uid = tapLabel.accessibilityLabel
+        } else {
+            return
+        }
+        performSegue(withIdentifier: "SelectTrainerToShowProfile", sender: uid)
     }
     
     override func didReceiveMemoryWarning() {
@@ -282,11 +288,13 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //SelectTrainerToShowProfile
-//        if(segue.identifier == "SelectTrainerToShowProfile") {
-//            guard let selectedTrainerForShowProfile = sender as? String else { return }
-//            let vc = segue.destination as! UINavigationController
-//            let containVc = vc.topViewController as! ProfileTrainerViewController
-//        }
+        if(segue.identifier == "SelectTrainerToShowProfile") {
+            guard let selectedTrainerForShowProfile = sender as? String else { return }
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ProfileTrainerViewController
+            containVc.isBlurProfileImage = false
+            containVc.trainerProfileUid = selectedTrainerForShowProfile
+        }
         if segue.identifier == "ShowTrainerMarkerToShowCourseTrainerSpecified" {
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ShowCourseTrainerSpecifiedViewController

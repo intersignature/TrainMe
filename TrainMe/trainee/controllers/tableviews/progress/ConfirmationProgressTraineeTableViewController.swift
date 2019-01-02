@@ -33,7 +33,11 @@ class ConfirmationProgressTraineeTableViewController: UITableViewController {
         
         self.setProfileImageRound()
         self.trainerImg.downloaded(from: self.selectedTrainer.profileImageUrl)
+        self.trainerImg.accessibilityLabel = self.selectedTrainer.uid
+        self.trainerImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
         self.trainerNameLb.text = self.selectedTrainer.fullName
+        self.trainerNameLb.accessibilityLabel = self.selectedTrainer.uid
+        self.trainerNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
         
         self.courseNameLb.text = self.selectedCourse.course
         self.courseDetailLb.text = "\(self.selectedCourse.courseLevel), \(self.selectedCourse.courseType), \(self.selectedCourse.courseLanguage), \(self.selectedCourse.timeOfCourse) times"
@@ -42,6 +46,31 @@ class ConfirmationProgressTraineeTableViewController: UITableViewController {
         
         self.placeNameLb.text = self.selectedPlace.name
         self.setupMapView()
+    }
+    
+    @objc func trainerImgTapAction(tapGesture: UITapGestureRecognizer) {
+        
+        var uid: String!
+        if let tapImg = tapGesture.view as? UIImageView {
+            uid = tapImg.accessibilityLabel
+        } else if let tapLabel = tapGesture.view as? UILabel {
+            uid = tapLabel.accessibilityLabel
+        } else {
+            return
+        }
+        performSegue(withIdentifier: "ConfirmationProgressTraineeToProfileTrainer", sender: uid)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ConfirmationProgressTraineeToProfileTrainer" {
+            
+            guard let selectedTrainerForShowProfile = sender as? String else { return }
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ProfileTrainerViewController
+            containVc.isBlurProfileImage = false
+            containVc.trainerProfileUid = selectedTrainerForShowProfile
+        }
     }
     
     func setProfileImageRound() {

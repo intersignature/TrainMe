@@ -416,6 +416,10 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                placeName: self.placeObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]!.name,
                                position: "\(indexPath.section)-\(indexPath.row)")
             
+            cell.trainerProfileImg.accessibilityElements = [(self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.uid)!, false]
+            cell.trainerProfileImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
+            cell.nameLb.accessibilityElements = [(self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.uid)!, false]
+            cell.nameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
             cell.cancelBtn.addTarget(self, action: #selector(self.cancelBtnAction(cancelBtn:)), for: .touchUpInside)
             cell.cancelBtn.setTitleColor(UIColor.red, for: .normal)
             return cell
@@ -429,6 +433,10 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                time: "\(self.paymentDataSorted[indexPath.row].start_train_date) \(self.paymentDataSorted[indexPath.row].start_train_time)",
                                position: "\(indexPath.section)-\(indexPath.row)")
             
+            cell.trainerImg.accessibilityElements = [(self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.uid)!, false]
+            cell.trainerImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
+            cell.trainerNameLb.accessibilityElements = [(self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.uid)!, false]
+            cell.trainerNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
 //            cell.buyBtn.addTarget(self, action: #selector(self.paymentAction(buyBtn:)), for: .touchUpInside)
             return cell
         case 2:
@@ -441,6 +449,10 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                scheduleDate: "\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_time)",
                                placeName: self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!.name)
             
+            cell.trainerImg.accessibilityElements = [(self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]?.uid)!, false]
+            cell.trainerImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
+            cell.trainerNameLb.accessibilityElements = [(self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]?.uid)!, false]
+            cell.trainerNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TraineeSuccessfulTableViewCell") as! SuccessfulTraineeTableViewCell
@@ -450,10 +462,33 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                courseName: (self.courseObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].courseId]?.course)!,
                                placeName: self.placeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]!.name,
                                time: "\(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_time)")
+            
+            cell.trainerImg.accessibilityElements = [(self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]?.uid)!, false]
+            cell.trainerImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
+            cell.trainerNameLb.accessibilityElements = [(self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]?.uid)!, false]
+            cell.trainerNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
             return cell
         default:
             return UITableViewCell()
         }
+    }
+    
+    @objc func trainerImgTapAction(tapGesture: UITapGestureRecognizer) {
+        
+        var dataToTrainerProfile: [Any]!
+        if let tapImg = tapGesture.view as? UIImageView {
+            dataToTrainerProfile = tapImg.accessibilityElements!
+            //            dataToTraineeProfile.append(tapImg.accessibilityElements![0] as! String)
+            //            dataToTraineeProfile.append(tapImg.accessibilityElements![1] as! Bool)
+        } else if let tapLabel = tapGesture.view as? UILabel {
+            dataToTrainerProfile = tapLabel.accessibilityElements!
+            //            uid = tapLabel.accessibilityLabel
+            //            dataToTraineeProfile.append(tapLabel.accessibilityElements![0] as! String)
+            //            dataToTraineeProfile.append(tapLabel.accessibilityElements![1] as! Bool)
+        } else {
+            return
+        }
+        performSegue(withIdentifier: "ProgressTraineeToProfileTrainer", sender: dataToTrainerProfile)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -569,7 +604,15 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             default:
                 return
             }
+        }
+
+        if segue.identifier == "ProgressTraineeToProfileTrainer" {
             
+            guard let selectedTrainerForShowProfile = sender as? [Any] else { return }
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ProfileTrainerViewController
+            containVc.isBlurProfileImage = (selectedTrainerForShowProfile[1] as! Bool)
+            containVc.trainerProfileUid = (selectedTrainerForShowProfile[0] as! String)
         }
     }
     

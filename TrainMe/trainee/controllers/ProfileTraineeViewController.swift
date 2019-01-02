@@ -198,11 +198,28 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewProfileTraineeTableViewCell") as! ReviewProfileTraineeTableViewCell
         cell.profileImageView.downloaded(from: (self.trainerObj[self.review[indexPath.row].trainerUid]?.profileImageUrl)!)
+        cell.profileImageView.accessibilityLabel = (self.trainerObj[self.review[indexPath.row].trainerUid]?.uid)!
+        cell.profileImageView.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
         cell.nameLb.text = self.trainerObj[self.review[indexPath.row].trainerUid]?.fullName
+        cell.nameLb.accessibilityLabel = (self.trainerObj[self.review[indexPath.row].trainerUid]?.uid)!
+        cell.nameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
         cell.ratingStackView.setStarsRating(rating: Int(self.review[indexPath.row].eachReiew[0].rating)!)
         cell.courseNameLb.text = self.courseObj[self.review[indexPath.row].courseId]?.course
         cell.reviewLb.text = self.review[indexPath.row].eachReiew[0].reviewDesc
         return cell
+    }
+    
+    @objc func trainerImgTapAction(tapGesture: UITapGestureRecognizer) {
+        
+        var uid: String!
+        if let tapImg = tapGesture.view as? UIImageView {
+            uid = tapImg.accessibilityLabel
+        } else if let tapLabel = tapGesture.view as? UILabel {
+            uid = tapLabel.accessibilityLabel
+        } else {
+            return
+        }
+        performSegue(withIdentifier: "ProfileTraineeToProfileTrainer", sender: uid)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -245,8 +262,18 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
             let containVc = vc.topViewController as! FullReviewProfileViewController
             containVc.selectedFullReview = self.review[selectedIndexPath.row]
             containVc.selectedCourseName = self.courseObj[self.review[selectedIndexPath.row].courseId]?.course
-            containVc.selectedProfileLink = self.traineeProfile.profileImageUrl
-            containVc.selectedTraineeName = self.traineeProfile.fullName
+            containVc.selectedProfileLink = self.trainerObj[self.review[selectedIndexPath.row].trainerUid]?.profileImageUrl
+            containVc.selectedTraineeName = self.trainerObj[self.review[selectedIndexPath.row].trainerUid]?.fullName
+            containVc.selectedProfileUid = self.trainerObj[self.review[selectedIndexPath.row].trainerUid]?.uid
+            containVc.from = "trainee"
+        }
+        if segue.identifier == "ProfileTraineeToProfileTrainer" {
+            
+            guard let selectedTrainerForShowProfile = sender as? String else { return }
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ProfileTrainerViewController
+            containVc.isBlurProfileImage = false
+            containVc.trainerProfileUid = selectedTrainerForShowProfile
         }
     }
     

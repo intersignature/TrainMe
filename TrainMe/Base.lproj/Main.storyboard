@@ -1435,21 +1435,21 @@ TrainMe’s Privacy Policy</string>
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrainerSelected" rowHeight="110" id="nMu-N8-30T" customClass="TrainerSelectedTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TrainerSelected" rowHeight="110" id="nMu-N8-30T" customClass="TrainerSelectedTableViewCell" customModule="TrainMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nMu-N8-30T" id="bQN-8V-XoL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-pM-gZF">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-pM-gZF">
                                                     <rect key="frame" x="25" y="24" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="nZr-kC-RZo"/>
                                                         <constraint firstAttribute="width" constant="62" id="uu3-Ig-4kS"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-Nh-7dY">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="nvE-Nh-7dY">
                                                     <rect key="frame" x="117" y="26" width="272" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -3626,7 +3626,7 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-cZ-xoI">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-cZ-xoI">
                                                     <rect key="frame" x="20" y="24" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9R2-cZ-xoI" secondAttribute="height" multiplier="1:1" id="f59-Fl-vmK"/>
@@ -3634,7 +3634,7 @@ detail</string>
                                                         <constraint firstAttribute="width" constant="62" id="yf3-t4-m4D"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XF-vi-6Hr">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XF-vi-6Hr">
                                                     <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -3693,7 +3693,7 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="yfq-px-nJl">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="yfq-px-nJl">
                                                     <rect key="frame" x="20" y="39.666666666666657" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="Ggs-eY-Hgv"/>
@@ -3701,7 +3701,7 @@ detail</string>
                                                         <constraint firstAttribute="width" constant="62" id="xmy-r2-d22"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0f-Jy-oNE">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0f-Jy-oNE">
                                                     <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -3767,7 +3767,7 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="XcE-Qy-jaY">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="XcE-Qy-jaY">
                                                     <rect key="frame" x="20" y="27" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="XcE-Qy-jaY" secondAttribute="height" multiplier="1:1" id="4ni-F5-BkI"/>
@@ -3775,7 +3775,7 @@ detail</string>
                                                         <constraint firstAttribute="height" constant="62" id="q0P-x7-uN6"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVy-qh-mhn">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVy-qh-mhn">
                                                     <rect key="frame" x="90" y="11" width="304" height="24"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -3843,7 +3843,7 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Csv-TM-3sc">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Csv-TM-3sc">
                                                     <rect key="frame" x="20" y="27" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Csv-TM-3sc" secondAttribute="height" multiplier="1:1" id="YCs-xm-O8g"/>
@@ -3851,7 +3851,7 @@ detail</string>
                                                         <constraint firstAttribute="height" constant="62" id="jsJ-3f-Ugj"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbP-h9-Kpa">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbP-h9-Kpa">
                                                     <rect key="frame" x="90" y="11" width="304" height="22"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -3929,6 +3929,7 @@ detail</string>
                         <outlet property="statusSegmented" destination="VMF-xb-88l" id="Doq-sh-qPP"/>
                         <segue destination="6V5-hZ-lmA" kind="presentation" identifier="ProgressToOngoing" id="Z0M-eb-cRE"/>
                         <segue destination="QQS-gn-bTG" kind="presentation" identifier="ProgressToConfirmation" id="nZE-jv-rHV"/>
+                        <segue destination="R5F-9y-Tmg" kind="presentation" identifier="ProgressTraineeToProfileTrainer" id="uBq-3a-KCf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P90-pF-JZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3976,14 +3977,14 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-pF-W15">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-pF-W15">
                                                     <rect key="frame" x="28" y="15" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="2Zz-SU-klh"/>
                                                         <constraint firstAttribute="width" constant="90" id="D1k-5K-S2b"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuM-tv-5SP">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai Binchai" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuM-tv-5SP">
                                                     <rect key="frame" x="134" y="48.333333333333336" width="260" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -4143,6 +4144,7 @@ detail</string>
                         <outlet property="trainerImg" destination="Gye-pF-W15" id="gX8-Rt-kWv"/>
                         <outlet property="trainerNameLb" destination="JuM-tv-5SP" id="jus-DV-scK"/>
                         <segue destination="RA2-Ns-dJd" kind="presentation" identifier="EachOngoingProgressToReview" id="UkI-fl-E9v"/>
+                        <segue destination="R5F-9y-Tmg" kind="presentation" identifier="OngoingProgressTraineeToProfileTrainer" id="aj2-aV-Jgc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDE-EB-AC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4770,14 +4772,14 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="129.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="1nM-7X-leE">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="1nM-7X-leE">
                                                     <rect key="frame" x="20" y="11" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="Taj-jw-Ebu"/>
                                                         <constraint firstAttribute="height" constant="40" id="mfN-Et-DiQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6i-L7-ux2">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6i-L7-ux2">
                                                     <rect key="frame" x="68" y="11.000000000000002" width="300" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -4898,6 +4900,7 @@ detail</string>
                         <outlet property="weightLb" destination="2Pl-e5-UdX" id="mHa-1s-bMk"/>
                         <segue destination="DTj-KS-HCf" kind="presentation" identifier="ProfileTraineeToEditProfileTrainee" id="lwg-sn-Rgh"/>
                         <segue destination="9Ow-Pv-dqI" kind="presentation" identifier="ProfileToEachReview" id="L1Y-Q7-OXJ"/>
+                        <segue destination="R5F-9y-Tmg" kind="presentation" identifier="ProfileTraineeToProfileTrainer" id="khC-N6-INE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2U-9g-5eM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5346,6 +5349,7 @@ detail</string>
                         <outlet property="fullReviewTableView" destination="0o9-87-Y8D" id="Ls0-Ti-eKq"/>
                         <outlet property="totalTimeLb" destination="SMd-Yi-QA5" id="8i2-NM-5Hm"/>
                         <segue destination="4f9-ny-Mp3" kind="presentation" identifier="FullReviewToProfileTrainee" id="JV0-af-7oo"/>
+                        <segue destination="R5F-9y-Tmg" kind="presentation" identifier="FullReviewToProfileTrainer" id="NM2-Bh-von"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDJ-P8-Q2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5850,14 +5854,14 @@ detail</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="5zS-U0-nX3">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="5zS-U0-nX3">
                                                     <rect key="frame" x="28" y="15" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="4Kz-Fu-stv"/>
                                                         <constraint firstAttribute="height" constant="90" id="oYI-js-rJs"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-i3-ym8">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sirichai binchai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-i3-ym8">
                                                     <rect key="frame" x="134" y="48.333333333333336" width="260" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -5990,6 +5994,7 @@ detail</string>
                         <outlet property="priceLb" destination="yzc-PL-xr1" id="260-vn-rwX"/>
                         <outlet property="trainerImg" destination="5zS-U0-nX3" id="NIL-MQ-KbC"/>
                         <outlet property="trainerNameLb" destination="Wbm-i3-ym8" id="I8g-mZ-vru"/>
+                        <segue destination="R5F-9y-Tmg" kind="presentation" identifier="ConfirmationProgressTraineeToProfileTrainer" id="Ebr-Qo-k1M"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miC-Tx-MOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6803,9 +6808,9 @@ detail</string>
     <inferredMetricsTieBreakers>
         <segue reference="L1Y-Q7-OXJ"/>
         <segue reference="lwg-sn-Rgh"/>
-        <segue reference="CWg-Lh-cP9"/>
+        <segue reference="JV0-af-7oo"/>
         <segue reference="HQg-sh-Dc0"/>
-        <segue reference="LED-SU-iWE"/>
+        <segue reference="DwY-7P-htQ"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>
         <segue reference="QeP-9l-n5x"/>

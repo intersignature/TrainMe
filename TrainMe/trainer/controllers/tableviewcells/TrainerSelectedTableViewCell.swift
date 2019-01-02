@@ -35,8 +35,8 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDataSource,
         self.trainerImg.downloaded(from: trainerProfile.profileImageUrl)
         self.trainerImg.tag = tag
         self.trainerImg.accessibilityLabel = trainerProfile.uid
-        self.trainerImg.isUserInteractionEnabled = true
         self.trainerNameLb.text = trainerProfile.fullName
+        self.trainerNameLb.accessibilityLabel = trainerProfile.uid
         self.buttonIdPendingAlready = buttonIdPendingAlready
         var timestr = ""
         time.forEach { (bookplace) in
