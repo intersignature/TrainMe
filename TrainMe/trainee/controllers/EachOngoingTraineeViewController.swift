@@ -128,6 +128,7 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
             }
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.createAlert(alertTitle: "Request change schedule successful", alertMessage: "")
         }
     }
 }
