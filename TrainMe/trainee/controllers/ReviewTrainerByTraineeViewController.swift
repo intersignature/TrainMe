@@ -118,12 +118,16 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
+            
             if Int(self.countAtIndex)! < Int(self.summaryCount)! {
                 self.addNextScheduleDateAndTimeToDatabase(isTrainerConfirm: isTrainerConfirm)
             } else {
-                
-                //TODO: Transfer money to trainer
-                self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed and system was pay money to your account already.", from: "transfer money")
+                if isTrainerConfirm == "1" {
+                    //TODO: Transfer money to trainer
+                    self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed and system was pay money to your account already.", from: "transfer money")
+                } else {
+                    self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed already and waiting for your confirm.", from: "wait confirm last time")
+                }
             }
         }
     }
@@ -148,7 +152,11 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-            self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed and selected new schedule, Check it out!", from: "next schedule")
+            if isTrainerConfirm == "1" {
+                self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed and selected new schedule already, Check it out!", from: "next schedule")
+            } else {
+                self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed already and waiting for your confirm.", from: "wait confirm not last time")
+            }
         }
     }
     
@@ -236,6 +244,18 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
                 self.present(alert, animated: true, completion: nil)
             } else if from == "transfer money" {
                 let alert = UIAlertController(title: "Finish this course succesfully!", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            } else if from == "wait confirm last time" {
+                let alert = UIAlertController(title: "Finish this course succesfully and waiting for trainer confirm", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            } else if from == "wait confirm not last time" {
+                let alert = UIAlertController(title: "Review and schedule next time training successfully and waiting for trainer confirm", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     self.dismiss(animated: true, completion: nil)
                 }))
