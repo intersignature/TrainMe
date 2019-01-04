@@ -564,7 +564,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             print(self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row].trainer_id)
             
             self.changeTrainerAcceptStatus(indexPath: acceptIndexPath)
-//            self.deleteSchedulePlaceBook(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
+            self.deleteSchedulePlaceBook(pendingData: self.pendingDataListsMatch[acceptIndexPath.section].pendingDetail[acceptIndexPath.row])
             
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
@@ -603,12 +603,10 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 return
             }
             self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
+            self.addNotificationDatabase(toUid: changeTrainerPending.trainee_id, description: "Trainer was accepted your booking")
             
             if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
                 self.pendingDataListsMatch.remove(at: indexPath.section)
-                self.view.removeBluerLoader()
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.tabBarController?.tabBar.isHidden = false
             } else {
                 self.deletePendingData(indexPath: indexPath, from: "accept")
             }
@@ -678,10 +676,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             let pendingData = self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row]
             
             self.ref.child("pending_schedule_detail").child(pendingData.trainer_id).child(pendingData.schedule_key).child(pendingData.trainee_id).removeValue { (err, pendingRef) in
-            
-                self.view.removeBluerLoader()
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.tabBarController?.tabBar.isHidden = false
+                
+                self.addNotificationDatabase(toUid: pendingData.trainee_id, description: "Trainer was declined your booking")
             
                 if let err = err {
                     print(err.localizedDescription)
@@ -699,10 +695,6 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             for (index, eachPendingDetail) in self.pendingDataListsMatch[indexPath.section].pendingDetail.enumerated() {
                 self.ref.child("pending_schedule_detail").child(eachPendingDetail.trainer_id).child(eachPendingDetail.schedule_key).child(eachPendingDetail.trainee_id).removeValue(completionBlock: { (err, ref) in
-
-                    self.view.removeBluerLoader()
-                    self.navigationController?.setNavigationBarHidden(false, animated: true)
-                    self.tabBarController?.tabBar.isHidden = false
 
                     if let err = err {
                         print(err.localizedDescription)
@@ -950,6 +942,25 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             let containVc = vc.topViewController as! ProfileTraineeViewController
             containVc.isBlurProfile = (selectedTrainerForShowProfile[1] as! Bool)
             containVc.traineeProfileUid = (selectedTrainerForShowProfile[0] as! String)
+        }
+    }
+    
+    func addNotificationDatabase(toUid: String, description: String) {
+        
+        let notificationData = ["from_uid": self.currentUser.uid,
+                                "description": description,
+                                "timestamp": Date().getCurrentTime(),
+                                "is_read": "0"]
+        
+        self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.tabBarController?.tabBar.isHidden = false
         }
     }
     
