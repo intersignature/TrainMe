@@ -67,6 +67,8 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         
         if checkNextSchedule() {
             print("checkTrainerIsConfirm")
+            self.view.showBlurLoader()
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.checkTrainerIsConfirm()
         } else {
             self.createAlert(alertTitle: "Please fill next schedule date and time", alertMessage: "")
@@ -81,10 +83,15 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     
     func checkTrainerIsConfirm() {
         
-        ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child(self.countAtIndex!).child("is_trainer_confirm").observeSingleEvent(of: .value) { (snapshot) in
+        self.ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child(self.countAtIndex!).child("is_trainer_confirm").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let isTrainerConfirm = snapshot.value as! String
             self.addReviewData(isTrainerConfirm: isTrainerConfirm)
+        }) { (err) in
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
         }
     }
     
@@ -105,6 +112,8 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         
         ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child(self.countAtIndex!).updateChildValues(reviewData) { (err, ref) in
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
@@ -114,11 +123,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
             } else {
                 
                 //TODO: Transfer money to trainer
-                let alert = UIAlertController(title: "Finish this course succesfully!", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    self.dismiss(animated: true, completion: nil)
-                }))
-                self.present(alert, animated: true, completion: nil)
+                self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed and system was pay money to your account already.", from: "transfer money")
             }
         }
     }
@@ -137,15 +142,13 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         
         self.ref.child("progress_schedule_detail").child(self.trainerId).child(self.traineeId).child(self.ongoingId).child("\(Int(self.countAtIndex)!+1)").updateChildValues(nextScheduleData) { (err, ref) in
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-            let alert = UIAlertController(title: "Review and schedule next time training successfully", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                self.dismiss(animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
+            self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed and selected new schedule, Check it out!", from: "next schedule")
         }
     }
     
@@ -206,5 +209,38 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         super.viewWillAppear(animated)
         
         self.setupNavigationStyle()
+    }
+    
+    func addNotificationDatabase(toUid: String, description: String, from: String) {
+        
+        let notificationData = ["from_uid": self.currentUser.uid,
+                                "description": description,
+                                "timestamp": Date().getCurrentTime(),
+                                "is_read": "0"]
+        
+        self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
+            if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            if from == "next schedule" {
+                let alert = UIAlertController(title: "Review and schedule next time training successfully", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            } else if from == "transfer money" {
+                let alert = UIAlertController(title: "Finish this course succesfully!", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }
