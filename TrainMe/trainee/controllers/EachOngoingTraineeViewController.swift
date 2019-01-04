@@ -120,6 +120,8 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
         
         self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 print(err.localizedDescription)
                 return
