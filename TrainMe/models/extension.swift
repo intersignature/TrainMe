@@ -262,3 +262,56 @@ extension Collection where Indices.Iterator.Element == Index {
         return indices.contains(index) ? self[index] : nil
     }
 }
+
+extension Date {
+    
+    func getCurrentTime() -> String {
+        
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        let date = self
+        let dateString = dateFormatter.string(from: date)
+        
+        return dateString
+    }
+    
+    func getDiffToCurentTime(from: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        let fromDate = dateFormatter.date(from: from)
+        
+        let secondsAgo = Int(self.timeIntervalSince(fromDate!))
+        
+        let minute = 60
+        let hour = 60 * minute
+        let day = 24 * hour
+        let week = 7 * day
+        
+        if secondsAgo < minute {
+            if secondsAgo < 2 {
+                return "\(secondsAgo) SECOND AGO"
+            }
+            return "\(secondsAgo) SECONDS AGO"
+        } else if secondsAgo < hour {
+            if secondsAgo / minute < 2 {
+                return "\(secondsAgo / minute) MINUTE AGO"
+            }
+            return "\(secondsAgo / minute) MINUTES AGO"
+        } else if secondsAgo < day {
+            if secondsAgo / hour < 2 {
+                return "\(secondsAgo / hour) HOUR AGO"
+            }
+            return "\(secondsAgo / hour) HOURS AGO"
+        } else if secondsAgo < week {
+            if secondsAgo / day < 2 {
+                return "\(secondsAgo / day) DAY AGO"
+            }
+            return "\(secondsAgo / day) DAYS AGO"
+        }
+        if secondsAgo / week < 2 {
+            return "\(secondsAgo / week) WEEK AGO"
+        }
+        return "\(secondsAgo / week) WEEKS AGO"
+    }
+}
