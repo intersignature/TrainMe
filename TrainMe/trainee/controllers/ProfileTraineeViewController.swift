@@ -97,7 +97,7 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
     func getReviewData() {
         
         self.ref.child("progress_schedule_detail").observeSingleEvent(of: .value) { (snapshot) in
-            let value = snapshot.value as! [String: [String: [String: AnyObject]]]
+            guard let value = snapshot.value as? [String: [String: [String: AnyObject]]] else { return }
             print(value.count)
             
             value.forEach({ (trainerId, traineeList) in

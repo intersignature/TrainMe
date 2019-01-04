@@ -163,7 +163,7 @@ class ViewController: UIViewController {
             
             print("Successfully saved profile image into firebase storage!")
             
-            let profileImageUrlRef = Storage.storage().reference().child("profile").child((Auth.auth().currentUser?.uid)!).child("imageProfile"+".jpg")
+            let profileImageUrlRef = Storage.storage().reference().child("profile").child((Auth.auth().currentUser?.uid)!).child("imageProfile"+".png")
             profileImageUrlRef.downloadURL(completion: { (url, err) in
                 if let err = err {
                     print(err)
@@ -201,7 +201,7 @@ class ViewController: UIViewController {
                     print("Successfully saved user info into firebase database!")
                     self.view.removeBluerLoader()
 //                    self.dismiss(animated: false, completion: nil)
-                    self.performSegue(withIdentifier: "WelcomeToMain", sender: nil)
+                    self.performSegue(withIdentifier: "WelcomeToMainTrainee", sender: nil)
                 })
             })
         }
