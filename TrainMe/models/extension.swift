@@ -218,9 +218,10 @@ extension UIImageView {
         imageCache.setObject(imageToCache, forKey: imageStringUrl as AnyObject)
     }
     
-    func isBlur(_ isBlur: Bool) {
+    func isBlur(_ isBlur: Bool?) {
         
-        if isBlur {
+        guard let checkIsBlur = isBlur else { return }
+        if checkIsBlur {
             let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.frame = self.bounds

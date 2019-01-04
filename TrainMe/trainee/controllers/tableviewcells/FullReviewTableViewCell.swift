@@ -19,7 +19,16 @@ class FullReviewTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.setProfileImageRound()
         self.reviewDescLb.collapsed = true
+    }
+    
+    func setProfileImageRound() {
+        
+        self.profileImg.layer.masksToBounds = false
+        self.profileImg.layer.cornerRadius = self.profileImg.frame.height/2
+        self.profileImg.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
