@@ -201,13 +201,7 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.view.removeBluerLoader()
-            let alert = UIAlertController(title: "Your payment was successful", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                self.dismiss(animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
+            self.addNotificationDatabase(toUid: self.pendingData.trainer_id, description: "Your trainee was pay for train course successfully, Please check it out")
         }
     }
     
@@ -251,5 +245,28 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
         
         self.setupNavigationStyle()
         getOmiseCustId()
+    }
+    
+    func addNotificationDatabase(toUid: String, description: String) {
+        
+        let notificationData = ["from_uid": self.currentUser!.uid,
+                                "description": description,
+                                "timestamp": Date().getCurrentTime(),
+                                "is_read": "0"]
+        
+        self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.view.removeBluerLoader()
+            let alert = UIAlertController(title: "Your payment was successful", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

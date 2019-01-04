@@ -77,7 +77,8 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
             
             print("Confirm to request")
-            //TODO: request
+            self.view.showBlurLoader()
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.changeStatusToRequestChangeSchedule(changeIndex: sender.tag)
         }))
         alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
@@ -90,14 +91,17 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
         self.ref.child("progress_schedule_detail").child(self.selectedOngoing.trainerId).child(self.currentUser.uid).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[changeIndex].count).updateChildValues(changeData) { (err, ref) in
             
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
             
+            self.addNotificationDatabase(toUid: self.selectedOngoing.trainerId, description: "Your trainer want to change schedule from \(self.selectedOngoing.eachOngoingDetails[changeIndex].start_train_date) \(self.selectedOngoing.eachOngoingDetails[changeIndex].start_train_time)")
             self.selectedOngoing.eachOngoingDetails[changeIndex].status = "3"
             self.eachOngoingScheduleTableView.reloadData()
-            self.createAlert(alertTitle: "Request to change schedule successful", alertMessage: "Please wait for your trainer change schedule")
+            
         }
         
     }
@@ -105,5 +109,23 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
     @objc func reviewBtnAction(sender: UIButton) {
         
         self.parent?.performSegue(withIdentifier: "EachOngoingProgressToReview", sender: sender.tag)
+    }
+    
+    func addNotificationDatabase(toUid: String, description: String) {
+        
+        let notificationData = ["from_uid": self.currentUser.uid,
+                                "description": description,
+                                "timestamp": Date().getCurrentTime(),
+                                "is_read": "0"]
+        
+        self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
 }

@@ -627,15 +627,16 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             
             self.ref.child("pending_schedule_detail").child(deletePendingData.trainer_id).child(deletePendingData.schedule_key).child(self.currentUser.uid).removeValue { (err, ref) in
                 
-                self.view.removeBluerLoader()
-                self.tabBarController?.tabBar.isHidden = false
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                
                 if let err = err {
+                    self.view.removeBluerLoader()
+                    self.tabBarController?.tabBar.isHidden = false
+                    self.navigationController?.setNavigationBarHidden(false, animated: true)
                     print(err.localizedDescription)
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     return
                 }
+                
+                self.addNotificationDatabase(toUid: deletePendingData.trainer_id, description: "Your trainee was canceled your confirmation")
                 
                 self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.remove(at: deletePendingIndexPath.row)
                 if self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.count == 0 {
@@ -830,5 +831,24 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func addNotificationDatabase(toUid: String, description: String) {
+        
+        let notificationData = ["from_uid": self.currentUser.uid,
+                                "description": description,
+                                "timestamp": Date().getCurrentTime(),
+                                "is_read": "0"]
+        
+        self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.tabBarController?.tabBar.isHidden = false
+        }
     }
 }
