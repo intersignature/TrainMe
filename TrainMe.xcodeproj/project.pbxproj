@@ -79,6 +79,8 @@
 		B272239C2176961F00288ADE /* OmiseSDK.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */; };
 		B272239E2176963500288ADE /* OmiseSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B272239B2176961F00288ADE /* OmiseSDK.framework */; };
 		B272239F2176963500288ADE /* OmiseSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B272239B2176961F00288ADE /* OmiseSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B279BFAE21E11EBC007BA390 /* NotificationTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279BFAD21E11EBC007BA390 /* NotificationTrainerTableViewCell.swift */; };
+		B279BFB021E12170007BA390 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279BFAF21E12170007BA390 /* Notification.swift */; };
 		B27F7E51219AE13400AA9520 /* PaymentTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F7E50219AE13400AA9520 /* PaymentTrainerTableViewCell.swift */; };
 		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
 		B28986AB21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */; };
@@ -219,6 +221,8 @@
 		B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OmiseSDK.framework.dSYM; path = Carthage/Build/iOS/OmiseSDK.framework.dSYM; sourceTree = SOURCE_ROOT; };
 		B272239B2176961F00288ADE /* OmiseSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmiseSDK.framework; path = Carthage/Build/iOS/OmiseSDK.framework; sourceTree = SOURCE_ROOT; };
+		B279BFAD21E11EBC007BA390 /* NotificationTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTrainerTableViewCell.swift; sourceTree = "<group>"; };
+		B279BFAF21E12170007BA390 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B27F7E50219AE13400AA9520 /* PaymentTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTrainerTableViewCell.swift; sourceTree = "<group>"; };
 		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
 		B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingProgressTraineeTableViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +402,7 @@
 				B224C71721A41F3300DD33AB /* OngoingTrainerTableViewCell.swift */,
 				B2B62D2421A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift */,
 				B236E7E321CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift */,
+				B279BFAD21E11EBC007BA390 /* NotificationTrainerTableViewCell.swift */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 				B2901ECB21D3F958005ED68D /* Review.swift */,
 				B2901ECD21D3FB4B005ED68D /* EachReview.swift */,
 				B2168B9B21D920B600211223 /* Help.swift */,
+				B279BFAF21E12170007BA390 /* Notification.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -899,6 +905,7 @@
 				B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */,
 				B212FA0721D8FFCC008D6956 /* FullReviewProfileViewController.swift in Sources */,
 				B26783DA21C8BF53001EE44E /* ReviewTrainerByTraineeViewController.swift in Sources */,
+				B279BFAE21E11EBC007BA390 /* NotificationTrainerTableViewCell.swift in Sources */,
 				B24664E221AC46B10065655F /* AddCreditCardViewController.swift in Sources */,
 				B2936DE321467CA700C0DB89 /* BookPlaceDetail.swift in Sources */,
 				B236E7E421CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift in Sources */,
@@ -921,6 +928,7 @@
 				B2168B9821D91B4A00211223 /* HelpTraineeViewController.swift in Sources */,
 				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,
 				B293FACD21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift in Sources */,
+				B279BFB021E12170007BA390 /* Notification.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
 				B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */,
 				B2EB023E21D90B4E00CE586D /* FullReviewTableViewCell.swift in Sources */,
