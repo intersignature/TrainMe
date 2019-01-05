@@ -85,6 +85,8 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
 
             if self.checkNewSchedule() {
+                self.view.showBlurLoader()
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
                 self.changeSchdedule(sender: sender)
             } else {
                 self.createAlert(alertTitle: "Plaese enter new schedule date and tiim", alertMessage: "")
@@ -166,6 +168,8 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[sender.tag].count).updateChildValues(changeScheduleData) { (err, ref) in
             
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
@@ -175,7 +179,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
             self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_time = newTime
             self.selectedOngoing.eachOngoingDetails[sender.tag].status = "1"
             self.eachOngoingTrainerTableView.reloadData()
-            self.createAlert(alertTitle: "Change schedule date and time successfully", alertMessage: "")
+            self.addNotificationDatabase(toUid: self.selectedOngoing.traineeId, description: "Your trainer was change schedule date. Please check your new schedule.", from: "change schedule")
         }
     }
 
@@ -184,6 +188,8 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         let alert = UIAlertController(title: "Are you sure to confirm training?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
 //            self.confirmSuccessStatusToDatabase(sender: sender)
+            self.view.showBlurLoader()
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.checkTraineeIsConfirm(sender: sender)
         }))
         alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
@@ -192,9 +198,14 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
     
     func checkTraineeIsConfirm(sender: UIButton) {
         
-        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[sender.tag].count).child("is_trainee_confirm").observeSingleEvent(of: .value) { (snapshot) in
+        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[sender.tag].count).child("is_trainee_confirm").observeSingleEvent(of: .value, with: { (snapshot) in
             let isTraineeConfirm = snapshot.value as! String
             self.confirmSuccessStatusToDatabase(isTraineeConfirm: isTraineeConfirm, sender: sender)
+        }) { (err) in
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            return
         }
     }
     
@@ -210,6 +221,8 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[sender.tag].count).updateChildValues(confirmData) { (err, ref) in
             
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 print(err.localizedDescription)
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
@@ -222,12 +235,12 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
                     self.setStatusToNextSchedule(sender: sender)
                 } else {
                     //TODO: Transfer money to trainer
-                    self.createAlert(alertTitle: "This course is finish!", alertMessage: "")
                     self.eachOngoingTrainerTableView.reloadData()
+                    self.addNotificationDatabase(toUid: self.selectedOngoing.traineeId, description: "Your trainer was confirmed training session and pay money to your trainer account already", from: "transfer money")
                 }
             } else {
                 self.eachOngoingTrainerTableView.reloadData()
-                self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
+                self.addNotificationDatabase(toUid: self.selectedOngoing.traineeId, description: "Your trainer was confirmed training session already waiting for your review", from: "wait review")
             }
         }
         print("confirmSuccessStatusToDatabase: \(sender.tag)")
@@ -239,14 +252,51 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedOngoing.traineeId).child(self.selectedOngoing.ongoingId).child(self.selectedOngoing.eachOngoingDetails[Int(sender.tag)+1].count).updateChildValues(statusNextScheduleData) { (err, ref) in
             
             if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 print(err.localizedDescription)
                 return
             }
             self.selectedOngoing.eachOngoingDetails[Int(sender.tag)+1].status = "1"
             self.eachOngoingTrainerTableView.reloadData()
-            self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
+            self.addNotificationDatabase(toUid: self.selectedOngoing.traineeId, description: "Your trainer was confirmed training session and new schedule already.", from: "next schedule")
         }
     }
     
+    func addNotificationDatabase(toUid: String, description: String, from: String) {
+        
+        let notificationData = ["from_uid": self.currentUser.uid,
+                                "description": description,
+                                "timestamp": Date().getCurrentTime(),
+                                "is_read": "0"]
+        
+        self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
+            if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            if from == "change schedule" {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: "Change schedule date and time successfully", alertMessage: "")
+            } else if from == "next schedule" {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
+            } else if from == "transfer money" {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: "This course is finish!", alertMessage: "")
+            } else if from == "wait review" {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
+            }
+        }
+    }
 }
