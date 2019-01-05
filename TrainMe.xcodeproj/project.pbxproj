@@ -335,7 +335,6 @@
 				B202BD2A21502AA900DE0790 /* tableviewcells */,
 				B202BD23214E887300DE0790 /* sidebar */,
 				B202BD1A214D6A4100DE0790 /* tabbars */,
-				B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */,
 				B2B9E358215261CA0048E501 /* NewProgressViewController.swift */,
 				B2357E2521AFDFA7006EA2DC /* SelectCreditCardToChargeViewController.swift */,
 				B2CE11A721BC26730042E4A6 /* EachOngoingTraineeViewController.swift */,
@@ -351,6 +350,9 @@
 		B202BD1A214D6A4100DE0790 /* tabbars */ = {
 			isa = PBXGroup;
 			children = (
+				B2B9E3562152477D0048E501 /* ViewCourseTrainerByTraineeViewController.swift */,
+				B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */,
+				B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */,
 				B202BD1D214D712300DE0790 /* FindTabTraineeViewController.swift */,
 				B202BD1F214D713600DE0790 /* ProgressTabTraineeViewController.swift */,
 				B202BD21214D714900DE0790 /* NotificationTabTraineeViewController.swift */,
@@ -480,8 +482,6 @@
 				B2AB110E214655D900E84321 /* AddSchedulePlaceViewController.swift */,
 				B280D84F21392C9000A59DB0 /* tabbars */,
 				B20ECAEB213FDE7E0084E685 /* tableviewcells */,
-				B201C67E2147CF0100A5E1E8 /* ShowTrainerMarkerViewController.swift */,
-				B23D2E0D214C2BA500CFCAC0 /* ShowCourseTrainerSpecifiedViewController.swift */,
 				B2B929D0216B14F600D61E0A /* ProfileTrainerViewController.swift */,
 				B236E7E521CA1ED300FDFB0C /* EachOngoingTrainerViewController.swift */,
 			);
