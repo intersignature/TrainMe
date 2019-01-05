@@ -279,6 +279,7 @@ extension Date {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en")
         let fromDate = dateFormatter.date(from: from)
         
         let secondsAgo = Int(self.timeIntervalSince(fromDate!))

@@ -46,7 +46,7 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
             values.forEach({ (notificationKey, notificationVal) in
                 
 
-                if self.userProfileObj[notificationVal["from_uid"] as! String] == nil || !self.uid.contains(notificationVal["from_uid"] as! String) {
+                if self.userProfileObj[notificationVal["from_uid"] as! String] == nil && !self.uid.contains(notificationVal["from_uid"] as! String) {
                     self.uid.append(notificationVal["from_uid"] as! String)
                     self.getProfileObj(uid: notificationVal["from_uid"] as! String)
                 }
