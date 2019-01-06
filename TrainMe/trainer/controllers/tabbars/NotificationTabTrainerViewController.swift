@@ -17,9 +17,13 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
     @IBOutlet weak var notificationTableView: UITableView!
     
     var notificationArr: [Notification] = []
+    var notificationArrSort: [Notification] = []
     
     var uid: [String] = []
     var userProfileObj: [String: UserProfile] = [:]
+    
+    var timeList: [String] = []
+    var timeListSorted: [Date] = []
     
     var ref: DatabaseReference!
     var currentUser: User!
@@ -42,9 +46,15 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
         notificationRef.observe(.value, with: { (snapshot) in
             
             self.notificationArr.removeAll()
+            self.notificationArrSort.removeAll()
+            self.timeList.removeAll()
+            self.timeListSorted.removeAll()
             let values = snapshot.value as! [String: NSDictionary]
             values.forEach({ (notificationKey, notificationVal) in
                 
+                if !self.timeList.contains(notificationVal["timestamp"] as! String) {
+                    self.timeList.append(notificationVal["timestamp"] as! String)
+                }
 
                 if self.userProfileObj[notificationVal["from_uid"] as! String] == nil && !self.uid.contains(notificationVal["from_uid"] as! String) {
                     self.uid.append(notificationVal["from_uid"] as! String)
@@ -57,13 +67,13 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
                                                 isRead: notificationVal["is_read"] as! String,
                                                 timeStamp: notificationVal["timestamp"] as! String)
                 self.notificationArr.append(notification)
-                
-                self.uid.forEach({ (eachUid) in
-                    if self.userProfileObj[eachUid] == nil {
-                        return
-                    }
-                    self.notificationTableView.reloadData()
-                })
+            })
+            
+            self.uid.forEach({ (eachUid) in
+                if self.userProfileObj[eachUid] == nil {
+                    return
+                }
+                self.sortDate()
             })
         }) { (err) in
             print(err.localizedDescription)
@@ -88,11 +98,12 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
                                          uid: uid,
                                          omiseCusId: (value["omise_cus_id"] as! String))
             self.userProfileObj[uid] = profileObj
-            
-            if self.userProfileObj.count == self.uid.count {
-                self.notificationTableView.reloadData()
-            }
-            
+            self.uid.forEach({ (eachUid) in
+                if self.userProfileObj[eachUid] == nil {
+                    return
+                }
+                self.sortDate()
+            })
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -100,17 +111,52 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
         }
     }
     
+    func sortDate() {
+        
+        var convertedArray: [Date] = []
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        for dat in self.timeList {
+            let date = dateFormatter.date(from: dat)
+            if let date = date {
+                convertedArray.append(date)
+            }
+        }
+        
+        self.timeListSorted = convertedArray.sorted(by: { $0.compare($1) == .orderedDescending })
+        self.matchSortedDate(dateFormatter: dateFormatter)
+    }
+    
+    func matchSortedDate(dateFormatter: DateFormatter) {
+        
+        self.timeListSorted.forEach { (date) in
+            let dateString = dateFormatter.string(from: date)
+            self.notificationArr.forEach({ (eachNotification) in
+                if dateString == eachNotification.timeStamp {
+                    self.notificationArrSort.append(eachNotification)
+                }
+            })
+        }
+        print(self.notificationArrSort)
+        if self.userProfileObj.count == self.uid.count {
+            self.notificationTableView.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.notificationArr.count
+        return self.notificationArrSort.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationTrainerTableCell") as! NotificationTrainerTableViewCell
-        cell.isReadView.isHidden = notificationArr[indexPath.row].isRead == "1" ? true : false
-        cell.profileImg.downloaded(from: (self.userProfileObj[self.notificationArr[indexPath.row].fromUid]?.profileImageUrl)!)
-        cell.nameLb.text = self.userProfileObj[self.notificationArr[indexPath.row].fromUid]?.fullName
-        cell.timeAgoLb.text = Date().getDiffToCurentTime(from: self.notificationArr[indexPath.row].timeStamp)
-        cell.descriptionLb.text = self.notificationArr[indexPath.row].description
+        cell.isReadView.isHidden = notificationArrSort[indexPath.row].isRead == "1" ? true : false
+        cell.profileImg.downloaded(from: (self.userProfileObj[self.notificationArrSort[indexPath.row].fromUid]?.profileImageUrl)!)
+        cell.nameLb.text = self.userProfileObj[self.notificationArrSort[indexPath.row].fromUid]?.fullName
+        cell.timeAgoLb.text = Date().getDiffToCurentTime(from: self.notificationArrSort[indexPath.row].timeStamp)
+        cell.descriptionLb.text = self.notificationArrSort[indexPath.row].description
         return cell
     }
     
