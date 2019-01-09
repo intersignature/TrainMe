@@ -197,13 +197,14 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                 tempEachOngoings.append(tempEachOngoing)
                             }
                             
-                            let tempOngoingDetail = OngoingDetail(ongoingId: btnKey,
+                            var tempOngoingDetail = OngoingDetail(ongoingId: btnKey,
                                                                   trainerId: trainerId,
                                                                   courseId: detail["course_id"] as! String,
                                                                   placeId: detail["place_id"] as! String,
                                                                   transactionToAdmin: detail["transaction_to_admin"] as! String,
                                                                   transactionToTrainer: detail["transaction_to_trainer"] as! String,
                                                                   eachOngoingDetails: tempEachOngoings)
+                            tempOngoingDetail.traineeId = self.currentUser.uid
                             
                             self.ongoingDatas.append(tempOngoingDetail)
                             tempEachOngoings.removeAll()

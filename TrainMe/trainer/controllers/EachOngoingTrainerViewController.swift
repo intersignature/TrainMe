@@ -17,6 +17,10 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
     var newScheduleDate: UITextField!
     var newScheduleTime: UITextField!
     
+    var selectedTrainerUid: String!
+    var selectedTraineeUid: String!
+    var selectedOngoingId: String!
+    
     var selectedOngoing: OngoingDetail!
     var ref: DatabaseReference!
     var currentUser: User!
@@ -28,11 +32,52 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         super.viewDidLoad()
         print("selectedOngoingzz: \(selectedOngoing)")
         
+        self.selectedOngoing = OngoingDetail()
         self.ref = Database.database().reference()
         self.currentUser = Auth.auth().currentUser
         
-        self.eachOngoingTrainerTableView.delegate = self
+        self.getEachOngoing()
+        
         self.eachOngoingTrainerTableView.dataSource = self
+        self.eachOngoingTrainerTableView.delegate = self
+    }
+    
+    func getEachOngoing() {
+        
+        self.ref.child("progress_schedule_detail").child(self.selectedTrainerUid).child(self.selectedTraineeUid).child(self.selectedOngoingId).observe(.value, with: { (snapshot) in
+            let value = snapshot.value as? AnyObject
+            print(value!.count)
+            var tempEachOngoings: [EachOngoingDetail] = []
+            for i in 1...(Int(value!.count)-4){
+                print("courseId: \(i)")
+                let eachDetailValue = value![String(i)] as? NSDictionary
+                let tempEachOngoing = EachOngoingDetail(start_train_date: eachDetailValue!["start_train_date"] as! String,
+                                                        start_train_time: eachDetailValue!["start_train_time"] as! String,
+                                                        status: eachDetailValue!["status"] as! String,
+                                                        count: "\(i)",
+                    is_trainee_confirm: eachDetailValue!["is_trainee_confirm"] as! String,
+                    is_trainer_confirm: eachDetailValue!["is_trainer_confirm"] as! String,
+                    note: eachDetailValue!["note"] as! String,
+                    rate_point: eachDetailValue!["rate_point"] as! String,
+                    review: eachDetailValue!["review"] as! String)
+                tempEachOngoings.append(tempEachOngoing)
+            }
+            
+            var tempOngoingDetail = OngoingDetail(ongoingId: self.selectedOngoingId,
+                                                  traineeId: self.selectedTraineeUid,
+                                                  courseId: value!["course_id"] as! String,
+                                                  placeId: value!["place_id"] as! String,
+                                                  transactionToAdmin: value!["transaction_to_admin"] as! String,
+                                                  transactionToTrainer: value!["transaction_to_trainer"] as! String,
+                                                  eachOngoingDetails: tempEachOngoings)
+            tempOngoingDetail.trainerId = self.selectedTrainerUid
+            self.selectedOngoing = tempOngoingDetail
+            self.eachOngoingTrainerTableView.reloadData()
+        }) { (err) in
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            print(err.localizedDescription)
+            return
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,9 +220,6 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
                 return
             }
             
-            self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_date = newDate
-            self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_time = newTime
-            self.selectedOngoing.eachOngoingDetails[sender.tag].status = "1"
             self.eachOngoingTrainerTableView.reloadData()
             self.addNotificationDatabase(toUid: self.selectedOngoing.traineeId, description: "Your trainer was change schedule date. Please check your new schedule.", from: "change schedule")
         }
@@ -227,10 +269,8 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-            
-            self.selectedOngoing.eachOngoingDetails[sender.tag].is_trainer_confirm = "1"
+
             if isTraineeConfirm == "1" {
-                self.selectedOngoing.eachOngoingDetails[sender.tag].status = "2"
                 if self.selectedOngoing.eachOngoingDetails.count > Int(self.selectedOngoing.eachOngoingDetails[sender.tag].count)! {
                     self.setStatusToNextSchedule(sender: sender)
                 } else {
@@ -259,7 +299,6 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
                 print(err.localizedDescription)
                 return
             }
-            self.selectedOngoing.eachOngoingDetails[Int(sender.tag)+1].status = "1"
             self.eachOngoingTrainerTableView.reloadData()
             self.addNotificationDatabase(toUid: self.selectedOngoing.traineeId, description: "Your trainer was confirmed training session and new schedule already.", from: "next schedule")
         }

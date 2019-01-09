@@ -91,7 +91,10 @@ class OngoingProgressTrainerTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EachOngoingTrainerViewController {
-            destination.selectedOngoing = self.selectedOngoing
+//            destination.selectedOngoing = self.selectedOngoing
+            destination.selectedTraineeUid = self.selectedOngoing.traineeId
+            destination.selectedTrainerUid = self.selectedOngoing.trainerId
+            destination.selectedOngoingId = self.selectedOngoing.ongoingId
         }
         
         if segue.identifier == "OngoingProgressTrainerToProfileTrainee" {

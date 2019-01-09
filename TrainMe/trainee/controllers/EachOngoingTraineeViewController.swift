@@ -15,6 +15,11 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
     @IBOutlet weak var eachOngoingScheduleTableView: UITableView!
     
     var selectedOngoing: OngoingDetail!
+    
+    var selectedTrainerUid: String!
+    var selectedTraineeUid: String!
+    var selectedOngoingId: String!
+    
     var currentUser: User!
     var ref: DatabaseReference!
     
@@ -26,8 +31,48 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
         self.ref = Database.database().reference()
         self.currentUser = Auth.auth().currentUser
         
+        self.getEachOngoing()
+        
         self.eachOngoingScheduleTableView.dataSource = self
         self.eachOngoingScheduleTableView.delegate = self
+    }
+    
+    func getEachOngoing() {
+        
+        self.ref.child("progress_schedule_detail").child(self.selectedTrainerUid).child(self.selectedTraineeUid).child(self.selectedOngoingId).observe(.value, with: { (snapshot) in
+            let value = snapshot.value as? AnyObject
+            print(value!.count)
+            var tempEachOngoings: [EachOngoingDetail] = []
+            for i in 1...(Int(value!.count)-4){
+                print("courseId: \(i)")
+                let eachDetailValue = value![String(i)] as? NSDictionary
+                let tempEachOngoing = EachOngoingDetail(start_train_date: eachDetailValue!["start_train_date"] as! String,
+                                                        start_train_time: eachDetailValue!["start_train_time"] as! String,
+                                                        status: eachDetailValue!["status"] as! String,
+                                                        count: "\(i)",
+                    is_trainee_confirm: eachDetailValue!["is_trainee_confirm"] as! String,
+                    is_trainer_confirm: eachDetailValue!["is_trainer_confirm"] as! String,
+                    note: eachDetailValue!["note"] as! String,
+                    rate_point: eachDetailValue!["rate_point"] as! String,
+                    review: eachDetailValue!["review"] as! String)
+                tempEachOngoings.append(tempEachOngoing)
+            }
+            
+            var tempOngoingDetail = OngoingDetail(ongoingId: self.selectedOngoingId,
+                                                  trainerId: self.selectedTrainerUid,
+                                                  courseId: value!["course_id"] as! String,
+                                                  placeId: value!["place_id"] as! String,
+                                                  transactionToAdmin: value!["transaction_to_admin"] as! String,
+                                                  transactionToTrainer: value!["transaction_to_trainer"] as! String,
+                                                  eachOngoingDetails: tempEachOngoings)
+            tempOngoingDetail.traineeId = self.currentUser.uid
+            self.selectedOngoing = tempOngoingDetail
+            self.eachOngoingScheduleTableView.reloadData()
+        }) { (err) in
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            print(err.localizedDescription)
+            return
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
