@@ -90,6 +90,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         self.placeId.removeAll()
         self.placeObj.removeAll()
         
+        self.pendingTableView.reloadData()
+        
         self.getPendingObj()
         self.getOngingData()
     }
@@ -834,6 +836,12 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     }
     
     func addNotificationDatabase(toUid: String, description: String) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en")
+        let fromDate = dateFormatter.string(from: Date())
+        print(fromDate)
         
         let notificationData = ["from_uid": self.currentUser.uid,
                                 "description": description,

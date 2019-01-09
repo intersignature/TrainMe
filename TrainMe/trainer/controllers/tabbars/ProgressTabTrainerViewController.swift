@@ -96,6 +96,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.placeIds.removeAll()
         self.courseObj.removeAll()
         self.courseIds.removeAll()
+        self.progressTableView.reloadData()
         
         self.getPendingDataList()
         self.getOngoingData()
@@ -947,9 +948,14 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     
     func addNotificationDatabase(toUid: String, description: String) {
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en")
+        let currentStringOfDate = dateFormatter.string(from: Date())
+        
         let notificationData = ["from_uid": self.currentUser.uid,
                                 "description": description,
-                                "timestamp": Date().getCurrentTime(),
+                                "timestamp": currentStringOfDate,
                                 "is_read": "0"]
         
         self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in

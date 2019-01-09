@@ -98,7 +98,7 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
                 return
             }
             
-            self.addNotificationDatabase(toUid: self.selectedOngoing.trainerId, description: "Your trainer want to change schedule from \(self.selectedOngoing.eachOngoingDetails[changeIndex].start_train_date) \(self.selectedOngoing.eachOngoingDetails[changeIndex].start_train_time)")
+            self.addNotificationDatabase(toUid: self.selectedOngoing.trainerId, description: "Your traineer want to change schedule from \(self.selectedOngoing.eachOngoingDetails[changeIndex].start_train_date) \(self.selectedOngoing.eachOngoingDetails[changeIndex].start_train_time)")
             self.selectedOngoing.eachOngoingDetails[changeIndex].status = "3"
             self.eachOngoingScheduleTableView.reloadData()
             
@@ -113,9 +113,14 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
     
     func addNotificationDatabase(toUid: String, description: String) {
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en")
+        let currentStringOfDate = dateFormatter.string(from: Date())
+        
         let notificationData = ["from_uid": self.currentUser.uid,
                                 "description": description,
-                                "timestamp": Date().getCurrentTime(),
+                                "timestamp": currentStringOfDate,
                                 "is_read": "0"]
         
         self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in

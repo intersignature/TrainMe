@@ -163,15 +163,21 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-            self.addNotificationDatabase(toUid: self.selectedBookDetail.trainerId, description: "Trainer want you to train with you, Check it out!")
+            self.addNotificationDatabase(toUid: self.selectedBookDetail.trainerId, description: "Trainee want you to train with you, Check it out!")
         }
     }
     
     func addNotificationDatabase(toUid: String, description: String) {
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en")
+        let currentStringOfDate = dateFormatter.string(from: Date())
+        
+        
         let notificationData = ["from_uid": self.currentUser.uid,
                                 "description": description,
-                                "timestamp": Date().getCurrentTime(),
+                                "timestamp": currentStringOfDate,
                                 "is_read": "0"]
         
         self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
