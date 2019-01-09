@@ -75,29 +75,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         super.viewDidAppear(animated)
         
         self.statusSegmented.isEnabled = false
-        
-        self.pendingDataListsMatch.removeAll()
-        self.pendingDetails.removeAll()
-        self.pendingTimeList.removeAll()
-        self.pendingTimeListSorted.removeAll()
-        self.paymentDataListsMatch.removeAll()
-        self.paymentDetail.removeAll()
-        self.paymentTimeList.removeAll()
-        self.paymentTimeListSorted.removeAll()
-        self.ongoingDatas.removeAll()
-        self.ongoingDataSorted.removeAll()
-        self.waitingOngoingDataIndex.removeAll()
-        self.successfulDataIndex.removeAll()
-        self.timeListOngoing.removeAll()
-        self.timeListSortedOnging.removeAll()
-        self.traineeObj.removeAll()
-        self.traineeIds.removeAll()
-        self.placeObj.removeAll()
-        self.placeIds.removeAll()
-        self.courseObj.removeAll()
-        self.courseIds.removeAll()
-        self.progressTableView.reloadData()
-        
+//        self.progressTableView.reloadData()
         self.getPendingDataList()
         self.getOngoingData()
     }
@@ -111,9 +89,28 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     func getPendingDataList() {
 
         print("sadasd:\(self.currentUser.uid)")
-        self.ref.child("pending_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        self.ref.child("pending_schedule_detail").child(self.currentUser.uid).observe(.value, with: { (snapshot) in
+            
+            var isSortDate = false
+            
             if snapshot.childrenCount > 0 {
                 for pendingDataObjs in snapshot.children.allObjects as! [DataSnapshot] {
+                    
+                    self.pendingDataListsMatch.removeAll()
+                    self.pendingDetails.removeAll()
+                    self.pendingTimeList.removeAll()
+                    self.pendingTimeListSorted.removeAll()
+                    self.paymentDataListsMatch.removeAll()
+                    self.paymentDetail.removeAll()
+                    self.paymentTimeList.removeAll()
+                    self.paymentTimeListSorted.removeAll()
+//                    self.ongoingDatas.removeAll()
+//                    self.ongoingDataSorted.removeAll()
+//                    self.waitingOngoingDataIndex.removeAll()
+//                    self.successfulDataIndex.removeAll()
+//                    self.timeListOngoing.removeAll()
+//                    self.timeListSortedOnging.removeAll()
+                    
 //                    print("pendingobjscount: \(pendingDataObjs.childrenCount)")
                     let pendingDataObj = pendingDataObjs.value as! [String: NSDictionary]
 //                    print("aaa: \(pendingDataObj.values.count)")
@@ -149,18 +146,35 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         if !self.courseIds.contains(pendingData.course_id) {
                             self.courseIds.append(pendingData.course_id)
                             self.getCourseData(courseId: pendingData.course_id)
+                            isSortDate = true
                         }
                         if !self.placeIds.contains(pendingData.place_id){
                             self.placeIds.append(pendingData.place_id)
                             self.getPlaceData(placeId: pendingData.place_id)
+                            isSortDate = true
                         }
                         if !self.traineeIds.contains(pendingData.trainee_id) {
                             self.traineeIds.append(pendingData.trainee_id)
                             self.getTraineeData(uid: pendingData.trainee_id)
+                            isSortDate = true
                         }
                     })
                 }
-                
+                self.traineeIds.forEach({ (eachTraineeId) in
+                    if self.traineeObj[eachTraineeId] == nil {
+                        self.getTraineeData(uid: eachTraineeId)
+                        return
+                    }
+                })
+                self.placeIds.forEach({ (eachPlaceId) in
+                    if self.placeObj[eachPlaceId] == nil {
+                        self.getPlaceData(placeId: eachPlaceId)
+                        return
+                    }
+                })
+                if !isSortDate {
+                    self.sortDate()
+                }
             }
 //            if self.pendingDetailsCount == self.pendingDetails.count {
 //                self.progressTableView.reloadData()
@@ -176,8 +190,23 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     func getOngoingData() {
         
         var tempEachOngoings: [EachOngoingDetail] = []
-        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).observe(.value, with: { (snapshot) in
             let values = snapshot.value as? [String: [String: AnyObject]]
+            
+//            self.pendingDataListsMatch.removeAll()
+//            self.pendingDetails.removeAll()
+//            self.pendingTimeList.removeAll()
+//            self.pendingTimeListSorted.removeAll()
+//            self.paymentDataListsMatch.removeAll()
+//            self.paymentDetail.removeAll()
+//            self.paymentTimeList.removeAll()
+//            self.paymentTimeListSorted.removeAll()
+            self.ongoingDatas.removeAll()
+            self.ongoingDataSorted.removeAll()
+            self.waitingOngoingDataIndex.removeAll()
+            self.successfulDataIndex.removeAll()
+            self.timeListOngoing.removeAll()
+            self.timeListSortedOnging.removeAll()
             
             values?.forEach({ (traineeId, overallScheduleDetail) in
                 print("traineeId: \(traineeId)")
@@ -244,6 +273,21 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                     }
                 }
             }
+            self.traineeIds.forEach({ (eachTraineeId) in
+                if self.traineeObj[eachTraineeId] == nil {
+                    self.getTraineeData(uid: eachTraineeId)
+                    return
+                }
+            })
+            
+            self.placeIds.forEach({ (eachPlaceId) in
+                if self.placeObj[eachPlaceId] == nil {
+                    self.getPlaceData(placeId: eachPlaceId)
+                    return
+                }
+            })
+            self.statusSegmented.isEnabled = true
+            self.progressTableView.reloadData()
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -606,12 +650,12 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
             self.addNotificationDatabase(toUid: changeTrainerPending.trainee_id, description: "Trainer was accepted your booking")
             
-            if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
-                self.pendingDataListsMatch.remove(at: indexPath.section)
-            } else {
-                self.deletePendingData(indexPath: indexPath, from: "accept")
-            }
-            self.progressTableView.reloadData()
+//            if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
+//                self.pendingDataListsMatch.remove(at: indexPath.section)
+//            } else {
+//                self.deletePendingData(indexPath: indexPath, from: "accept")
+//            }
+//            self.progressTableView.reloadData()
         }
     }
     
@@ -677,20 +721,18 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             let pendingData = self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row]
             
             self.ref.child("pending_schedule_detail").child(pendingData.trainer_id).child(pendingData.schedule_key).child(pendingData.trainee_id).removeValue { (err, pendingRef) in
-                
-                self.addNotificationDatabase(toUid: pendingData.trainee_id, description: "Trainer was declined your booking")
-            
                 if let err = err {
                     print(err.localizedDescription)
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     return
                 }
-    
-                self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
-                if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
-                    self.pendingDataListsMatch.remove(at: indexPath.section)
-                }
-                self.progressTableView.reloadData()
+                
+                self.addNotificationDatabase(toUid: pendingData.trainee_id, description: "Trainer was declined your booking")
+//                self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
+//                if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
+//                    self.pendingDataListsMatch.remove(at: indexPath.section)
+//                }
+//                self.progressTableView.reloadData()
             }
         } else if from == "accept" {
             
@@ -702,11 +744,11 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                         self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                         return
                     }
-
-                    if index == self.pendingDataListsMatch[indexPath.section].pendingDetail.count-1 {
-                        self.pendingDataListsMatch.remove(at: indexPath.section)
-                        self.progressTableView.reloadData()
-                    }
+//
+//                    if index == self.pendingDataListsMatch[indexPath.section].pendingDetail.count-1 {
+//                        self.pendingDataListsMatch.remove(at: indexPath.section)
+//                        self.progressTableView.reloadData()
+//                    }
 
                 })
                 print("###\(index): \(eachPendingDetail.getData())")

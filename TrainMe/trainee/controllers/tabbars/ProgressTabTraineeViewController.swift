@@ -67,39 +67,35 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+//        self.pendingTableView.reloadData()
         self.statusSegmented.isEnabled = false
-        
-        self.pendingDatas.removeAll()
-        self.pendingDataSorted.removeAll()
-        self.timeListPending.removeAll()
-        self.timeListSortedPending.removeAll()
-        self.paymentDataSorted.removeAll()
-        self.paymentDatas.removeAll()
-        self.timeListPayment.removeAll()
-        self.timeListSortedPayment.removeAll()
-        self.ongoingDatas.removeAll()
-        self.ongoingDataSorted.removeAll()
-        self.waitingOngoingDataIndex.removeAll()
-        self.successfulDataIndex.removeAll()
-        self.timeListOngoing.removeAll()
-        self.timeListSortedOnging.removeAll()
-        self.trainerId.removeAll()
-        self.trainerObj.removeAll()
-        self.courseId.removeAll()
-        self.courseObj.removeAll()
-        self.placeId.removeAll()
-        self.placeObj.removeAll()
-        
-        self.pendingTableView.reloadData()
-        
         self.getPendingObj()
         self.getOngingData()
     }
     
     func getPendingObj() {
         
-        self.ref.child("pending_schedule_detail").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.ref.child("pending_schedule_detail").observe(.value, with: { (snapshot) in
+            
+            var isSortDate = false
+            
             let values = snapshot.value as? [String: [String: [String: NSDictionary]]]
+            
+            self.pendingDatas.removeAll()
+            self.pendingDataSorted.removeAll()
+            self.timeListPending.removeAll()
+            self.timeListSortedPending.removeAll()
+            self.paymentDataSorted.removeAll()
+            self.paymentDatas.removeAll()
+            self.timeListPayment.removeAll()
+            self.timeListSortedPayment.removeAll()
+//            self.ongoingDatas.removeAll()
+//            self.ongoingDataSorted.removeAll()
+//            self.waitingOngoingDataIndex.removeAll()
+//            self.successfulDataIndex.removeAll()
+//            self.timeListOngoing.removeAll()
+//            self.timeListSortedOnging.removeAll()
+            
             values?.forEach({ (trainerId, buttons) in
                 buttons.forEach({ (buttonId, bookDetail) in
                     bookDetail.forEach({ (traineeId, bookDetailInfo) in
@@ -133,19 +129,40 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                             if !self.trainerId.contains(trainerId) {
                                 self.trainerId.append(trainerId)
                                 self.getTrainerData(trainerId: trainerId)
+                                isSortDate = true
                             }
                             if !self.courseId.contains(bookDetailInfo["course_id"] as! String) {
                                 self.courseId.append(bookDetailInfo["course_id"] as! String)
                                 self.getCourseName(trainerId: trainerId, courseId: bookDetailInfo["course_id"] as! String)
+                                isSortDate = true
                             }
                             if !self.placeId.contains(bookDetailInfo["place_id"] as! String) {
                                 self.placeId.append(bookDetailInfo["place_id"] as! String)
                                 self.getPlaceName(placeId: bookDetailInfo["place_id"] as! String)
+                                isSortDate = true
                             }
                         }
                     })
                 })
             })
+            
+            self.trainerId.forEach({ (eachTrainerId) in
+                if self.trainerObj[eachTrainerId] == nil {
+                    self.getTrainerData(trainerId: eachTrainerId)
+                    return
+                }
+            })
+            
+            self.placeId.forEach({ (eachPlaceId) in
+                if self.placeObj[eachPlaceId] == nil {
+                    self.getPlaceName(placeId: eachPlaceId)
+                    return
+                }
+                
+            })
+            if !isSortDate {
+                self.sortDate()
+            }
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -155,9 +172,25 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     
     func getOngingData() {
         
-        var tempEachOngoings: [EachOngoingDetail] = []
-        self.ref.child("progress_schedule_detail").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.ref.child("progress_schedule_detail").observe(.value, with: { (snapshot) in
+            
+            var tempEachOngoings: [EachOngoingDetail] = []
             let values = snapshot.value as? [String: [String: [String: AnyObject]]]
+            
+//            self.pendingDatas.removeAll()
+//            self.pendingDataSorted.removeAll()
+//            self.timeListPending.removeAll()
+//            self.timeListSortedPending.removeAll()
+//            self.paymentDataSorted.removeAll()
+//            self.paymentDatas.removeAll()
+//            self.timeListPayment.removeAll()
+//            self.timeListSortedPayment.removeAll()
+            self.ongoingDatas.removeAll()
+            self.ongoingDataSorted.removeAll()
+            self.waitingOngoingDataIndex.removeAll()
+            self.successfulDataIndex.removeAll()
+            self.timeListOngoing.removeAll()
+            self.timeListSortedOnging.removeAll()
             
             values?.forEach({ (trainerId, traineeList) in
 //                print("trainerId: \(trainerId)")
@@ -229,6 +262,23 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                     }
                 }
             }
+            
+            self.trainerId.forEach({ (eachTrainerId) in
+                if self.trainerObj[eachTrainerId] == nil {
+                    self.getTrainerData(trainerId: eachTrainerId)
+                    return
+                }
+            })
+            
+            self.placeId.forEach({ (eachPlaceId) in
+                if self.placeObj[eachPlaceId] == nil {
+                    self.getPlaceName(placeId: eachPlaceId)
+                    return
+                }
+            })
+            self.statusSegmented.isEnabled = true
+            self.pendingTableView.reloadData()
+            
         }) { (err) in
             print(err.localizedDescription)
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
@@ -641,11 +691,11 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                 
                 self.addNotificationDatabase(toUid: deletePendingData.trainer_id, description: "Your trainee was canceled your confirmation")
                 
-                self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.remove(at: deletePendingIndexPath.row)
-                if self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.count == 0 {
-                    self.pendingDataSorted.remove(at: deletePendingIndexPath.section)
-                }
-                self.pendingTableView.reloadData()
+//                self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.remove(at: deletePendingIndexPath.row)
+//                if self.pendingDataSorted[deletePendingIndexPath.section].pendingDetail.count == 0 {
+//                    self.pendingDataSorted.remove(at: deletePendingIndexPath.section)
+//                }
+//                self.pendingTableView.reloadData()
             }
          
     }
