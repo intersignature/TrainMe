@@ -20,12 +20,7 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     var databaseHandle: DatabaseHandle!
     private var currentUser: User?
     var selectedCourse: Course = Course()
-    
-    @IBAction func AddButtonAction(_ sender: UIBarButtonItem) {
-        
-        self.performSegue(withIdentifier: "CourseToAddCourse", sender: nil)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,14 +29,20 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         getCourseData()
         initSideMenu()
         self.title = NSLocalizedString("course", comment: "")
-        
-//        let rightButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.setTableViewEditingMode(sender:)))
-//        rightButton.tintColor = UIColor.white
-//        self.navigationItem.rightBarButtonItem = rightButton
+//
+//        let editCourseBtn = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.setTableViewEditingMode(sender:)))
+//        editCourseBtn.tintColor = UIColor.white
+//        let addCourseBtn = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.showAddCoursePage))
+//        self.navigationItem.rightBarButtonItems = [editCourseBtn, addCourseBtn]
     }
     
-    @objc func setTableViewEditingMode(sender: UIBarButtonItem)
-    {
+    @IBAction func addCourseBtnAction(_ sender: UIBarButtonItem) {
+        
+        self.performSegue(withIdentifier: "CourseToAddCourse", sender: nil)
+    }
+    
+    @IBAction func editCourseBtnAction(_ sender: UIBarButtonItem) {
+        
         tableView.setEditing(!tableView.isEditing, animated: true)
         navigationItem.rightBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
     }
