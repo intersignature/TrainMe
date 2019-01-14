@@ -57,6 +57,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     var courseObj: [String: Course] = [:]
     var courseIds: [String] = []
     
+    var checkSortDate = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -92,93 +94,86 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         self.ref.child("pending_schedule_detail").child(self.currentUser.uid).observe(.value, with: { (snapshot) in
             
             var isSortDate = false
+            self.pendingDataListsMatch.removeAll()
+            self.pendingDetails.removeAll()
+            self.pendingTimeList.removeAll()
+            self.pendingTimeListSorted.removeAll()
+            self.paymentDataListsMatch.removeAll()
+            self.paymentDetail.removeAll()
+            self.paymentTimeList.removeAll()
+            self.paymentTimeListSorted.removeAll()
             
-            if snapshot.childrenCount > 0 {
-                for pendingDataObjs in snapshot.children.allObjects as! [DataSnapshot] {
+            guard let value = snapshot.value as? [String: [String: NSDictionary]] else { return }
+            value.forEach({ (schedule_key, pendingDataObj) in
+                pendingDataObj.forEach({ (pendingDataObjKey, pendingDataObjVal) in
+                    let pendingData = PendingBookPlaceDetail()
+                    pendingData.schedule_key = schedule_key
+                    pendingData.trainee_id = pendingDataObjKey
+                    pendingData.course_id = pendingDataObjVal["course_id"] as! String
+                    pendingData.place_id = pendingDataObjVal["place_id"] as! String
+                    pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
+                    pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
+                    pendingData.trainer_id = self.currentUser.uid
+                    pendingData.is_trainer_accept = pendingDataObjVal["is_trainer_accept"] as! String
+                    if pendingData.is_trainer_accept == "-1" {
+                        
+                        self.pendingDetails.append(pendingData)
+                        
+                        if !self.pendingTimeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {
+                            self.pendingTimeList.append("\(pendingData.start_train_date) \(pendingData.start_train_time)")
+                        }
+                    } else if pendingData.is_trainer_accept == "1" {
+                        
+                        self.paymentDetail.append(pendingData)
+                        
+                        if !self.paymentTimeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {
+                            self.paymentTimeList.append("\(pendingData.start_train_date) \(pendingData.start_train_time)")
+                        }
+                    }
                     
-                    self.pendingDataListsMatch.removeAll()
-                    self.pendingDetails.removeAll()
-                    self.pendingTimeList.removeAll()
-                    self.pendingTimeListSorted.removeAll()
-                    self.paymentDataListsMatch.removeAll()
-                    self.paymentDetail.removeAll()
-                    self.paymentTimeList.removeAll()
-                    self.paymentTimeListSorted.removeAll()
-//                    self.ongoingDatas.removeAll()
-//                    self.ongoingDataSorted.removeAll()
-//                    self.waitingOngoingDataIndex.removeAll()
-//                    self.successfulDataIndex.removeAll()
-//                    self.timeListOngoing.removeAll()
-//                    self.timeListSortedOnging.removeAll()
-                    
-//                    print("pendingobjscount: \(pendingDataObjs.childrenCount)")
-                    let pendingDataObj = pendingDataObjs.value as! [String: NSDictionary]
-//                    print("aaa: \(pendingDataObj.values.count)")
-                    pendingDataObj.forEach({ (pendingDataObjKey, pendingDataObjVal) in
-                        
-//                        print(pendingDataObjKey)
-                        let pendingData = PendingBookPlaceDetail()
-                        pendingData.schedule_key = pendingDataObjs.key
-                        pendingData.trainee_id = pendingDataObjKey
-                        pendingData.course_id = pendingDataObjVal["course_id"] as! String
-                        pendingData.place_id = pendingDataObjVal["place_id"] as! String
-                        pendingData.start_train_time = pendingDataObjVal["start_train_time"] as! String
-                        pendingData.start_train_date = pendingDataObjVal["start_train_date"] as! String
-                        pendingData.trainer_id = self.currentUser.uid
-                        pendingData.is_trainer_accept = pendingDataObjVal["is_trainer_accept"] as! String
-                        
-                        if pendingData.is_trainer_accept == "-1" {
-                            
-                            self.pendingDetails.append(pendingData)
-                            
-                            if !self.pendingTimeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {
-                                self.pendingTimeList.append("\(pendingData.start_train_date) \(pendingData.start_train_time)")
-                            }
-                        } else if pendingData.is_trainer_accept == "1" {
-                            
-                            self.paymentDetail.append(pendingData)
-                            
-                            if !self.paymentTimeList.contains("\(pendingData.start_train_date) \(pendingData.start_train_time)") {
-                                self.paymentTimeList.append("\(pendingData.start_train_date) \(pendingData.start_train_time)")
-                            }
-                        }
-                        
-                        if !self.courseIds.contains(pendingData.course_id) {
-                            self.courseIds.append(pendingData.course_id)
-                            self.getCourseData(courseId: pendingData.course_id)
-                            isSortDate = true
-                        }
-                        if !self.placeIds.contains(pendingData.place_id){
-                            self.placeIds.append(pendingData.place_id)
-                            self.getPlaceData(placeId: pendingData.place_id)
-                            isSortDate = true
-                        }
-                        if !self.traineeIds.contains(pendingData.trainee_id) {
-                            self.traineeIds.append(pendingData.trainee_id)
-                            self.getTraineeData(uid: pendingData.trainee_id)
-                            isSortDate = true
-                        }
-                    })
-                }
-                self.traineeIds.forEach({ (eachTraineeId) in
-                    if self.traineeObj[eachTraineeId] == nil {
-                        self.getTraineeData(uid: eachTraineeId)
-                        return
+                    if !self.courseIds.contains(pendingData.course_id) {
+                        self.courseIds.append(pendingData.course_id)
+                        isSortDate = true
+                        self.checkSortDate = false
+                        self.getCourseData(courseId: pendingData.course_id)
+                    }
+                    if !self.placeIds.contains(pendingData.place_id){
+                        self.placeIds.append(pendingData.place_id)
+                        isSortDate = true
+                        self.checkSortDate = false
+                        self.getPlaceData(placeId: pendingData.place_id)
+                    }
+                    if !self.traineeIds.contains(pendingData.trainee_id) {
+                        self.traineeIds.append(pendingData.trainee_id)
+                        isSortDate = true
+                        self.checkSortDate = false
+                        self.getTraineeData(uid: pendingData.trainee_id)
                     }
                 })
-                self.placeIds.forEach({ (eachPlaceId) in
-                    if self.placeObj[eachPlaceId] == nil {
-                        self.getPlaceData(placeId: eachPlaceId)
-                        return
-                    }
-                })
-                if !isSortDate {
-                    self.sortDate()
+            })
+            self.traineeIds.forEach({ (eachTraineeId) in
+                if self.traineeObj[eachTraineeId] == nil {
+                    self.checkSortDate = false
+                    self.getTraineeData(uid: eachTraineeId)
+                    return
                 }
+            })
+            self.placeIds.forEach({ (eachPlaceId) in
+                if self.placeObj[eachPlaceId] == nil {
+                    self.checkSortDate = false
+                    self.getPlaceData(placeId: eachPlaceId)
+                    return
+                }
+            })
+            self.courseIds.forEach({ (eachCourseId) in
+                if self.courseObj[eachCourseId] == nil {
+                    self.checkSortDate = false
+                    self.getCourseData(courseId: eachCourseId)
+                }
+            })
+            if !isSortDate {
+                self.sortDate()
             }
-//            if self.pendingDetailsCount == self.pendingDetails.count {
-//                self.progressTableView.reloadData()
-//            }
             
         }) { (err) in
             print(err.localizedDescription)
@@ -191,16 +186,11 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         var tempEachOngoings: [EachOngoingDetail] = []
         self.ref.child("progress_schedule_detail").child(self.currentUser.uid).observe(.value, with: { (snapshot) in
-            let values = snapshot.value as? [String: [String: AnyObject]]
             
-//            self.pendingDataListsMatch.removeAll()
-//            self.pendingDetails.removeAll()
-//            self.pendingTimeList.removeAll()
-//            self.pendingTimeListSorted.removeAll()
-//            self.paymentDataListsMatch.removeAll()
-//            self.paymentDetail.removeAll()
-//            self.paymentTimeList.removeAll()
-//            self.paymentTimeListSorted.removeAll()
+//            self.finishTask = false
+            
+            guard let values = snapshot.value as? [String: [String: AnyObject]] else { return }
+            
             self.ongoingDatas.removeAll()
             self.ongoingDataSorted.removeAll()
             self.waitingOngoingDataIndex.removeAll()
@@ -208,23 +198,26 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.timeListOngoing.removeAll()
             self.timeListSortedOnging.removeAll()
             
-            values?.forEach({ (traineeId, overallScheduleDetail) in
+            values.forEach({ (traineeId, overallScheduleDetail) in
                 print("traineeId: \(traineeId)")
                 tempEachOngoings.removeAll()
                 overallScheduleDetail.forEach({ (btnKey, detail) in
                     
                     if !self.courseIds.contains(detail["course_id"] as! String) {
                         self.courseIds.append(detail["course_id"] as! String)
+                        self.checkSortDate = false
                         self.getCourseData(courseId: detail["course_id"] as! String)
                     }
                     
                     if !self.placeIds.contains(detail["place_id"] as! String) {
                         self.placeIds.append(detail["place_id"] as! String)
+                        self.checkSortDate = false
                         self.getPlaceData(placeId: detail["place_id"] as! String)
                     }
                     
                     if !self.traineeIds.contains(traineeId) {
                         self.traineeIds.append(traineeId)
+                        self.checkSortDate = false
                         self.getTraineeData(uid: traineeId)
                     }
                     
@@ -275,6 +268,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             }
             self.traineeIds.forEach({ (eachTraineeId) in
                 if self.traineeObj[eachTraineeId] == nil {
+                    self.checkSortDate = false
                     self.getTraineeData(uid: eachTraineeId)
                     return
                 }
@@ -282,6 +276,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             self.placeIds.forEach({ (eachPlaceId) in
                 if self.placeObj[eachPlaceId] == nil {
+                    self.checkSortDate = false
                     self.getPlaceData(placeId: eachPlaceId)
                     return
                 }
@@ -315,7 +310,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.traineeObj[uid] = tempUserProfile
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
-                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 {
+                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 && !self.checkSortDate {
                 self.sortDate()
             }
         }) { (err) in
@@ -344,7 +339,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
-                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 {
+                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 && !self.checkSortDate {
                 self.sortDate()
             }
         }
@@ -368,7 +363,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             self.courseObj[courseId] = course
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&
-                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 {
+                self.placeObj.count == self.placeIds.count && self.placeObj.count != 0 && !self.checkSortDate {
                 self.sortDate()
             }
         }) { (err) in
@@ -380,6 +375,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     
     
     func sortDate() {
+        
+        self.checkSortDate = true
         
         var convertedArrayPending: [Date] = []
         var convertedArrayPayment: [Date] = []
