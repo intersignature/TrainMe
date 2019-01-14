@@ -4619,7 +4619,7 @@ detail</string>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Help" image="help"/>
                                 <connections>
-                                    <segue destination="obM-dR-8TR" kind="presentation" id="rSt-J4-iH1"/>
+                                    <segue destination="Z05-zy-Amq" kind="presentation" id="8je-Rt-v1G"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk1-7l-Xs7">
@@ -5644,11 +5644,24 @@ detail</string>
         <!--Help-->
         <scene sceneID="0XD-3n-hAV">
             <objects>
-                <viewController id="F6u-zg-stB" customClass="HelpTrainerViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2FO-s8-VbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="F6u-zg-stB" customClass="HelpViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z2z-Ze-auT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIY-sc-iJp">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mb6-lh-FqY" firstAttribute="bottom" secondItem="UIY-sc-iJp" secondAttribute="bottom" id="UYg-RK-QD3"/>
+                            <constraint firstItem="mb6-lh-FqY" firstAttribute="trailing" secondItem="UIY-sc-iJp" secondAttribute="trailing" id="ZMS-cn-nhz"/>
+                            <constraint firstItem="UIY-sc-iJp" firstAttribute="top" secondItem="mb6-lh-FqY" secondAttribute="top" id="ary-mM-IXa"/>
+                            <constraint firstItem="UIY-sc-iJp" firstAttribute="leading" secondItem="mb6-lh-FqY" secondAttribute="leading" id="nwN-DY-Wxw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mb6-lh-FqY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="ksM-Xv-6yv">
@@ -5660,7 +5673,6 @@ detail</string>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2FO-s8-VbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="12606" y="1638"/>
         </scene>
@@ -6789,29 +6801,6 @@ detail</string>
             </objects>
             <point key="canvasLocation" x="798.55072463768124" y="-296.73913043478262"/>
         </scene>
-        <!--Help-->
-        <scene sceneID="7ue-ba-47S">
-            <objects>
-                <viewController id="LoR-Xt-m1G" customClass="HelpTraineeViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="H6R-rr-jre">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ncM-fM-pDN"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Help" id="Hkq-08-NTA">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="c74-6G-fg2">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="cancelBtnAction:" destination="LoR-Xt-m1G" id="ioR-S8-mZT"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rP9-uM-0Ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-514.49275362318849" y="-681.52173913043487"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gk0-0I-C4V">
             <objects>
@@ -6867,26 +6856,9 @@ detail</string>
             <point key="canvasLocation" x="3187" y="-682"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Drl-XG-bMl">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obM-dR-8TR" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0e5-6N-FF0">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LoR-Xt-m1G" kind="relationship" relationship="rootViewController" id="01o-PF-I9F"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C90-mN-kGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1423.1884057971015" y="-682.33695652173924"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="Mgh-TO-Yvn">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kLu-1K-pNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z05-zy-Amq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rf7-Sx-DPp">
@@ -6898,7 +6870,6 @@ detail</string>
                         <segue destination="F6u-zg-stB" kind="relationship" relationship="rootViewController" id="VFI-nX-0Sa"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kLu-1K-pNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11697" y="1637"/>
         </scene>
@@ -6922,17 +6893,18 @@ detail</string>
         <image name="weight" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8je-Rt-v1G"/>
         <segue reference="L1Y-Q7-OXJ"/>
         <segue reference="lwg-sn-Rgh"/>
-        <segue reference="QBL-zq-jxZ"/>
-        <segue reference="HQg-sh-Dc0"/>
-        <segue reference="uBq-3a-KCf"/>
+        <segue reference="p7p-h3-dr6"/>
+        <segue reference="sbZ-Vf-ldz"/>
+        <segue reference="LED-SU-iWE"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="IRS-Ta-5Mo"/>
         <segue reference="QeP-9l-n5x"/>
         <segue reference="yaD-9q-IZ0"/>
         <segue reference="MDp-Zn-cGQ"/>
         <segue reference="GhO-HN-2gJ"/>
-        <segue reference="g7V-sT-ulc"/>
+        <segue reference="CFy-02-wCg"/>
     </inferredMetricsTieBreakers>
 </document>
