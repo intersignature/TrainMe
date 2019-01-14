@@ -5644,7 +5644,6 @@ detail</string>
         <!--Help-->
         <scene sceneID="0XD-3n-hAV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2FO-s8-VbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="F6u-zg-stB" customClass="HelpViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z2z-Ze-auT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -5653,6 +5652,33 @@ detail</string>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIY-sc-iJp">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HelpTableViewCell" rowHeight="95" id="P4b-e2-Yg2" customClass="HelpTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P4b-e2-Yg2" id="du1-1c-ial">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="94.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Oo-aR-45g">
+                                                    <rect key="frame" x="20" y="32" width="348" height="30.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1Oo-aR-45g" secondAttribute="bottom" constant="21.329999999999998" id="7lZ-vj-Hb2"/>
+                                                <constraint firstItem="1Oo-aR-45g" firstAttribute="leading" secondItem="du1-1c-ial" secondAttribute="leadingMargin" id="REH-7H-3MT"/>
+                                                <constraint firstItem="1Oo-aR-45g" firstAttribute="trailing" secondItem="du1-1c-ial" secondAttribute="trailingMargin" id="jid-cF-g1z"/>
+                                                <constraint firstItem="1Oo-aR-45g" firstAttribute="top" secondItem="du1-1c-ial" secondAttribute="topMargin" constant="21" id="y7N-qv-Olr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="topicHelp" destination="1Oo-aR-45g" id="4KO-xF-ygN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5672,9 +5698,13 @@ detail</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="helpTableView" destination="UIY-sc-iJp" id="NP8-va-4Gi"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2FO-s8-VbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12606" y="1638"/>
+            <point key="canvasLocation" x="12605.797101449276" y="1637.771739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c58-4G-14s">
@@ -6858,7 +6888,6 @@ detail</string>
         <!--Navigation Controller-->
         <scene sceneID="Mgh-TO-Yvn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kLu-1K-pNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z05-zy-Amq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rf7-Sx-DPp">
@@ -6870,6 +6899,7 @@ detail</string>
                         <segue destination="F6u-zg-stB" kind="relationship" relationship="rootViewController" id="VFI-nX-0Sa"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kLu-1K-pNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11697" y="1637"/>
         </scene>
