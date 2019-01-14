@@ -18,7 +18,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var pendingTableView: UITableView!
-    @IBOutlet weak var statusSegmented: CustomSegmentedControl!
+    @IBOutlet weak var statusSegmented: UISegmentedControl!
     
     var ref: DatabaseReference!
     var currentUser: User!
@@ -865,7 +865,9 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
-    @IBAction func progressCustomSegmentedControl(_ sender: CustomSegmentedControl) {
+
+    
+    @IBAction func progressSegmentedControl(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
             // Confirmation
@@ -884,7 +886,6 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             self.pendingTableView.reloadData()
         }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

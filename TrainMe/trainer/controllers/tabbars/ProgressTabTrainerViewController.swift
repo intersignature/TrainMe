@@ -21,7 +21,7 @@ struct ExpandableData {
 
 class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
-    @IBOutlet weak var statusSegmented: CustomSegmentedControl!
+    @IBOutlet weak var statusSegmented: UISegmentedControl!
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var progressTableView: UITableView!
     
@@ -1013,9 +1013,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         super.didReceiveMemoryWarning()
     }
     
-    
-    @IBAction func pendingSegmentedControlAction(_ sender: CustomSegmentedControl) {
-        
+    @IBAction func pendingSegmentedControlValueChange(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             // Confirmation
             self.progressTableView.reloadData()

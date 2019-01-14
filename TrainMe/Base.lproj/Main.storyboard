@@ -1622,25 +1622,7 @@ TrainMe’s Privacy Policy</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sde-hb-vOC" customClass="CustomSegmentedControl" customModule="TrainMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="79" width="414" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="BIO-R1-0hP"/>
-                                    <constraint firstAttribute="height" constant="30" id="usT-CQ-0Jv"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeperatedButtonTitle" value="Confirmation,Payment,Ongoing,Successful"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="pendingSegmentedControlAction:" destination="L2i-eS-cjx" eventType="valueChanged" id="2SK-gb-BAG"/>
-                                    <action selector="progressCustomSegmentedControl:" destination="j6V-d6-VeN" eventType="valueChanged" id="YGC-BZ-7go"/>
-                                </connections>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R40-dy-cOH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R40-dy-cOH">
                                 <rect key="frame" x="0.0" y="114" width="414" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1932,16 +1914,28 @@ TrainMe’s Privacy Policy</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="q4q-7k-Xgg">
+                                <rect key="frame" x="0.0" y="75" width="414" height="29"/>
+                                <segments>
+                                    <segment title="Confirm"/>
+                                    <segment title="Payment"/>
+                                    <segment title="Ongoing"/>
+                                    <segment title="Successful"/>
+                                </segments>
+                                <connections>
+                                    <action selector="pendingSegmentedControlValueChange:" destination="L2i-eS-cjx" eventType="valueChanged" id="ex0-jB-QHU"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sde-hb-vOC" firstAttribute="top" secondItem="pD9-WT-s8i" secondAttribute="top" constant="15" id="5f2-SE-i0n"/>
                             <constraint firstItem="pD9-WT-s8i" firstAttribute="trailing" secondItem="R40-dy-cOH" secondAttribute="trailing" id="A0M-Ju-gpk"/>
                             <constraint firstItem="R40-dy-cOH" firstAttribute="leading" secondItem="pD9-WT-s8i" secondAttribute="leading" id="RPL-dl-KKH"/>
+                            <constraint firstItem="pD9-WT-s8i" firstAttribute="trailing" secondItem="q4q-7k-Xgg" secondAttribute="trailing" id="Vqx-ps-p3R"/>
                             <constraint firstItem="pD9-WT-s8i" firstAttribute="bottom" secondItem="R40-dy-cOH" secondAttribute="bottom" id="dWf-Xv-w3j"/>
-                            <constraint firstItem="R40-dy-cOH" firstAttribute="top" secondItem="sde-hb-vOC" secondAttribute="bottom" constant="5" id="gPP-Wr-bOa"/>
-                            <constraint firstItem="sde-hb-vOC" firstAttribute="leading" secondItem="pD9-WT-s8i" secondAttribute="leading" id="hL2-db-sVT"/>
-                            <constraint firstItem="pD9-WT-s8i" firstAttribute="trailing" secondItem="sde-hb-vOC" secondAttribute="trailing" id="rRe-fr-8oj"/>
+                            <constraint firstItem="q4q-7k-Xgg" firstAttribute="top" secondItem="pD9-WT-s8i" secondAttribute="top" constant="11" id="jlh-he-rb6"/>
+                            <constraint firstItem="R40-dy-cOH" firstAttribute="top" secondItem="q4q-7k-Xgg" secondAttribute="bottom" constant="11" id="w9a-zW-ixA"/>
+                            <constraint firstItem="q4q-7k-Xgg" firstAttribute="leading" secondItem="pD9-WT-s8i" secondAttribute="leading" id="wrA-gj-wv2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pD9-WT-s8i"/>
                     </view>
@@ -1953,7 +1947,7 @@ TrainMe’s Privacy Policy</string>
                     <connections>
                         <outlet property="menuBtn" destination="Ec1-1B-75b" id="voH-yO-jqe"/>
                         <outlet property="progressTableView" destination="R40-dy-cOH" id="uEW-QQ-lZq"/>
-                        <outlet property="statusSegmented" destination="sde-hb-vOC" id="6RZ-hW-UA0"/>
+                        <outlet property="statusSegmented" destination="q4q-7k-Xgg" id="aFX-sx-qu5"/>
                         <segue destination="KbB-jP-vx6" kind="presentation" identifier="ProgressToConfirmationTrainer" id="t0F-HC-gxE"/>
                         <segue destination="Ll9-7F-ma2" kind="presentation" identifier="ProgressToOngoingTrainer" id="tbW-bm-Udm"/>
                         <segue destination="4f9-ny-Mp3" kind="presentation" identifier="ProgressTrainerToProfileTrainee" id="QBL-zq-jxZ"/>
@@ -3644,22 +3638,6 @@ detail</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMF-xb-88l" customClass="CustomSegmentedControl" customModule="TrainMe" customModuleProvider="target">
-                                <rect key="frame" x="5" y="79" width="404" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Zh6-ZZ-knk"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeperatedButtonTitle" value="Confirmation,Payment,Ongoing,Successful"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="progressCustomSegmentedControl:" destination="j6V-d6-VeN" eventType="valueChanged" id="m6C-8F-wYf"/>
-                                </connections>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IMg-9l-be6">
                                 <rect key="frame" x="0.0" y="114" width="414" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3699,6 +3677,7 @@ detail</string>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTF-pl-z3B">
                                                     <rect key="frame" x="90" y="79.666666666666671" width="48" height="30"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                     <state key="normal" title="Cancel">
                                                         <color key="titleColor" red="1" green="0.28814054529999999" blue="0.33854433699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -3950,15 +3929,27 @@ detail</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-vK-fMV">
+                                <rect key="frame" x="0.0" y="75" width="414" height="29"/>
+                                <segments>
+                                    <segment title="Confirm"/>
+                                    <segment title="Payment"/>
+                                    <segment title="Ongoing"/>
+                                    <segment title="Successful"/>
+                                </segments>
+                                <connections>
+                                    <action selector="progressSegmentedControl:" destination="j6V-d6-VeN" eventType="valueChanged" id="Q69-th-mf2"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IMg-9l-be6" firstAttribute="leading" secondItem="Glc-PL-6Yi" secondAttribute="leading" id="6EA-Vl-2gW"/>
-                            <constraint firstItem="IMg-9l-be6" firstAttribute="top" secondItem="VMF-xb-88l" secondAttribute="bottom" constant="5" id="JAF-N6-p6z"/>
+                            <constraint firstItem="Glc-PL-6Yi" firstAttribute="trailing" secondItem="7Jh-vK-fMV" secondAttribute="trailing" id="Abx-7I-IEz"/>
                             <constraint firstItem="Glc-PL-6Yi" firstAttribute="bottom" secondItem="IMg-9l-be6" secondAttribute="bottom" id="LTt-S6-jTg"/>
-                            <constraint firstItem="VMF-xb-88l" firstAttribute="top" secondItem="Glc-PL-6Yi" secondAttribute="top" constant="15" id="Pa1-5b-22C"/>
-                            <constraint firstItem="Glc-PL-6Yi" firstAttribute="trailing" secondItem="VMF-xb-88l" secondAttribute="trailing" constant="5" id="gju-ll-XqU"/>
-                            <constraint firstItem="VMF-xb-88l" firstAttribute="leading" secondItem="Glc-PL-6Yi" secondAttribute="leading" constant="5" id="jhS-WW-E3S"/>
+                            <constraint firstItem="7Jh-vK-fMV" firstAttribute="leading" secondItem="Glc-PL-6Yi" secondAttribute="leading" id="baP-9X-h62"/>
+                            <constraint firstItem="7Jh-vK-fMV" firstAttribute="top" secondItem="Glc-PL-6Yi" secondAttribute="top" constant="11" id="kO7-0j-gPa"/>
+                            <constraint firstItem="IMg-9l-be6" firstAttribute="top" secondItem="7Jh-vK-fMV" secondAttribute="bottom" constant="11" id="odF-jz-A00"/>
                             <constraint firstItem="Glc-PL-6Yi" firstAttribute="trailing" secondItem="IMg-9l-be6" secondAttribute="trailing" id="phP-ge-7rA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Glc-PL-6Yi"/>
@@ -3971,7 +3962,7 @@ detail</string>
                     <connections>
                         <outlet property="menuBtn" destination="Akt-1F-a1b" id="jVY-8Q-pjF"/>
                         <outlet property="pendingTableView" destination="IMg-9l-be6" id="mSq-gr-7Fc"/>
-                        <outlet property="statusSegmented" destination="VMF-xb-88l" id="Doq-sh-qPP"/>
+                        <outlet property="statusSegmented" destination="7Jh-vK-fMV" id="qeW-ui-9m2"/>
                         <segue destination="6V5-hZ-lmA" kind="presentation" identifier="ProgressToOngoing" id="Z0M-eb-cRE"/>
                         <segue destination="QQS-gn-bTG" kind="presentation" identifier="ProgressToConfirmation" id="nZE-jv-rHV"/>
                         <segue destination="R5F-9y-Tmg" kind="presentation" identifier="ProgressTraineeToProfileTrainer" id="uBq-3a-KCf"/>
