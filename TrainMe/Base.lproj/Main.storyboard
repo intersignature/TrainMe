@@ -5700,11 +5700,52 @@ detail</string>
                     </navigationItem>
                     <connections>
                         <outlet property="helpTableView" destination="UIY-sc-iJp" id="NP8-va-4Gi"/>
+                        <segue destination="aDC-h4-uji" kind="presentation" identifier="HelpToViewHelp" id="9Zi-tr-0Q3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2FO-s8-VbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="12605.797101449276" y="1637.771739130435"/>
+        </scene>
+        <!--View Help View Controller-->
+        <scene sceneID="46f-aK-vAr">
+            <objects>
+                <viewController id="UgE-Ka-tNw" customClass="ViewHelpViewController" customModule="TrainMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sdR-Yh-lpT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="jbn" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="626-hX-uYU">
+                                <rect key="frame" x="8" y="80" width="398" height="640"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="626-hX-uYU" firstAttribute="leading" secondItem="gmB-Eq-PAM" secondAttribute="leading" constant="8" id="48v-xH-TAy"/>
+                            <constraint firstItem="gmB-Eq-PAM" firstAttribute="bottom" secondItem="626-hX-uYU" secondAttribute="bottom" constant="16" id="81u-hR-szR"/>
+                            <constraint firstItem="626-hX-uYU" firstAttribute="top" secondItem="gmB-Eq-PAM" secondAttribute="top" constant="16" id="X4v-uv-Ncb"/>
+                            <constraint firstItem="gmB-Eq-PAM" firstAttribute="trailing" secondItem="626-hX-uYU" secondAttribute="trailing" constant="8" id="d78-Mg-jb0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gmB-Eq-PAM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y07-y7-cus">
+                        <barButtonItem key="leftBarButtonItem" title="cancel" id="THX-Q1-XCM">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelBtnAction:" destination="UgE-Ka-tNw" id="DtC-rr-Qhq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="helpTv" destination="626-hX-uYU" id="RWM-wi-upr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlB-nD-leL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12606" y="2454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c58-4G-14s">
@@ -6902,6 +6943,24 @@ detail</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLu-1K-pNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11697" y="1637"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iAB-ZX-YeS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aDC-h4-uji" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9bF-jB-I84">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UgE-Ka-tNw" kind="relationship" relationship="rootViewController" id="q7C-hJ-NPL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8e-jJ-hft" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11699" y="2454"/>
         </scene>
     </scenes>
     <resources>

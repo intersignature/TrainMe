@@ -111,6 +111,7 @@
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
 		B2EB023E21D90B4E00CE586D /* FullReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EB023D21D90B4E00CE586D /* FullReviewTableViewCell.swift */; };
 		B2EEE32C21B1AF0200E2AEB0 /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */; };
+		B2FB780521EE214200FC34A5 /* ViewHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB780421EE214200FC34A5 /* ViewHelpViewController.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -259,6 +260,7 @@
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
 		B2EB023D21D90B4E00CE586D /* FullReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullReviewTableViewCell.swift; sourceTree = "<group>"; };
 		B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
+		B2FB780421EE214200FC34A5 /* ViewHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpViewController.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -577,6 +579,7 @@
 				B25A8110212BD53B00073C68 /* fonts */,
 				B2168B9921D91BF100211223 /* HelpViewController.swift */,
 				B285F3EB21ED1162003055D4 /* HelpTableViewCell.swift */,
+				B2FB780421EE214200FC34A5 /* ViewHelpViewController.swift */,
 			);
 			path = TrainMe;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 				B2B8BC56212BC5D5009A3712 /* ViewController.swift in Sources */,
 				B23E796E2132CA7A0082FD1E /* CourseTabTrainerViewController.swift in Sources */,
 				B23E918B219AD387000AECF8 /* PaymentTraineeTableViewCell.swift in Sources */,
+				B2FB780521EE214200FC34A5 /* ViewHelpViewController.swift in Sources */,
 				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,
 				B293FACD21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift in Sources */,
 				B279BFB021E12170007BA390 /* Notification.swift in Sources */,
