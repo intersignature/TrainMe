@@ -18,9 +18,14 @@ class ViewHelpViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = self.selectedHelp.topic
-        self.helpTv.text = self.selectedHelp.desc
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.helpTv.scrollRangeToVisible(NSRange(location:0, length:0))
+        self.helpTv.text = self.selectedHelp.desc
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
