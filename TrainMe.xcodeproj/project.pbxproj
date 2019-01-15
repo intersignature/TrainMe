@@ -367,6 +367,9 @@
 		B202BD23214E887300DE0790 /* sidebar */ = {
 			isa = PBXGroup;
 			children = (
+				B24664E121AC46B10065655F /* AddCreditCardViewController.swift */,
+				B24664E321AEB0EF0065655F /* ViewCreditCardViewController.swift */,
+				B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */,
 				B202BD1B214D6F7300DE0790 /* SidebarTraineeViewController.swift */,
 				B202BD26214E912E00DE0790 /* AddCitizencardViewController.swift */,
 				B202BD2821501D3600DE0790 /* AddCertificateViewController.swift */,
@@ -377,6 +380,7 @@
 		B202BD2A21502AA900DE0790 /* tableviewcells */ = {
 			isa = PBXGroup;
 			children = (
+				B24664E521AEB3C60065655F /* ViewCreditCardTableViewCell.swift */,
 				B202BD2B21502AC400DE0790 /* CertificateTableViewCell.swift */,
 				B263566D218830C100277F67 /* ConfirmationTableViewCell.swift */,
 				B23E918A219AD387000AECF8 /* PaymentTraineeTableViewCell.swift */,
@@ -571,10 +575,6 @@
 				B2B8BC5F212BC5D7009A3712 /* Info.plist */,
 				B224A060212BC92800DA7E47 /* GoogleService-Info.plist */,
 				B25A8110212BD53B00073C68 /* fonts */,
-				B24664E121AC46B10065655F /* AddCreditCardViewController.swift */,
-				B24664E321AEB0EF0065655F /* ViewCreditCardViewController.swift */,
-				B24664E521AEB3C60065655F /* ViewCreditCardTableViewCell.swift */,
-				B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */,
 				B2168B9921D91BF100211223 /* HelpViewController.swift */,
 				B285F3EB21ED1162003055D4 /* HelpTableViewCell.swift */,
 			);
