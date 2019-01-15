@@ -52,6 +52,7 @@
 //
 "user_profile" = "     User Profile";
 "credit_card_paypal" = "     Credit card / Paypal";
+"bank_account" = "     บัญชีธนาคาร";
 "help" = "     Help";
 "settings" = "     Settings";
 "become_a_trainer" = "     Become a trainer";

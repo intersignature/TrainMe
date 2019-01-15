@@ -55,7 +55,7 @@ class SidebarTrainerViewController: UIViewController {
     func setLocalizeText() {
         
         userProfileBtn.setTitle(NSLocalizedString("user_profile", comment: ""), for: .normal)
-        creditcardBtn.setTitle(NSLocalizedString("credit_card_paypal", comment: ""), for: .normal)
+        creditcardBtn.setTitle(NSLocalizedString("bank_account", comment: ""), for: .normal)
         helpBtn.setTitle(NSLocalizedString("help", comment: ""), for: .normal)
         settingsBtn.setTitle(NSLocalizedString("settings", comment: ""), for: .normal)
         logoutBtn.setTitle(NSLocalizedString("logout", comment: ""), for: .normal)
@@ -85,8 +85,5 @@ class SidebarTrainerViewController: UIViewController {
     
     @IBAction func profileBtnAction(_ sender: UIButton) {
         performSegue(withIdentifier: "SidebarTrainerToProfileTrainer", sender: self.currentUser?.uid)
-    }
-    @IBAction func creditcardBtnAction(_ sender: UIButton) {
-        performSegue(withIdentifier: "SidebarTrainerToCreditCard", sender: nil)
     }
 }
