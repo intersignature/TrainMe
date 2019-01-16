@@ -113,6 +113,7 @@
 		B2EEE32C21B1AF0200E2AEB0 /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */; };
 		B2FB780521EE214200FC34A5 /* ViewHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB780421EE214200FC34A5 /* ViewHelpViewController.swift */; };
 		B2FB780721EE43CA00FC34A5 /* BankTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB780621EE43CA00FC34A5 /* BankTrainerViewController.swift */; };
+		B2FB780921EF03DC00FC34A5 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB780821EF03DC00FC34A5 /* Recipient.swift */; };
 		F21472997981C08C5FF8E719 /* Pods_TrainMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEE1C3745D35D886310CC9E /* Pods_TrainMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -263,6 +264,7 @@
 		B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
 		B2FB780421EE214200FC34A5 /* ViewHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpViewController.swift; sourceTree = "<group>"; };
 		B2FB780621EE43CA00FC34A5 /* BankTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTrainerViewController.swift; sourceTree = "<group>"; };
+		B2FB780821EF03DC00FC34A5 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
 		DC052F04C1EB9F9E13855E19 /* Pods-TrainMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainMe/Pods-TrainMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -431,6 +433,7 @@
 				B2901ECD21D3FB4B005ED68D /* EachReview.swift */,
 				B2168B9B21D920B600211223 /* Help.swift */,
 				B279BFAF21E12170007BA390 /* Notification.swift */,
+				B2FB780821EF03DC00FC34A5 /* Recipient.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -937,6 +940,7 @@
 				B23D2E10214C334300CFCAC0 /* SelectedTrainerCourseTableViewCell.swift in Sources */,
 				B293FACD21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift in Sources */,
 				B279BFB021E12170007BA390 /* Notification.swift in Sources */,
+				B2FB780921EF03DC00FC34A5 /* Recipient.swift in Sources */,
 				B20E30C6212C1013001B43B1 /* ForgetPasswordViewController.swift in Sources */,
 				B202BD27214E912E00DE0790 /* AddCitizencardViewController.swift in Sources */,
 				B2EB023E21D90B4E00CE586D /* FullReviewTableViewCell.swift in Sources */,

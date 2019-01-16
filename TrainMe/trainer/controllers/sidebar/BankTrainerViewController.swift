@@ -8,6 +8,8 @@
 
 import UIKit
 import DTTextField
+import FirebaseAuth
+import FirebaseDatabase
 
 class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
@@ -17,17 +19,222 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var confirmBtn: UIButton!
     
     var selectedBankName: String = ""
+    var recpId: String = ""
     let letters = NSCharacterSet.letters
     let allBankName = ["BNP Paribas (bnp)", "Bangkok Bank (bbl)", "Bank for Agriculture and Agricultural Cooperatives (baac)", "Bank of America (boa)", "Bank of Ayudhya Krungsri (bay)", "Bank of Tokyo-Mitsubishi UFJ (mufg)", "CIMB Thai Bank (cimb)", "Citibank (citi)", "Crédit Agricole (cacib)", "Deutsche Bank (db)", "Government Housing Bank (ghb)", "Government Savings Bank (gsb)", "Hongkong and Shanghai Banking Corporation (hsbc)", "Industrial and Commercial Bank of China (icbc)", "Islamic Bank of Thailand (ibank)", "J.P. Morgan (jpm)", "Kasikornbank (kbank)", "Kiatnakin Bank (kk)", "Krungthai Bank (ktb)", "Land and Houses Bank (lhb)", "Mega International Commercial Bank (mega)", "Mizuho Bank (mb)", "Royal Bank of Scotland (rbs)", "Siam Commercial Bank (scb)", "Standard Chartered (sc)", "Sumitomo Mitsui Banking Corporation (smbc)", "TMB Bank (tmb)", "Thai Credit Retail Bank (tcrb)", "Thanachart Bank (tbank)", "Tisco Bank (tisco)", "United Overseas Bank (uob)"]
     let allBankAbbreviation = ["bnp", "bbl", "baac", "boa", "bay", "mufg", "cimb", "citi", "cacib", "db", "ghb", "gsb", "hsbc", "icbc", "ibank", "jpm", "kbank", "kk", "ktb", "lhb", "mega", "mb", "rbs", "scb", "sc", "smbc", "tmb", "tcrb", "tbank", "tisco", "uob"]
     
+    var ref: DatabaseReference!
+    var currentUser: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.ref = Database.database().reference()
+        self.currentUser = Auth.auth().currentUser
+        
+        self.getOmiseCustId()
         
         self.confirmBtn.layer.cornerRadius = 5
         self.HideKeyboard()
         self.createPickerView()
         self.dismissPickerView()
+    }
+    
+    func getOmiseCustId() {
+        
+        self.ref.child("user").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let values = snapshot.value as? NSDictionary
+            
+            if values!["omise_cus_id"] as! String != "-1" {
+                self.recpId = values!["omise_cus_id"] as! String
+                self.getRecpData(self.recpId)
+            } else {
+                self.confirmBtn.addTarget(self, action: #selector(self.addRecpBtnAction), for: .touchUpInside)
+            }
+            
+        }) { (err) in
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            print(err.localizedDescription)
+            return
+        }
+    }
+    
+    func getRecpData(_ omiseId: String) {
+        
+        let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        guard let URL = URL(string: "https://api.omise.co/recipients/\(omiseId)") else {return}
+        
+        var request = URLRequest(url: URL)
+        
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
+        
+        let _ = session.dataTask(with: request) { (data, response, err) in
+            
+            DispatchQueue.main.async {
+                if err == nil {
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    print(statusCode)
+                    
+                    guard let data = data else {
+                        print("no data")
+                        return
+                    }
+                    
+                    do {
+                        let recpData = try JSONDecoder().decode(Recipient.self, from: data)
+                        print(recpData)
+                        self.setupDataToTextField(recpData: recpData)
+                    } catch let jsonErr {
+                        print("Err serializing json: ", jsonErr.localizedDescription)
+                    }
+                }
+            }
+            }.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    @objc func addRecpBtnAction() {
+        if checkEmptyData() {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.view.showBlurLoader()
+            let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            guard let URL = URL(string: "https://api.omise.co/recipients") else {return}
+            
+            var request = URLRequest(url: URL)
+            request.httpMethod = "POST"
+            
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
+            
+            let params = "name=\(self.accountNameTf.text!)&type=individual&bank_account[name]=\(self.accountNameTf.text!)&bank_account[number]=\(self.accountNumberTf.text!)&bank_account[brand]=\(self.selectedBankName)"
+            request.httpBody = params.data(using: .utf8, allowLossyConversion: true)
+            
+            let task = session.dataTask(with: request) { (data, response, err) in
+                
+                if err == nil {
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    let jsonData = try! JSONSerialization.jsonObject(with: data!, options: []) as AnyObject
+                    
+                    if statusCode == 200 {
+                        print(jsonData)
+                        self.addOmiseRecpId(recpId: jsonData["id"] as! String)
+                    } else if statusCode == 404 {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
+                        print(jsonData["message"] as! String)
+                        self.createAlert(alertTitle: jsonData["message"] as! String, alertMessage: "")
+                    }
+                } else {
+                    self.view.removeBluerLoader()
+                    self.navigationController?.setNavigationBarHidden(false, animated: true)
+                    print(err?.localizedDescription)
+                    self.createAlert(alertTitle: err!.localizedDescription, alertMessage: "")
+                }
+            }
+            task.resume()
+            session.finishTasksAndInvalidate()
+        }
+    }
+    
+    @objc func editRecpBtnAction() {
+        if checkEmptyData() {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.view.showBlurLoader()
+            let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            guard let URL = URL(string: "https://api.omise.co/recipients/\(self.recpId)") else {return}
+            
+            var request = URLRequest(url: URL)
+            request.httpMethod = "PATCH"
+            
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
+            
+            let params = "name=\(self.accountNameTf.text!)&bank_account[name]=\(self.accountNameTf.text!)&bank_account[number]=\(self.accountNumberTf.text!)"
+            request.httpBody = params.data(using: .utf8, allowLossyConversion: true)
+            
+            let task = session.dataTask(with: request) { (data, response, err) in
+                DispatchQueue.main.async {
+                    if err == nil {
+                        let statusCode = (response as! HTTPURLResponse).statusCode
+                        let jsonData = try! JSONSerialization.jsonObject(with: data!, options: []) as AnyObject
+                        
+                        if statusCode == 200 {
+                            print(jsonData)
+                            self.view.removeBluerLoader()
+                            self.navigationController?.setNavigationBarHidden(false, animated: true)
+                            let alert = UIAlertController(title: "Edit bank information successful! Please wait for approve", message: "", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                self.dismiss(animated: true, completion: nil)
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                        } else if statusCode == 404 {
+                            self.view.removeBluerLoader()
+                            self.navigationController?.setNavigationBarHidden(false, animated: true)
+                            print(jsonData["message"] as! String)
+                            self.createAlert(alertTitle: jsonData["message"] as! String, alertMessage: "")
+                        }
+                    } else {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
+                        print(err?.localizedDescription)
+                        self.createAlert(alertTitle: err!.localizedDescription, alertMessage: "")
+                    }
+                }
+            }
+            task.resume()
+            session.finishTasksAndInvalidate()
+        } else {
+            self.createAlert(alertTitle: "Please correct your bank information", alertMessage: "")
+        }
+    }
+    
+    func addOmiseRecpId(recpId: String) {
+        
+        let recpData = ["omise_cus_id": recpId]
+        ref.child("user").child(self.currentUser.uid).updateChildValues(recpData) { (err, ref) in
+            if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            let alert = UIAlertController(title: "Add bank information successful! Please wait for approve", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func setupDataToTextField(recpData: Recipient) {
+        
+        self.accountNameTf.text = recpData.bankAccount.name
+        self.accountNumberTf.text = "xxxxxx\(recpData.bankAccount.lastDigits)"
+        self.bankNameTf.text = self.allBankName[self.allBankAbbreviation.firstIndex(of: recpData.bankAccount.brand)!]
+        if recpData.verified! {
+            self.bankNameTf.isEnabled = false
+            self.confirmBtn.setTitle("Edit", for: .normal)
+            self.confirmBtn.addTarget(self, action: #selector(self.editRecpBtnAction), for: .touchUpInside)
+        } else {
+            self.accountNameTf.isEnabled = false
+            self.accountNumberTf.isEnabled = false
+            self.bankNameTf.isEnabled = false
+            self.confirmBtn.isEnabled = false
+            self.confirmBtn.backgroundColor = UIColor.gray
+            self.confirmBtn.setTitle("Wait for approve", for: .normal)
+        }
     }
     
     func createPickerView() {
@@ -73,16 +280,6 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
         super.viewWillAppear(animated)
         
         self.setupNavigationStyle()
-    }
-    
-    @IBAction func confirmBtnAction(_ sender: UIButton) {
-        
-        if checkEmptyData() {
-            // change bank detail
-            print(self.checkEmptyData())
-        } else {
-            self.createAlert(alertTitle: "Please correct your bank information", alertMessage: "")
-        }
     }
     
     func checkEmptyData() -> Bool {
