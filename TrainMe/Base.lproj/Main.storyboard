@@ -1366,11 +1366,11 @@ TrainMe’s Privacy Policy</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="courseNameLb" destination="fwK-2f-blW" id="LGL-04-ayy"/>
-                                            <outlet property="nameLb" destination="Y9b-LC-vAO" id="L4g-zi-BaB"/>
-                                            <outlet property="profileImageView" destination="NtY-HP-579" id="5ha-cd-cFG"/>
-                                            <outlet property="ratingStackView" destination="e9e-ui-mPA" id="2Uz-om-VNj"/>
-                                            <outlet property="reviewDescLb" destination="Asu-1o-aH8" id="iGq-hf-I1A"/>
+                                            <outlet property="courseNameLb" destination="fwK-2f-blW" id="bdc-UB-YoY"/>
+                                            <outlet property="nameLb" destination="Y9b-LC-vAO" id="9vR-0Y-6WM"/>
+                                            <outlet property="profileImageView" destination="NtY-HP-579" id="6FV-5X-QcT"/>
+                                            <outlet property="ratingStackView" destination="e9e-ui-mPA" id="6Hv-sf-Laa"/>
+                                            <outlet property="reviewDescLb" destination="Asu-1o-aH8" id="QO0-pc-D9e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

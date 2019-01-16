@@ -296,10 +296,10 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewProfileTrainerTableViewCell") as! ReviewProfileTainerTableViewCell
-        cell.profileImageView.accessibilityLabel = (self.traineeObj[self.review[indexPath.row].traineeUid]?.uid)!
-        cell.profileImageView.downloaded(from: (self.traineeObj[self.review[indexPath.row].traineeUid]?.profileImageUrl)!)
+        cell.profileImageView.accessibilityLabel = self.traineeObj[self.review[indexPath.row].traineeUid]?.uid
+        cell.profileImageView.downloaded(from: self.traineeObj[self.review[indexPath.row].traineeUid]?.profileImageUrl ?? "-1")
         cell.profileImageView.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(traineeImgTapAction(tapGesture:))))
-        cell.nameLb.accessibilityLabel = (self.traineeObj[self.review[indexPath.row].traineeUid]?.uid)!
+        cell.nameLb.accessibilityLabel = self.traineeObj[self.review[indexPath.row].traineeUid]?.uid
         cell.nameLb.text = self.traineeObj[self.review[indexPath.row].traineeUid]?.fullName
         cell.nameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(traineeImgTapAction(tapGesture:))))
         cell.ratingStackView.setStarsRating(rating: Int(self.review[indexPath.row].eachReiew[0].rating)!)
