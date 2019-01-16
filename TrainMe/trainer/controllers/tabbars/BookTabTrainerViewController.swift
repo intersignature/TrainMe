@@ -34,8 +34,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     var placeList = [GMSPlace]()
     var PlaceTrainerIdList = [String: [String]]() // [placeId: [trainerId]]
     var selectedPlaceId: String!
-    
-    
+    var recpId: String = "-1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +62,19 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         
 //        getBookPlaceDict()
         
+    }
+    
+    func getRecpData() {
+        
+        self.ref.child("user").child((self.currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as! NSDictionary
+            self.recpId = value["omise_cus_id"] as! String
+        }) { (err) in
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            print(err.localizedDescription)
+            return
+        }
     }
     
     func getBookPlaceDict() {
@@ -132,6 +144,11 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     }
     
     @IBAction func bookPlaceTrainerBtnAction(_ sender: UIBarButtonItem) {
+        
+        if self.recpId == "-1" {
+            self.createAlert(alertTitle: "Please add bank information", alertMessage: "")
+            return
+        }
         let config = GMSPlacePickerConfig(viewport: nil)
         placePicker = GMSPlacePickerViewController(config: config)
 
@@ -193,6 +210,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.getRecpData()
         self.googleMapsView.clear()
         setupNavigationStyle()
     }
