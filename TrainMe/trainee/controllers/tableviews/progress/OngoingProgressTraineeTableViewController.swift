@@ -110,6 +110,8 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
             containVc.ongoingId = self.selectedOngoing.ongoingId
             containVc.countAtIndex = self.selectedOngoing.eachOngoingDetails[index].count
             containVc.summaryCount = String(self.selectedOngoing.eachOngoingDetails.count)
+            containVc.coursePrice = self.selectedCourse.coursePrice
+            containVc.recpId = self.selectedTrainer.omiseCusId
         }
         
         if segue.identifier == "OngoingProgressTraineeToProfileTrainer" {

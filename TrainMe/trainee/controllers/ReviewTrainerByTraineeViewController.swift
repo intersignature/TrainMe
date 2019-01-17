@@ -28,6 +28,8 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     var ongoingId: String!
     var countAtIndex: String!
     var summaryCount: String!
+    var coursePrice: String!
+    var recpId: String!
     
     var datePicker: UIDatePicker!
     var timePicker: UIDatePicker!
@@ -123,8 +125,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
                 self.addNextScheduleDateAndTimeToDatabase(isTrainerConfirm: isTrainerConfirm)
             } else {
                 if isTrainerConfirm == "1" {
-                    //TODO: Transfer money to trainer
-                    self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed and system was pay money to your account already.", from: "transfer money")
+                    self.transferMoneyToTrainer()
                 } else {
                     self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed already and waiting for your confirm.", from: "wait confirm last time")
                 }
@@ -132,9 +133,67 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         }
     }
     
+    func transferMoneyToTrainer() {
+        
+        let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        guard let URL = URL(string: "https://api.omise.co/transfers") else {return}
+        
+        var request = URLRequest(url: URL)
+        request.httpMethod = "POST"
+        
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
+        
+        let params = "amount=\(Int(self.coursePrice)!*100)&recipient=\(self.recpId!)"
+        request.httpBody = params.data(using: .utf8, allowLossyConversion: true)
+        
+        let task = session.dataTask(with: request) { (data, response, err) in
+            DispatchQueue.main.async {
+                if err == nil {
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    let jsonData = try! JSONSerialization.jsonObject(with: data!, options: []) as AnyObject
+                    
+                    if statusCode == 200 {
+                        print(jsonData)
+                        self.addTransactionId(transactionId: jsonData["id"] as! String)
+                    } else if statusCode == 404 {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
+                        print(jsonData["message"] as! String)
+                        self.createAlert(alertTitle: jsonData["message"] as! String, alertMessage: "")
+                    }
+                } else {
+                    self.view.removeBluerLoader()
+                    self.navigationController?.setNavigationBarHidden(false, animated: true)
+                    print(err?.localizedDescription)
+                    self.createAlert(alertTitle: err!.localizedDescription, alertMessage: "")
+                }
+            }
+        }
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    func addTransactionId(transactionId: String) {
+        
+        let transactionData = ["transaction_to_trainer": transactionId]
+        
+        self.ref.child("progress_schedule_detail").child(self.trainerId).child(self.currentUser.uid).child(self.ongoingId).updateChildValues(transactionData) { (err, ref) in
+            if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            self.addNotificationDatabase(toUid: self.trainerId, description: "Your trainee was reviewed and system was pay money to your account already.", from: "transfer money")
+        }
+    }
+    
     func addNextScheduleDateAndTimeToDatabase(isTrainerConfirm: String) {
         
-        //TODO: Make protocol to notify ongoing progress trainee status and next schedule date and time
         var nextScheduleData = ["start_train_date": self.nextScheduleDateTv.text!,
                                 "start_train_time": self.nextScheduleTimeTv.text!]
         

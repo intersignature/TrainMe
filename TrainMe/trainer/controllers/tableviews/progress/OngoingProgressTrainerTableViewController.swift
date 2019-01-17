@@ -95,6 +95,7 @@ class OngoingProgressTrainerTableViewController: UITableViewController {
             destination.selectedTraineeUid = self.selectedOngoing.traineeId
             destination.selectedTrainerUid = self.selectedOngoing.trainerId
             destination.selectedOngoingId = self.selectedOngoing.ongoingId
+            destination.coursePrice = self.selectedCourse.coursePrice
         }
         
         if segue.identifier == "OngoingProgressTrainerToProfileTrainee" {

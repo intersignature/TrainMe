@@ -20,6 +20,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
     var selectedTrainerUid: String!
     var selectedTraineeUid: String!
     var selectedOngoingId: String!
+    var coursePrice: String!
     
     var selectedOngoing: OngoingDetail!
     var ref: DatabaseReference!
@@ -274,9 +275,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
                 if self.selectedOngoing.eachOngoingDetails.count > Int(self.selectedOngoing.eachOngoingDetails[sender.tag].count)! {
                     self.setStatusToNextSchedule(sender: sender)
                 } else {
-                    //TODO: Transfer money to trainer
-                    self.eachOngoingTrainerTableView.reloadData()
-                    self.addNotificationDatabase(toUid: self.selectedOngoing.traineeId, description: "Your trainer was confirmed training session and pay money to your trainer account already", from: "transfer money")
+                    self.getRecpId()
                 }
             } else {
                 self.eachOngoingTrainerTableView.reloadData()
@@ -284,6 +283,80 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
             }
         }
         print("confirmSuccessStatusToDatabase: \(sender.tag)")
+    }
+    
+    func getRecpId() {
+        
+        self.ref.child("user").child(self.currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as! NSDictionary
+            self.transferMoney(recpId: value["omise_cus_id"] as! String)
+        }) { (err) in
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            print(err.localizedDescription)
+            return
+        }
+    }
+    
+    func transferMoney(recpId: String) {
+        let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        guard let URL = URL(string: "https://api.omise.co/transfers") else {return}
+        
+        var request = URLRequest(url: URL)
+        request.httpMethod = "POST"
+        
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
+        
+        let params = "amount=\(Int(self.coursePrice)!*100)&recipient=\(recpId)"
+        request.httpBody = params.data(using: .utf8, allowLossyConversion: true)
+        
+        let task = session.dataTask(with: request) { (data, response, err) in
+            DispatchQueue.main.async {
+                if err == nil {
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    let jsonData = try! JSONSerialization.jsonObject(with: data!, options: []) as AnyObject
+                    
+                    if statusCode == 200 {
+                        print(jsonData["id"] as! String)
+                        self.addTransactionId(transactionId: jsonData["id"] as! String)
+                    } else if statusCode == 404 {
+                        self.view.removeBluerLoader()
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
+                        print(jsonData["message"] as! String)
+                        self.createAlert(alertTitle: jsonData["message"] as! String, alertMessage: "")
+                    }
+                } else {
+                    self.view.removeBluerLoader()
+                    self.navigationController?.setNavigationBarHidden(false, animated: true)
+                    print(err?.localizedDescription)
+                    self.createAlert(alertTitle: err!.localizedDescription, alertMessage: "")
+                }
+            }
+        }
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
+    func addTransactionId(transactionId: String) {
+        
+        let transactionData = ["transaction_to_trainer": transactionId]
+        
+        self.ref.child("progress_schedule_detail").child(self.currentUser.uid).child(self.selectedTraineeUid).child(self.selectedOngoingId).updateChildValues(transactionData) { (err, ref) in
+            if let err = err {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            self.eachOngoingTrainerTableView.reloadData()
+            self.addNotificationDatabase(toUid: self.selectedOngoing.traineeId, description: "Your trainer was confirmed training session and pay money to your trainer account already", from: "transfer money")
+        }
     }
     
     func setStatusToNextSchedule(sender: UIButton) {
