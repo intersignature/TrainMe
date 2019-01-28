@@ -252,10 +252,29 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
                 self.view.removeBluerLoader()
                 return
             }
-            print("Successfully save user info into firebase database!")
-            self.view.removeBluerLoader()
-            self.performSegue(withIdentifier: "Register3ToMain", sender: nil)
+            self.sendEmailVerification()
         }
+    }
+    
+    func sendEmailVerification() {
+        
+        Auth.auth().currentUser?.sendEmailVerification(completion: { (err) in
+            if let err = err {
+                self.view.removeBluerLoader()
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                return
+            }
+            
+            try! Auth.auth().signOut()
+            self.view.removeBluerLoader()
+            
+            let alert = UIAlertController(title: "Successfully send verification email!", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.performSegue(withIdentifier: "Register3ToLogin", sender: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        })
     }
     
     override func didReceiveMemoryWarning() {
