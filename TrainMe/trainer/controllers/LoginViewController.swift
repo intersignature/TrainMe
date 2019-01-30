@@ -80,6 +80,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             self.getRole()
             
+            // Remark: Get verify email
+//            if (Auth.auth().currentUser?.isEmailVerified)! {
+//                self.getRole()
+//            }
+//            else {
+//                try! Auth.auth().signOut()
+//                self.view.removeBluerLoader()
+//                self.createAlert(alertTitle: "Please verify email", alertMessage: "")
+//            }
         }
     }
     
