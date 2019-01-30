@@ -98,7 +98,8 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
                                          role: (value["role"] as! String),
                                          profileImageUrl: (value["profileImageUrl"] as! String),
                                          uid: uid,
-                                         omiseCusId: (value["omise_cus_id"] as! String))
+                                         omiseCusId: (value["omise_cus_id"] as! String),
+                                         ban: (value["ban"] as! Bool))
             self.userProfileObj[uid] = profileObj
             self.uid.forEach({ (eachUid) in
                 if self.userProfileObj[eachUid] == nil {

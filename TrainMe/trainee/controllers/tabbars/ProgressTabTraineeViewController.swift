@@ -299,7 +299,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                                      gender: (value["gender"] as! String),
                                                      role: (value["role"] as! String),
                                                      profileImageUrl: (value["profileImageUrl"] as! String),
-                                                     omiseCusId: (value["omise_cus_id"] as! String))
+                                                     omiseCusId: (value["omise_cus_id"] as! String),
+                                                     ban: (value["ban"] as! Bool))
             self.trainerObj[trainerId]?.uid = trainerId
             
             if self.trainerId.count == self.trainerObj.count && self.trainerId.count != 0 &&

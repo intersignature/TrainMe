@@ -113,7 +113,8 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
                                               role: (value["role"] as! String),
                                               profileImageUrl: (value["profileImageUrl"] as! String),
                                               uid: snapshot.key,
-                                              omiseCusId: (value["omise_cus_id"] as! String))
+                                              omiseCusId: (value["omise_cus_id"] as! String),
+                                              ban: (value["ban"] as! Bool))
             self.setDataToProfileView()
         }
     }
@@ -236,7 +237,8 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
                                                      gender: (value["gender"] as! String),
                                                      role: (value["role"] as! String),
                                                      profileImageUrl: (value["profileImageUrl"] as! String),
-                                                     omiseCusId: (value["omise_cus_id"] as! String))
+                                                     omiseCusId: (value["omise_cus_id"] as! String),
+                                                     ban: (value["ban"] as! Bool))
             self.traineeObj[traineeId]?.uid = traineeId
             self.profileTrainerTableView.reloadData()
         }) { (err) in

@@ -105,8 +105,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         ref.child("user").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             self.role = value?["role"]! as! String
+            let isBan = value!["ban"] as! Bool
             
-            print(self.role)
+            if isBan {
+                try! Auth.auth().signOut()
+                self.view.removeBluerLoader()
+                self.createAlert(alertTitle: "Your account was banned by admin", alertMessage: "")
+                return
+            }
             
             self.view.removeBluerLoader()
             if self.role == "trainer" {
@@ -116,7 +122,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print("1")
                 self.performSegue(withIdentifier: "LoginToMainTrainee", sender: nil)
             }
-            
         }) { (err) in
             print(err.localizedDescription)
         }

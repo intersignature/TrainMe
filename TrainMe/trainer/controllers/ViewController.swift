@@ -98,6 +98,14 @@ class ViewController: UIViewController {
                 self.view.removeBluerLoader()
                 let value = snapshot.value as! NSDictionary
                 let role = value["role"] as! String
+                let isBan = value["ban"] as! Bool
+                
+                if isBan {
+                    try! Auth.auth().signOut()
+                    self.createAlert(alertTitle: "Your account was banned by admin", alertMessage: "")
+                    return
+                }
+                
                 if role == "trainee" {
                     self.performSegue(withIdentifier: "WelcomeToMainTrainee", sender: nil)
                 } else if role == "trainer" {
