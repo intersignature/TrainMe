@@ -24,7 +24,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         nextBtn.layer.cornerRadius = 17
         
         self.fullnameTf.delegate = self
-        
         self.HideKeyboard()
         setLocalizeText()
     }

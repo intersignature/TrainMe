@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     var dateOfBirth: String?
     var profilePicture: UIImage?
     
+    @IBOutlet weak var trainMeLogo: UILabel!
     @IBOutlet weak var alreadyUser: UILabel!
-    
     @IBOutlet weak var signupBtn: UIButton!
     @IBOutlet weak var facebookSignupBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.trainMeLogo.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/4)
         signupBtn.layer.cornerRadius = 17
         facebookSignupBtn.layer.cornerRadius = 17
         loginBtn.layer.cornerRadius = 17
