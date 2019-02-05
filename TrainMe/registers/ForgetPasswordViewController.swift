@@ -22,6 +22,8 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
         
         emailView.layer.cornerRadius = 17
         sendBtn.layer.cornerRadius = 17
+        emailView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        emailTf.backgroundColor = UIColor(white: 1, alpha: 0)
         
         self.emailTf.delegate = self
         

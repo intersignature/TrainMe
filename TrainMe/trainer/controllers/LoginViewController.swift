@@ -32,6 +32,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordView.layer.cornerRadius = 17
         loginBtn.layer.cornerRadius = 17
         
+        emailView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        emailTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        passwordView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        passwordTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        
         self.emailTf.delegate = self
         self.passwordTf.delegate = self
 

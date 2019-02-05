@@ -23,6 +23,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         fullnameView.layer.cornerRadius = 17
         nextBtn.layer.cornerRadius = 17
         
+        fullnameView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        fullnameTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        
         self.fullnameTf.delegate = self
         self.HideKeyboard()
         setLocalizeText()

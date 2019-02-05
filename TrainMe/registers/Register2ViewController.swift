@@ -35,6 +35,13 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
         verifyPasswordView.layer.cornerRadius = 17
         nextBtn.layer.cornerRadius = 17
         
+        emailView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        emailTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        passwordView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        passwordTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        verifyPasswordView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        verifyPasswordTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        
         self.emailTf.delegate = self
         self.passwordTf.delegate = self
         self.verifyPasswordTf.delegate = self

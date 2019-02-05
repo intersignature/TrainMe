@@ -51,6 +51,14 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         femaleBtn.layer.cornerRadius = 5
         noneBtn.layer.cornerRadius = 5
         
+        dateOfBirthView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        dateOfBirthTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        weightView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        weightTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        heightView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        heightTf.backgroundColor = UIColor(white: 1, alpha: 0)
+        genderView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        
         self.weightTf.delegate = self
         self.heightTf.delegate = self
         
@@ -123,14 +131,14 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func maleBtnAction(_ sender: UIButton) {
         
-        maleBtn.backgroundColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
-        maleBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
+        maleBtn.backgroundColor = UIColor(red: 0/255.0, green: 207/255.0, blue: 207/255.0, alpha: 1)
+//        maleBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
         
-        femaleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
-        femaleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        femaleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
+//        femaleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
-        noneBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
-        noneBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        noneBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
+//        noneBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
         checkGender = 1
     }
@@ -138,14 +146,14 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func femaleBtnAction(_ sender: UIButton) {
         
-        maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
-        maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
+//        maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
-        femaleBtn.backgroundColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
-        femaleBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
+        femaleBtn.backgroundColor = UIColor(red: 0/255.0, green: 207/255.0, blue: 207/255.0, alpha: 1)
+//        femaleBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
         
-        noneBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
-        noneBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        noneBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
+//        noneBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
         checkGender = 2
     }
@@ -153,14 +161,14 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func noneBtnAction(_ sender: UIButton) {
         
-        maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
-        maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
+//        maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
-        femaleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1)
-        femaleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
+        femaleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
+//        femaleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
-        noneBtn.backgroundColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
-        noneBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
+        noneBtn.backgroundColor = UIColor(red: 0/255.0, green: 207/255.0, blue: 207/255.0, alpha: 1)
+//        noneBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
         
         checkGender = -1
     }
