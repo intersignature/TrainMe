@@ -27,7 +27,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var heightTf: DTTextField!
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
-    @IBOutlet weak var noneBtn: UIButton!
     @IBOutlet weak var registerLb: UILabel!
     @IBOutlet weak var kgLb: UILabel!
     @IBOutlet weak var cmLb: UILabel!
@@ -37,7 +36,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     var userProfile: UserProfile = UserProfile()
     var email: String?
     var password: String?
-    var checkGender: Int = -1
+    var checkGender: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +48,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         submitBtn.layer.cornerRadius = 17
         maleBtn.layer.cornerRadius = 5
         femaleBtn.layer.cornerRadius = 5
-        noneBtn.layer.cornerRadius = 5
         
         dateOfBirthView.backgroundColor = UIColor(white: 1, alpha: 0.3)
         dateOfBirthTf.backgroundColor = UIColor(white: 1, alpha: 0)
@@ -88,7 +86,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         cmLb.text = NSLocalizedString("cm", comment: "")
         maleBtn.setTitle(NSLocalizedString("male", comment: ""), for: .normal)
         femaleBtn.setTitle(NSLocalizedString("female", comment: ""), for: .normal)
-        noneBtn.setTitle(NSLocalizedString("none", comment: ""), for: .normal)
         termLineOneLb.text = NSLocalizedString("term_line1", comment: "")
         termLineTwoLb.text = NSLocalizedString("term_line2", comment: "")
         submitBtn.setTitle(NSLocalizedString("submit", comment: ""), for: .normal)
@@ -137,9 +134,6 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         femaleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
 //        femaleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
         
-        noneBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
-//        noneBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
-        
         checkGender = 1
     }
     
@@ -152,25 +146,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         femaleBtn.backgroundColor = UIColor(red: 0/255.0, green: 207/255.0, blue: 207/255.0, alpha: 1)
 //        femaleBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
         
-        noneBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
-//        noneBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
-        
         checkGender = 2
-    }
-    
-    
-    @IBAction func noneBtnAction(_ sender: UIButton) {
-        
-        maleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
-//        maleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
-        
-        femaleBtn.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0)
-//        femaleBtn.setTitleColor(UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1), for: .normal)
-        
-        noneBtn.backgroundColor = UIColor(red: 0/255.0, green: 207/255.0, blue: 207/255.0, alpha: 1)
-//        noneBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1), for: .normal)
-        
-        checkGender = -1
     }
 
     @IBAction func submitBtnAction(_ sender: UIButton) {
