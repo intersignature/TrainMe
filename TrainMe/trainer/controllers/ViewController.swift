@@ -31,10 +31,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.trainMeLogo.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/4)
         signupBtn.layer.cornerRadius = 17
         facebookSignupBtn.layer.cornerRadius = 17
         loginBtn.layer.cornerRadius = 17
+        
+        loginBtn.layer.borderWidth = 1
+        loginBtn.layer.borderColor = UIColor.white.cgColor
         
         setLocalizeText()
         

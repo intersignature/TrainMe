@@ -17,7 +17,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var emailTf: UITextField!
     @IBOutlet weak var passwordTf: UITextField!
-    @IBOutlet weak var loginLb: UILabel!
     @IBOutlet weak var forgetPasswordBtn: UIButton!
     
     var ref: DatabaseReference!
@@ -49,7 +48,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginBtn.setTitle(NSLocalizedString("login", comment: ""), for: .normal)
         emailTf.placeholder = NSLocalizedString("email", comment: "")
         passwordTf.placeholder = NSLocalizedString("password", comment: "")
-        loginLb.text = NSLocalizedString("login", comment: "")
         forgetPasswordBtn.setTitle(NSLocalizedString("forget_password", comment: ""), for: .normal)
     }
     
