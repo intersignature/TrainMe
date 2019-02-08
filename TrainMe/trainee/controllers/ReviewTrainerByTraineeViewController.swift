@@ -20,6 +20,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     
     @IBOutlet weak var nextScheduleDateTv: DTTextField!
     @IBOutlet weak var nextScheduleTimeTv: DTTextField!
+    @IBOutlet weak var reportBtn: UIBarButtonItem!
     
     var ref: DatabaseReference!
     var currentUser: User!
@@ -36,6 +37,8 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        reportBtn.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "Chalkduster", size: 20)!], for:.normal)
         
         self.scheduleNextSessionBtn.layer.cornerRadius = 5
         
@@ -325,6 +328,17 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
                 }))
                 self.present(alert, animated: true, completion: nil)
             }
+        }
+    }
+    
+    @IBAction func reportBtnAction(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "ReviewToReport", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ReviewToReport" {
+            let  vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! ReportViewController
         }
     }
 }
