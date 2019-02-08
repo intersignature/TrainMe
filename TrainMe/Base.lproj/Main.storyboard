@@ -34,7 +34,7 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9h-NA-RNr">
-                                <rect key="frame" x="25.5" y="357.5" width="269" height="32"/>
+                                <rect key="frame" x="25.5" y="366.5" width="269" height="29"/>
                                 <color key="backgroundColor" red="0.0" green="0.81176470588235294" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="269" id="bv8-Vj-3Sy"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-ib-5hP">
-                                <rect key="frame" x="25.5" y="414.5" width="269" height="32"/>
+                                <rect key="frame" x="25.5" y="420.5" width="269" height="29"/>
                                 <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="269" id="vHz-uX-SBJ"/>
@@ -75,7 +75,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if3-Hi-tP0">
-                                <rect key="frame" x="223.5" y="480.5" width="81.5" height="1.5"/>
+                                <rect key="frame" x="220.5" y="480.5" width="84.5" height="1.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -83,7 +83,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNk-Kj-Fl3">
-                                <rect key="frame" x="15" y="480.5" width="81.5" height="1.5"/>
+                                <rect key="frame" x="15" y="480.5" width="84.5" height="1.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -91,7 +91,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already a user?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWW-Uv-r0i">
-                                <rect key="frame" x="105.5" y="471.5" width="109.5" height="20.5"/>
+                                <rect key="frame" x="108" y="474.5" width="104" height="17.5"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3037,7 +3037,7 @@ detail</string>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="H6c-6T-DPa">
-                                                        <rect key="frame" x="61" y="15" width="204" height="20"/>
+                                                        <rect key="frame" x="61" y="16.5" width="204" height="17"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
@@ -3070,7 +3070,7 @@ detail</string>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-FH-rT3">
-                                                        <rect key="frame" x="59" y="15" width="216" height="20"/>
+                                                        <rect key="frame" x="59" y="16.5" width="216" height="17"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
@@ -3108,7 +3108,7 @@ detail</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpC-aU-N9I">
-                                                <rect key="frame" x="86" y="457" width="148" height="36"/>
+                                                <rect key="frame" x="88.5" y="457" width="143" height="32"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="17"/>
                                                 <state key="normal" title="Forget password ?">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3197,13 +3197,13 @@ detail</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your the email address that you used to register. We’ll send you an email to recover your account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-HQ-zce">
-                                <rect key="frame" x="20" y="128.5" width="295" height="53.5"/>
+                                <rect key="frame" x="20" y="124" width="295" height="45.5"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxa-t5-sJH">
-                                <rect key="frame" x="25" y="214" width="270" height="50"/>
+                                <rect key="frame" x="25" y="201.5" width="270" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail" translatesAutoresizingMaskIntoConstraints="NO" id="cKM-ni-Yff">
                                         <rect key="frame" x="16" y="10.5" width="29" height="29"/>
@@ -3213,7 +3213,7 @@ detail</string>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="mas-yo-NIf">
-                                        <rect key="frame" x="61" y="15" width="204" height="20"/>
+                                        <rect key="frame" x="61" y="16.5" width="204" height="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
@@ -3236,7 +3236,7 @@ detail</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WqS-dg-zQO">
-                                <rect key="frame" x="45" y="324" width="230" height="36"/>
+                                <rect key="frame" x="45" y="311.5" width="230" height="36"/>
                                 <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="ABj-tl-X4E"/>
@@ -3251,7 +3251,7 @@ detail</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" text="Recovery your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="M17-eO-aXd">
-                                <rect key="frame" x="68" y="47" width="252" height="31.5"/>
+                                <rect key="frame" x="68" y="47" width="252" height="27"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="23"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4813,7 +4813,44 @@ detail</string>
                     <view key="view" contentMode="scaleToFill" id="UTM-Rq-uF2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHm-ad-Gh2">
+                                <rect key="frame" x="25" y="89" width="42.5" height="20.5"/>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j0q-Wo-SH4">
+                                <rect key="frame" x="25" y="117.5" width="270" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="m9I-iy-ERl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoi-rW-q3D">
+                                <rect key="frame" x="25" y="270.5" width="270" height="30"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Report">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmReportBtnAction:" destination="8TR-EG-5Aj" eventType="touchUpInside" id="n6c-8q-3Iq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j0q-Wo-SH4" firstAttribute="top" secondItem="SHm-ad-Gh2" secondAttribute="bottom" constant="8" id="35o-gM-FBj"/>
+                            <constraint firstItem="Uoi-rW-q3D" firstAttribute="leading" secondItem="HnQ-n8-KhU" secondAttribute="leading" constant="25" id="B5O-k5-Yy4"/>
+                            <constraint firstItem="SHm-ad-Gh2" firstAttribute="leading" secondItem="HnQ-n8-KhU" secondAttribute="leading" constant="25" id="KgI-pD-x5f"/>
+                            <constraint firstItem="HnQ-n8-KhU" firstAttribute="trailing" secondItem="Uoi-rW-q3D" secondAttribute="trailing" constant="25" id="LZS-yU-wty"/>
+                            <constraint firstItem="HnQ-n8-KhU" firstAttribute="trailing" secondItem="j0q-Wo-SH4" secondAttribute="trailing" constant="25" id="Y0B-WL-vyO"/>
+                            <constraint firstItem="j0q-Wo-SH4" firstAttribute="leading" secondItem="HnQ-n8-KhU" secondAttribute="leading" constant="25" id="mTU-Je-hy6"/>
+                            <constraint firstItem="SHm-ad-Gh2" firstAttribute="top" secondItem="HnQ-n8-KhU" secondAttribute="top" constant="25" id="vkC-Zy-XCN"/>
+                            <constraint firstItem="Uoi-rW-q3D" firstAttribute="top" secondItem="j0q-Wo-SH4" secondAttribute="bottom" constant="25" id="wds-Jh-nCN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HnQ-n8-KhU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Report" id="gM1-vg-IJp">
@@ -4824,10 +4861,14 @@ detail</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmReportBtn" destination="Uoi-rW-q3D" id="k7l-He-AZY"/>
+                        <outlet property="reportTv" destination="j0q-Wo-SH4" id="qCg-I3-gaW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYi-ij-CXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1868" y="-737"/>
+            <point key="canvasLocation" x="-1869.375" y="-737.32394366197184"/>
         </scene>
         <!--Find-->
         <scene sceneID="8TW-RE-fQh">
@@ -6473,13 +6514,13 @@ detail</string>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59A-r7-119">
-                                                <rect key="frame" x="30" y="79" width="354" height="20.5"/>
+                                                <rect key="frame" x="30" y="79" width="354" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPH-DB-ajz">
-                                                <rect key="frame" x="30" y="107.5" width="354" height="160"/>
+                                                <rect key="frame" x="30" y="104.5" width="354" height="160"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="160" id="Wk6-Ut-GY3"/>
                                                 </constraints>
@@ -6488,7 +6529,7 @@ detail</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aU8-ZY-a6v">
-                                                <rect key="frame" x="30" y="321" width="354" height="160"/>
+                                                <rect key="frame" x="30" y="315" width="354" height="160"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="160" id="YAH-G8-jrk"/>
                                                 </constraints>
@@ -6507,19 +6548,19 @@ detail</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-ct-qEj">
-                                                <rect key="frame" x="30" y="292.5" width="354" height="20.5"/>
+                                                <rect key="frame" x="30" y="289.5" width="354" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Next schedule date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-5G-cTi" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="25" y="506" width="364" height="30"/>
+                                                <rect key="frame" x="25" y="500" width="364" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Next schedule time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXR-0x-lvB" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="25" y="561" width="364" height="30"/>
+                                                <rect key="frame" x="25" y="555" width="364" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -6710,7 +6751,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7m-rl-Wrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3537.68115942029" y="160.59782608695653"/>
+            <point key="canvasLocation" x="-3399" y="238"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yXz-b7-WkG">

@@ -29,6 +29,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     var ongoingId: String!
     var countAtIndex: String!
     var summaryCount: String!
+    var courseId: String!
     var coursePrice: String!
     var recpId: String!
     
@@ -339,6 +340,8 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         if segue.identifier == "ReviewToReport" {
             let  vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ReportViewController
+            containVc.trainerId = self.trainerId
+            containVc.courseId = self.courseId
         }
     }
 }
