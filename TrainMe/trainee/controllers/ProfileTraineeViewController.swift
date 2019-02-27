@@ -18,6 +18,7 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var genderImageView: UIImageView!
+    @IBOutlet weak var emailLb: UILabel!
     @IBOutlet weak var bioLb: UILabel!
     @IBOutlet weak var heightLb: UILabel!
     @IBOutlet weak var birthdayLb: UILabel!
@@ -89,6 +90,7 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         } else {
 //            self.genderImageView.image = UIImage(named: "")
         }
+        self.emailLb.text = self.traineeProfile.email
         self.heightLb.text = "\(self.traineeProfile.height) cm"
         self.weightLb.text = "\(self.traineeProfile.weight) kg"
         self.birthdayLb.text = self.traineeProfile.dateOfBirth
@@ -188,6 +190,7 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
         super.viewWillAppear(animated)
         
         self.setupNavigationStyle()
+        self.emailLb.textColor = UIColor.white.withAlphaComponent(0.4)
         self.editProfileBtn.isEnabled = false
         self.getTraineeProfile()
     }

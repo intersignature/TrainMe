@@ -19,6 +19,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var genderImageView: UIImageView!
+    @IBOutlet weak var emailLb: UILabel!
     @IBOutlet weak var heightLb: UILabel!
     @IBOutlet weak var birthdayLb: UILabel!
     @IBOutlet weak var weightLb: UILabel!
@@ -279,6 +280,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         } else if self.trainerProfile.gender == "female" {
             self.genderImageView.image = UIImage(named: "female")
         }
+        self.emailLb.text = self.trainerProfile.email
         self.heightLb.text = "\(self.trainerProfile.height) cm"
         self.birthdayLb.text = "\(self.trainerProfile.dateOfBirth)"
         self.weightLb.text = "\(self.trainerProfile.weight) kg"
@@ -347,6 +349,14 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.emailLb.textColor = UIColor.white.withAlphaComponent(0.4)
+        
+        self.fiveRatingProgressbar.trackTintColor = UIColor.white.withAlphaComponent(0.2)
+        self.fourRatingProgressbar.trackTintColor = UIColor.white.withAlphaComponent(0.2)
+        self.threeRatingProgressbar.trackTintColor = UIColor.white.withAlphaComponent(0.2)
+        self.twoRatingProgressbar.trackTintColor = UIColor.white.withAlphaComponent(0.2)
+        self.oneRatingProgressbar.trackTintColor = UIColor.white.withAlphaComponent(0.2)
         
         self.setupNavigationStyle()
         self.editProfileBtn.isEnabled = false
