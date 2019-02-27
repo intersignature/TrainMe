@@ -15,25 +15,31 @@ class SidebarTraineeViewController: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var emailLb: UILabel!
-    @IBOutlet weak var profileBtn: UIButton!
     @IBOutlet weak var creditCardBtn: UIButton!
     @IBOutlet weak var helpBtn: UIButton!
     @IBOutlet weak var settingBtn: UIButton!
     @IBOutlet weak var becomeATrainerBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
+    @IBOutlet weak var seperateView: UIView!
+    @IBOutlet weak var topSidebarView: UIView!
     
     private var currentUser: User?
+    let ge = UITapGestureRecognizer(target: self, action: #selector(topSidebarViewAction(_:)))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         currentUser = Auth.auth().currentUser
-        self.setProfileImageRound()
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.topSidebarViewAction(_:)))
+        self.topSidebarView.addGestureRecognizer(gesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        emailLb.textColor = UIColor.white.withAlphaComponent(0.4)
+        self.seperateView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         nameLb.text = currentUser?.displayName
         emailLb.text = currentUser?.email
         if currentUser?.photoURL != nil {
@@ -46,28 +52,18 @@ class SidebarTraineeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-
+    
+    @objc func topSidebarViewAction(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "SidebarTraineeToProfileTrainee", sender: self.currentUser?.uid)
+    }
+    
     @IBAction func logoutBtnAction(_ sender: UIButton) {
         try! Auth.auth().signOut()
         performSegue(withIdentifier: "LogoutTraineeSeg", sender: nil)
     }
     
-    func setProfileImageRound() {
-        
-        profileImg.layer.borderWidth = 10
-        profileImg.layer.masksToBounds = false
-        profileImg.layer.borderColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1).cgColor
-        profileImg.layer.cornerRadius = profileImg.frame.height/2
-        profileImg.clipsToBounds = true
-    }
-    
     @IBAction func creditCardBtnAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "SidebarToCreditcardView", sender: nil)
-    }
-    
-    @IBAction func profileBtnAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "SidebarTraineeToProfileTrainee", sender: self.currentUser?.uid)
     }
     
     @IBAction func becomeATrainerBtnAction(_ sender: UIButton) {

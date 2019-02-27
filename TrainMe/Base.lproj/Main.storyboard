@@ -4707,40 +4707,20 @@ detail</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-default" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-UB-wbf">
-                                <rect key="frame" x="67.5" y="35" width="140" height="140"/>
+                                <rect key="frame" x="22" y="42" width="58" height="58"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="pcg-CN-gzB"/>
-                                    <constraint firstAttribute="height" constant="140" id="xTU-85-mGx"/>
+                                    <constraint firstAttribute="width" constant="58" id="pcg-CN-gzB"/>
+                                    <constraint firstAttribute="height" constant="58" id="xTU-85-mGx"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1i-et-5gj">
-                                <rect key="frame" x="67.5" y="190" width="140" height="27.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="e3o-9j-CgK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1i-et-5gj">
+                                <rect key="frame" x="107" y="50" width="213" height="22"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhv-OY-cxd">
-                                <rect key="frame" x="27" y="221.5" width="220" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="7fD-L5-fNP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zO-i1-Lk5">
-                                <rect key="frame" x="47" y="257" width="130" height="33"/>
-                                <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
-                                <state key="normal" title="     User Profile" image="user1"/>
-                                <connections>
-                                    <action selector="profileBtnAction:" destination="C4e-lZ-zmb" eventType="touchUpInside" id="MnM-ID-JyX"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odh-GH-79p">
-                                <rect key="frame" x="47" y="305" width="183" height="28"/>
+                                <rect key="frame" x="27" y="152" width="183" height="28"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Credit card / Paypal" image="creditCard"/>
                                 <connections>
@@ -4748,7 +4728,7 @@ detail</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3S-1q-6zc">
-                                <rect key="frame" x="47" y="348" width="83" height="33"/>
+                                <rect key="frame" x="27" y="215" width="83" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Help" image="help"/>
                                 <connections>
@@ -4756,12 +4736,12 @@ detail</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk1-7l-Xs7">
-                                <rect key="frame" x="47" y="396" width="106" height="33"/>
+                                <rect key="frame" x="27" y="283" width="106" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Settings" image="settings"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep5-Oc-a8J">
-                                <rect key="frame" x="47" y="491" width="97" height="31"/>
+                                <rect key="frame" x="27" y="418" width="97" height="31"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Logout" image="logout"/>
                                 <connections>
@@ -4769,38 +4749,74 @@ detail</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fs-Ng-gWL">
-                                <rect key="frame" x="47" y="444" width="162" height="32"/>
+                                <rect key="frame" x="27" y="351" width="162" height="32"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Become a trainer" image="trainer"/>
                                 <connections>
                                     <action selector="becomeATrainerBtnAction:" destination="C4e-lZ-zmb" eventType="touchUpInside" id="eUp-Fl-3Mo"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjl-M4-2fz">
+                                <rect key="frame" x="20" y="116" width="220" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Ysy-Is-zpC"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhv-OY-cxd">
+                                <rect key="frame" x="107" y="77" width="213" height="19.5"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="Rqj-t3-kbo">
+                                <rect key="frame" x="228" y="67" width="12" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="km7-mV-EI8"/>
+                                    <constraint firstAttribute="height" constant="12" id="zba-OM-ZXT"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BgW-Kt-2AP">
+                                <rect key="frame" x="0.0" y="20" width="320" height="97"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="dns-Gx-Yq1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="odh-GH-79p" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="1oM-JN-ENV"/>
-                            <constraint firstItem="wk1-7l-Xs7" firstAttribute="top" secondItem="y3S-1q-6zc" secondAttribute="bottom" constant="15" id="6HG-88-V1E"/>
-                            <constraint firstItem="LM7-UB-wbf" firstAttribute="top" secondItem="pF1-Sg-dt9" secondAttribute="top" constant="15" id="87x-5Q-e9b"/>
+                            <constraint firstItem="Rqj-t3-kbo" firstAttribute="top" secondItem="pF1-Sg-dt9" secondAttribute="top" constant="47" id="0m1-Ti-Hsj"/>
+                            <constraint firstItem="pF1-Sg-dt9" firstAttribute="trailing" secondItem="R1i-et-5gj" secondAttribute="trailing" id="3X5-yR-Z2G"/>
+                            <constraint firstItem="wk1-7l-Xs7" firstAttribute="top" secondItem="y3S-1q-6zc" secondAttribute="bottom" constant="35" id="8jq-Xw-T9r"/>
                             <constraint firstItem="Lfr-48-Z4K" firstAttribute="bottom" secondItem="pF1-Sg-dt9" secondAttribute="bottom" id="9Ux-fC-T5q"/>
                             <constraint firstItem="Lfr-48-Z4K" firstAttribute="top" secondItem="xDo-dO-EFp" secondAttribute="top" id="9kE-3w-Sd2"/>
+                            <constraint firstItem="pF1-Sg-dt9" firstAttribute="trailing" secondItem="Rqj-t3-kbo" secondAttribute="trailing" constant="80" id="AH2-GU-Y2I"/>
+                            <constraint firstItem="y3S-1q-6zc" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="27" id="BXQ-O2-7om"/>
+                            <constraint firstItem="R1i-et-5gj" firstAttribute="leading" secondItem="LM7-UB-wbf" secondAttribute="trailing" constant="27" id="By8-4o-1RZ"/>
                             <constraint firstItem="Lfr-48-Z4K" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" id="C36-cw-YnM"/>
-                            <constraint firstItem="4fs-Ng-gWL" firstAttribute="top" secondItem="wk1-7l-Xs7" secondAttribute="bottom" constant="15" id="D3K-8L-lHk"/>
-                            <constraint firstItem="R1i-et-5gj" firstAttribute="top" secondItem="LM7-UB-wbf" secondAttribute="bottom" constant="15" id="HFu-jP-wFB"/>
-                            <constraint firstItem="Ep5-Oc-a8J" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="Iqk-7Z-X17"/>
+                            <constraint firstItem="Ep5-Oc-a8J" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="27" id="IqY-qf-edg"/>
+                            <constraint firstItem="Xhv-OY-cxd" firstAttribute="leading" secondItem="LM7-UB-wbf" secondAttribute="trailing" constant="27" id="K3H-Vr-J9q"/>
                             <constraint firstItem="Lfr-48-Z4K" firstAttribute="trailing" secondItem="pF1-Sg-dt9" secondAttribute="trailing" id="KF4-N8-hHM"/>
-                            <constraint firstItem="Ep5-Oc-a8J" firstAttribute="top" secondItem="4fs-Ng-gWL" secondAttribute="bottom" constant="15" id="Qsf-7S-Zwf"/>
-                            <constraint firstItem="odh-GH-79p" firstAttribute="top" secondItem="8zO-i1-Lk5" secondAttribute="bottom" constant="15" id="QtQ-Vv-DXV"/>
-                            <constraint firstItem="R1i-et-5gj" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="67.5" id="T55-5Y-uuk"/>
-                            <constraint firstItem="Xhv-OY-cxd" firstAttribute="top" secondItem="R1i-et-5gj" secondAttribute="bottom" constant="4" id="Vsb-gX-CyM"/>
-                            <constraint firstItem="8zO-i1-Lk5" firstAttribute="top" secondItem="Xhv-OY-cxd" secondAttribute="bottom" constant="15" id="XCK-cf-PJb"/>
-                            <constraint firstItem="y3S-1q-6zc" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="XU7-mk-Qav"/>
-                            <constraint firstItem="LM7-UB-wbf" firstAttribute="leading" secondItem="xDo-dO-EFp" secondAttribute="leading" constant="67.5" id="iXh-D1-3ug"/>
-                            <constraint firstItem="Xhv-OY-cxd" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="27" id="ijE-1Y-ePO"/>
-                            <constraint firstItem="8zO-i1-Lk5" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="j70-Bp-7Sa"/>
-                            <constraint firstItem="wk1-7l-Xs7" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="nMe-vt-tid"/>
-                            <constraint firstItem="y3S-1q-6zc" firstAttribute="top" secondItem="odh-GH-79p" secondAttribute="bottom" constant="15" id="rxo-5Y-35L"/>
-                            <constraint firstItem="4fs-Ng-gWL" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="47" id="yLM-Qj-P8B"/>
+                            <constraint firstItem="LM7-UB-wbf" firstAttribute="top" secondItem="pF1-Sg-dt9" secondAttribute="top" constant="22" id="QjX-EC-A3q"/>
+                            <constraint firstItem="LM7-UB-wbf" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="22" id="UIH-9O-gFV"/>
+                            <constraint firstItem="Pjl-M4-2fz" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="20" id="Yqg-AY-pyA"/>
+                            <constraint firstItem="y3S-1q-6zc" firstAttribute="top" secondItem="odh-GH-79p" secondAttribute="bottom" constant="35" id="Zwt-sh-hbL"/>
+                            <constraint firstItem="odh-GH-79p" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="27" id="cQd-Aw-XIN"/>
+                            <constraint firstItem="Pjl-M4-2fz" firstAttribute="top" secondItem="LM7-UB-wbf" secondAttribute="bottom" constant="16" id="g4U-gf-GJT"/>
+                            <constraint firstItem="R1i-et-5gj" firstAttribute="top" secondItem="pF1-Sg-dt9" secondAttribute="top" constant="30" id="gBH-ki-Otc"/>
+                            <constraint firstItem="Xhv-OY-cxd" firstAttribute="top" secondItem="R1i-et-5gj" secondAttribute="bottom" constant="5" id="hFa-uL-MkS"/>
+                            <constraint firstItem="Ep5-Oc-a8J" firstAttribute="top" secondItem="4fs-Ng-gWL" secondAttribute="bottom" constant="35" id="iKh-Wg-ahM"/>
+                            <constraint firstItem="pF1-Sg-dt9" firstAttribute="trailing" secondItem="Pjl-M4-2fz" secondAttribute="trailing" constant="80" id="ky5-L1-0l4"/>
+                            <constraint firstItem="BgW-Kt-2AP" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" id="r2D-Fa-Mp9"/>
+                            <constraint firstItem="pF1-Sg-dt9" firstAttribute="trailing" secondItem="BgW-Kt-2AP" secondAttribute="trailing" id="rNe-oS-Dn0"/>
+                            <constraint firstItem="pF1-Sg-dt9" firstAttribute="trailing" secondItem="Xhv-OY-cxd" secondAttribute="trailing" id="tDz-xo-vtM"/>
+                            <constraint firstItem="wk1-7l-Xs7" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="27" id="tc9-bE-O7v"/>
+                            <constraint firstItem="4fs-Ng-gWL" firstAttribute="top" secondItem="wk1-7l-Xs7" secondAttribute="bottom" constant="35" id="wCO-a4-lgv"/>
+                            <constraint firstItem="odh-GH-79p" firstAttribute="top" secondItem="Pjl-M4-2fz" secondAttribute="bottom" constant="35" id="wK3-fc-TKN"/>
+                            <constraint firstItem="BgW-Kt-2AP" firstAttribute="top" secondItem="pF1-Sg-dt9" secondAttribute="top" id="yfQ-qv-n1s"/>
+                            <constraint firstItem="4fs-Ng-gWL" firstAttribute="leading" secondItem="pF1-Sg-dt9" secondAttribute="leading" constant="27" id="z6c-fG-cWe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pF1-Sg-dt9"/>
                     </view>
@@ -4811,9 +4827,10 @@ detail</string>
                         <outlet property="helpBtn" destination="y3S-1q-6zc" id="G2x-3N-KtY"/>
                         <outlet property="logoutBtn" destination="Ep5-Oc-a8J" id="olj-eW-ETM"/>
                         <outlet property="nameLb" destination="R1i-et-5gj" id="pmY-IX-Tbt"/>
-                        <outlet property="profileBtn" destination="8zO-i1-Lk5" id="dnR-qf-LZW"/>
                         <outlet property="profileImg" destination="LM7-UB-wbf" id="gya-Wk-PFj"/>
+                        <outlet property="seperateView" destination="Pjl-M4-2fz" id="hSS-z7-0M6"/>
                         <outlet property="settingBtn" destination="wk1-7l-Xs7" id="Jwo-dF-Goj"/>
+                        <outlet property="topSidebarView" destination="BgW-Kt-2AP" id="hWA-SM-RFf"/>
                         <segue destination="BYZ-38-t0r" kind="custom" identifier="LogoutTraineeSeg" customClass="SWRevealViewControllerSeguePushController" id="CFy-02-wCg"/>
                         <segue destination="4f9-ny-Mp3" kind="presentation" identifier="SidebarTraineeToProfileTrainee" id="p7p-h3-dr6"/>
                         <segue destination="gbW-uY-edR" kind="presentation" identifier="SidebarToCreditcardView" id="sbZ-Vf-ldz"/>
@@ -7302,6 +7319,7 @@ detail</string>
         <image name="profile-default" width="42.421173095703125" height="42.421173095703125"/>
         <image name="progress" width="25" height="25"/>
         <image name="regis weight" width="512" height="512"/>
+        <image name="right" width="12" height="12"/>
         <image name="settings" width="33" height="33"/>
         <image name="star" width="24" height="24"/>
         <image name="star-filled" width="24" height="24"/>
