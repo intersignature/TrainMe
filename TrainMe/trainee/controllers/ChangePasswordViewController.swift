@@ -12,10 +12,13 @@ import DTTextField
 
 class ChangePasswordViewController: UIViewController {
 
-    @IBOutlet weak var oldPasswordTf: DTTextField!
-    @IBOutlet weak var newPasswordTf: DTTextField!
-    @IBOutlet weak var confirmNewPasswordTf: DTTextField!
+    @IBOutlet weak var oldPasswordTf: UITextField!
+    @IBOutlet weak var newPasswordTf: UITextField!
+    @IBOutlet weak var confirmNewPasswordTf: UITextField!
     @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var seperateView1: UIView!
+    @IBOutlet weak var seperateView2: UIView!
+    @IBOutlet weak var seperateView3: UIView!
     
     var currentUser: User!
     
@@ -32,7 +35,19 @@ class ChangePasswordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupNavigationStyle()
+        self.oldPasswordTf.attributedPlaceholder = NSAttributedString(string: "Old password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.newPasswordTf.attributedPlaceholder = NSAttributedString(string: "New password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.confirmNewPasswordTf.attributedPlaceholder = NSAttributedString(string: "Confirm new password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        self.seperateView1.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        self.seperateView2.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        self.seperateView3.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     @IBAction func saveBtnAction(_ sender: UIButton) {

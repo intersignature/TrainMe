@@ -86,6 +86,10 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeButtonCollection", for: indexPath) as! TimeButtonCollectionViewCell
 
+        cell.timeBtn.layer.cornerRadius = 17
+        cell.timeBtn.layer.borderWidth = 1
+        cell.timeBtn.layer.borderColor = UIColor.gray.cgColor
+        
         cell.timeBtn.accessibilityHint = "tag: \(self.trainerNo) row: \(indexPath.row) section: \(indexPath.section)"
         if self.buttonIdPendingAlready.contains(self.time[indexPath.row].key) {
             cell.timeBtn.setTitleColor(UIColor.red, for: .normal)

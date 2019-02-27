@@ -16,12 +16,14 @@ import CropViewController
 class EditProfileTraineeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
 
     @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var nameTf: DTTextField!
-    @IBOutlet weak var weightTf: DTTextField!
-    @IBOutlet weak var heightTf: DTTextField!
+    @IBOutlet weak var nameTf: UITextField!
+    @IBOutlet weak var weightTf: UITextField!
+    @IBOutlet weak var heightTf: UITextField!
     @IBOutlet weak var changePasswordBtn: UIButton!
-    @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var changeLb: UILabel!
+    @IBOutlet weak var seperateView1: UIView!
+    @IBOutlet weak var seperateView2: UIView!
+    @IBOutlet weak var seperateView3: UIView!
     
     var ref: DatabaseReference!
     var storageRef: StorageReference!
@@ -41,7 +43,6 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
         self.ref = Database.database().reference()
         self.storageRef = Storage.storage().reference()
         self.changePasswordBtn.layer.cornerRadius = 17
-        self.saveBtn.layer.cornerRadius = 17
         print("EditProfileTraineeViewController \(self.traineeProfile)")
         
         self.HideKeyboard()
@@ -191,7 +192,7 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
     @IBAction func changePasswordBtnAction(_ sender: UIButton) {
     }
     
-    @IBAction func saveBtnAction(_ sender: UIButton) {
+    @IBAction func saveBtnAction(_ sender: UIBarButtonItem) {
         
         self.view.showBlurLoader()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -320,6 +321,18 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupNavigationStyle()
+        self.nameTf.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.weightTf.attributedPlaceholder = NSAttributedString(string: "Weight", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.heightTf.attributedPlaceholder = NSAttributedString(string: "Height", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        self.seperateView1.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        self.seperateView2.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        self.seperateView3.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
 }

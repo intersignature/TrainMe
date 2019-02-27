@@ -21,7 +21,7 @@ class TimeButtonCollectionViewCell: UICollectionViewCell {
     
     func setDataToButton(bookPlaceDetail: BookPlaceDetail) {
         
-        self.timeBtn.setTitle(bookPlaceDetail.startTrainTime, for: .normal)
+        self.timeBtn.setTitle(" \(bookPlaceDetail.startTrainTime) ", for: .normal)
         self.bookPlaceDetail = bookPlaceDetail
     }
     
