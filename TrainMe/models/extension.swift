@@ -174,6 +174,10 @@ extension UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "BG_HOME"), for: .default)
+        
+        self.tabBarController?.tabBar.isTranslucent = false
+        self.tabBarController?.tabBar.clipsToBounds = true
     }
 }
 
