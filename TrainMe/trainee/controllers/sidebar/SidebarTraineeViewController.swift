@@ -24,7 +24,6 @@ class SidebarTraineeViewController: UIViewController {
     @IBOutlet weak var topSidebarView: UIView!
     
     private var currentUser: User?
-    let ge = UITapGestureRecognizer(target: self, action: #selector(topSidebarViewAction(_:)))
     
     override func viewDidLoad() {
         super.viewDidLoad()
