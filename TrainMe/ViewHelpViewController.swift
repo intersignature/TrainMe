@@ -26,10 +26,20 @@ class ViewHelpViewController: UIViewController {
         self.helpTv.scrollRangeToVisible(NSRange(location:0, length:0))
         self.helpTv.text = self.selectedHelp.desc
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupNavigationStyle()
+//        self.setupNavigationStyle()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+        self.helpTv.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        self.helpTv.layer.cornerRadius = 5
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
