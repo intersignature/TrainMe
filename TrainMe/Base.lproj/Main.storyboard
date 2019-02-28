@@ -4547,25 +4547,30 @@ detail</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG_HOME" translatesAutoresizingMaskIntoConstraints="NO" id="DFR-7u-7LG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gho-sY-JBL">
                                 <rect key="frame" x="20" y="84" width="280" height="208"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="208" id="UxI-JD-dS9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign certified true copy and upload to admin for consider to be our trainer." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDV-6G-nIZ">
-                                <rect key="frame" x="20" y="297" width="280" height="52.5"/>
+                                <rect key="frame" x="20" y="297" width="280" height="61.5"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbk-rJ-Y9Z">
                                 <rect key="frame" x="45" y="498" width="230" height="30"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="weq-GL-21L"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -4576,15 +4581,19 @@ detail</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DFR-7u-7LG" firstAttribute="trailing" secondItem="5ne-YC-iLo" secondAttribute="trailing" id="1z9-3v-scd"/>
                             <constraint firstItem="YDV-6G-nIZ" firstAttribute="leading" secondItem="5ne-YC-iLo" secondAttribute="leading" constant="20" id="5dA-4I-qA7"/>
                             <constraint firstAttribute="trailing" secondItem="YDV-6G-nIZ" secondAttribute="trailing" constant="20" id="K9U-x0-zNW"/>
                             <constraint firstItem="gho-sY-JBL" firstAttribute="leading" secondItem="5ne-YC-iLo" secondAttribute="leading" constant="20" id="L9t-qt-Hfi"/>
                             <constraint firstItem="5ne-YC-iLo" firstAttribute="bottom" secondItem="Bbk-rJ-Y9Z" secondAttribute="bottom" constant="40" id="NrF-0P-Pde"/>
                             <constraint firstItem="gho-sY-JBL" firstAttribute="centerX" secondItem="2pK-Xh-WwK" secondAttribute="centerX" id="Ola-Hb-sau"/>
                             <constraint firstItem="5ne-YC-iLo" firstAttribute="trailing" secondItem="gho-sY-JBL" secondAttribute="trailing" constant="20" id="W1U-4Z-aRE"/>
+                            <constraint firstItem="DFR-7u-7LG" firstAttribute="bottom" secondItem="5ne-YC-iLo" secondAttribute="bottom" id="asq-UU-YNm"/>
                             <constraint firstItem="gho-sY-JBL" firstAttribute="top" secondItem="5ne-YC-iLo" secondAttribute="top" constant="20" id="dQp-3R-IlY"/>
                             <constraint firstItem="YDV-6G-nIZ" firstAttribute="top" secondItem="gho-sY-JBL" secondAttribute="bottom" constant="5" id="ikT-pD-yZp"/>
                             <constraint firstItem="Bbk-rJ-Y9Z" firstAttribute="centerX" secondItem="2pK-Xh-WwK" secondAttribute="centerX" id="qNF-7h-yDc"/>
+                            <constraint firstItem="DFR-7u-7LG" firstAttribute="leading" secondItem="5ne-YC-iLo" secondAttribute="leading" id="skR-VY-Xud"/>
+                            <constraint firstItem="DFR-7u-7LG" firstAttribute="top" secondItem="2pK-Xh-WwK" secondAttribute="top" id="wxM-oB-MGO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5ne-YC-iLo"/>
                     </view>
@@ -7500,7 +7509,7 @@ detail</string>
         <segue reference="LED-SU-iWE"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="IRS-Ta-5Mo"/>
-        <segue reference="EnY-te-5kK"/>
+        <segue reference="xuk-C4-Ezf"/>
         <segue reference="yaD-9q-IZ0"/>
         <segue reference="5EB-bI-2rw"/>
         <segue reference="GhO-HN-2gJ"/>
