@@ -17,7 +17,7 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var certificateImg: UIImageView!
     @IBOutlet weak var certificateDetailTv: UITextView!
     @IBOutlet weak var cerificateTableView: UITableView!
-    @IBOutlet weak var addCertBtn: UIButton!
+    @IBOutlet weak var addCertificateToListBtn: UIButton!
     
     private var croppingStyle = CropViewCroppingStyle.default
     private var croppedRect = CGRect.zero
@@ -216,7 +216,16 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupNavigationStyle()
+//        self.setupNavigationStyle()
+        
+        self.certificateImg.layer.cornerRadius = 5
+        self.addCertificateToListBtn.layer.cornerRadius = 17
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
         self.navigationItem.leftBarButtonItem?.title = "Back"
     }
     
