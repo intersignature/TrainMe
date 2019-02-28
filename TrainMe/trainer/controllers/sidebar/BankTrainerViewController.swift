@@ -13,9 +13,9 @@ import FirebaseDatabase
 
 class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var accountNameTf: DTTextField!
-    @IBOutlet weak var accountNumberTf: DTTextField!
-    @IBOutlet weak var bankNameTf: DTTextField!
+    @IBOutlet weak var accountNameTf: UITextField!
+    @IBOutlet weak var accountNumberTf: UITextField!
+    @IBOutlet weak var bankNameTf: UITextField!
     @IBOutlet weak var confirmBtn: UIButton!
     
     var selectedBankName: String = ""
@@ -279,7 +279,17 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupNavigationStyle()
+//        self.setupNavigationStyle()
+        
+        self.accountNameTf.attributedPlaceholder = NSAttributedString(string: "Loading ...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.accountNumberTf.attributedPlaceholder = NSAttributedString(string: "Loading ...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.bankNameTf.attributedPlaceholder = NSAttributedString(string: "Loading ...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     func checkEmptyData() -> Bool {

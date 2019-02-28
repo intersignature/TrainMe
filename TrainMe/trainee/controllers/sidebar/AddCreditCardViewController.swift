@@ -19,7 +19,7 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
     @IBOutlet weak var creditCardForm: CreditCardFormView!
     
     let paymentTextField = STPPaymentCardTextField()
-    let cardHolderTextField = DTTextField()
+    let cardHolderTextField: UITextField! = UITextField()
     let confirmBtn = UIButton()
     
     let currentUser = Auth.auth().currentUser
@@ -28,13 +28,10 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupStripTextField()
-        self.setupCardHolderTextField()
-        self.setupConfirmButton()
         self.HideKeyboard()
 
         self.paymentTextField.delegate = self
-        self.cardHolderTextField.delegate = self
+//        self.cardHolderTextField.delegate = self
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
@@ -46,6 +43,9 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
         paymentTextField.frame = CGRect(x: 15, y: 199, width: self.view.frame.size.width - 30, height: 44)
         paymentTextField.translatesAutoresizingMaskIntoConstraints = false
         paymentTextField.borderWidth = 0
+        paymentTextField.backgroundColor = UIColor.clear
+        paymentTextField.textColor = UIColor.white
+        paymentTextField.tintColor = UIColor.white
         
         let border = CALayer()
         let width = CGFloat(1.0)
@@ -67,9 +67,16 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
     
     func setupCardHolderTextField() {
         
-        cardHolderTextField.placeholder = "Name on card"
+        cardHolderTextField.placeholder = "Name on cardsdfsdf"
         cardHolderTextField.frame = CGRect(x: 15, y: 199, width: self.view.frame.size.width - 30, height: 44)
         cardHolderTextField.translatesAutoresizingMaskIntoConstraints = false
+        cardHolderTextField.layer.borderWidth = 0
+        cardHolderTextField.layer.borderColor = UIColor.clear.cgColor
+        cardHolderTextField.layer.backgroundColor = UIColor.clear.cgColor
+        cardHolderTextField.layer.shadowColor = UIColor.clear.cgColor
+        cardHolderTextField.backgroundColor = UIColor.clear
+        cardHolderTextField.textColor = UIColor.white
+        cardHolderTextField.tintColor = UIColor.white
         
         let border = CALayer()
         let width = CGFloat(1.0)
@@ -96,7 +103,11 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
         confirmBtn.layer.cornerRadius = 17
         confirmBtn.frame = CGRect(x: 15, y: 199, width: self.view.frame.size.width - 30, height: 30)
         confirmBtn.translatesAutoresizingMaskIntoConstraints = false
-        confirmBtn.backgroundColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 153/255.0, alpha: 1)
+        confirmBtn.tintColor = UIColor.clear
+        confirmBtn.layer.borderColor = UIColor.clear.cgColor
+        confirmBtn.layer.backgroundColor = UIColor.clear.cgColor
+        confirmBtn.layer.shadowColor = UIColor.clear.cgColor
+        confirmBtn.backgroundColor = UIColor(red: 0/255.0, green: 207/255.0, blue: 207/255.0, alpha: 1)
         confirmBtn.titleLabel?.font = UIFont(name: "Noto Sans", size: CGFloat(15.0))
         confirmBtn.setTitle("ADD CREDIT CARD", for: .normal)
         
@@ -322,6 +333,16 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupNavigationStyle()
+//        self.setupNavigationStyle()
+        
+        self.setupStripTextField()
+        self.setupCardHolderTextField()
+        self.setupConfirmButton()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
 }
