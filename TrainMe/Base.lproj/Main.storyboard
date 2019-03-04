@@ -2237,37 +2237,42 @@ TrainMe’s Privacy Policy</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-1U-0lg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG_HOME" translatesAutoresizingMaskIntoConstraints="NO" id="mEC-Fu-ffV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-1U-0lg">
                                 <rect key="frame" x="0.0" y="64" width="414" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6D-y1-jp5">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJ4-54-NFH">
-                                                <rect key="frame" x="30" y="30" width="354" height="170"/>
+                                                <rect key="frame" x="30" y="45" width="354" height="170"/>
                                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="170" id="uJv-vQ-1nU"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRD-E6-AX5" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="250" width="346" height="30"/>
-                                                <nil key="textColor"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRD-E6-AX5">
+                                                <rect key="frame" x="34" y="265" width="346" height="20"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="dateTfAction:" destination="mux-XA-y22" eventType="touchUpInside" id="AGd-3Z-Yxn"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-z1-FWP" customClass="DTTextField" customModule="DTTextField">
-                                                <rect key="frame" x="34" y="300" width="346" height="30"/>
-                                                <nil key="textColor"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-z1-FWP">
+                                                <rect key="frame" x="34" y="315" width="346" height="20"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pi-q6-0YE">
-                                                <rect key="frame" x="92" y="380" width="230" height="30"/>
-                                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="30" y="385" width="354" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="TUm-Ou-LL4"/>
                                                 </constraints>
@@ -2280,28 +2285,29 @@ TrainMe’s Privacy Policy</string>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="3pi-q6-0YE" firstAttribute="centerX" secondItem="H6D-y1-jp5" secondAttribute="centerX" id="0yp-8z-6it"/>
                                             <constraint firstItem="oRD-E6-AX5" firstAttribute="centerX" secondItem="H6D-y1-jp5" secondAttribute="centerX" id="2al-fw-Ram"/>
                                             <constraint firstItem="oRD-E6-AX5" firstAttribute="top" secondItem="CJ4-54-NFH" secondAttribute="bottom" constant="50" id="42L-Fx-8Oh"/>
                                             <constraint firstItem="U5w-z1-FWP" firstAttribute="centerX" secondItem="H6D-y1-jp5" secondAttribute="centerX" id="5r2-xm-zQl"/>
-                                            <constraint firstItem="CJ4-54-NFH" firstAttribute="top" secondItem="H6D-y1-jp5" secondAttribute="top" constant="30" id="9n9-oN-lF7"/>
+                                            <constraint firstItem="CJ4-54-NFH" firstAttribute="top" secondItem="H6D-y1-jp5" secondAttribute="top" constant="45" id="9n9-oN-lF7"/>
                                             <constraint firstAttribute="trailing" secondItem="oRD-E6-AX5" secondAttribute="trailing" constant="34" id="ANf-91-6Zl"/>
                                             <constraint firstItem="3pi-q6-0YE" firstAttribute="top" secondItem="U5w-z1-FWP" secondAttribute="bottom" constant="50" id="R98-MR-S0V"/>
                                             <constraint firstItem="CJ4-54-NFH" firstAttribute="centerX" secondItem="H6D-y1-jp5" secondAttribute="centerX" id="SuD-e9-Seo"/>
-                                            <constraint firstItem="3pi-q6-0YE" firstAttribute="leading" secondItem="H6D-y1-jp5" secondAttribute="leading" constant="92" id="W55-7x-azu"/>
+                                            <constraint firstItem="3pi-q6-0YE" firstAttribute="leading" secondItem="H6D-y1-jp5" secondAttribute="leading" constant="30" id="W55-7x-azu"/>
                                             <constraint firstItem="CJ4-54-NFH" firstAttribute="leading" secondItem="H6D-y1-jp5" secondAttribute="leading" constant="30" id="cJG-Ao-0RY"/>
                                             <constraint firstAttribute="height" constant="1000" id="eVs-2B-MkT"/>
                                             <constraint firstAttribute="trailing" secondItem="CJ4-54-NFH" secondAttribute="trailing" constant="30" id="gfr-w1-LWY"/>
-                                            <constraint firstAttribute="trailing" secondItem="3pi-q6-0YE" secondAttribute="trailing" constant="92" id="k2H-KR-l33"/>
-                                            <constraint firstItem="U5w-z1-FWP" firstAttribute="top" secondItem="oRD-E6-AX5" secondAttribute="bottom" constant="20" id="kzn-yU-thB"/>
+                                            <constraint firstAttribute="trailing" secondItem="3pi-q6-0YE" secondAttribute="trailing" constant="30" id="k2H-KR-l33"/>
+                                            <constraint firstItem="U5w-z1-FWP" firstAttribute="top" secondItem="oRD-E6-AX5" secondAttribute="bottom" constant="30" id="kzn-yU-thB"/>
                                             <constraint firstItem="U5w-z1-FWP" firstAttribute="leading" secondItem="H6D-y1-jp5" secondAttribute="leading" constant="34" id="o2s-xf-YFr"/>
                                             <constraint firstAttribute="trailing" secondItem="U5w-z1-FWP" secondAttribute="trailing" constant="34" id="rsU-g0-6Ox"/>
                                             <constraint firstItem="oRD-E6-AX5" firstAttribute="leading" secondItem="H6D-y1-jp5" secondAttribute="leading" constant="34" id="xxj-bM-YAB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="H6D-y1-jp5" firstAttribute="leading" secondItem="9Pd-1U-0lg" secondAttribute="leading" id="a1g-I3-vAZ"/>
                                     <constraint firstAttribute="trailing" secondItem="H6D-y1-jp5" secondAttribute="trailing" id="dLP-et-cdg"/>
@@ -2312,11 +2318,15 @@ TrainMe’s Privacy Policy</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="mEC-Fu-ffV" firstAttribute="top" secondItem="d1D-hU-EF9" secondAttribute="top" id="8Gq-n5-Ufw"/>
                             <constraint firstItem="9Pd-1U-0lg" firstAttribute="bottom" secondItem="gED-IQ-Wvn" secondAttribute="bottom" id="J93-yS-fMx"/>
+                            <constraint firstItem="gED-IQ-Wvn" firstAttribute="bottom" secondItem="mEC-Fu-ffV" secondAttribute="bottom" id="KKN-j1-Drs"/>
                             <constraint firstItem="H6D-y1-jp5" firstAttribute="width" secondItem="d1D-hU-EF9" secondAttribute="width" id="MyW-8P-o2z"/>
                             <constraint firstItem="9Pd-1U-0lg" firstAttribute="leading" secondItem="gED-IQ-Wvn" secondAttribute="leading" id="PL4-tV-zcf"/>
                             <constraint firstItem="9Pd-1U-0lg" firstAttribute="top" secondItem="gED-IQ-Wvn" secondAttribute="top" id="Yhg-0s-bmv"/>
+                            <constraint firstItem="gED-IQ-Wvn" firstAttribute="trailing" secondItem="mEC-Fu-ffV" secondAttribute="trailing" id="aci-Yy-Z2H"/>
                             <constraint firstItem="9Pd-1U-0lg" firstAttribute="trailing" secondItem="gED-IQ-Wvn" secondAttribute="trailing" id="cCW-bU-jaw"/>
+                            <constraint firstItem="mEC-Fu-ffV" firstAttribute="leading" secondItem="gED-IQ-Wvn" secondAttribute="leading" id="pTa-76-cmI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gED-IQ-Wvn"/>
                     </view>
@@ -2339,7 +2349,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8T-Sn-8fi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9564" y="1335"/>
+            <point key="canvasLocation" x="9562.5" y="1334.1549295774648"/>
         </scene>
         <!--Pick your place-->
         <scene sceneID="3aO-BX-3F8">
@@ -7623,7 +7633,7 @@ detail</string>
         <segue reference="8je-Rt-v1G"/>
         <segue reference="dSZ-fv-Sp2"/>
         <segue reference="dM1-HA-QSq"/>
-        <segue reference="qPD-dT-Juv"/>
+        <segue reference="wZT-TI-L7O"/>
         <segue reference="DwY-7P-htQ"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>

@@ -21,8 +21,8 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
     var place: GMSPlace!
     var placesClient: GMSPlacesClient!
     var locationManager = CLLocationManager()
-    @IBOutlet weak var dateTf: DTTextField!
-    @IBOutlet weak var timeTf: DTTextField!
+    @IBOutlet weak var dateTf: UITextField!
+    @IBOutlet weak var timeTf: UITextField!
     @IBOutlet weak var scheduleBtn: UIButton!
     
     var ref: DatabaseReference!
@@ -141,7 +141,16 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupNavigationStyle()
+        self.dateTf.attributedPlaceholder = NSAttributedString(string: "Fill in Start date", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.timeTf.attributedPlaceholder = NSAttributedString(string: "Fill in Start time", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+//        self.setupNavigationStyle()
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
