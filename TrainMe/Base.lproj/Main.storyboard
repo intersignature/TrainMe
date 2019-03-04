@@ -1489,7 +1489,7 @@ TrainMe’s Privacy Policy</string>
                         <viewLayoutGuide key="safeArea" id="QJe-Nl-JWF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="ZLb-wT-Ugq">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="y1Q-HH-ks9">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="y1Q-HH-ks9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="Iv1-Wf-HmN" id="moF-4a-ZLf"/>
@@ -1628,7 +1628,7 @@ TrainMe’s Privacy Policy</string>
                         <viewLayoutGuide key="safeArea" id="BAy-2N-eaN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select your trainer" id="jq9-4p-RQd">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="re2-TR-4r9">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="re2-TR-4r9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="OWn-O3-pkM" id="hPM-3B-Ck7"/>
@@ -1705,7 +1705,7 @@ TrainMe’s Privacy Policy</string>
                         <viewLayoutGuide key="safeArea" id="6He-PN-nFv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select course" id="dJY-Gc-e6y">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jL0-i4-E3s">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="jL0-i4-E3s">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="r81-1X-Ogc" id="HeO-ep-wne"/>
@@ -2206,7 +2206,7 @@ TrainMe’s Privacy Policy</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Confirmation progress" id="Lc7-v5-3PL">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="idy-Vp-lvE">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="leftArrow" id="idy-Vp-lvE">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="1P2-0O-U9o" id="fl5-4l-MJ9"/>
@@ -2321,7 +2321,7 @@ TrainMe’s Privacy Policy</string>
                         <viewLayoutGuide key="safeArea" id="gED-IQ-Wvn"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add schedule" id="yRb-iC-uZU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XDQ-w1-zym">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="XDQ-w1-zym">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="mux-XA-y22" id="l3S-R8-stb"/>
@@ -2790,7 +2790,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="FUy-W3-Osq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Course" id="z6b-Pv-Vd9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kJm-71-kP2">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="kJm-71-kP2">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBarBtnAction:" destination="Aom-xn-Yh6" id="2zL-wM-NDJ"/>
@@ -3604,7 +3604,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="Ido-jy-qRF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Course" id="QkJ-Yk-VsJ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JET-jf-Tbg">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="JET-jf-Tbg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="i6N-Al-ks8" id="a5I-kG-Ugr"/>
@@ -3804,7 +3804,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="4Ry-Mm-jwr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select your credit card" id="XGI-C7-tfJ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BXa-IM-Nes">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="BXa-IM-Nes">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="NoG-1D-1eY" id="C6f-x6-Uqe"/>
@@ -4432,7 +4432,7 @@ detail</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ongoing progress" id="uVW-4Z-ALt">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uJ3-Xp-I6K">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="uJ3-Xp-I6K">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="Jf6-6K-KhW" id="icE-Su-Q0p"/>
@@ -4587,7 +4587,7 @@ detail</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign certified true copy and upload to admin for consider to be our trainer." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDV-6G-nIZ">
-                                <rect key="frame" x="20" y="297" width="280" height="52.5"/>
+                                <rect key="frame" x="20" y="297" width="280" height="61.5"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -4626,7 +4626,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="5ne-YC-iLo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Citizencard" id="zsh-Ce-qbN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="H0L-wh-7g7">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="H0L-wh-7g7">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="a8h-Qh-6xb" id="Hh7-vl-1qQ"/>
@@ -4769,7 +4769,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="O5S-Pj-yE4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add certificate" id="pEe-ES-5BH">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="QTt-zK-z6t">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="leftArrow" id="QTt-zK-z6t">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="o31-L2-kzr" id="jeE-6D-inr"/>
@@ -4988,7 +4988,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="HnQ-n8-KhU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Report" id="gM1-vg-IJp">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SMD-hG-5sc">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="SMD-hG-5sc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="8TR-EG-5Aj" id="NSo-OR-dA4"/>
@@ -5335,7 +5335,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="0JH-zx-ryN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Uwd-lb-LHn">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Z5m-Hr-Ocn">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="leftArrow" id="Z5m-Hr-Ocn">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="bbF-by-4No" id="oAx-fU-xsx"/>
@@ -5484,7 +5484,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="GoB-vc-U6T"/>
                     </view>
                     <navigationItem key="navigationItem" title="Change Password" id="Nt4-kv-9Xh">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="c0F-bd-MMY">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="leftArrow" id="c0F-bd-MMY">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="Oyd-a8-S6e" id="wBP-Ug-YZF"/>
@@ -5645,7 +5645,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="9qg-Cr-9u8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="zoW-VZ-zDd">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="rbF-LL-xVT">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="leftArrow" id="rbF-LL-xVT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="EIt-vx-JAJ" id="pgA-W6-y7y"/>
@@ -5886,7 +5886,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="K7l-Z5-foK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Full review" id="1bM-6V-t4i">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="MDu-VV-rdF">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="leftArrow" id="MDu-VV-rdF">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="laN-RY-cCD" id="xiT-48-9oe"/>
@@ -6145,7 +6145,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="mb6-lh-FqY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="ksM-Xv-6yv">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="lmU-8h-tFH">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="leftArrow" id="lmU-8h-tFH">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="F6u-zg-stB" id="BJF-ln-ulU"/>
@@ -6194,7 +6194,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="gmB-Eq-PAM"/>
                     </view>
                     <navigationItem key="navigationItem" id="Y07-y7-cus">
-                        <barButtonItem key="leftBarButtonItem" title="cancel" id="THX-Q1-XCM">
+                        <barButtonItem key="leftBarButtonItem" title="cancel" image="leftArrow" id="THX-Q1-XCM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="UgE-Ka-tNw" id="DtC-rr-Qhq"/>
@@ -6222,21 +6222,21 @@ detail</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-R3-NP7">
-                                <rect key="frame" x="20" y="113" width="300" height="18"/>
+                                <rect key="frame" x="20" y="116" width="300" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SeP-G1-x3D">
-                                <rect key="frame" x="20" y="172" width="300" height="18"/>
+                                <rect key="frame" x="20" y="181" width="300" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vd9-m6-7iN">
-                                <rect key="frame" x="45" y="272" width="230" height="30"/>
+                                <rect key="frame" x="45" y="287" width="230" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ODb-qG-cS6"/>
@@ -6248,25 +6248,25 @@ detail</string>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ss0-hL-GkB">
-                                <rect key="frame" x="16" y="88" width="304" height="19"/>
+                                <rect key="frame" x="16" y="88" width="304" height="22"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQl-Mt-Cwn">
-                                <rect key="frame" x="16" y="147" width="304" height="19"/>
+                                <rect key="frame" x="16" y="153" width="304" height="22"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz7-sa-Fiq">
-                                <rect key="frame" x="16" y="206" width="304" height="19"/>
+                                <rect key="frame" x="16" y="218" width="304" height="22"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WFM-S1-2Le">
-                                <rect key="frame" x="20" y="231" width="300" height="17"/>
+                                <rect key="frame" x="20" y="246" width="300" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -6299,7 +6299,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="pD8-cC-kIZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bank" id="fDT-q5-Qyl">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pcJ-Us-HhO">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="leftArrow" id="pcJ-Us-HhO">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="zEN-t8-fp4" id="fab-dC-iug"/>
@@ -6457,7 +6457,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="2fy-Vw-BHm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Credit card" id="NP7-6j-gSg">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hcV-Ap-KCc">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="hcV-Ap-KCc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="tV1-UT-mE4" id="LsJ-XU-Cx1"/>
@@ -6536,7 +6536,7 @@ detail</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWQ-kB-bk3">
-                                <rect key="frame" x="8" y="234" width="304" height="30"/>
+                                <rect key="frame" x="8" y="234" width="304" height="33"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                 <state key="normal" title="Edit credit card">
@@ -6563,7 +6563,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="0Sy-pH-kkX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit credit card information" id="ATu-SB-DIJ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9hm-XN-ecr">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="9hm-XN-ecr">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="Uad-49-hek" id="GyW-ta-dg0"/>
@@ -6758,7 +6758,7 @@ detail</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Confirmation progress" id="26B-IH-zgy">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="wiG-aa-hf8">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="wiG-aa-hf8">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="tnh-02-rjh" id="Rbw-r8-Qwi"/>
@@ -6938,7 +6938,7 @@ detail</string>
                         <viewLayoutGuide key="safeArea" id="0ff-0j-Njl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Review" id="AFo-FV-Ag6">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="PHB-T6-thK">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow" id="PHB-T6-thK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="Oll-te-1Rv" id="jae-cR-gD3"/>
@@ -7300,7 +7300,7 @@ detail</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ongoing progress" id="SYV-CC-4yy">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="lfq-1s-nmL">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" image="leftArrow" id="lfq-1s-nmL">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="9Ya-mA-1WB" id="Xcp-Rp-yhk"/>
@@ -7623,8 +7623,8 @@ detail</string>
         <segue reference="8je-Rt-v1G"/>
         <segue reference="dSZ-fv-Sp2"/>
         <segue reference="dM1-HA-QSq"/>
-        <segue reference="p7p-h3-dr6"/>
-        <segue reference="LED-SU-iWE"/>
+        <segue reference="qPD-dT-Juv"/>
+        <segue reference="DwY-7P-htQ"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>
         <segue reference="QeP-9l-n5x"/>
