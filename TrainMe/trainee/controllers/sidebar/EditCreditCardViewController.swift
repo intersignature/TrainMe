@@ -12,8 +12,8 @@ import DTTextField
 
 class EditCreditCardViewController: UIViewController {
 
-    @IBOutlet weak var cardHolderLb: DTTextField!
-    @IBOutlet weak var cardExpiryLb: DTTextField!
+    @IBOutlet weak var cardHolderLb: UITextField!
+    @IBOutlet weak var cardExpiryLb: UITextField!
     @IBOutlet weak var editCardBtn: UIButton!
     
     var selectedCardData: CardData! = nil
@@ -191,7 +191,16 @@ class EditCreditCardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupNavigationStyle()
+        self.cardHolderLb.attributedPlaceholder = NSAttributedString(string: "Card holder", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.cardExpiryLb.attributedPlaceholder = NSAttributedString(string: "Card expiry", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+//        self.setupNavigationStyle()
     }
 
 }

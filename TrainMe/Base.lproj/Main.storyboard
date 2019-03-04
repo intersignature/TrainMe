@@ -6533,21 +6533,26 @@ detail</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card holder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aam-Ls-KI9" customClass="DTTextField" customModule="DTTextField">
-                                <rect key="frame" x="8" y="114" width="304" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG_HOME" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-R0-Hed">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card holder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aam-Ls-KI9">
+                                <rect key="frame" x="16" y="109" width="288" height="21"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card expiry" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iqB-Hf-rqs" customClass="DTTextField" customModule="DTTextField">
-                                <rect key="frame" x="8" y="174" width="304" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card expiry" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iqB-Hf-rqs">
+                                <rect key="frame" x="16" y="160" width="288" height="21"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWQ-kB-bk3">
-                                <rect key="frame" x="8" y="234" width="304" height="33"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="16" y="211" width="288" height="33"/>
+                                <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                 <state key="normal" title="Edit credit card">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -6559,16 +6564,20 @@ detail</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0Sy-pH-kkX" firstAttribute="trailing" secondItem="RWQ-kB-bk3" secondAttribute="trailing" constant="8" id="4gk-M9-074"/>
+                            <constraint firstItem="0Sy-pH-kkX" firstAttribute="trailing" secondItem="RWQ-kB-bk3" secondAttribute="trailing" constant="16" id="4gk-M9-074"/>
                             <constraint firstItem="iqB-Hf-rqs" firstAttribute="top" secondItem="aam-Ls-KI9" secondAttribute="bottom" constant="30" id="CW3-jN-Yv3"/>
-                            <constraint firstItem="aam-Ls-KI9" firstAttribute="top" secondItem="0Sy-pH-kkX" secondAttribute="top" constant="50" id="FIC-mF-9bB"/>
-                            <constraint firstItem="aam-Ls-KI9" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" constant="8" id="GIn-C9-8hq"/>
-                            <constraint firstItem="RWQ-kB-bk3" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" constant="8" id="RLc-Yo-IQZ"/>
+                            <constraint firstItem="aam-Ls-KI9" firstAttribute="top" secondItem="0Sy-pH-kkX" secondAttribute="top" constant="45" id="FIC-mF-9bB"/>
+                            <constraint firstItem="kd0-R0-Hed" firstAttribute="trailing" secondItem="0Sy-pH-kkX" secondAttribute="trailing" id="FoK-4N-huq"/>
+                            <constraint firstItem="aam-Ls-KI9" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" constant="16" id="GIn-C9-8hq"/>
+                            <constraint firstItem="kd0-R0-Hed" firstAttribute="top" secondItem="57m-HX-qoo" secondAttribute="top" id="Jbp-Hr-RKt"/>
+                            <constraint firstItem="kd0-R0-Hed" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" id="Juc-7b-Mmv"/>
+                            <constraint firstItem="RWQ-kB-bk3" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" constant="16" id="RLc-Yo-IQZ"/>
                             <constraint firstItem="RWQ-kB-bk3" firstAttribute="centerX" secondItem="57m-HX-qoo" secondAttribute="centerX" id="ZQY-pY-QaZ"/>
-                            <constraint firstItem="0Sy-pH-kkX" firstAttribute="trailing" secondItem="iqB-Hf-rqs" secondAttribute="trailing" constant="8" id="cP0-6c-vb9"/>
+                            <constraint firstItem="0Sy-pH-kkX" firstAttribute="trailing" secondItem="iqB-Hf-rqs" secondAttribute="trailing" constant="16" id="cP0-6c-vb9"/>
                             <constraint firstItem="RWQ-kB-bk3" firstAttribute="top" secondItem="iqB-Hf-rqs" secondAttribute="bottom" constant="30" id="fJq-Pl-dVJ"/>
-                            <constraint firstItem="iqB-Hf-rqs" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" constant="8" id="ofi-An-xoE"/>
-                            <constraint firstItem="0Sy-pH-kkX" firstAttribute="trailing" secondItem="aam-Ls-KI9" secondAttribute="trailing" constant="8" id="xdK-AY-Kr2"/>
+                            <constraint firstItem="kd0-R0-Hed" firstAttribute="bottom" secondItem="0Sy-pH-kkX" secondAttribute="bottom" id="k0d-Yz-HtX"/>
+                            <constraint firstItem="iqB-Hf-rqs" firstAttribute="leading" secondItem="0Sy-pH-kkX" secondAttribute="leading" constant="16" id="ofi-An-xoE"/>
+                            <constraint firstItem="0Sy-pH-kkX" firstAttribute="trailing" secondItem="aam-Ls-KI9" secondAttribute="trailing" constant="16" id="xdK-AY-Kr2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Sy-pH-kkX"/>
                     </view>
@@ -6588,7 +6597,7 @@ detail</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKU-8e-QNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="2593"/>
+            <point key="canvasLocation" x="-960" y="2592.2535211267605"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vwi-Ht-RqE">
