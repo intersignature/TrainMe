@@ -85,6 +85,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.progressTableView.tableFooterView = UIView()
+        
         setupNavigationStyle()
     }
     

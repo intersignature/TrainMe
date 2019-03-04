@@ -439,6 +439,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.pendingTableView.tableFooterView = UIView()
+        
         self.setupNavigationStyle()
     }
     

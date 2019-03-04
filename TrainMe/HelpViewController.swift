@@ -96,6 +96,9 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(animated)
         
 //        self.setupNavigationStyle()
+
+        self.helpTableView.tableFooterView = UIView()
+
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

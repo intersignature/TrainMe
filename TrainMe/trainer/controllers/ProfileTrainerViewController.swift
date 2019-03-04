@@ -358,6 +358,8 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         self.twoRatingProgressbar.trackTintColor = UIColor.white.withAlphaComponent(0.2)
         self.oneRatingProgressbar.trackTintColor = UIColor.white.withAlphaComponent(0.2)
         
+        self.profileTrainerTableView.tableFooterView = UIView()
+        
         self.setupNavigationStyle()
         self.editProfileBtn.isEnabled = false
         self.getTrainerProfile()

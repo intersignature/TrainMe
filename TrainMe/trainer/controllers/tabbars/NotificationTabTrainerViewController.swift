@@ -175,6 +175,8 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.notificationTableView.tableFooterView = UIView()
+        
         setupNavigationStyle()
         self.getNotificationData()
     }

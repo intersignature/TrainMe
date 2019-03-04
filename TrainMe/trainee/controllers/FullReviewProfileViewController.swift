@@ -162,6 +162,8 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.fullReviewTableView.tableFooterView = UIView()
+        
         self.setupNavigationStyle()
         self.preparedSources()
     }

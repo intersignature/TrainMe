@@ -181,4 +181,10 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
             self.createAlert(alertTitle: "Request change schedule successful", alertMessage: "")
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.eachOngoingScheduleTableView.tableFooterView = UIView()
+    }
 }

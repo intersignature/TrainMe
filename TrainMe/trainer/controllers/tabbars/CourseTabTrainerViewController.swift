@@ -85,6 +85,8 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.tableView.tableFooterView = UIView()
+        
         setupNavigationStyle()
     }
     

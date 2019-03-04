@@ -149,6 +149,8 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
         
 //        setupNavigationStyle()
         
+        self.courseDetailTableView.tableFooterView = UIView()
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

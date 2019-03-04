@@ -189,6 +189,8 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.reviewProfileTraineeTableView.tableFooterView = UIView()
+        
         self.setupNavigationStyle()
         self.emailLb.textColor = UIColor.white.withAlphaComponent(0.4)
         self.editProfileBtn.isEnabled = false
