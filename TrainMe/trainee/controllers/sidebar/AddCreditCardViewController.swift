@@ -46,6 +46,7 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
         paymentTextField.backgroundColor = UIColor.clear
         paymentTextField.textColor = UIColor.white
         paymentTextField.tintColor = UIColor.white
+        paymentTextField.placeholderColor = UIColor.white
         
         let border = CALayer()
         let width = CGFloat(1.0)
@@ -67,7 +68,7 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
     
     func setupCardHolderTextField() {
         
-        cardHolderTextField.placeholder = "Name on cardsdfsdf"
+        cardHolderTextField.placeholder = "Name on card"
         cardHolderTextField.frame = CGRect(x: 15, y: 199, width: self.view.frame.size.width - 30, height: 44)
         cardHolderTextField.translatesAutoresizingMaskIntoConstraints = false
         cardHolderTextField.layer.borderWidth = 0
@@ -77,6 +78,7 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
         cardHolderTextField.backgroundColor = UIColor.clear
         cardHolderTextField.textColor = UIColor.white
         cardHolderTextField.tintColor = UIColor.white
+        cardHolderTextField.attributedPlaceholder = NSAttributedString(string: "Name on card", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         let border = CALayer()
         let width = CGFloat(1.0)

@@ -7620,10 +7620,10 @@ detail</string>
         <image name="weight" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KSr-1B-W7B"/>
+        <segue reference="8je-Rt-v1G"/>
         <segue reference="dSZ-fv-Sp2"/>
         <segue reference="dM1-HA-QSq"/>
-        <segue reference="QBL-zq-jxZ"/>
+        <segue reference="p7p-h3-dr6"/>
         <segue reference="LED-SU-iWE"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>
@@ -7631,6 +7631,6 @@ detail</string>
         <segue reference="yaD-9q-IZ0"/>
         <segue reference="5EB-bI-2rw"/>
         <segue reference="GhO-HN-2gJ"/>
-        <segue reference="g7V-sT-ulc"/>
+        <segue reference="CFy-02-wCg"/>
     </inferredMetricsTieBreakers>
 </document>
