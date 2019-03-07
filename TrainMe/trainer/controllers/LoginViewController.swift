@@ -45,10 +45,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     func setLocalizeText() {
         
-        loginBtn.setTitle(NSLocalizedString("login", comment: ""), for: .normal)
-        emailTf.placeholder = NSLocalizedString("email", comment: "")
-        passwordTf.placeholder = NSLocalizedString("password", comment: "")
-        forgetPasswordBtn.setTitle(NSLocalizedString("forget_password", comment: ""), for: .normal)
+        loginBtn.setTitle("login".localized(), for: .normal)
+        emailTf.placeholder = "email".localized()
+        passwordTf.placeholder = "password".localized()
+        forgetPasswordBtn.setTitle("forget_password".localized(), for: .normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,12 +64,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func LoginBtnAction(_ sender: UIButton) {
         
-        if self.emailTf.text == "" || self.passwordTf.text == "" {
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
+        if self.emailTf.text == "" {
+            createAlert(alertTitle: "please_enter_your_email".localized(), alertMessage: "")
             return
         }
         if !(self.emailTf.text?.isValidEmail())! {
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_valid_email", comment: ""), alertMessage: "")
+            createAlert(alertTitle: "please_enter_your_valid_email".localized(), alertMessage: "")
+            return
+        }
+        if self.passwordTf.text == "" {
+            createAlert(alertTitle: "please_enter_your_password".localized(), alertMessage: "")
             return
         }
         self.view.showBlurLoader()
@@ -90,7 +94,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //            else {
 //                try! Auth.auth().signOut()
 //                self.view.removeBluerLoader()
-//                self.createAlert(alertTitle: "Please verify email", alertMessage: "")
+//                self.createAlert(alertTitle: "please_verify_email".localized(), alertMessage: "")
 //            }
         }
     }
@@ -113,7 +117,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if isBan {
                 try! Auth.auth().signOut()
                 self.view.removeBluerLoader()
-                self.createAlert(alertTitle: "Your account was banned by admin", alertMessage: "")
+                self.createAlert(alertTitle: "your_account_was_banned_by_admin".localized(), alertMessage: "")
                 return
             }
             

@@ -8,6 +8,7 @@
 
 import UIKit
 import DTTextField
+import Localize_Swift
 
 class RegisterViewController: UIViewController, UITextFieldDelegate{
     
@@ -33,9 +34,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
     
     func setLocalizeText() {
         
-        registerLb.text = NSLocalizedString("register", comment: "")
-        fullnameTf.placeholder = NSLocalizedString("full_name", comment: "")
-        nextBtn.setTitle(NSLocalizedString("next", comment: ""), for: .normal)
+//        registerLb.text = NSLocalizedString("register", comment: "")
+        registerLb.text = "register".localized()
+        fullnameTf.placeholder = "full_name".localized()
+        nextBtn.setTitle("next".localized(), for: .normal)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -59,7 +61,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
     @IBAction func nextBtnAction(_ sender: UIButton) {
         
         if fullnameTf.text == "" {
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_fullname", comment: ""), alertMessage: "")
+            createAlert(alertTitle: "please_enter_your_fullname".localized(), alertMessage: "")
             return
         } else {
             self.userProfile.fullName = fullnameTf.text!

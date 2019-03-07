@@ -79,23 +79,24 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     
     func setLocalizeText() {
         
-        registerLb.text = NSLocalizedString("register", comment: "")
-        weightTf.placeholder = NSLocalizedString("weight", comment: "")
-        kgLb.text = NSLocalizedString("kg", comment: "")
-        heightTf.placeholder = NSLocalizedString("height", comment: "")
-        cmLb.text = NSLocalizedString("cm", comment: "")
-        maleBtn.setTitle(NSLocalizedString("male", comment: ""), for: .normal)
-        femaleBtn.setTitle(NSLocalizedString("female", comment: ""), for: .normal)
-        termLineOneLb.text = NSLocalizedString("term_line1", comment: "")
-        termLineTwoLb.text = NSLocalizedString("term_line2", comment: "")
-        submitBtn.setTitle(NSLocalizedString("submit", comment: ""), for: .normal)
+        registerLb.text = "register".localized()
+        dateOfBirthTf.placeholder = "date_of_birth".localized()
+        weightTf.placeholder = "weight".localized()
+        kgLb.text = "kg".localized()
+        heightTf.placeholder = "height".localized()
+        cmLb.text = "cm".localized()
+        maleBtn.setTitle("male".localized(), for: .normal)
+        femaleBtn.setTitle("female".localized(), for: .normal)
+        termLineOneLb.text = "term_line1".localized()
+        termLineTwoLb.text = "term_line2".localized()
+        submitBtn.setTitle("submit".localized(), for: .normal)
     }
     
     func createPickerToolbar() {
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        let doneBtn = UIBarButtonItem(title: "done".localized(), style: .plain, target: self, action: #selector(self.dismissKeyboard))
         toolbar.setItems([doneBtn], animated: false)
         toolbar.isUserInteractionEnabled = true
         self.dateOfBirthTf.inputAccessoryView = toolbar
@@ -160,21 +161,21 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
     func checkData() -> Bool{
         
         if self.dateOfBirthTf.text == "" {
-            self.createAlert(alertTitle: NSLocalizedString("please_enter_your_date_of_birth", comment: ""), alertMessage: "")
+            self.createAlert(alertTitle: "please_enter_your_date_of_birth".localized(), alertMessage: "")
             return false
         } else {
             userProfile.dateOfBirth = self.dateOfBirthTf.text!
         }
         
         if weightTf.text == "" {
-            self.createAlert(alertTitle: "Please enter your weight", alertMessage: "")
+            self.createAlert(alertTitle: "please_enter_your_weight".localized(), alertMessage: "")
             return false
         } else {
             userProfile.weight = weightTf.text!
         }
         
         if heightTf.text == "" {
-            self.createAlert(alertTitle: "Please enter your height", alertMessage: "")
+            self.createAlert(alertTitle: "please_enter_your_height".localized(), alertMessage: "")
             return false
         } else {
             userProfile.height = heightTf.text!
@@ -253,8 +254,8 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
             try! Auth.auth().signOut()
             self.view.removeBluerLoader()
             
-            let alert = UIAlertController(title: "Successfully send verification email!", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "successfully_send_verification_email".localized(), message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                 self.performSegue(withIdentifier: "Register3ToLogin", sender: nil)
             }))
             self.present(alert, animated: true, completion: nil)

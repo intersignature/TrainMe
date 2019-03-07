@@ -45,10 +45,10 @@ class ViewController: UIViewController {
     
     func setLocalizeText() {
         
-        signupBtn.setTitle(NSLocalizedString("signup_email", comment: ""), for: .normal)
-        facebookSignupBtn.setTitle(NSLocalizedString("signup_facebook", comment: ""), for: .normal)
-        loginBtn.setTitle(NSLocalizedString("login", comment: ""), for: .normal)
-        alreadyUser.text = NSLocalizedString("already_user", comment: "")
+        signupBtn.setTitle("signup_email".localized(), for: .normal)
+        facebookSignupBtn.setTitle("signup_facebook".localized(), for: .normal)
+        loginBtn.setTitle("login".localized(), for: .normal)
+        alreadyUser.text = "already_user".localized()
     }
 
     @objc func handleSignInWithFacebook() {
@@ -75,7 +75,8 @@ class ViewController: UIViewController {
         let credential = FacebookAuthProvider.credential(withAccessToken: authenticationToken)
         Auth.auth().signInAndRetrieveData(with: credential) { (user, err) in
             if let err = err {
-                print(err)
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
 //            if !self.checkProfileInfo() {
@@ -105,7 +106,7 @@ class ViewController: UIViewController {
                 
                 if isBan {
                     try! Auth.auth().signOut()
-                    self.createAlert(alertTitle: "Your account was banned by admin", alertMessage: "")
+                    self.createAlert(alertTitle: "your_account_was_banned_by_admin".localized(), alertMessage: "")
                     return
                 }
                 

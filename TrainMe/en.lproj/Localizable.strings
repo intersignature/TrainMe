@@ -5,9 +5,18 @@
   Created by Sirichai Binchai on 30/8/2561 BE.
   Copyright © 2561 Sirichai Binchai. All rights reserved.
 */
+
+//alert
+"ok" = "ตกลง";
+// first page and login
 "signup_email" = "Sign up";
 "signup_facebook" = "Continue with facebook";
 "already_user" = "Already a user?";
+"login" = "Log in";
+"forget_password" = "Forget password?";
+"your_account_was_banned_by_admin" = "Your account was banned by admin";
+"please_verify_email" = "Please verify email";
+// register 1-2-3
 "register" = "Register";
 "full_name" = "Full name";
 "next" = "Next";
@@ -39,15 +48,17 @@
 "term_line2" = "To learn more about how TrainMe collects, uses,\nshares and protect your personal data please read\nTrainMe’s Privacy Policy";
 "submit" = "Submit";
 "please_enter_your_date_of_birth" = "Please enter your date of birth";
-//
-"login" = "Log in";
-"forget_password" = "Forget password?";
-//
+"email_is_already_in_use" = "Email is already in use";
+"please_enter_your_weight" = "Please enter your weight";
+"please_enter_your_height" = "Please enter your height";
+"successfully_send_verification_email" = "Successfully send verification email!";
+"done" = "Done";
+// recovery your account
 "recovery_your_account" = "Recovery your account";
 "recovery_your_account_description" = "Enter your email address that you used to register. We'll send you an email to recover your account";
 "send" = "Send";
-//
 "send_email_for_reset_password_success" = "Send email for reset password successfully!";
+//
 "please_enter_your_fullname" = "Please enter your fullname";
 //
 "user_profile" = "     User Profile";

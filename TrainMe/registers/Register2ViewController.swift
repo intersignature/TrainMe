@@ -55,14 +55,14 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     
     func setLocalizeText() {
         
-        registerLb.text = NSLocalizedString("register", comment: "")
-        emailTf.placeholder = NSLocalizedString("email", comment: "")
-        emailDescription.text = NSLocalizedString("email_description", comment: "")
-        passwordTf.placeholder = NSLocalizedString("password", comment: "")
-        passwordDescription.text = NSLocalizedString("password_description", comment: "")
-        verifyPasswordTf.placeholder = NSLocalizedString("verify_password", comment: "")
-        verifyPasswordDescriptionLb.text = NSLocalizedString("verify_password_description", comment: "")
-        nextBtn.setTitle(NSLocalizedString("next", comment: ""), for: .normal)
+        registerLb.text = "register".localized()
+        emailTf.placeholder = "email".localized()
+        emailDescription.text = "email_description".localized()
+        passwordTf.placeholder = "password".localized()
+        passwordDescription.text = "password_description".localized()
+        verifyPasswordTf.placeholder = "verify_password".localized()
+        verifyPasswordDescriptionLb.text = "verify_password_description".localized()
+        nextBtn.setTitle("next".localized(), for: .normal)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -102,27 +102,27 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func nextBtnAction(_ sender: UIButton) {
         
         if emailTf.text == "" {
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_email", comment: ""), alertMessage: "")
+            createAlert(alertTitle: "please_enter_your_email".localized(), alertMessage: "")
             return
         }
         if !(emailTf.text?.isValidEmail())! {
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_valid_email", comment: ""), alertMessage: "")
+            createAlert(alertTitle: "please_enter_your_valid_email".localized(), alertMessage: "")
             return
         }
         if passwordTf.text == "" {
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_password", comment: ""), alertMessage: "")
+            createAlert(alertTitle: "please_enter_your_password".localized(), alertMessage: "")
             return
         }
         if verifyPasswordTf.text == "" {
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_verify_password", comment: ""), alertMessage: "")
+            createAlert(alertTitle: "please_enter_your_verify_password".localized(), alertMessage: "")
             return
         }
         if (passwordTf.text?.count)! < 8 {
-            createAlert(alertTitle: NSLocalizedString("please_enter_your_password_at_least_8_characters", comment: ""), alertMessage: "")
+            createAlert(alertTitle: "please_enter_your_password_at_least_8_characters".localized(), alertMessage: "")
             return
         }
         if passwordTf.text! != verifyPasswordTf.text {
-            createAlert(alertTitle: NSLocalizedString("your_password_doesnt_match", comment: ""), alertMessage: "")
+            createAlert(alertTitle: "your_password_doesnt_match".localized(), alertMessage: "")
             return
         }
         Auth.auth().fetchSignInMethods(forEmail: self.emailTf.text!) { signInMethods, error in
@@ -136,7 +136,7 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
                 self.performSegue(withIdentifier: "Register2ToRegister3", sender: nil)
             } else {
                 print("can not regis")
-                self.createAlert(alertTitle: "Email is already in use", alertMessage: "")
+                self.createAlert(alertTitle: "email_is_already_in_use".localized(), alertMessage: "")
                 return
             }
         }
