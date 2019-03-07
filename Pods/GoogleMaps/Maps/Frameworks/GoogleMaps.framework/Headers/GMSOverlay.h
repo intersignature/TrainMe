@@ -10,9 +10,9 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@class GMSMapView;
-
 NS_ASSUME_NONNULL_BEGIN;
+
+@class GMSMapView;
 
 /**
  * GMSOverlay is an abstract class that represents some overlay that may be attached to a specific

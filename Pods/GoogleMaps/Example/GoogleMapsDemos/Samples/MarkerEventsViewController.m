@@ -15,9 +15,9 @@
 
 #import "GoogleMapsDemos/Samples/MarkerEventsViewController.h"
 
-#import <QuartzCore/QuartzCore.h>
-
 #import <GoogleMaps/GoogleMaps.h>
+
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MarkerEventsViewController {
   GMSMapView *_mapView;

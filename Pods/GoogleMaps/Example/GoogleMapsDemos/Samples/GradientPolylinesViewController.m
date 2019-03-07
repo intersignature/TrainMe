@@ -17,6 +17,7 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
+
 @implementation GradientPolylinesViewController {
   GMSMapView *_mapView;
   GMSPolyline *_polyline;

@@ -17,16 +17,19 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
+
 #import "GooglePlacesDemos/DemoData.h"
 #import "GooglePlacesDemos/DemoListViewController.h"
 #import "GooglePlacesDemos/SDKDemoAPIKey.h"
+#import "GooglePlacesDemos/Support/MainSplitViewControllerBehaviorManager.h"
 
-
-@implementation DemoAppDelegate
+@implementation DemoAppDelegate {
+  MainSplitViewControllerBehaviorManager *_splitViewManager;
+}
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  NSLog(@"Build version: %s", __VERSION__);
+  NSLog(@"Build version: %d", __apple_build_version__);
 
   // Do a quick check to see if you've provided an API key, in a real app you wouldn't need this but
   // for the demo it means we can provide a better error message.
@@ -62,7 +65,16 @@
       [[DemoListViewController alloc] initWithDemoData:demoData];
   UINavigationController *masterNavigationController =
       [[UINavigationController alloc] initWithRootViewController:masterViewController];
-  self.window.rootViewController = masterNavigationController;
+
+  _splitViewManager = [[MainSplitViewControllerBehaviorManager alloc] init];
+
+  // Setup the split view controller.
+  UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+  UIViewController *detailViewController =
+      [demoData.firstDemo createViewControllerForSplitView:splitViewController];
+  splitViewController.delegate = _splitViewManager;
+  splitViewController.viewControllers = @[ masterNavigationController, detailViewController ];
+  self.window.rootViewController = splitViewController;
 
   [self.window makeKeyAndVisible];
 

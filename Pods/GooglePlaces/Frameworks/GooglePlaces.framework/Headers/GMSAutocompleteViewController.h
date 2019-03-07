@@ -19,11 +19,10 @@
 #import "GMSAutocompleteFilter.h"
 #import "GMSAutocompletePrediction.h"
 #import "GMSPlace.h"
-#import "GMSPlaceFieldMask.h"
-
-@class GMSAutocompleteViewController;
 
 NS_ASSUME_NONNULL_BEGIN;
+
+@class GMSAutocompleteViewController;
 
 /**
  * Protocol used by |GMSAutocompleteViewController|, to communicate the user's interaction
@@ -153,12 +152,6 @@ NS_ASSUME_NONNULL_BEGIN;
 
 /** The tint color applied to controls in the Autocomplete view. */
 @property(nonatomic, strong, nullable) IBInspectable UIColor *tintColor;
-
-/**
- * Specify individual place details to fetch for object |GMSPlace|.
- * Defaults to returning all details if not overidden.
- */
-@property(nonatomic, assign) GMSPlaceField placeFields;
 
 @end
 

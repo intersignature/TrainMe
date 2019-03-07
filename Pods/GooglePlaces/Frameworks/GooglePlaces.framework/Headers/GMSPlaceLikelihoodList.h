@@ -10,9 +10,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class GMSPlaceLikelihood;
-
 NS_ASSUME_NONNULL_BEGIN;
+
+@class GMSPlaceLikelihood;
 
 /**
  * Represents a list of places with an associated likelihood for the place being the correct place.

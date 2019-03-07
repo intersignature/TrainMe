@@ -85,12 +85,7 @@ class PlaceDetailTableViewDataSource: NSObject, UITableViewDataSource, UITableVi
     // Configure some other properties.
     tableView.estimatedRowHeight = 44
     tableView.estimatedSectionHeaderHeight = 44
-
-#if swift(>=4.2)
-    tableView.sectionHeaderHeight = UITableView.automaticDimension
-#else
     tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-#endif
   }
 
   // MARK: - Public Methods
@@ -137,7 +132,7 @@ class PlaceDetailTableViewDataSource: NSObject, UITableViewDataSource, UITableVi
 
       switch propertyType {
       case .placeID:
-        cell.propertyValue.text = place.placeID ?? noneText
+        cell.propertyValue.text = place.placeID
       case .coordinate:
         let format = NSLocalizedString("Places.Property.Coordinate.Format",
                                        comment: "The format string for latitude, longitude")
@@ -163,11 +158,7 @@ class PlaceDetailTableViewDataSource: NSObject, UITableViewDataSource, UITableVi
       case .priceLevel:
         cell.propertyValue.text = text(for: place.priceLevel)
       case .types:
-        if let placeTypes = place.types {
-          cell.propertyValue.text = placeTypes.joined(separator: ", ")
-        } else {
-          cell.propertyValue.text = noneText
-        }
+        cell.propertyValue.text = place.types.joined(separator: ", ")
       case .attribution:
         if let attributions = place.attributions {
           cell.propertyValue.attributedText = attributions
@@ -183,7 +174,7 @@ class PlaceDetailTableViewDataSource: NSObject, UITableViewDataSource, UITableVi
   }
 
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return place.name ?? "unknown"
+    return place.name
   }
 
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -201,11 +192,7 @@ class PlaceDetailTableViewDataSource: NSObject, UITableViewDataSource, UITableVi
       return compactHeader ? 0 : 20
     }
     else {
-#if swift(>=4.2)
-      return UITableView.automaticDimension
-#else
       return UITableViewAutomaticDimension
-#endif
     }
   }
 

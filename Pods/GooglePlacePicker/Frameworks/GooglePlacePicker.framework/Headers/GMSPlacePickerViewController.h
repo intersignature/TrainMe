@@ -17,9 +17,9 @@
 #endif
 #import "GMSPlacePickerConfig.h"
 
-@class GMSPlacePickerViewController;
-
 NS_ASSUME_NONNULL_BEGIN;
+
+@class GMSPlacePickerViewController;
 
 /**
  * Protocol used by |GMSPlacePickerViewController|, to communicate the user's interaction with the
