@@ -37,6 +37,8 @@ class SidebarTraineeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.setLocalizeText()
+        
         emailLb.textColor = UIColor.white.withAlphaComponent(0.4)
         self.seperateView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         nameLb.text = currentUser?.displayName
@@ -46,6 +48,14 @@ class SidebarTraineeViewController: UIViewController {
         } else {
             // profileImg.downloaded(from: (Auth.auth().currentUser?.photoURL)!) -> use default image link
         }
+    }
+    
+    func setLocalizeText() {
+        self.creditCardBtn.setTitle("credit_card_paypal".localized(), for: .normal)
+        self.helpBtn.setTitle("help".localized(), for: .normal)
+        self.settingBtn.setTitle("settings".localized(), for: .normal)
+        self.becomeATrainerBtn.setTitle("become_a_trainer".localized(), for: .normal)
+        self.logoutBtn.setTitle("logout".localized(), for: .normal)
     }
 
     override func didReceiveMemoryWarning() {

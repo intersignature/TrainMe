@@ -58,17 +58,15 @@
 "recovery_your_account_description" = "Enter your email address that you used to register. We'll send you an email to recover your account";
 "send" = "Send";
 "send_email_for_reset_password_success" = "Send email for reset password successfully!";
-//
-"please_enter_your_fullname" = "Please enter your fullname";
-//
+// side bar
 "user_profile" = "     User Profile";
-"credit_card_paypal" = "     Credit card / Paypal";
+"credit_card_paypal" = "     Credit card";
 "bank_account" = "     Bank account";
 "help" = "     Help";
 "settings" = "     Settings";
 "become_a_trainer" = "     Become a trainer";
 "logout" = "     Logout";
-//
+// bottom bar
 "pick_your_place" = "Pick your place";
 "progress" = "Progress";
 "course" = "Course";

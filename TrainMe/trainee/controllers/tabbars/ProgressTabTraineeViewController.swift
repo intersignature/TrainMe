@@ -472,7 +472,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.profileImageUrl)!,
                                name: (self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.fullName)!,
                                courseName: self.courseObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].course_id]!.course,
-                               placeName: self.placeObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]!.name!,
+                               placeName: self.placeObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]!.name,
                                position: "\(indexPath.section)-\(indexPath.row)")
             
             cell.trainerProfileImg.accessibilityElements = [(self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]?.uid)!, false]
@@ -488,7 +488,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.profileImageUrl)!,
                                name: (self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.fullName)!,
                                courseName: self.courseObj[self.paymentDataSorted[indexPath.row].course_id]!.course,
-                               placeName: self.placeObj[self.paymentDataSorted[indexPath.row].place_id]!.name!,
+                               placeName: self.placeObj[self.paymentDataSorted[indexPath.row].place_id]!.name,
                                time: "\(self.paymentDataSorted[indexPath.row].start_train_date) \(self.paymentDataSorted[indexPath.row].start_train_time)",
                                position: "\(indexPath.section)-\(indexPath.row)")
             
@@ -506,7 +506,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                                courseName: (self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]?.course)!,
                                time: "[\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].count)]",
                                scheduleDate: "\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_time)",
-                placeName: self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!.name!)
+                placeName: self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!.name)
             
             cell.trainerImg.accessibilityElements = [(self.trainerObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].trainerId]?.uid)!, false]
             cell.trainerImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
@@ -519,7 +519,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             cell.setDataToCell(trainerProfileUrl: (self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]?.profileImageUrl)!,
                                trainerName: (self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]?.fullName)!,
                                courseName: (self.courseObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].courseId]?.course)!,
-                               placeName: self.placeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]!.name!,
+                               placeName: self.placeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]!.name,
                                time: "\(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_time)")
             
             cell.trainerImg.accessibilityElements = [(self.trainerObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].trainerId]?.uid)!, false]

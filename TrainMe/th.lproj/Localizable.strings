@@ -58,15 +58,15 @@
 "recovery_your_account_description" = "กรอกอีเมลล์ที่ท่านได้ทำการสมัครไว้ เราจะส่งอีเมลล์ในการตั้งค่ารหัสผ่านใหม่ไปให้ท่าน";
 "send" = "ส่ง";
 "send_email_for_reset_password_success" = "เราได้ทำการส่งอีเมลล์ให้ท่านเรียบร้อยแล้ว หากไม่พบกรุณาตรวจสอบที่อีเมลล์ขยะ";
-//
-"user_profile" = "     User Profile";
-"credit_card_paypal" = "     Credit card / Paypal";
+// side bar
+"user_profile" = "     โปรไฟล์";
+"credit_card_paypal" = "     บัตรเครดิต";
 "bank_account" = "     บัญชีธนาคาร";
-"help" = "     Help";
-"settings" = "     Settings";
-"become_a_trainer" = "     Become a trainer";
+"help" = "     ช่วยเหลือ";
+"settings" = "     ตั้งค่า";
+"become_a_trainer" = "     สมัครเป็นเทรนเนอร์";
 "logout" = "     ออกจากระบบ";
-//
+// bottom bar
 "pick_your_place" = "เลือกสถานที่";
 "progress" = "สถานะ";
 "course" = "คอร์ส";

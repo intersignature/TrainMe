@@ -57,10 +57,10 @@ class SidebarTrainerViewController: UIViewController {
 
     func setLocalizeText() {
         
-        creditcardBtn.setTitle(NSLocalizedString("bank_account", comment: ""), for: .normal)
-        helpBtn.setTitle(NSLocalizedString("help", comment: ""), for: .normal)
-        settingsBtn.setTitle(NSLocalizedString("settings", comment: ""), for: .normal)
-        logoutBtn.setTitle(NSLocalizedString("logout", comment: ""), for: .normal)
+        creditcardBtn.setTitle("bank_account".localized(), for: .normal)
+        helpBtn.setTitle("help".localized(), for: .normal)
+        settingsBtn.setTitle("settings".localized(), for: .normal)
+        logoutBtn.setTitle("logout".localized(), for: .normal)
     }
     
     override func didReceiveMemoryWarning() {
