@@ -81,7 +81,7 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
                 return
             }
             
-            self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: "", snippet: place.placeID)
+            self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: "", snippet: place.placeID!)
             self.placeList.append(place)
         }
         

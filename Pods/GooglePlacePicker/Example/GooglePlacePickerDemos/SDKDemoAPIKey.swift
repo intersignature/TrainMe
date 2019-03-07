@@ -18,7 +18,7 @@
  * Your API Key should be kept private.
  *
  * See documentation on getting an API Key for your API Project here:
- * https://developers.google.com/places/ios-api/start#get-key
+ * https://developers.google.com/places/ios-sdk/start#get-key
  */
 
 // Register your API keys and insert here. Likely these two keys will be the same for your project,

@@ -504,7 +504,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             cell.setDataToCell(traineeImgLink: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.profileImageUrl,
                                traineeName: self.traineeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].trainee_id]!.fullName,
                                courseName: self.courseObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].course_id]!.course,
-                               placeName: self.placeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!.name,
+                               placeName: self.placeObj[self.pendingDataListsMatch[indexPath.section].pendingDetail[indexPath.row].place_id]!.name!,
                                position: "\(indexPath.section)-\(indexPath.row)")
             
             cell.traineeImg.isBlur(true)
@@ -524,7 +524,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             cell.setData(traineeImgLink: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.profileImageUrl)!,
                                traineeName: (self.traineeObj[self.paymentDataListsMatch[indexPath.row].trainee_id]?.fullName)!,
                                courseName: (self.courseObj[self.paymentDataListsMatch[indexPath.row].course_id]?.course)!,
-                               placeName: self.placeObj[self.paymentDataListsMatch[indexPath.row].place_id]!.name,
+                               placeName: self.placeObj[self.paymentDataListsMatch[indexPath.row].place_id]!.name!,
                                time: "\(self.paymentDataListsMatch[indexPath.row].start_train_date) \(self.paymentDataListsMatch[indexPath.row].start_train_time)")
             
             cell.traineeImg.isBlur(true)
@@ -544,7 +544,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                                courseName: (self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]?.course)!,
                                time: "[\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].count)]",
                                scheduleDate: "\(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].eachOngoingDetails[self.waitingOngoingDataIndex[indexPath.row].row].start_train_time)",
-                                place: self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!.name)
+                place: self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!.name!)
             
 //            cell.traineeImg.accessibilityLabel = (self.traineeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].traineeId]?.uid)!
             cell.traineeImg.accessibilityElements = [(self.traineeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].traineeId]?.uid)!, false]
@@ -560,7 +560,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             cell.setDataToCell(traineeProfileUrl: self.traineeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].traineeId]!.profileImageUrl,
                                traineeName: self.traineeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].traineeId]!.fullName,
                                courseName: self.courseObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].courseId]!.course,
-                               place: self.placeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]!.name,
+                               place: self.placeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]!.name!,
                                date: "\(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_date) \(self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].eachOngoingDetails[self.successfulDataIndex[indexPath.row].row].start_train_time)")
             
 //            cell.traineeImg.accessibilityLabel = self.traineeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].traineeId]!.uid

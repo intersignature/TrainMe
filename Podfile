@@ -33,6 +33,7 @@ pod 'Stripe'
 pod 'ImageSlideshow', '~> 1.6'
 pod 'CropViewController'
 pod 'ExpandableLabel'
+pod 'Localize-Swift', '~> 2.0'
 
   target 'TrainMeTests' do
     inherit! :search_paths

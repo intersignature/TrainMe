@@ -190,7 +190,7 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
         let scheduleDetailDicVal = ["start_train_date": date,
                                     "start_train_time": time]
         
-        ref.child("schedule_place_books").child(place.placeID).child(uid).childByAutoId().updateChildValues(scheduleDetailDicVal) { (err, ref) in
+        ref.child("schedule_place_books").child(place.placeID!).child(uid).childByAutoId().updateChildValues(scheduleDetailDicVal) { (err, ref) in
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             if let err = err {

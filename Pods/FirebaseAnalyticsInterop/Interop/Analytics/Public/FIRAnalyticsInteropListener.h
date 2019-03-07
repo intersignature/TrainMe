@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Google
+ * Copyright 2019 Google
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,25 +14,11 @@
  * limitations under the License.
  */
 
-#ifndef FIRCoreConfigurable_h
-#define FIRCoreConfigurable_h
+/// Handles events and messages from Analytics.
+@protocol FIRAnalyticsInteropListener <NSObject>
 
-#import <Foundation/Foundation.h>
-
-@class FIRApp;
-
-NS_ASSUME_NONNULL_BEGIN
-
-/// Provides an interface to set up an SDK once a `FIRApp` is configured.
-NS_SWIFT_NAME(CoreConfigurable)
-@protocol FIRCoreConfigurable
-
-/// Configure the SDK if needed ahead of time. This method is called when the developer calls
-/// `FirebaseApp.configure()`.
-+ (void)configureWithApp:(FIRApp *)app;
+/// Triggers when an Analytics event happens for the registered origin with
+/// `FIRAnalyticsInterop`s `registerAnalyticsListener:withOrigin:`.
+- (void)messageTriggered:(NSString *)name parameters:(NSDictionary *)parameters;
 
 @end
-
-NS_ASSUME_NONNULL_END
-
-#endif /* FIRCoreConfigurable_h */
