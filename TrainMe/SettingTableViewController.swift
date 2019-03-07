@@ -12,12 +12,10 @@ import Localize_Swift
 class SettingTableViewController: UITableViewController {
 
     @IBOutlet weak var currentLang: UILabel!
-    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("current-lang, \(defaults.string(forKey: "Current-Language"))")
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
@@ -44,7 +42,7 @@ class SettingTableViewController: UITableViewController {
     
     func changeLang(langCode: String) {
         
-        self.defaults.set(langCode, forKey: "Current-Language")
+//        self.defaults.set(langCode, forKey: "Current-Language")
         Localize.setCurrentLanguage(langCode)
         
         var alert = UIAlertController()
@@ -64,15 +62,6 @@ class SettingTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func checkCurrentLang() {
-        
-        if defaults.string(forKey: "Current-Language") == "en" {
-            self.currentLang.text = "EN"
-        } else if defaults.string(forKey: "Current-Language") == "th" {
-            self.currentLang.text = "TH"
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -85,6 +74,6 @@ class SettingTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         
-        self.checkCurrentLang()
+        self.currentLang.text = Localize.currentLanguage()
     }
 }

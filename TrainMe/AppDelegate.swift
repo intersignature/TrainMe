@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.statusBarStyle = .lightContent
         
-        isAppAlreadyLaunchedOnce()
+//        isAppAlreadyLaunchedOnce()
         
         return true
     }
