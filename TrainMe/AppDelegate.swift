@@ -27,7 +27,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         application.statusBarStyle = .lightContent
+        
+        isAppAlreadyLaunchedOnce()
+        
         return true
+    }
+    
+    func isAppAlreadyLaunchedOnce() {
+        let defaults = UserDefaults.standard
+        
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
+            print("App already launched, \(defaults.string(forKey: "Current-Language")!)")
+        } else {
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            defaults.set(NSLocale.current.languageCode!, forKey: "Current-Language")
+            defaults.synchronize()
+            print("App launched first time, \(NSLocale.current.languageCode!)")
+        }
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

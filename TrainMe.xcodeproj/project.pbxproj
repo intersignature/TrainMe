@@ -74,6 +74,7 @@
 		B25BD02C21CBBE5000FC3FDF /* ProfileTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25BD02B21CBBE5000FC3FDF /* ProfileTraineeViewController.swift */; };
 		B263566E218830C100277F67 /* ConfirmationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B263566D218830C100277F67 /* ConfirmationTableViewCell.swift */; };
 		B26783DA21C8BF53001EE44E /* ReviewTrainerByTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26783D921C8BF53001EE44E /* ReviewTrainerByTraineeViewController.swift */; };
+		B26912C62231225100C46077 /* genstrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26912C52231225100C46077 /* genstrings.swift */; };
 		B26B4BE921632E47003CB72C /* TimeButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26B4BE821632E47003CB72C /* TimeButtonCollectionViewCell.swift */; };
 		B26ED3492132C45F003F0637 /* BookTabTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */; };
 		B272239C2176961F00288ADE /* OmiseSDK.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */; };
@@ -222,6 +223,7 @@
 		B263566D218830C100277F67 /* ConfirmationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationTableViewCell.swift; sourceTree = "<group>"; };
 		B263566F2188884200277F67 /* TrainMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrainMe.entitlements; sourceTree = "<group>"; };
 		B26783D921C8BF53001EE44E /* ReviewTrainerByTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTrainerByTraineeViewController.swift; sourceTree = "<group>"; };
+		B26912C52231225100C46077 /* genstrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genstrings.swift; sourceTree = "<group>"; };
 		B26B4BE821632E47003CB72C /* TimeButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		B26ED3482132C45F003F0637 /* BookTabTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabTrainerViewController.swift; sourceTree = "<group>"; };
 		B272239A2176961F00288ADE /* OmiseSDK.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OmiseSDK.framework.dSYM; path = Carthage/Build/iOS/OmiseSDK.framework.dSYM; sourceTree = SOURCE_ROOT; };
@@ -592,6 +594,7 @@
 				B285F3EB21ED1162003055D4 /* HelpTableViewCell.swift */,
 				B2FB780421EE214200FC34A5 /* ViewHelpViewController.swift */,
 				B2F198B1222D368F004274F0 /* SettingTableViewController.swift */,
+				B26912C52231225100C46077 /* genstrings.swift */,
 			);
 			path = TrainMe;
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				B224C71221A3D90B00DD33AB /* OngoingTraineeTableViewCell.swift in Sources */,
 				B202BD2F2150B7C300DE0790 /* Certificate.swift in Sources */,
 				B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */,
+				B26912C62231225100C46077 /* genstrings.swift in Sources */,
 				B202BD2C21502AC400DE0790 /* CertificateTableViewCell.swift in Sources */,
 				B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */,
 				B2F198B2222D368F004274F0 /* SettingTableViewController.swift in Sources */,

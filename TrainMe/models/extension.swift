@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import GoogleMaps
 import GooglePlaces
+import Localize_Swift
 
 extension UIViewController : GMSAutocompleteViewControllerDelegate, GMSMapViewDelegate{
     
@@ -33,7 +34,7 @@ extension UIViewController : GMSAutocompleteViewControllerDelegate, GMSMapViewDe
     func createAlert(alertTitle: String, alertMessage: String) {
         
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     
