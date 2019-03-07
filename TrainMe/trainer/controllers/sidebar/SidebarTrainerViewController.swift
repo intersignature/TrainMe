@@ -37,12 +37,12 @@ class SidebarTrainerViewController: UIViewController {
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.topSidebarViewAction(_:)))
         self.topSidebarView.addGestureRecognizer(gesture)
-        
-        setLocalizeText()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setLocalizeText()
         
         self.emailLb.textColor = UIColor.white.withAlphaComponent(0.4)
         self.seperateView.backgroundColor = UIColor.white.withAlphaComponent(0.2)

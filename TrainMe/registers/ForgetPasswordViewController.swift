@@ -28,7 +28,6 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
         self.emailTf.delegate = self
         
         self.HideKeyboard()
-        setLocalizeText()
     }
     
     func setLocalizeText() {
@@ -71,6 +70,12 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
             self.view.removeBluerLoader()
             self.createAlert(alertTitle: "send_email_for_reset_password_success".localized(), alertMessage: "")
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setLocalizeText()
     }
     
     override func didReceiveMemoryWarning() {

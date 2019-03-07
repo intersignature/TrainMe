@@ -40,7 +40,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.passwordTf.delegate = self
 
         self.HideKeyboard()
-        self.setLocalizeText()
     }
 
     func setLocalizeText() {
@@ -101,6 +100,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func backBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setLocalizeText()
     }
     
     func getRole() {

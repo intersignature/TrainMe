@@ -64,7 +64,7 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
         print(self.userProfile.getData())
         print(self.email)
         self.createPickerToolbar()
-        setLocalizeText()
+        
         dateOfBirthTf.layer.cornerRadius = 17
 
         datePicker = UIDatePicker()
@@ -260,6 +260,12 @@ class Register3ViewController: UIViewController, UITextFieldDelegate {
             }))
             self.present(alert, animated: true, completion: nil)
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setLocalizeText()
     }
     
     override func didReceiveMemoryWarning() {

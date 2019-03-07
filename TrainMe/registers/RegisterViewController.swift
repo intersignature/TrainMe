@@ -29,7 +29,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         
         self.fullnameTf.delegate = self
         self.HideKeyboard()
-        setLocalizeText()
     }
     
     func setLocalizeText() {
@@ -67,6 +66,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
             self.userProfile.fullName = fullnameTf.text!
             performSegue(withIdentifier: "RegisterToRegister2", sender: self)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setLocalizeText()
     }
     
     override func didReceiveMemoryWarning() {

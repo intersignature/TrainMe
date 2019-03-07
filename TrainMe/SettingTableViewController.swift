@@ -62,6 +62,15 @@ class SettingTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func checkLang() {
+        
+        if Localize.currentLanguage() == "en" {
+            self.currentLang.text = "EN"
+        } else if Localize.currentLanguage() == "th" {
+            self.currentLang.text = "TH"
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -74,6 +83,6 @@ class SettingTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         
-        self.currentLang.text = Localize.currentLanguage()
+        self.checkLang()
     }
 }

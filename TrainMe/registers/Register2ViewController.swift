@@ -48,8 +48,6 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
         
         self.HideKeyboard()
         
-        setLocalizeText()
-        
         print(self.userProfile.getData())
     }
     
@@ -140,6 +138,12 @@ class Register2ViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setLocalizeText()
     }
     
     override func didReceiveMemoryWarning() {

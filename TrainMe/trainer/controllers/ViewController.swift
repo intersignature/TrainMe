@@ -38,8 +38,6 @@ class ViewController: UIViewController {
         loginBtn.layer.borderWidth = 1
         loginBtn.layer.borderColor = UIColor.white.cgColor
         
-        setLocalizeText()
-        
         facebookSignupBtn.addTarget(self, action: #selector(handleSignInWithFacebook), for: .touchUpInside)
     }
     
@@ -217,6 +215,12 @@ class ViewController: UIViewController {
                 })
             })
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setLocalizeText()
     }
     
     override func didReceiveMemoryWarning() {
