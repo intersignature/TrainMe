@@ -71,3 +71,11 @@
 "progress" = "สถานะ";
 "course" = "คอร์ส";
 "notification" = "การแจ้งเตือน";
+// Book tab trainer
+// Add schedule place trainer
+"add_schedule" = "จองเวลา";
+"fill_in_start_date" = "วันที่เริ่มต้นการฝึก";
+"fill_in_start_time" = "เวลาที่เริ่มต้นการฝึก";
+"confirm" = "ยืนยัน";
+"please_fill_in_the_blank" = "กรุณากรอกข้อมูลให้ครบ";
+"successfully_add_schedule_place_book_to_database" = "ระบบได้ทำการจองเวลาเรียบร้อยแล้ว";

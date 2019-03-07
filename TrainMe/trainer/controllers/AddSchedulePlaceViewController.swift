@@ -104,7 +104,7 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        let doneBtn = UIBarButtonItem(title: "done".localized(), style: .plain, target: self, action: #selector(self.dismissKeyboard))
         toolbar.setItems([doneBtn], animated: false)
         toolbar.isUserInteractionEnabled = true
         dateTf.inputAccessoryView = toolbar
@@ -141,9 +141,6 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.dateTf.attributedPlaceholder = NSAttributedString(string: "Fill in Start date", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        self.timeTf.attributedPlaceholder = NSAttributedString(string: "Fill in Start time", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -151,6 +148,15 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
         self.navigationController?.view.backgroundColor = .clear
         
 //        self.setupNavigationStyle()
+        self.setLocalizeText()
+    }
+    
+    func setLocalizeText() {
+        
+        title = "add_schedule".localized()
+        self.dateTf.attributedPlaceholder = NSAttributedString(string: "fill_in_start_date".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.timeTf.attributedPlaceholder = NSAttributedString(string: "fill_in_start_time".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.scheduleBtn.setTitle("confirm".localized(), for: .normal)
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {
@@ -169,7 +175,7 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
         if !checkData(date: date, time: time){
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.createAlert(alertTitle: "Please fill in the blank", alertMessage: "")
+            self.createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
             return
         }
         
@@ -200,8 +206,8 @@ class AddSchedulePlaceViewController: UIViewController, CLLocationManagerDelegat
             }
             
             print("successfully add schedule place book to database")
-            let alert = UIAlertController(title: "Successfully add schedule place book to database", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "successfully_add_schedule_place_book_to_database".localized(), message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                  self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true, completion: nil)

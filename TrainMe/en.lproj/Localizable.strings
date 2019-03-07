@@ -71,3 +71,11 @@
 "progress" = "Progress";
 "course" = "Course";
 "notification" = "Notification";
+// Book tab trainer
+// Add schedule place trainer
+"add_schedule" = "Add schedule";
+"fill_in_start_date" = "Fill in start date";
+"fill_in_start_time" = "Fill in start time";
+"confirm" = "Confirm";
+"please_fill_in_the_blank" = "Please fill in the blank";
+"successfully_add_schedule_place_book_to_database" = "Successfully add schedule place book to database";

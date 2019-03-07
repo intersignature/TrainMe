@@ -213,6 +213,8 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         self.getRecpData()
         self.googleMapsView.clear()
         setupNavigationStyle()
+        
+        title = "pick_your_place".localized()
     }
     
     @IBAction func serachAddressBtnAction(_ sender: UIBarButtonItem) {
