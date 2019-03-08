@@ -11,6 +11,7 @@ import Firebase
 import FBSDKCoreKit
 import GoogleMaps
 import GooglePlaces
+import Localize_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,23 +27,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        application.statusBarStyle = .lightContent
+//        application.statusBarStyle = .lightContent
         
-//        isAppAlreadyLaunchedOnce()
+        isAppAlreadyLaunchedOnce()
         
         return true
     }
     
     func isAppAlreadyLaunchedOnce() {
         let defaults = UserDefaults.standard
-        
-        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
-            print("App already launched, \(defaults.string(forKey: "Current-Language")!)")
+
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
+            print("App already launched, \(NSLocale.current.languageCode!)")
+            print("App already launched, \(Localize.currentLanguage())")
         } else {
             defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
-            defaults.set(NSLocale.current.languageCode!, forKey: "Current-Language")
             defaults.synchronize()
+            Localize.setCurrentLanguage(NSLocale.current.languageCode!)
             print("App launched first time, \(NSLocale.current.languageCode!)")
+            print("App launched first time, \(Localize.currentLanguage())")
         }
     }
     
