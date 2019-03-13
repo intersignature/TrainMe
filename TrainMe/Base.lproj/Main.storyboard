@@ -1733,7 +1733,7 @@ TrainMe’s Privacy Policy</string>
                                 <rect key="frame" x="0.0" y="114" width="320" height="405"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProgressCell" rowHeight="110" id="LCw-tt-cS7" customClass="ProgressTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProgressCell" rowHeight="110" id="LCw-tt-cS7" customClass="ProgressTableViewCell" customModule="TrainMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LCw-tt-cS7" id="hmu-Mo-3wP">
@@ -1810,7 +1810,7 @@ TrainMe’s Privacy Policy</string>
                                             <outlet property="traineeNameLb" destination="gcI-af-rC1" id="dXW-Zv-EwK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentTrainerTableViewCell" rowHeight="114" id="9oj-bC-9bm" customClass="PaymentTrainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentTrainerTableViewCell" rowHeight="114" id="9oj-bC-9bm" customClass="PaymentTrainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="138" width="320" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9oj-bC-9bm" id="0cS-54-GLc">
@@ -1877,7 +1877,7 @@ TrainMe’s Privacy Policy</string>
                                             <outlet property="traineeNameLb" destination="4OG-2n-HVP" id="WLF-fn-ego"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OngoingTrainerTableViewCell" rowHeight="116" id="L6Y-Ql-tkX" customClass="OngoingTrainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OngoingTrainerTableViewCell" rowHeight="116" id="L6Y-Ql-tkX" customClass="OngoingTrainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="252" width="320" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L6Y-Ql-tkX" id="5yl-qF-3fG">
@@ -1952,7 +1952,7 @@ TrainMe’s Privacy Policy</string>
                                             <outlet property="traineeNameLb" destination="fu7-es-OB8" id="gLs-bj-3BG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuccessfulTrainerTableViewCell" rowHeight="116" id="ChC-UD-hWX" customClass="SuccessfulTrainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SuccessfulTrainerTableViewCell" rowHeight="116" id="ChC-UD-hWX" customClass="SuccessfulTrainerTableViewCell" customModule="TrainMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="368" width="320" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ChC-UD-hWX" id="IYm-Lx-gJs">
@@ -7728,11 +7728,11 @@ detail</string>
         <image name="weight" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KSr-1B-W7B"/>
+        <segue reference="8je-Rt-v1G"/>
         <segue reference="dSZ-fv-Sp2"/>
         <segue reference="dM1-HA-QSq"/>
-        <segue reference="p7p-h3-dr6"/>
-        <segue reference="LED-SU-iWE"/>
+        <segue reference="QBL-zq-jxZ"/>
+        <segue reference="aj2-aV-Jgc"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>
         <segue reference="QeP-9l-n5x"/>

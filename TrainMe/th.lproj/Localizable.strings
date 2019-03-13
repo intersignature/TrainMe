@@ -8,6 +8,7 @@
 
 //alert
 "ok" = "ตกลง";
+"cancel" = "ยกเลิก";
 // first page and login
 "signup_email" = "สมัครผ่านอีเมลล์";
 "signup_facebook" = "เข้าสู่ระบบผ่าน facebook";
@@ -79,3 +80,39 @@
 "confirm" = "ยืนยัน";
 "please_fill_in_the_blank" = "กรุณากรอกข้อมูลให้ครบ";
 "successfully_add_schedule_place_book_to_database" = "ระบบได้ทำการจองเวลาเรียบร้อยแล้ว";
+// progress tab trainer
+"confirm_progress" = "ยืนยัน";
+"payment_progress" = "จ่ายเงิน";
+"ongoing_progress" = "กำลังฝึก";
+"successful_progress" = "สำเร็จ";
+"close" = "ปิด";
+"open" = "เปิด";
+"accept" = "ยอมรับ";
+"decline" = "ปฏิเสธ";
+"confirm_to_accept" = "ยืนยันการยอมรับการฝึก?";
+"confirm_to_decline" = "ยืนยันการปฏิเสธการฝึก?";
+"wait_your_trainee_for_pay" = "รอผู้ต้องการฝึกจ่ายเงิน";
+"ongoing_schedule" = "อยู่ในระหว่างการฝึก";
+"successful_schedule" = "การฝึกที่สำเร็จ";
+// confirmation and payment progress page trainer
+"trainee_profile" = "ข้อมูลของผู้ต้องการฝึก";
+"course_detail" = "รายละเอียดการฝึก";
+"place" = "สถานที่การฝึก";
+"price" = "ราคา";
+"bath" = "บาท";
+"times" = "ครั้ง";
+// ongoing and successful progress page trainer (Use from confirmation amd payment progress page)
+"schedule" = "ตารางการฝึก";
+"pending" = "รอ";
+"ongoing" = "กำลังฝึก";
+"successful" = "สำเร็จแล้ว";
+"change_schedule" = "เปลี่ยนการนัด";
+"change_schedule_requested" = "ร้องขอการเปลี่ยนเวลา";
+"plaese_enter_new_schedule_date_and_time" = "กรุณากรอกเวลานัดใหม่";
+"new_schedule_date" = "วันที่ฝึกใหม่";
+"new_schedule_time" = "เวลาฝึกใหม่";
+"are_you_sure_to_confirm_training" = "ยืนยันการฝึกสำเร็จหรือไม่?";
+"change_schedule_date_and_time_successfully" = "เปลี่ยนวันและเวลาฝึกใหม่สำเร็จแล้ว";
+"confirm_training_successfully" = "ยืนยันการฝึกสำเร็จ";
+"this_course_is_finish" = "การฝึกสำเร็จทั้งหมดแล้ว";
+"confirm_training_successfully_and_wait_for_trainee_review" = "ยืนยันการฝึกสำเร็จและรอการรีวิวการผู้ต้องการฝึก";

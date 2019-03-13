@@ -90,6 +90,8 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         let cell = tableView.dequeueReusableCell(withIdentifier: "EachOngoingTrainerTableViewCell") as! EachOngoingTrainerTableViewCell
         cell.countLb.text = self.selectedOngoing.eachOngoingDetails[indexPath.row].count
         cell.dateAndTimeScheduleLb.text = "\(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_date) \(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_time)"
+        cell.changeScheduleBtn.setTitle("change_schedule".localized(), for: .normal)
+        cell.confirmSuccessTrainBtn.setTitle("confirm".localized(), for: .normal)
         cell.changeScheduleBtn.tag = indexPath.row
         cell.changeScheduleBtn.addTarget(self, action: #selector(self.changeScheduleBtnAction(sender:)), for: .touchUpInside)
         cell.confirmSuccessTrainBtn.tag = indexPath.row
@@ -98,7 +100,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "-1" {
             cell.changeScheduleBtn.isEnabled = false
             cell.confirmSuccessTrainBtn.isEnabled = false
-            cell.statusLb.text = "Pending"
+            cell.statusLb.text = "pending".localized()
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "1" {
             cell.changeScheduleBtn.isEnabled = true
             cell.confirmSuccessTrainBtn.isEnabled = true
@@ -108,15 +110,15 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
             } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainer_confirm == "-1" && self.selectedOngoing.eachOngoingDetails[indexPath.row].is_trainee_confirm == "1" {
                 cell.changeScheduleBtn.isEnabled = false
             }
-            cell.statusLb.text = "Ongoing"
+            cell.statusLb.text = "ongoing".localized()
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "2" {
             cell.changeScheduleBtn.isEnabled = false
             cell.confirmSuccessTrainBtn.isEnabled = false
-            cell.statusLb.text = "Successful"
+            cell.statusLb.text = "successful".localized()
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "3" {
             cell.changeScheduleBtn.isEnabled = true
             cell.confirmSuccessTrainBtn.isEnabled = false
-            cell.statusLb.text = "Change schedule requested"
+            cell.statusLb.text = "change_schedule_requested".localized()
         }
         return cell
     }
@@ -125,20 +127,20 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         
         //TODO: changeSchedule
         print("changeSchedule: \(sender.tag)")
-        let alert = UIAlertController(title: "Change schedule date", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "change_schedule".localized(), message: "", preferredStyle: .alert)
         alert.addTextField(configurationHandler: newScheduleDate)
         alert.addTextField(configurationHandler: newScheduleTime)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let okAction = UIAlertAction(title: "ok".localized(), style: .default) { (action) in
 
             if self.checkNewSchedule() {
                 self.view.showBlurLoader()
                 self.navigationController?.setNavigationBarHidden(true, animated: true)
                 self.changeSchdedule(sender: sender)
             } else {
-                self.createAlert(alertTitle: "Plaese enter new schedule date and tiim", alertMessage: "")
+                self.createAlert(alertTitle: "plaese_enter_new_schedule_date_and_time".localized(), alertMessage: "")
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil)
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
@@ -149,7 +151,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         self.newScheduleDate = textField
         self.setupDatePicker()
         self.newScheduleDate?.textAlignment = .center
-        self.newScheduleDate?.placeholder = "Change schedule date"
+        self.newScheduleDate?.placeholder = "new_schedule_date".localized()
     }
     
     func newScheduleTime(textField: UITextField) {
@@ -157,7 +159,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         self.newScheduleTime = textField
         self.setupTimePicker()
         self.newScheduleTime?.textAlignment = .center
-        self.newScheduleTime?.placeholder = "Change schedule time"
+        self.newScheduleTime?.placeholder = "new_schedule_time".localized()
     }
     
     func setupDatePicker() {
@@ -228,14 +230,14 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
 
     @objc func confirmBtnAction(sender: UIButton) {
         
-        let alert = UIAlertController(title: "Are you sure to confirm training?", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "are_you_sure_to_confirm_training".localized(), message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
 //            self.confirmSuccessStatusToDatabase(sender: sender)
             self.view.showBlurLoader()
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.checkTraineeIsConfirm(sender: sender)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -400,19 +402,19 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
             if from == "change schedule" {
                 self.view.removeBluerLoader()
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.createAlert(alertTitle: "Change schedule date and time successfully", alertMessage: "")
+                self.createAlert(alertTitle: "change_schedule_date_and_time_successfully".localized(), alertMessage: "")
             } else if from == "next schedule" {
                 self.view.removeBluerLoader()
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
+                self.createAlert(alertTitle: "confirm_training_successfully".localized(), alertMessage: "")
             } else if from == "transfer money" {
                 self.view.removeBluerLoader()
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.createAlert(alertTitle: "This course is finish!", alertMessage: "")
+                self.createAlert(alertTitle: "this_course_is_finish".localized(), alertMessage: "")
             } else if from == "wait review" {
                 self.view.removeBluerLoader()
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.createAlert(alertTitle: "Confirm training successfully", alertMessage: "")
+                self.createAlert(alertTitle: "confirm_training_successfully_and_wait_for_trainee_review".localized(), alertMessage: "")
             }
         }
     }

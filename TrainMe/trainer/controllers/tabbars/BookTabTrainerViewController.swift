@@ -44,8 +44,6 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         ref = Database.database().reference()
         currentUser = Auth.auth().currentUser
         
-        self.title = NSLocalizedString("pick_your_place", comment: "")
-        
         placesClient = GMSPlacesClient.shared()
 
         self.googleMapsView = GMSMapView(frame: self.view.frame)

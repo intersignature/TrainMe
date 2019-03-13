@@ -8,6 +8,7 @@
 
 //alert
 "ok" = "ตกลง";
+"cancel" = "ยกเลิก";
 // first page and login
 "signup_email" = "Sign up";
 "signup_facebook" = "Continue with facebook";
@@ -79,3 +80,39 @@
 "confirm" = "Confirm";
 "please_fill_in_the_blank" = "Please fill in the blank";
 "successfully_add_schedule_place_book_to_database" = "Successfully add schedule place book to database";
+// progress tab
+"confirm_progress" = "Confirm";
+"payment_progress" = "Payment";
+"ongoing_progress" = "Ongoing";
+"successful_progress" = "Successful";
+"close" = "Close";
+"open" = "Open";
+"accept" = "Accept";
+"decline" = "Decline";
+"confirm_to_accept" = "Confirm to accept?";
+"confirm_to_decline" = "Confirm to decline?";
+"wait_your_trainee_for_pay" = "Wait your trainee for pay";
+"ongoing_schedule" = "Ongoing schedule";
+"successful_schedule" = "Successful schedule";
+// confirmation and payment progress page trainer
+"trainee_profile" = "TRAINEE PROFILE";
+"course_detail" = "COURSE DETAIL";
+"place" = "PLACE";
+"price" = "Price";
+"bath" = "Bath";
+"times" = "times";
+// ongoing and successful progress page trainer (Use from confirmation amd payment progress page)
+"schedule" = "SCHEDULE";
+"pending" = "Pending";
+"ongoing" = "Ongoing";
+"successful" = "Successful";
+"change_schedule" = "Change schedule";
+"change_schedule_requested" = "Change_schedule_requested";
+"plaese_enter_new_schedule_date_and_time" = "Plaese enter new schedule date and time";
+"new_schedule_date" = "New schedule date";
+"new_schedule_time" = "New schedule time";
+"are_you_sure_to_confirm_training" = "Are you sure to confirm training?";
+"change_schedule_date_and_time_successfully" = "Change schedule date and time successfully";
+"confirm_training_successfully" = "Confirm training successfully";
+"this_course_is_finish" = "This course is finish!";
+"confirm_training_successfully_and_wait_for_trainee_review" = "Confirm training successfully and wait for trainee review";
