@@ -28,23 +28,23 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         currentUser = Auth.auth().currentUser
         getCourseData()
         initSideMenu()
-        self.title = NSLocalizedString("course", comment: "")
-//
-//        let editCourseBtn = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.setTableViewEditingMode(sender:)))
-//        editCourseBtn.tintColor = UIColor.white
-//        let addCourseBtn = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.showAddCoursePage))
-//        self.navigationItem.rightBarButtonItems = [editCourseBtn, addCourseBtn]
+
+        let editCourseBtn = UIBarButtonItem(title: "edit".localized(), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.setTableViewEditingMode(_:)))
+        editCourseBtn.tintColor = UIColor.white
+        let addCourseBtn = UIBarButtonItem(title: "add".localized(), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.showAddCoursePage))
+        addCourseBtn.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItems = [editCourseBtn, addCourseBtn]
     }
     
-    @IBAction func addCourseBtnAction(_ sender: UIBarButtonItem) {
-        
-        self.performSegue(withIdentifier: "CourseToAddCourse", sender: nil)
-    }
-    
-    @IBAction func editCourseBtnAction(_ sender: UIBarButtonItem) {
+    @objc func setTableViewEditingMode(_ sender: UIBarButtonItem) {
         
         tableView.setEditing(!tableView.isEditing, animated: true)
-        navigationItem.rightBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
+        navigationItem.rightBarButtonItem?.title = tableView.isEditing ? "done".localized() : "edit".localized()
+    }
+    
+    @objc func showAddCoursePage() {
+        
+        self.performSegue(withIdentifier: "CourseToAddCourse", sender: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,6 +86,8 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         super.viewWillAppear(animated)
         
         self.tableView.tableFooterView = UIView()
+        
+        title = "course".localized()
         
         setupNavigationStyle()
     }
@@ -136,10 +138,10 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let deleteBtn = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            let chooseAlert = UIAlertController(title: "", message: "Would you like to delete this course?", preferredStyle: .actionSheet)
-            chooseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            chooseAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+        let deleteBtn = UITableViewRowAction(style: .destructive, title: "delete".localized()) { (action, indexPath) in
+            let chooseAlert = UIAlertController(title: "", message: "would_you_like_to_delete_this_course".localized(), preferredStyle: .actionSheet)
+            chooseAlert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
+            chooseAlert.addAction(UIAlertAction(title: "delete".localized(), style: .destructive, handler: { (action) in
                 self.deleteCourseInFirebase(indexPath: indexPath)
                 self.courses.remove(at: indexPath.row)
                 tableView.beginUpdates()
@@ -149,7 +151,7 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
             self.present(chooseAlert, animated: true)
         }
         
-        let editBtn = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+        let editBtn = UITableViewRowAction(style: .normal, title: "edit".localized()) { (action, indexPath) in
             self.selectedCourse = self.courses[indexPath.row]
             self.performSegue(withIdentifier: "ViewCourseToEditCourse", sender: self)
             print("Edit at \(indexPath.row)")
@@ -164,7 +166,10 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
         let uid = currentUser?.uid
         
         self.ref.child("courses").child(uid!).child(courses[indexPath.row].key).removeValue { (err, ref) in
-            print(err?.localizedDescription)
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+            }
+            self.createAlert(alertTitle: "delete_course_successfully".localized(), alertMessage: "")
         }
     }
 

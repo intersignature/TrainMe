@@ -23,17 +23,19 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var courseLanguage: DTTextField!
     @IBOutlet weak var editBtn: UIButton!
     
+    @IBOutlet weak var courseContentLb: UILabel!
+    
     var currentUser: User?
     var ref: DatabaseReference = DatabaseReference()
     let levelPicker = UIPickerView()
     let typePicker = UIPickerView()
-    let levels = ["All level",
-                  "Intermediate",
-                  "Beginner",
-                  "Expert"]
-    let types = ["Healthy",
-                 "Fit and firm",
-                 "Competition"]
+    let levels = ["all_level".localized(),
+                  "beginner".localized(),
+                  "intermediate".localized(),
+                  "expert".localized()]
+    let types = ["healthy".localized(),
+                 "fit_and_firm".localized(),
+                 "competition".localized()]
     var selectedLevel: String?
     var selectedType: String?
     var course:Course = Course()
@@ -74,6 +76,16 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     override func viewWillAppear(_ animated: Bool) {
         self.setupNavigationStyle()
+        
+        self.courseName.placeholder = "course".localized()
+        self.courseContentLb.text = "course_content".localized()
+        self.courseType.placeholder = "course_type".localized()
+        self.timeOfCourse.placeholder = "time_of_course".localized()
+        self.courseDuration.placeholder = "course_duration".localized()
+        self.courseLevel.placeholder = "course_level".localized()
+        self.coursePrice.placeholder = "course_price".localized()
+        self.courseLanguage.placeholder = "course_language".localized()
+        self.editBtn.setTitle("edit".localized(), for: .normal)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -88,8 +100,8 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
     @objc func courseTypeTfAction(textField: DTTextField) {
         
         if courseType.text == "" {
-            courseType.text = "Healthy"
-            selectedType = "Healthy"
+            courseType.text = "healthy".localized()
+            selectedType = "healthy".localized()
         }
         levelPicker.tag = 2
     }
@@ -97,8 +109,8 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
     @objc func courseLevelTfAction(textField: DTTextField) {
         
         if courseLevel.text == "" {
-            courseLevel.text = "All level"
-            selectedLevel = "All level"
+            courseLevel.text = "all_level".localized()
+            selectedLevel = "all_level".localized()
         }
         levelPicker.tag = 1
     }
@@ -121,7 +133,7 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        let doneBtn = UIBarButtonItem(title: "done".localized(), style: .plain, target: self, action: #selector(self.dismissKeyboard))
         toolbar.setItems([doneBtn], animated: false)
         toolbar.isUserInteractionEnabled = true
         courseLevel.inputAccessoryView = toolbar
@@ -200,7 +212,7 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
         if !checkTextfield(course_name: courseName!, course_content: courseContent!, course_type: courseType!, time_of_course: timeOfCourse!, course_duration: courseDuration!, course_level: courseLevel!, course_price: coursePrice!, course_language: courseLanguage!) {
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            createAlert(alertTitle: "Please enter in blank field", alertMessage: "")
+            createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
             return
         }
 
@@ -225,8 +237,8 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         print("successfully edit course to database")
         
-        let alert = UIAlertController(title: "Successfully edit course to database", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "successfully_edit_course".localized(), message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
             self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)

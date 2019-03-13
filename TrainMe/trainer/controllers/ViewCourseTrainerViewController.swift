@@ -12,10 +12,18 @@ import FirebaseDatabase
 import ExpandableLabel
 
 class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ExpandableLabelDelegate {
+    
     @IBOutlet weak var courseDetailTableView: UITableView!
     
     var course:Course = Course()
-    var titleList: [String] = ["Name", "Detail", "Type", "Time", "Duration", "Level", "Price", "Language"]
+    var titleList: [String] = ["name_course".localized(),
+                               "course_content".localized(),
+                               "course_type".localized(),
+                               "time_of_course".localized(),
+                               "course_duration".localized(),
+                               "course_level".localized(),
+                               "course_price".localized(),
+                               "course_language".localized()]
     var descriptionList:[String] = []
     var currentUser: User?
     var ref: DatabaseReference!
@@ -25,6 +33,10 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let editCourseBtn = UIBarButtonItem(title: "edit".localized(), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editBtnAction(_:)))
+        editCourseBtn.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItems = [editCourseBtn]
         
         states = [Bool](repeating: true, count: self.titleList.count)
         
@@ -52,7 +64,7 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
         self.courseDetailTableView.reloadData()
     }
 
-    @IBAction func editBtnAction(_ sender: UIBarButtonItem) {
+    @objc func editBtnAction(_ sender: UIBarButtonItem) {
         
         performSegue(withIdentifier: "ViewCourseTrainerToEditCourseTrainer", sender: self)
     }
@@ -78,13 +90,14 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
 //        cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
         cell.titleLb.text = titleList[indexPath.row]
         cell.descriptionLb.delegate = self
-        cell.descriptionLb.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: nil)
+        cell.descriptionLb.setLessLinkWith(lessLink: "close".localized(), attributes: [.foregroundColor:UIColor.red], position: nil)
         cell.layoutIfNeeded()
         cell.descriptionLb.shouldCollapse = true
         cell.descriptionLb.textReplacementType = currentSource.textReplacementType
         cell.descriptionLb.numberOfLines = currentSource.numberOfLines
         cell.descriptionLb.collapsed = states[indexPath.row]
         cell.descriptionLb.text = currentSource.text
+        cell.descriptionLb.collapsedAttributedLink = NSAttributedString(string: "more".localized())
         
         return cell
     }
@@ -148,6 +161,8 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
         super.viewWillAppear(animated)
         
 //        setupNavigationStyle()
+        
+        title = "course_detail".localized()
         
         self.courseDetailTableView.tableFooterView = UIView()
         

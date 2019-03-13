@@ -17,7 +17,7 @@ class AllCourseTrainerTableViewCell: UITableViewCell {
     func setDataToTableViewCell(course: Course) {
         courseNameLb.text = course.course
         courseDetail.text = course.courseContent
-        timeOfCourseLb.text = "\(course.timeOfCourse) times"
+        timeOfCourseLb.text = "\(course.timeOfCourse) \("times".localized())"
     }
     
     override func awakeFromNib() {

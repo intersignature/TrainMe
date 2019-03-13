@@ -2637,20 +2637,6 @@ detail</string>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="BnH-JM-Lzh">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Add" id="Xc4-iP-85P">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <action selector="addCourseBtnAction:" destination="WeY-C7-v4Z" id="gNJ-Rl-Nj5"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Edit" id="NIo-nA-gme">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <action selector="editCourseBtnAction:" destination="WeY-C7-v4Z" id="jLL-eB-JAa"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="menuBtn" destination="BnH-JM-Lzh" id="Oyv-Ie-4rb"/>
@@ -2813,6 +2799,7 @@ detail</string>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="addBtn" destination="kj4-Sn-l8E" id="MrC-rt-t6R"/>
+                        <outlet property="courseContentLb" destination="Nyx-IA-iga" id="9l6-Ae-lT6"/>
                         <outlet property="courseDetailTv" destination="8Ml-6P-ftp" id="i5h-i4-gqA"/>
                         <outlet property="courseDurationTf" destination="D51-1P-JMx" id="ngT-YA-lO4"/>
                         <outlet property="courseLanguageTf" destination="FjK-QI-nBj" id="VvE-PJ-nAG"/>
@@ -3004,12 +2991,6 @@ detail</string>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="10V-6f-thc" id="XAU-Q7-bqJ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="IPB-d4-0OE">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="editBtnAction:" destination="10V-6f-thc" id="0X7-bz-p2E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3626,6 +3607,7 @@ detail</string>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="courseContentLb" destination="SfG-yu-3Vy" id="s0b-Ow-5rd"/>
                         <outlet property="courseDetail" destination="FDe-jT-BTc" id="JZe-eB-c4f"/>
                         <outlet property="courseDuration" destination="0Ah-qM-by1" id="vzd-fD-ASP"/>
                         <outlet property="courseLanguage" destination="99w-Ji-EEQ" id="cvV-CL-vjh"/>

@@ -22,15 +22,18 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     @IBOutlet weak var coursePriceTf: DTTextField!
     @IBOutlet weak var courseLanguageTf: DTTextField!
     @IBOutlet weak var addBtn: UIButton!
+    
+    @IBOutlet weak var courseContentLb: UILabel!
+    
     let levelPicker = UIPickerView()
     let typePicker = UIPickerView()
-    let levels = ["All level",
-                 "Intermediate",
-                 "Beginner",
-                 "Expert"]
-    let types = ["Healthy",
-                 "Fit and firm",
-                 "Competition"]
+    let levels = ["all_level".localized(),
+                  "beginner".localized(),
+                  "intermediate".localized(),
+                  "expert".localized()]
+    let types = ["healthy".localized(),
+                 "fit_and_firm".localized(),
+                 "competition".localized()]
     var selectedLevel: String?
     var selectedType: String?
 
@@ -60,8 +63,8 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     @objc func courseTypeTfAction(textField: DTTextField) {
         
         if courseTypeTf.text == "" {
-            courseTypeTf.text = "Healthy"
-            selectedType = "Healthy"
+            courseTypeTf.text = "healthy".localized()
+            selectedType = "healthy".localized()
         }
         levelPicker.tag = 2
     }
@@ -69,8 +72,8 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     @objc func courseLevelTfAction(textField: DTTextField) {
         
         if courseLevelTf.text == "" {
-            courseLevelTf.text = "All level"
-            selectedLevel = "All level"
+            courseLevelTf.text = "all_level".localized()
+            selectedLevel = "all_level".localized()
         }
         levelPicker.tag = 1
     }
@@ -109,6 +112,19 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     override func viewWillAppear(_ animated: Bool) {
         
         setupNavigationStyle()
+        
+        title = "add_course".localized()
+        
+        self.courseTf.placeholder = "course".localized()
+        self.courseContentLb.text = "course_content".localized()
+        self.courseDetailTv.text = "course_detail".localized()
+        self.courseTypeTf.placeholder = "course_type".localized()
+        self.timeOfCourseTf.placeholder = "time_of_course".localized()
+        self.courseDurationTf.placeholder = "course_duration".localized()
+        self.courseLevelTf.placeholder = "course_level".localized()
+        self.coursePriceTf.placeholder = "course_price".localized()
+        self.courseLanguageTf.placeholder = "course_language".localized()
+        self.addBtn.setTitle("add".localized(), for: .normal)
     }
     
     func createLevelPicker() {
@@ -129,7 +145,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        let doneBtn = UIBarButtonItem(title: "done".localized(), style: .plain, target: self, action: #selector(self.dismissKeyboard))
         toolbar.setItems([doneBtn], animated: false)
         toolbar.isUserInteractionEnabled = true
         courseLevelTf.inputAccessoryView = toolbar
@@ -191,7 +207,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         if !checkTextfield(course_name: courseName!, course_content: courseContent!, course_type: courseType!, time_of_course: timeOfCourse!, course_duration: courseDuration!, course_level: courseLevel!, course_price: coursePrice!, course_language: courseLanguage!) {
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            createAlert(alertTitle: "Please enter in blank field", alertMessage: "")
+            createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
             return
         }
         
@@ -215,8 +231,8 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
                 return
             }
             print("successfully add course to database")
-            let alert = UIAlertController(title: "Successfully add course to database", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "successfully_add_course".localized(), message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true, completion: nil)

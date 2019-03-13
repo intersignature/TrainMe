@@ -80,7 +80,7 @@
 "confirm" = "Confirm";
 "please_fill_in_the_blank" = "Please fill in the blank";
 "successfully_add_schedule_place_book_to_database" = "Successfully add schedule place book to database";
-// progress tab
+// progress tab trainer
 "confirm_progress" = "Confirm";
 "payment_progress" = "Payment";
 "ongoing_progress" = "Ongoing";
@@ -116,3 +116,33 @@
 "confirm_training_successfully" = "Confirm training successfully";
 "this_course_is_finish" = "This course is finish!";
 "confirm_training_successfully_and_wait_for_trainee_review" = "Confirm training successfully and wait for trainee review";
+// Course tab trainer
+"edit" = "Edit";
+"add" = "Add";
+"done" = "Done";
+"delete" = "Delete";
+"would_you_like_to_delete_this_course" = "Would you like to delete this course?";
+"delete_course_successfully" = "Delete course successfully!";
+// Add course trainer
+"add_course" = "Add course";
+"course_content" = "Course content";
+"course_detail ..." = "Course detail ...";
+"course_type" = "Course type";
+"time_of_course" = "Time of course";
+"course_duration" = "Course duration";
+"course_level" = "Course level";
+"course_price" = "Course price";
+"course_language" = "Course language";
+"successfully_add_course" = "Successfully add course";
+"all_level" = "All level";
+"intermediate" = "Intermediate";
+"beginner" = "Beginner";
+"expert" = "Expert";
+"healthy" = "Healthy";
+"fit_and_firm" = "Fit and firm";
+"competition" = "Competition";
+"successfully_edit_course" = "Successfully edit course";
+// View course trainer
+"course_detail" = "Course detail";
+"name_course" = "Course name";
+"more" = "More";

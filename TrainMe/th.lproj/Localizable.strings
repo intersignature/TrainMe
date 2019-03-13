@@ -116,3 +116,33 @@
 "confirm_training_successfully" = "ยืนยันการฝึกสำเร็จ";
 "this_course_is_finish" = "การฝึกสำเร็จทั้งหมดแล้ว";
 "confirm_training_successfully_and_wait_for_trainee_review" = "ยืนยันการฝึกสำเร็จและรอการรีวิวการผู้ต้องการฝึก";
+// Course tab trainer
+"edit" = "แก้ไข";
+"add" = "เพิ่ม";
+"done" = "เสร็จ";
+"delete" = "ลบ";
+"would_you_like_to_delete_this_course" = "คุณต้องการลบคอร์สที่เลือกใช่หรือไม่";
+"delete_course_successfully" = "ลบคอร์สสำเร็จแล้ว";
+// Add course trainer
+"add_course" = "เพิ่มคอร์ส";
+"course_content" = "รายละเอียดของคอร์ส";
+"course_detail" = "รายละเอียดของคอร์ส ...";
+"course_type" = "ประเภทของคอร์ส";
+"time_of_course" = "จำนวนครั้งของคอร์ส";
+"course_duration" = "ระยะเวลาการฝึกในแต่ละครั้ง";
+"course_level" = "ความยากของการฝึก";
+"course_price" = "ราคา";
+"course_language" = "ภาษาที่ใช้ในการสื่อสาร";
+"successfully_add_course" = "เพิ่มคอร์สสำเร็จ";
+"all_level" = "ทุกระดับ";
+"intermediate" = "ปานกลาง";
+"beginner" = "เริ่มต้น";
+"expert" = "ผู้เชี่ยวชาญ";
+"healthy" = "เพื่อสุขภาพ";
+"fit_and_firm" = "เพื่อความฟิตของหุ่น";
+"competition" = "เพื่อการแข่งขัน";
+"successfully_edit_course" = "แก้ไขคอร์สสำเร็จแล้ว";
+// View course trainer
+"course_detail" = "รายละเอียดของคอร์ส";
+"name_course" = "ชื่อคอร์ส";
+"more" = "เพิ่มเติม";
