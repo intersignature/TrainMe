@@ -97,6 +97,8 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         
 //        self.setupNavigationStyle()
 
+        self.title = "help".localized()
+        
         self.helpTableView.tableFooterView = UIView()
 
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]

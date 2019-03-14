@@ -16,8 +16,12 @@ import CropViewController
 class EditProfileTraineeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
 
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var changeBtn: UILabel!
+    @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var nameTf: UITextField!
+    @IBOutlet weak var weightLb: UILabel!
     @IBOutlet weak var weightTf: UITextField!
+    @IBOutlet weak var heightLb: UILabel!
     @IBOutlet weak var heightTf: UITextField!
     @IBOutlet weak var changePasswordBtn: UIButton!
     @IBOutlet weak var changeLb: UILabel!
@@ -61,21 +65,21 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
     @objc func handleSelectProfileImg() {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "From camera", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "from_camera".localized(), style: .default, handler: { (action) in
             let imgPicker = UIImagePickerController()
             imgPicker.delegate = self
             imgPicker.sourceType = .camera
             imgPicker.allowsEditing = false
             self.present(imgPicker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "From photo library", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "from_photo_library".localized(), style: .default, handler: { (action) in
             let imgPicker = UIImagePickerController()
             imgPicker.delegate = self
             imgPicker.sourceType = .photoLibrary
             imgPicker.allowsEditing = false
             self.present(imgPicker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -192,11 +196,11 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
     @IBAction func changePasswordBtnAction(_ sender: UIButton) {
     }
     
-    @IBAction func saveBtnAction(_ sender: UIBarButtonItem) {
-        
+    @objc func saveBtnAction(_ sender: UIBarButtonItem) {
+
         self.view.showBlurLoader()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
+
         if self.checkNewProfileData() {
             self.changeDataToDatabase(from: "Data", url: "")
             if self.checkNewImage {
@@ -205,7 +209,7 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
         } else {
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.createAlert(alertTitle: "Please fill in blank", alertMessage: "")
+            self.createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
         }
     }
     
@@ -270,8 +274,8 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
                 
                 self.view.removeBluerLoader()
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
-                let alert = UIAlertController(title: "Change profile data successfully", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                let alert = UIAlertController(title: "change_profile_data_successfully".localized(), message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                     self.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert, animated: true, completion: nil)
@@ -321,9 +325,19 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.nameTf.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        self.weightTf.attributedPlaceholder = NSAttributedString(string: "Weight", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        self.heightTf.attributedPlaceholder = NSAttributedString(string: "Height", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.title = "edit_profile".localized()
+        self.changeBtn.text = "change".localized()
+        self.nameLb.text = "full_name".localized()
+        self.weightLb.text = "weight_edit_page".localized()
+        self.heightLb.text = "height_edit_page".localized()
+        
+        let saveBtn = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveBtnAction(_:)))
+        saveBtn.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = saveBtn
+        
+        self.nameTf.attributedPlaceholder = NSAttributedString(string: "full_name".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.weightTf.attributedPlaceholder = NSAttributedString(string: "weight".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.heightTf.attributedPlaceholder = NSAttributedString(string: "height".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         self.seperateView1.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         self.seperateView2.backgroundColor = UIColor.white.withAlphaComponent(0.2)

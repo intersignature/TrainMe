@@ -9,6 +9,7 @@
 //alert
 "ok" = "ตกลง";
 "cancel" = "ยกเลิก";
+"loading ..." = "กำลังโหลด ...";
 // first page and login
 "signup_email" = "สมัครผ่านอีเมลล์";
 "signup_facebook" = "เข้าสู่ระบบผ่าน facebook";
@@ -146,3 +147,37 @@
 "course_detail" = "รายละเอียดของคอร์ส";
 "name_course" = "ชื่อคอร์ส";
 "more" = "เพิ่มเติม";
+// Notification trainer
+"notification" = "การแจ้งเตือน";
+"second_ago" = "วินาทีที่แล้ว";
+"seconds_ago" = "วินาทีที่แล้ว";
+"minute_ago" = "นาทีที่แล้ว";
+"minutes_ago" = "นาทีที่แล้ว";
+"hour_ago" = "ชั่วโมงที่แล้ว";
+"hours_ago" = "ชั่วโมงที่แล้ว";
+"day_ago" = "วันที่แล้ว";
+"days_ago" = "วันที่แล้ว";
+"week_ago" = "สัปดาห์ที่แล้ว";
+"weeks_ago" = "สัปดาห์ที่แล้ว";
+// Bank trainer
+"account_name" = "ชื่อบัญชี";
+"account_number" = "หมายเลขบัญชี";
+"bank_name" = "ชื่อธนาคาร";
+"edit_bank_information_successful!_please_wait_for_approve" = "แก้ไขข้อมูลธนาคารสำเร็จ! รอการยืนยัน";
+"please_correct_your_bank_information" = "กรุณากรอกข้อมูลธนาคารให้ถูกต้อง";
+"add_bank_information_successful_please_wait_for_approve" = "เพิ่มข้อมูลธนาคารสำเร็จ! รอการยืนยัน";
+"wait_for_approve" = "รอการยืนยัน";
+// Help page
+"language" = "ภาษา";
+"birthday" = "วันเกิด";
+"reviews" = "รีวิว";
+"rating" = "การโหวด";
+// Edit page
+"edit_profile" = "แก้ไขข้อมูลส่วนตัว";
+"save" = "บันทึก";
+"change" = "เปลี่ยน";
+"weight_edit_page" = "นำ้หนัก (กก.)";
+"height_edit_page" = "ส่วนสูง (ซม.)";
+"from_camera" = "จากกล้อง";
+"from_photo_library" = "จากไลบราลี่";
+"change_profile_data_successfully" = "เปลี่ยนข้อมูลส่วนตัวสำเร็จแล้ว";

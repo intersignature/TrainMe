@@ -300,29 +300,29 @@ extension Date {
         
         if secondsAgo < minute {
             if secondsAgo < 2 {
-                return "\(secondsAgo) SECOND AGO"
+                return "\(secondsAgo) \("second_ago".localized())"
             }
-            return "\(secondsAgo) SECONDS AGO"
+            return "\(secondsAgo) \("seconds_ago".localized())"
         } else if secondsAgo < hour {
             if secondsAgo / minute < 2 {
-                return "\(secondsAgo / minute) MINUTE AGO"
+                return "\(secondsAgo / minute) \("minute_ago".localized())"
             }
-            return "\(secondsAgo / minute) MINUTES AGO"
+            return "\(secondsAgo / minute) \("minutes_ago".localized())"
         } else if secondsAgo < day {
             if secondsAgo / hour < 2 {
-                return "\(secondsAgo / hour) HOUR AGO"
+                return "\(secondsAgo / hour) \("hour_ago".localized())"
             }
-            return "\(secondsAgo / hour) HOURS AGO"
+            return "\(secondsAgo / hour) \("hours_ago".localized())"
         } else if secondsAgo < week {
             if secondsAgo / day < 2 {
-                return "\(secondsAgo / day) DAY AGO"
+                return "\(secondsAgo / day) \("day_ago".localized())"
             }
-            return "\(secondsAgo / day) DAYS AGO"
+            return "\(secondsAgo / day) \("days_ago".localized())"
         }
         if secondsAgo / week < 2 {
-            return "\(secondsAgo / week) WEEK AGO"
+            return "\(secondsAgo / week) \("week_ago".localized())"
         }
-        return "\(secondsAgo / week) WEEKS AGO"
+        return "\(secondsAgo / week) \("weeks_ago".localized())"
     }
 }
 

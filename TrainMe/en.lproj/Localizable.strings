@@ -7,8 +7,9 @@
 */
 
 //alert
-"ok" = "ตกลง";
-"cancel" = "ยกเลิก";
+"ok" = "Ok";
+"cancel" = "cancel";
+"loading ..." = "Loading ...";
 // first page and login
 "signup_email" = "Sign up";
 "signup_facebook" = "Continue with facebook";
@@ -60,13 +61,13 @@
 "send" = "Send";
 "send_email_for_reset_password_success" = "Send email for reset password successfully!";
 // side bar
-"user_profile" = "     User Profile";
-"credit_card_paypal" = "     Credit card";
-"bank_account" = "     Bank account";
-"help" = "     Help";
-"settings" = "     Settings";
-"become_a_trainer" = "     Become a trainer";
-"logout" = "     Logout";
+"user_profile" = "User Profile";
+"credit_card_paypal" = "Credit card";
+"bank_account" = "Bank account";
+"help" = "Help";
+"settings" = "Settings";
+"become_a_trainer" = "Become a trainer";
+"logout" = "Logout";
 // bottom bar
 "pick_your_place" = "Pick your place";
 "progress" = "Progress";
@@ -146,3 +147,38 @@
 "course_detail" = "Course detail";
 "name_course" = "Course name";
 "more" = "More";
+// Notification trainer
+"notification" = "Notification";
+"second_ago" = "SECOND AGO";
+"seconds_ago" = "SECONDS AGO";
+"minute_ago" = "MINUTE AGO";
+"minutes_ago" = "MINUTES AGO";
+"hour_ago" = "HOUR AGO";
+"hours_ago" = "HOURS AGO";
+"day_ago" = "DAY AGO";
+"days_ago" = "DAYS AGO";
+"week_ago" = "WEEK AGO";
+"weeks_ago" = "WEEKS AGO";
+// Bank trainer
+"bank_account" = "Bank account";
+"account_name" = "Account name";
+"account_number" = "Account number";
+"bank_name" = "Bank name";
+"edit_bank_information_successful!_please_wait_for_approve" = "Edit bank information successful! Please wait for approve";
+"please_correct_your_bank_information" = "Please correct your bank information";
+"add_bank_information_successful_please_wait_for_approve" = "Add bank information successful! Please wait for approve";
+"wait_for_approve" = "Wait for approve";
+// Help page
+"language" = "Language";
+"birthday" = "Birthday";
+"reviews" = "Reviews";
+"rating" = "Rating";
+// Edit page
+"edit_profile" = "Edit profile";
+"save" = "Save";
+"change" = "Change";
+"weight_edit_page" = "Weight (Kg)";
+"height_edit_page" = "Height (Cm)";
+"from_camera" = "From camera";
+"from_photo_library" = "From photo library";
+"change_profile_data_successfully" = "Change profile data successfully";

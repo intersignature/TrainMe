@@ -20,8 +20,11 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var genderImageView: UIImageView!
     @IBOutlet weak var emailLb: UILabel!
+    @IBOutlet weak var heightLb_: UILabel!
     @IBOutlet weak var heightLb: UILabel!
+    @IBOutlet weak var birthdayLb_: UILabel!
     @IBOutlet weak var birthdayLb: UILabel!
+    @IBOutlet weak var weightLb_: UILabel!
     @IBOutlet weak var weightLb: UILabel!
     @IBOutlet weak var reviewAndRatingCountLb: UILabel!
     @IBOutlet weak var fiveRatingCountLb: UILabel!
@@ -35,6 +38,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var twoRatingProgressbar: UIProgressView!
     @IBOutlet weak var oneRatingProgressbar: UIProgressView!
     @IBOutlet weak var editProfileBtn: UIButton!
+    @IBOutlet weak var reviewLb: UILabel!
     
     var ref: DatabaseReference!
     var storageRef: StorageReference!
@@ -196,7 +200,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
         
         var ratingScore = 0
         self.rating.forEach({ ratingScore += $0 })
-        self.reviewAndRatingCountLb.text = "\(self.rating.count) Reviews (\(ratingScore) Rating)"
+        self.reviewAndRatingCountLb.text = "\(self.rating.count) \("reviews".localized()) (\(ratingScore) \("rating".localized()))"
         
         var countsRatingDic = self.rating.reduce(into: [:]) { counts, rating in counts[rating, default: 0] += 1 }
         for i in 1...5 {
@@ -349,6 +353,12 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.editProfileBtn.setTitle("edit".localized(), for: .normal)
+        self.heightLb_.text = "height".localized()
+        self.birthdayLb_.text = "birthday".localized()
+        self.weightLb_.text = "weight".localized()
+        self.reviewLb.text = "reviews".localized()
         
         self.emailLb.textColor = UIColor.white.withAlphaComponent(0.4)
         

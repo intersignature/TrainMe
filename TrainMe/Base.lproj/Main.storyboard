@@ -1498,6 +1498,7 @@ TrainMe’s Privacy Policy</string>
                     </navigationItem>
                     <connections>
                         <outlet property="birthdayLb" destination="hpz-uU-9W5" id="Xp6-Jl-Xfu"/>
+                        <outlet property="birthdayLb_" destination="y6A-KS-V03" id="eEg-DI-kve"/>
                         <outlet property="certificateImageSlideShow" destination="N9H-ho-aUd" id="Edq-Ft-IWm"/>
                         <outlet property="editProfileBtn" destination="TFf-H3-SMN" id="lqd-eL-OFf"/>
                         <outlet property="emailLb" destination="JXz-c9-9Cy" id="oa7-iM-p1S"/>
@@ -1507,17 +1508,20 @@ TrainMe’s Privacy Policy</string>
                         <outlet property="fourRatingProgressbar" destination="suP-RB-J1M" id="T0q-Eq-nhi"/>
                         <outlet property="genderImageView" destination="iJR-f6-9kj" id="KNA-te-ZaI"/>
                         <outlet property="heightLb" destination="DSd-ia-zQh" id="bmM-zd-CD6"/>
+                        <outlet property="heightLb_" destination="Ycf-by-w2G" id="Jo0-fc-Rn0"/>
                         <outlet property="nameLb" destination="rFe-9D-Z9N" id="pjv-PT-ygc"/>
                         <outlet property="oneRatingCount" destination="3En-oT-7rx" id="XBq-wu-WaM"/>
                         <outlet property="oneRatingProgressbar" destination="Fq0-lE-QMf" id="Iq3-fe-iET"/>
                         <outlet property="profileImageView" destination="LeV-bk-7uH" id="xVd-n2-rwa"/>
                         <outlet property="profileTrainerTableView" destination="IXc-p2-87b" id="yL1-5h-S7i"/>
                         <outlet property="reviewAndRatingCountLb" destination="waA-Ug-cSI" id="pRY-qJ-hwV"/>
+                        <outlet property="reviewLb" destination="OtC-9E-NVF" id="yUO-Aj-MjR"/>
                         <outlet property="threeRatingCountLb" destination="S51-2a-q4T" id="O1I-hY-ctc"/>
                         <outlet property="threeRatingProgressbar" destination="KR4-AQ-cQi" id="ByP-ch-88C"/>
                         <outlet property="twoRatingCountLb" destination="xmO-No-zRt" id="LW9-Kf-7nP"/>
                         <outlet property="twoRatingProgressbar" destination="eRv-jn-jva" id="J8t-ub-YhD"/>
                         <outlet property="weightLb" destination="j32-2k-f60" id="mId-YT-jTW"/>
+                        <outlet property="weightLb_" destination="Abl-4l-G7s" id="Gjt-r6-pvf"/>
                         <segue destination="DTj-KS-HCf" kind="presentation" identifier="ProfileTrainerToEditProfileTrainer" id="dM1-HA-QSq"/>
                         <segue destination="9Ow-Pv-dqI" kind="presentation" identifier="ProfileTrainerToFullReview" id="dSZ-fv-Sp2"/>
                         <segue destination="4f9-ny-Mp3" kind="presentation" identifier="ProfileTrainerToProfileTrainee" id="qPD-dT-Juv"/>
@@ -2557,7 +2561,7 @@ TrainMe’s Privacy Policy</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DP2-Oh-MYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9652.5" y="489.08450704225351"/>
+            <point key="canvasLocation" x="9831" y="376"/>
         </scene>
         <!--Course-->
         <scene sceneID="oBU-BI-8PT">
@@ -5646,22 +5650,20 @@ detail</string>
                                 <action selector="cancelBtnAction:" destination="EIt-vx-JAJ" id="pgA-W6-y7y"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="oeY-Hq-APE">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="saveBtnAction:" destination="EIt-vx-JAJ" id="S5Y-zn-1mn"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="changeBtn" destination="Y1f-Om-3fC" id="Gk2-at-bTZ"/>
                         <outlet property="changeLb" destination="Y1f-Om-3fC" id="tFF-NZ-Cvf"/>
                         <outlet property="changePasswordBtn" destination="ZxU-2B-reS" id="hn9-jn-ShC"/>
+                        <outlet property="heightLb" destination="2GG-KB-93T" id="HS0-TI-H4Q"/>
                         <outlet property="heightTf" destination="3oX-Na-YNq" id="Pgk-7g-fsE"/>
+                        <outlet property="nameLb" destination="kqF-zf-0W8" id="ROt-eT-HMD"/>
                         <outlet property="nameTf" destination="QXB-zj-2jd" id="MkT-FY-OTB"/>
                         <outlet property="profileImg" destination="rIl-DK-iwF" id="Y7S-Cg-6VE"/>
                         <outlet property="seperateView1" destination="jIW-dZ-Rlk" id="kvg-36-fER"/>
                         <outlet property="seperateView2" destination="N5J-qT-w9O" id="Vef-O3-Aie"/>
                         <outlet property="seperateView3" destination="dm3-ix-Pag" id="uoK-rX-v0S"/>
+                        <outlet property="weightLb" destination="mjj-hB-V71" id="Oc5-38-iqb"/>
                         <outlet property="weightTf" destination="Xv3-Rq-GH9" id="bsg-p3-ops"/>
                     </connections>
                 </viewController>
@@ -5962,6 +5964,7 @@ detail</string>
                     </navigationItem>
                     <connections>
                         <outlet property="currentLang" destination="sEs-a3-KiM" id="Zmx-pc-nhf"/>
+                        <outlet property="languageLb" destination="Mkj-PE-Fn6" id="EDK-5U-8ub"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAv-x8-Hmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6280,26 +6283,25 @@ detail</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG_HOME" translatesAutoresizingMaskIntoConstraints="NO" id="y5Q-Sr-SG2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG_HOME" translatesAutoresizingMaskIntoConstraints="NO" id="y5Q-Sr-SG2">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-R3-NP7">
-                                <rect key="frame" x="20" y="113" width="300" height="18"/>
+                                <rect key="frame" x="20" y="116" width="300" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SeP-G1-x3D">
-                                <rect key="frame" x="20" y="172" width="300" height="18"/>
+                                <rect key="frame" x="20" y="181" width="300" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vd9-m6-7iN">
-                                <rect key="frame" x="45" y="272" width="230" height="30"/>
+                                <rect key="frame" x="45" y="287" width="230" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ODb-qG-cS6"/>
@@ -6311,25 +6313,25 @@ detail</string>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ss0-hL-GkB">
-                                <rect key="frame" x="16" y="88" width="304" height="19"/>
+                                <rect key="frame" x="16" y="88" width="304" height="22"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQl-Mt-Cwn">
-                                <rect key="frame" x="16" y="147" width="304" height="19"/>
+                                <rect key="frame" x="16" y="153" width="304" height="22"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz7-sa-Fiq">
-                                <rect key="frame" x="16" y="206" width="304" height="19"/>
+                                <rect key="frame" x="16" y="218" width="304" height="22"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WFM-S1-2Le">
-                                <rect key="frame" x="20" y="231" width="300" height="17"/>
+                                <rect key="frame" x="20" y="246" width="300" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -6343,10 +6345,14 @@ detail</string>
                             <constraint firstItem="WFM-S1-2Le" firstAttribute="leading" secondItem="pD8-cC-kIZ" secondAttribute="leading" constant="20" id="2z1-cR-iMv"/>
                             <constraint firstItem="SeP-G1-x3D" firstAttribute="top" secondItem="iQl-Mt-Cwn" secondAttribute="bottom" constant="6" id="7QR-FI-nn8"/>
                             <constraint firstItem="pD8-cC-kIZ" firstAttribute="trailing" secondItem="Yz7-sa-Fiq" secondAttribute="trailing" id="ANc-lP-3lw"/>
+                            <constraint firstItem="y5Q-Sr-SG2" firstAttribute="bottom" secondItem="sFW-jd-58V" secondAttribute="bottom" id="BMw-ba-OTR"/>
                             <constraint firstItem="Ss0-hL-GkB" firstAttribute="top" secondItem="pD8-cC-kIZ" secondAttribute="top" constant="24" id="C6M-VM-irl"/>
+                            <constraint firstItem="pD8-cC-kIZ" firstAttribute="trailing" secondItem="y5Q-Sr-SG2" secondAttribute="trailing" id="GAq-uT-kSJ"/>
                             <constraint firstItem="pD8-cC-kIZ" firstAttribute="trailing" secondItem="Q7z-R3-NP7" secondAttribute="trailing" id="GNV-PE-r1g"/>
                             <constraint firstItem="pD8-cC-kIZ" firstAttribute="trailing" secondItem="SeP-G1-x3D" secondAttribute="trailing" id="IPy-nx-6fR"/>
+                            <constraint firstItem="y5Q-Sr-SG2" firstAttribute="leading" secondItem="pD8-cC-kIZ" secondAttribute="leading" id="K9c-rG-Lbp"/>
                             <constraint firstItem="Ss0-hL-GkB" firstAttribute="leading" secondItem="pD8-cC-kIZ" secondAttribute="leading" constant="16" id="Kt3-0T-jsx"/>
+                            <constraint firstItem="y5Q-Sr-SG2" firstAttribute="top" secondItem="sFW-jd-58V" secondAttribute="top" id="Rp5-9k-Lqw"/>
                             <constraint firstItem="Yz7-sa-Fiq" firstAttribute="leading" secondItem="pD8-cC-kIZ" secondAttribute="leading" constant="16" id="V9r-Pq-IR9"/>
                             <constraint firstItem="Q7z-R3-NP7" firstAttribute="leading" secondItem="pD8-cC-kIZ" secondAttribute="leading" constant="20" id="ZIx-OC-toz"/>
                             <constraint firstItem="Yz7-sa-Fiq" firstAttribute="top" secondItem="SeP-G1-x3D" secondAttribute="bottom" constant="16" id="a7t-31-AYr"/>
@@ -6370,10 +6376,13 @@ detail</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="accountNameLb" destination="Ss0-hL-GkB" id="0Oo-LQ-SWP"/>
                         <outlet property="accountNameTf" destination="Q7z-R3-NP7" id="rYq-JN-VFp"/>
+                        <outlet property="accountNumberLb" destination="iQl-Mt-Cwn" id="5LP-S6-iXr"/>
                         <outlet property="accountNumberTf" destination="SeP-G1-x3D" id="LBt-R8-eKw"/>
+                        <outlet property="bankNameLb" destination="Yz7-sa-Fiq" id="fYe-RU-PK6"/>
                         <outlet property="bankNameTf" destination="WFM-S1-2Le" id="L9K-Ed-pM2"/>
-                        <outlet property="confirmBtn" destination="Vd9-m6-7iN" id="z9d-7o-gsd"/>
+                        <outlet property="confirmBtn" destination="Vd9-m6-7iN" id="eiu-Wp-sLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WEv-dh-bAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -7710,14 +7719,14 @@ detail</string>
         <image name="weight" width="180" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8je-Rt-v1G"/>
+        <segue reference="KSr-1B-W7B"/>
         <segue reference="dSZ-fv-Sp2"/>
         <segue reference="dM1-HA-QSq"/>
-        <segue reference="QBL-zq-jxZ"/>
-        <segue reference="aj2-aV-Jgc"/>
+        <segue reference="qPD-dT-Juv"/>
+        <segue reference="DwY-7P-htQ"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>
-        <segue reference="QeP-9l-n5x"/>
+        <segue reference="EnY-te-5kK"/>
         <segue reference="yaD-9q-IZ0"/>
         <segue reference="5EB-bI-2rw"/>
         <segue reference="GhO-HN-2gJ"/>

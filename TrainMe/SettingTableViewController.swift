@@ -11,6 +11,7 @@ import Localize_Swift
 
 class SettingTableViewController: UITableViewController {
 
+    @IBOutlet weak var languageLb: UILabel!
     @IBOutlet weak var currentLang: UILabel!
     
     override func viewDidLoad() {
@@ -50,11 +51,15 @@ class SettingTableViewController: UITableViewController {
         if langCode == "en" {
             alert = UIAlertController(title: "Change application language to English successful!", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (okAction) in
+                self.title = "Help"
+                self.languageLb.text = "Language"
                 self.currentLang.text = "EN"
             }))
         } else if langCode == "th" {
             alert = UIAlertController(title: "เปลี่ยนภาษาของแอปพลิเคชันเป็นภาษาไทยเรียบร้อยแล้ว", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (okAction) in
+                self.title = "ช่วยเหลือ"
+                self.languageLb.text = "ภาษา"
                 self.currentLang.text = "TH"
             }))
         }
@@ -73,6 +78,10 @@ class SettingTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.title = "help".localized()
+        self.languageLb.text = "language".localized()
+        
         
         tableView.tableFooterView = UIView()
         tableView.backgroundView = UIImageView(image: UIImage(named: "BG_HOME"))

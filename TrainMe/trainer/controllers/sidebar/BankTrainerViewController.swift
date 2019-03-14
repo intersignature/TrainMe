@@ -18,6 +18,10 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var bankNameTf: UITextField!
     @IBOutlet weak var confirmBtn: UIButton!
     
+    @IBOutlet weak var accountNameLb: UILabel!
+    @IBOutlet weak var accountNumberLb: UILabel!
+    @IBOutlet weak var bankNameLb: UILabel!
+    
     var selectedBankName: String = ""
     var recpId: String = ""
     let letters = NSCharacterSet.letters
@@ -171,8 +175,8 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
                             print(jsonData)
                             self.view.removeBluerLoader()
                             self.navigationController?.setNavigationBarHidden(false, animated: true)
-                            let alert = UIAlertController(title: "Edit bank information successful! Please wait for approve", message: "", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            let alert = UIAlertController(title: "edit_bank_information_successful!_please_wait_for_approve".localized(), message: "", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                                 self.dismiss(animated: true, completion: nil)
                             }))
                             self.present(alert, animated: true, completion: nil)
@@ -193,7 +197,7 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
             task.resume()
             session.finishTasksAndInvalidate()
         } else {
-            self.createAlert(alertTitle: "Please correct your bank information", alertMessage: "")
+            self.createAlert(alertTitle: "please_correct_your_bank_information".localized(), alertMessage: "")
         }
     }
     
@@ -210,8 +214,8 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
             }
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            let alert = UIAlertController(title: "Add bank information successful! Please wait for approve", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "add_bank_information_successful_please_wait_for_approve".localized(), message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true, completion: nil)
@@ -225,7 +229,7 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.bankNameTf.text = self.allBankName[self.allBankAbbreviation.firstIndex(of: recpData.bankAccount.brand)!]
         if recpData.verified! {
             self.bankNameTf.isEnabled = false
-            self.confirmBtn.setTitle("Edit", for: .normal)
+            self.confirmBtn.setTitle("edit".localized(), for: .normal)
             self.confirmBtn.addTarget(self, action: #selector(self.editRecpBtnAction), for: .touchUpInside)
         } else {
             self.accountNameTf.isEnabled = false
@@ -233,7 +237,7 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
             self.bankNameTf.isEnabled = false
             self.confirmBtn.isEnabled = false
             self.confirmBtn.backgroundColor = UIColor.gray
-            self.confirmBtn.setTitle("Wait for approve", for: .normal)
+            self.confirmBtn.setTitle("wait_for_approve".localized(), for: .normal)
         }
     }
     
@@ -247,7 +251,7 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dissmissKeyboard))
+        let doneButton = UIBarButtonItem(title: "done".localized(), style: .plain, target: self, action: #selector(self.dissmissKeyboard))
         toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         
@@ -281,9 +285,17 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
         
 //        self.setupNavigationStyle()
         
-        self.accountNameTf.attributedPlaceholder = NSAttributedString(string: "Loading ...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        self.accountNumberTf.attributedPlaceholder = NSAttributedString(string: "Loading ...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        self.bankNameTf.attributedPlaceholder = NSAttributedString(string: "Loading ...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.title = "bank_account".localized()
+        
+        self.accountNameLb.text = "account_name".localized()
+        self.accountNumberLb.text  = "account_number".localized()
+        self.bankNameLb.text = "bank_name".localized()
+        
+        self.confirmBtn.setTitle("confirm".localized(), for: .normal)
+        
+        self.accountNameTf.attributedPlaceholder = NSAttributedString(string: "loading ...".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.accountNumberTf.attributedPlaceholder = NSAttributedString(string: "loading ...".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.bankNameTf.attributedPlaceholder = NSAttributedString(string: "loading ...".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

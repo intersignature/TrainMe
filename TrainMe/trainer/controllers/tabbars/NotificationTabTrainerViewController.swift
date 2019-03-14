@@ -35,7 +35,6 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
         self.currentUser = Auth.auth().currentUser
         
         initSideMenu()
-        self.title = NSLocalizedString("notification", comment: "")
         self.notificationTableView.delegate = self
         self.notificationTableView.dataSource = self
     }
@@ -176,6 +175,8 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
         super.viewWillAppear(animated)
         
         self.notificationTableView.tableFooterView = UIView()
+        
+        self.title = "notification".localized()
         
         setupNavigationStyle()
         self.getNotificationData()
