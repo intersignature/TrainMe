@@ -306,6 +306,8 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.title = "select_your_trainer".localized()
+        
         self.showTrainerTableView.tableFooterView = UIView()
         
         self.setupNavigationStyle()

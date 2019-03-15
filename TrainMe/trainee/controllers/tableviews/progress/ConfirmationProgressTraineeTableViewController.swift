@@ -40,8 +40,8 @@ class ConfirmationProgressTraineeTableViewController: UITableViewController {
         self.trainerNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
         
         self.courseNameLb.text = self.selectedCourse.course
-        self.courseDetailLb.text = "\(self.selectedCourse.courseLevel), \(self.selectedCourse.courseType), \(self.selectedCourse.courseLanguage), \(self.selectedCourse.timeOfCourse) times"
-        self.priceLb.text = "Price: \(self.selectedCourse.coursePrice) Bath"
+        self.courseDetailLb.text = "\(self.selectedCourse.courseLevel), \(self.selectedCourse.courseType), \(self.selectedCourse.courseLanguage), \(self.selectedCourse.timeOfCourse) \("times".localized())"
+        self.priceLb.text = "\("price".localized()): \(self.selectedCourse.coursePrice) \("bath".localized())"
         self.courseDescLb.text = self.selectedCourse.courseContent
         
         self.placeNameLb.text = self.selectedPlace.name
@@ -97,6 +97,20 @@ class ConfirmationProgressTraineeTableViewController: UITableViewController {
         marker.title = ""
         marker.snippet = ""
         marker.map = mapView
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        switch section {
+        case 0:
+            return "trainer_profile".localized()
+        case 1:
+            return "course_detail".localized()
+        case 2:
+            return "place".localized()
+        default:
+            return ""
+        }
     }
     
     @IBAction func cancelBtnAction(_ sender: UIBarButtonItem) {

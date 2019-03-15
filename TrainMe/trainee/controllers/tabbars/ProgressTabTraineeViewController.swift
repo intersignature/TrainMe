@@ -439,6 +439,12 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.title = "progress".localized()
+        self.statusSegmented.setTitle("confirm_progress".localized(), forSegmentAt: 0)
+        self.statusSegmented.setTitle("payment_progress".localized(), forSegmentAt: 1)
+        self.statusSegmented.setTitle("ongoing_progress".localized(), forSegmentAt: 2)
+        self.statusSegmented.setTitle("successful_progress".localized(), forSegmentAt: 3)
+        
         self.pendingTableView.tableFooterView = UIView()
         
         self.setupNavigationStyle()
@@ -481,6 +487,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             cell.nameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
             cell.cancelBtn.addTarget(self, action: #selector(self.cancelBtnAction(cancelBtn:)), for: .touchUpInside)
             cell.cancelBtn.setTitleColor(UIColor.red, for: .normal)
+            cell.cancelBtn.setTitle("cancel".localized(), for: .normal)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TraineePaymentTableViewCell") as! PaymentTraineeTableViewCell
@@ -496,6 +503,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             cell.trainerImg.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
             cell.trainerNameLb.accessibilityElements = [(self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]?.uid)!, false]
             cell.trainerNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
+            cell.buyBtn.setTitle("pay".localized(), for: .normal)
 //            cell.buyBtn.addTarget(self, action: #selector(self.paymentAction(buyBtn:)), for: .touchUpInside)
             return cell
         case 2:
@@ -574,8 +582,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         
         let cencelIndexPath = IndexPath(row: Int(cancelBtn.accessibilityLabel!.components(separatedBy: "-")[1])!, section: Int(cancelBtn.accessibilityLabel!.components(separatedBy: "-")[0])!)
         
-        let alert = UIAlertController(title: "Cancel?", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "cancel_this_course".localized(), message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "confirm".localized(), style: .default, handler: { (action) in
             
             self.view.showBlurLoader()
             self.tabBarController?.tabBar.isHidden = true
@@ -583,7 +591,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             
             self.deletePendingData(deletePendingIndexPath: cencelIndexPath)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -622,6 +630,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                 containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].courseId]
                 containVc.selectedOngoing = self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section]
                 containVc.selectedPlace = self.placeObj[self.ongoingDatas[self.waitingOngoingDataIndex[indexPath.row].section].placeId]!
+                containVc.navigationController?.topViewController?.title  = "ongoing_progress".localized()
                 print("ProgressToOngoing: \(self.waitingOngoingDataIndex[indexPath.row])")
             case 3:
                 let vc = segue.destination as! UINavigationController
@@ -631,6 +640,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                 containVc.selectedCourse = self.courseObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].courseId]
                 containVc.selectedOngoing = self.ongoingDatas[self.successfulDataIndex[indexPath.row].section]
                 containVc.selectedPlace = self.placeObj[self.ongoingDatas[self.successfulDataIndex[indexPath.row].section].placeId]
+                containVc.navigationController?.topViewController?.title = "successful_progress".localized()
                 print("ProgressToSuccessful: \(self.successfulDataIndex[indexPath.row])")
             default:
                 return
@@ -651,14 +661,15 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
                 containVc.selectedTrainer = self.trainerObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].trainer_id]
                 containVc.selectedCourse = self.courseObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].course_id]
                 containVc.selectedPlace = self.placeObj[self.pendingDataSorted[indexPath.section].pendingDetail[indexPath.row].place_id]
+                containVc.navigationController?.topViewController?.title = "confirm_progress".localized()
                 print("ProgressToConfirmation")
             case 1:
                 let vc = segue.destination as! UINavigationController
                 let containVc = vc.topViewController as! ConfirmationProgressTraineeTableViewController
-                containVc.navigationController?.topViewController?.title = "Payment progress"
                 containVc.selectedTrainer = self.trainerObj[self.paymentDataSorted[indexPath.row].trainer_id]
                 containVc.selectedCourse = self.courseObj[self.paymentDataSorted[indexPath.row].course_id]
                 containVc.selectedPlace = self.placeObj[self.paymentDataSorted[indexPath.row].place_id]
+                containVc.navigationController?.topViewController?.title = "payment_progress".localized()
                 print("ProgressToPayment")
             default:
                 return
@@ -711,11 +722,11 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         case 0:
             return self.pendingDataSorted[section].date
         case 1:
-            return "Please select your course to pay"
+            return "wait_your_trainee_for_pay".localized()
         case 2:
-            return "Ongoing schedule"
+            return "ongoing_schedule".localized()
         case 3:
-            return "Successful schedule"
+            return "successful_schedule".localized()
         default:
             return ""
         }
@@ -741,7 +752,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         switch self.statusSegmented.selectedSegmentIndex {
         case 0:
             let headerBtn = UIButton(type: .system)
-            headerBtn.setTitle("Close", for: .normal)
+            headerBtn.setTitle("close".localized(), for: .normal)
             headerBtn.setTitleColor(.black, for: .normal)
             headerBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
             headerBtn.addTarget(self, action: #selector(self.handleExpandCollapse(headerBtn:)), for: .touchUpInside)
@@ -770,7 +781,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             return view
         case 1:
             let label = UILabel()
-            label.text = "Please select your course to pay"
+            label.text = "please_select_your_course_to_pay".localized()
             label.font = UIFont.boldSystemFont(ofSize: 14.0)
             label.numberOfLines = 1
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -790,7 +801,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             return view
         case 2:
             let label = UILabel()
-            label.text = "Ongoing schedule"
+            label.text = "ongoing_schedule".localized()
             label.font = UIFont.boldSystemFont(ofSize: 14.0)
             label.numberOfLines = 1
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -810,7 +821,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
             return view
         case 3:
             let label = UILabel()
-            label.text = "Successful schedule"
+            label.text = "successful_schedule".localized()
             label.font = UIFont.boldSystemFont(ofSize: 14.0)
             label.numberOfLines = 1
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -846,7 +857,7 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         let isExpanded = self.pendingDataSorted[section].isExpanded
         self.pendingDataSorted[section].isExpanded = !isExpanded
         
-        headerBtn.setTitle(isExpanded ? "Open" : "Close", for: .normal)
+        headerBtn.setTitle(isExpanded ? "open".localized() : "close".localized(), for: .normal)
         
         if isExpanded {
             self.pendingTableView.deleteRows(at: indexPaths, with: .fade)

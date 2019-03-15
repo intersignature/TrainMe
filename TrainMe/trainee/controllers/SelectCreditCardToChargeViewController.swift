@@ -121,7 +121,7 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                     } else {
                         self.navigationController?.setNavigationBarHidden(false, animated: true)
                         self.view.removeBluerLoader()
-                        self.createAlert(alertTitle: "Error request", alertMessage: "")
+                        self.createAlert(alertTitle: "error_request".localized(), alertMessage: "")
                     }
                     
                     print("status code: \(statusCode)")
@@ -141,7 +141,7 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                         "transaction_to_trainer": "-1"]
         
         // TODO: Bug add "progress_schedule_detail" key
-        self.ref.child("progress_schedule_detail").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).setValue(mainData) { (err, progressRef) in
+        self.ref.child("progress_schedule_details").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).setValue(mainData) { (err, progressRef) in
             if let err = err {
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.view.removeBluerLoader()
@@ -195,6 +195,11 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                 return
             }
 //            self.deletePendingData()
+            
+            // delete code below when uncomment deletePendingData() call method
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.view.removeBluerLoader()
+            self.dismiss(animated: true, completion: nil)
         })
     }
     
@@ -238,13 +243,13 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let alert = UIAlertController(title: "Confirm to pay?", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "confirm_to_pay".localized(), message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "confirm".localized(), style: .default, handler: { (action) in
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.view.showBlurLoader()
             self.chargeWithCusAndPrice(selectedIndexPath: indexPath)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -252,6 +257,8 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
         super.viewWillAppear(animated)
         
 //        self.setupNavigationStyle()
+        
+        self.title = "select_your_credit_card".localized()
         
         self.creditCardTableView.tableFooterView = UIView()
         
@@ -284,8 +291,8 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
             }
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.view.removeBluerLoader()
-            let alert = UIAlertController(title: "Your payment was successful", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "your_payment_successful".localized(), message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true, completion: nil)

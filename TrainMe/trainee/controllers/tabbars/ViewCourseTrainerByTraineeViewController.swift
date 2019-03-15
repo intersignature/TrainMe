@@ -24,7 +24,14 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     var course: Course!
     var placeId: String!
     
-    var titleList: [String] = ["Name", "Detail", "Type", "Time", "Duration", "Level", "Price", "Language"]
+    var titleList: [String] = ["name_course".localized(),
+                               "course_detail".localized(),
+                               "course_type".localized(),
+                               "time_of_course".localized(),
+                               "course_duration".localized(),
+                               "course_level".localized(),
+                               "course_price".localized(),
+                               "course_language".localized()]
     var descriptionList: [String] = []
     
     var states : Array<Bool>!
@@ -84,13 +91,14 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
 //        cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
         cell.titleLb.text = titleList[indexPath.row]
         cell.descriptionLb.delegate = self
-        cell.descriptionLb.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: nil)
+        cell.descriptionLb.setLessLinkWith(lessLink: "close".localized(), attributes: [.foregroundColor:UIColor.red], position: nil)
         cell.layoutIfNeeded()
         cell.descriptionLb.shouldCollapse = true
         cell.descriptionLb.textReplacementType = currentSource.textReplacementType
         cell.descriptionLb.numberOfLines = currentSource.numberOfLines
         cell.descriptionLb.collapsed = states[indexPath.row]
         cell.descriptionLb.text = currentSource.text
+        cell.descriptionLb.collapsedAttributedLink = NSAttributedString(string: "more".localized())
         
         return cell
     }
@@ -137,13 +145,13 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     }
     
     @IBAction func bookBtnAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Booking trainer", message: "trainer: \(self.selectedBookDetail.trainerId)\nCourse: \(self.course.course)\nPrice: \(self.course.coursePrice)", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+        let alert = UIAlertController(title: "booking_trainer".localized(), message: "\("trainer".localized()): \(self.selectedBookDetail.trainerId)\n\("course".localized()): \(self.course.course)\n\("price".localized()): \(self.course.coursePrice)", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: { (action) in
             self.view.showBlurLoader()
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.addPedndingDataToDatabase()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: UIAlertAction.Style.destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -190,8 +198,8 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
             }
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            let alert = UIAlertController(title: "Booking Successful", message: "", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            let alert = UIAlertController(title: "booking_successful".localized(), message: "", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: { (action) in
                 
                 self.performSegue(withIdentifier: "BookToFindTrainer", sender: self)
             }))
@@ -211,6 +219,9 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
         super.viewWillAppear(animated)
         
 //        self.setupNavigationStyle()
+        
+        self.title = "course_detail".localized()
+        self.bookBtn.setTitle("book".localized(), for: .normal)
         
         self.courseDetailTableView.tableFooterView = UIView()
         

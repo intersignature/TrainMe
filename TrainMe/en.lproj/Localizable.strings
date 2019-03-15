@@ -6,7 +6,11 @@
   Copyright © 2561 Sirichai Binchai. All rights reserved.
 */
 
-//alert
+/*
+ Trainer zone
+ */
+
+// Alert
 "ok" = "Ok";
 "cancel" = "cancel";
 "loading ..." = "Loading ...";
@@ -160,7 +164,6 @@
 "week_ago" = "WEEK AGO";
 "weeks_ago" = "WEEKS AGO";
 // Bank trainer
-"bank_account" = "Bank account";
 "account_name" = "Account name";
 "account_number" = "Account number";
 "bank_name" = "Bank name";
@@ -182,3 +185,29 @@
 "from_camera" = "From camera";
 "from_photo_library" = "From photo library";
 "change_profile_data_successfully" = "Change profile data successfully";
+
+/*
+ Trainee zone
+ */
+
+// Find your trainer trainee
+"find_your_trainer" = "Find your trainer";
+// Select trainer trainee
+"select_your_trainer" = "Select your trainer";
+// Select course trainee
+"select_course" = "Select course";
+// View course by trainee
+"book" = "ิBook";
+"booking_trainer" = "Booking trainer";
+"trainer" = "Trainer";
+"booking_successful" = "Booking successful";
+"pay" = "Pay";
+"cancel_this_course" = "Cancel this course?";
+"please_select_your_course_to_pay" = "Please select your course to pay";
+// confirmation and payment progress page trainee
+"trainer_profile" = "TRAINER PROFILE";
+// Select credit card to charge trainee
+"select_your_credit_card" = "Select your credit card";
+"error_request" = "Error request";
+"confirm_to_pay" = "Confirm to pay?";
+"your_payment_successful" = "Your payment successful";

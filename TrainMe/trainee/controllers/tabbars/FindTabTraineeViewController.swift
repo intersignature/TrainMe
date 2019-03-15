@@ -129,6 +129,8 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.title = "find_your_trainer".localized()
+        
         self.googleMapsView.clear()
         self.setupNavigationStyle()
     }

@@ -6,7 +6,11 @@
   Copyright © 2561 Sirichai Binchai. All rights reserved.
 */
 
-//alert
+/*
+    Trainer zone
+ */
+
+// Alert
 "ok" = "ตกลง";
 "cancel" = "ยกเลิก";
 "loading ..." = "กำลังโหลด ...";
@@ -61,13 +65,13 @@
 "send" = "ส่ง";
 "send_email_for_reset_password_success" = "เราได้ทำการส่งอีเมลล์ให้ท่านเรียบร้อยแล้ว หากไม่พบกรุณาตรวจสอบที่อีเมลล์ขยะ";
 // side bar
-"user_profile" = "     โปรไฟล์";
-"credit_card_paypal" = "     บัตรเครดิต";
-"bank_account" = "     บัญชีธนาคาร";
-"help" = "     ช่วยเหลือ";
-"settings" = "     ตั้งค่า";
-"become_a_trainer" = "     สมัครเป็นเทรนเนอร์";
-"logout" = "     ออกจากระบบ";
+"user_profile" = "โปรไฟล์";
+"credit_card_paypal" = "บัตรเครดิต";
+"bank_account" = "บัญชีธนาคาร";
+"help" = "ช่วยเหลือ";
+"settings" = "ตั้งค่า";
+"become_a_trainer" = "สมัครเป็นเทรนเนอร์";
+"logout" = "ออกจากระบบ";
 // bottom bar
 "pick_your_place" = "เลือกสถานที่";
 "progress" = "สถานะ";
@@ -181,3 +185,29 @@
 "from_camera" = "จากกล้อง";
 "from_photo_library" = "จากไลบราลี่";
 "change_profile_data_successfully" = "เปลี่ยนข้อมูลส่วนตัวสำเร็จแล้ว";
+
+/*
+ Trainee zone
+ */
+
+// Find your trainer trainee
+"find_your_trainer" = "ค้นหาเทรนเนอร์";
+// Select trainer trainee
+"select_your_trainer" = "เลือกเทรนเนอร์";
+// Select course trainee
+"select_course" = "เลือกคอร์ส";
+// View course by trainee
+"book" = "จอง";
+"booking_trainer" = "จองเทรนเนอร์";
+"trainer" = "เทรนเนอร์";
+"booking_successful" = "ทำการจองเรียบร้อยแล้ว";
+"pay" = "จ่าย";
+"cancel_this_course" = "ยกเลิกคอร์สนี้?";
+"please_select_your_course_to_pay" = "เลือกคอร์สที่จะทำการจ่ายเงิน";
+// confirmation and payment progress page trainee
+"trainer_profile" = "ข้อมูลเทรนเนอร์";
+// Select credit card to charge trainee
+"select_your_credit_card" = "เลือกบัตรเครดิตที่ใช้ในการจ่ายเงิน";
+"error_request" = "การส่งข้อมูลผิดพลาด";
+"confirm_to_pay" = "ยืนยันการจ่ายเงิน?";
+"your_payment_successful" = "การจ่ายเงินสำเร็จ";

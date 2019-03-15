@@ -108,6 +108,8 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.title = "select_course".localized()
+        
         self.selectedTrainerCourseTv.tableFooterView = UIView()
         
         self.setupNavigationStyle()

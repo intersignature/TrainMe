@@ -15,7 +15,7 @@ class SelectedTrainerCourseTableViewCell: UITableViewCell {
 
     func setDataToCell(course: Course) {
         self.courseNameLb.text = course.course
-        self.priceLb.text = "\(course.coursePrice) Bath"
+        self.priceLb.text = "\(course.coursePrice) \("bath".localized())"
     }
     
     override func awakeFromNib() {
