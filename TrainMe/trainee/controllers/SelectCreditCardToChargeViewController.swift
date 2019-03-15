@@ -140,6 +140,22 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                         "transaction_to_admin": transactionId,
                         "transaction_to_trainer": "-1"]
         
+        // TODO: Bug add "progress_schedule_detail" key
+        self.ref.child("progress_schedule_detail").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).setValue(mainData) { (err, progressRef) in
+            if let err = err {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.view.removeBluerLoader()
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            } else {
+                self.addScheduleData(ref: progressRef)
+            }
+        }
+    }
+    
+    func addScheduleData(ref progressRef: DatabaseReference) {
+        
         var subData: [String: Any] = [:]
         for i in 1...Int(self.selectedCourse.timeOfCourse)! {
             
@@ -169,25 +185,17 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
         }
         
         print(subData)
-        self.ref.child("progress_schedule_detail").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).updateChildValues(mainData) { (err, progressRef) in
-            if let err = err {
+        
+        progressRef.updateChildValues(subData, withCompletionBlock: { (err1, subRef) in
+            if let err1 = err1 {
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.view.removeBluerLoader()
-                print(err.localizedDescription)
-                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                print(err1.localizedDescription)
+                self.createAlert(alertTitle: err1.localizedDescription, alertMessage: "")
                 return
             }
-            progressRef.updateChildValues(subData, withCompletionBlock: { (err1, subRef) in
-                if let err1 = err1 {
-                    self.navigationController?.setNavigationBarHidden(false, animated: true)
-                    self.view.removeBluerLoader()
-                    print(err1.localizedDescription)
-                    self.createAlert(alertTitle: err1.localizedDescription, alertMessage: "")
-                    return
-                }
-                self.deletePendingData()
-            })
-        }
+//            self.deletePendingData()
+        })
     }
     
     func deletePendingData() {
