@@ -4996,6 +4996,7 @@ detail</string>
                     </navigationItem>
                     <connections>
                         <outlet property="confirmReportBtn" destination="Uoi-rW-q3D" id="k7l-He-AZY"/>
+                        <outlet property="reportLb" destination="SHm-ad-Gh2" id="KDp-1U-oeT"/>
                         <outlet property="reportTv" destination="j0q-Wo-SH4" id="qCg-I3-gaW"/>
                     </connections>
                 </viewController>
@@ -5491,8 +5492,11 @@ detail</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="confirmNewPasswordLb" destination="Npy-4u-Seh" id="Bid-t0-Sd4"/>
                         <outlet property="confirmNewPasswordTf" destination="x3Z-fq-oVa" id="dDj-y4-y6Q"/>
+                        <outlet property="newPasswordLb" destination="7Od-Ec-HKl" id="g0i-Xa-BAC"/>
                         <outlet property="newPasswordTf" destination="sXw-m5-ye1" id="bBl-yg-PmS"/>
+                        <outlet property="oldPasswordLb" destination="jzE-gT-L9T" id="GOC-zX-e89"/>
                         <outlet property="oldPasswordTf" destination="Ctu-YY-ylR" id="I2v-o6-JwS"/>
                         <outlet property="saveBtn" destination="eD2-E7-hxW" id="wQF-ei-o8I"/>
                         <outlet property="seperateView1" destination="dLM-79-9ND" id="B3u-1x-jdW"/>
@@ -7036,9 +7040,11 @@ detail</string>
                     <connections>
                         <outlet property="nextScheduleDateTv" destination="hYe-5G-cTi" id="jLn-3j-PAG"/>
                         <outlet property="nextScheduleTimeTv" destination="NXR-0x-lvB" id="1LI-5q-9KF"/>
+                        <outlet property="noteLb" destination="bJU-ct-qEj" id="SMe-IB-6Sc"/>
                         <outlet property="noteTv" destination="aU8-ZY-a6v" id="kjV-Mo-qYs"/>
                         <outlet property="ratingStackView" destination="HHJ-ej-YTe" id="bEd-fc-eDR"/>
                         <outlet property="reportBtn" destination="kKI-bc-h82" id="nL4-EE-POJ"/>
+                        <outlet property="reviewLb" destination="59A-r7-119" id="MVg-xt-Cd7"/>
                         <outlet property="reviewTv" destination="wPH-DB-ajz" id="7mG-bp-IKf"/>
                         <outlet property="scheduleNextSessionBtn" destination="vEF-b5-hFs" id="5iw-yx-GFa"/>
                         <segue destination="ipj-fo-qEV" kind="presentation" identifier="ReviewToReport" id="ECp-l3-mip"/>
@@ -7722,8 +7728,8 @@ detail</string>
         <segue reference="KSr-1B-W7B"/>
         <segue reference="dSZ-fv-Sp2"/>
         <segue reference="dM1-HA-QSq"/>
-        <segue reference="qPD-dT-Juv"/>
-        <segue reference="uBq-3a-KCf"/>
+        <segue reference="JV0-af-7oo"/>
+        <segue reference="NM2-Bh-von"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>
         <segue reference="EnY-te-5kK"/>

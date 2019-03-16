@@ -11,10 +11,12 @@ import FirebaseDatabase
 import FirebaseAuth
 import DTTextField
 
-class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegate {
+class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var ratingStackView: RatingController!
+    @IBOutlet weak var reviewLb: UILabel!
     @IBOutlet weak var reviewTv: UITextView!
+    @IBOutlet weak var noteLb: UILabel!
     @IBOutlet weak var noteTv: UITextView!
     @IBOutlet weak var scheduleNextSessionBtn: UIButton!
     
@@ -59,7 +61,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         if Int(self.countAtIndex)! >= Int(self.summaryCount)! {
             self.nextScheduleDateTv.isHidden = true
             self.nextScheduleTimeTv.isHidden = true
-            self.scheduleNextSessionBtn.setTitle("   Finish this course   ", for: .normal)
+            self.scheduleNextSessionBtn.setTitle("   \("finish_this_course".localized())   ", for: .normal)
         }
     }
     
@@ -71,20 +73,24 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     
     func addReviewDataToDatabase() {
         
-        if checkNextSchedule() {
+        if checkNextSchedule() && checkReviewAndNote(){
             print("checkTrainerIsConfirm")
             self.view.showBlurLoader()
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.checkTrainerIsConfirm()
         } else {
-            self.createAlert(alertTitle: "Please fill next schedule date and time", alertMessage: "")
+            self.createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
             return
         }
     }
     
-    func checkNextSchedule() -> Bool{
+    func checkNextSchedule() -> Bool {
         return (self.nextScheduleDateTv.text != "" && self.nextScheduleTimeTv.text != "") ||
         (Int(self.countAtIndex)! >= Int(self.summaryCount)!)
+    }
+    
+    func checkReviewAndNote() -> Bool {
+        return self.reviewTv.text != "\("review".localized()) ..." && self.noteTv.text != "\("note".localized()) ..."
     }
     
     func checkTrainerIsConfirm() {
@@ -265,7 +271,7 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        let doneBtn = UIBarButtonItem(title: "done".localized(), style: .plain, target: self, action: #selector(self.dismissKeyboard))
         toolbar.setItems([doneBtn], animated: false)
         toolbar.isUserInteractionEnabled = true
         self.nextScheduleDateTv.inputAccessoryView = toolbar
@@ -279,7 +285,35 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.reviewTv.accessibilityLabel = "review"
+        self.noteTv.accessibilityLabel = "note"
+        
+        self.title = "review".localized()
+        self.reviewLb.text = "review".localized()
+        self.noteLb.text = "note".localized()
+        self.reviewTv.text = "\("review".localized()) ..."
+        self.noteTv.text = "\("note".localized()) ..."
+        self.reviewTv.delegate = self
+        self.noteTv.delegate = self
+        self.nextScheduleDateTv.placeholder = "next_schedule_date".localized()
+        self.nextScheduleTimeTv.placeholder = "next_schedule_time".localized()
+        self.scheduleNextSessionBtn.setTitle("submit".localized(), for: .normal)
+        
         self.setupNavigationStyle()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.text == "\("review".localized()) ..." && textView.accessibilityLabel == "review") || (textView.text == "\("note".localized()) ..." && textView.accessibilityLabel == "note"){
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty && textView.accessibilityLabel == "review" {
+            textView.text = "\("review".localized()) ..."
+        } else if textView.text.isEmpty && textView.accessibilityLabel == "note" {
+            textView.text = "\("note".localized()) ..."
+        }
     }
     
     func addNotificationDatabase(toUid: String, description: String, from: String) {
@@ -305,26 +339,26 @@ class ReviewTrainerByTraineeViewController: UIViewController, UITextFieldDelegat
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             if from == "next schedule" {
-                let alert = UIAlertController(title: "Review and schedule next time training successfully", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                let alert = UIAlertController(title: "review_and_schedule_next_time_training_successfully".localized(), message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                     self.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else if from == "transfer money" {
-                let alert = UIAlertController(title: "Finish this course succesfully!", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                let alert = UIAlertController(title: "finish_this_course_succesfully".localized(), message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                     self.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else if from == "wait confirm last time" {
-                let alert = UIAlertController(title: "Finish this course succesfully and waiting for trainer confirm", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                let alert = UIAlertController(title: "review_succesfully_and_waiting_for_trainer_confirm".localized(), message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                     self.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else if from == "wait confirm not last time" {
-                let alert = UIAlertController(title: "Review and schedule next time training successfully and waiting for trainer confirm", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                let alert = UIAlertController(title: "review_and_schedule_next_time_training_successfully_and_waiting_for_trainer_confirm".localized(), message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                     self.dismiss(animated: true, completion: nil)
                 }))
                 self.present(alert, animated: true, completion: nil)

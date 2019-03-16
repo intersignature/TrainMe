@@ -8,6 +8,7 @@
 
 import UIKit
 import ExpandableLabel
+import Localize_Swift
 
 class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandableLabelDelegate {
     
@@ -35,7 +36,7 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
         self.fullReviewTableView.rowHeight = UITableViewAutomaticDimension
         
         self.courseNameLb.text = self.selectedCourseName
-        self.totalTimeLb.text = "Total time of course: \(self.selectedFullReview.eachReiew.count) time"
+        self.totalTimeLb.text = "\("total_time_of_course".localized()): \(self.selectedFullReview.eachReiew.count) \("times".localized())"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,13 +50,29 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
         let currentSource = reviewDescArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "FullReviewProfileTraineeTableViewCell") as! FullReviewTableViewCell
         if indexPath.row == 0 {
-            cell.timeLb.text = "1 st Time"
+            if Localize.currentLanguage() == "th" {
+                cell.timeLb.text = "ครั้งที่ 1"
+            } else {
+                cell.timeLb.text = "1 st Time"
+            }
         } else if indexPath.row == 1 {
-            cell.timeLb.text = "2 nd Time"
+            if Localize.currentLanguage() == "th" {
+                cell.timeLb.text = "ครั้งที่ 2"
+            } else {
+                cell.timeLb.text = "2 nd Time"
+            }
         } else if indexPath.row == 2 {
-            cell.timeLb.text = "3 rd Time"
+            if Localize.currentLanguage() == "th" {
+                cell.timeLb.text = "ครั้งที่ 3"
+            } else {
+                cell.timeLb.text = "3 rd Time"
+            }
         } else {
-            cell.timeLb.text = "\(indexPath.row+1) th Time"
+            if Localize.currentLanguage() == "th" {
+                cell.timeLb.text = "ครั้งที่ \(indexPath.row+1)"
+            } else {
+                cell.timeLb.text = "\(indexPath.row+1) th Time"
+            }
         }
         cell.profileImg.accessibilityLabel = self.selectedProfileUid
         cell.profileImg.downloaded(from: self.selectedProfileLink)
@@ -67,7 +84,8 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
         cell.ratingStackView.isEnabled(isEnable: false)
 //        cell.reviewDescLb.text = self.selectedFullReview.eachReiew[indexPath.row].reviewDesc
         cell.reviewDescLb.delegate = self
-        cell.reviewDescLb.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: nil)
+        cell.reviewDescLb.setLessLinkWith(lessLink: "close".localized(), attributes: [.foregroundColor:UIColor.red], position: nil)
+        cell.reviewDescLb.collapsedAttributedLink = NSAttributedString(string: "more".localized())
         cell.layoutIfNeeded()
         cell.reviewDescLb.shouldCollapse = true
         cell.reviewDescLb.textReplacementType = currentSource.textReplacementType
@@ -163,6 +181,8 @@ class FullReviewProfileViewController: UIViewController, UITableViewDelegate, UI
         super.viewWillAppear(animated)
         
         self.fullReviewTableView.tableFooterView = UIView()
+        
+        self.title = "full_review".localized()
         
         self.setupNavigationStyle()
         self.preparedSources()

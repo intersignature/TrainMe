@@ -185,6 +185,30 @@
 "from_camera" = "From camera";
 "from_photo_library" = "From photo library";
 "change_profile_data_successfully" = "Change profile data successfully";
+// Chang password page
+"change_password" = "Change password";
+"old_password" = "Old password";
+"new_password" = "New password";
+"confirm_new_password" = "Confirm new password";
+"change_password_successful" = "Change password successful";
+"old_password_and_new_password_does_not_match" = "Old password and new password does not match";
+// Full review page
+"full_review" = "Full review";
+"total_time_of_course" = "Total time of course";
+// Review page
+"review" = "Review";
+"note" = "Note";
+"next_schedule_date" = "Next schedule date";
+"next_schedule_time" = "Next schedule time";
+"finish_this_course" = "Finish this course";
+"review_and_schedule_next_time_training_successfully" = "Review and schedule next time training successfully";
+"finish_this_course_succesfully" = "Finish this course succesfully";
+"review_succesfully_and_waiting_for_trainer_confirm" = "Review succesfully and waiting for trainer confirm";
+"review_and_schedule_next_time_training_successfully_and_waiting_for_trainer_confirm" = "Review and schedule next time training successfully and waiting for trainer confirm";
+// Report page
+"report" = "Report";
+"confirm_to_report" = "Confirm to report";
+"report_successfully" = "Report successfully";
 
 /*
  Trainee zone

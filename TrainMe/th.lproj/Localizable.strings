@@ -185,6 +185,30 @@
 "from_camera" = "จากกล้อง";
 "from_photo_library" = "จากไลบราลี่";
 "change_profile_data_successfully" = "เปลี่ยนข้อมูลส่วนตัวสำเร็จแล้ว";
+// Chang password page
+"change_password" = "เปลี่ยนรหัสผ่าน";
+"old_password" = "รหัสเก่า";
+"new_password" = "รหัสใหม่";
+"confirm_new_password" = "ยืนยันรหัสใหม่";
+"change_password_successful" = "เปลี่ยนรหัสผ่านสำเร็จแล้ว";
+"old_password_and_new_password_does_not_match" = "รหัสเก่าและรหัสใหม่ไม่ตรงกัน";
+// Full review page
+"full_review" = "รีวิวทั้งหมด";
+"total_time_of_course" = "เวลาทั้งหมดของคอร์ส";
+// Review page
+"review" = "รีวิว";
+"note" = "โน๊ต";
+"next_schedule_date" = "วันในการฝึกครั้งต่อไป";
+"next_schedule_time" = "เวลาในการฝึกครั้งต่อไป";
+"finish_this_course" = "ปิดคอร์สนี้";
+"review_and_schedule_next_time_training_successfully" = "รีวิวและทำการจองวันและเวลาการฝึกครั้งต่อไปสำเร็จแล้ว";
+"finish_this_course_succesfully" = "ทำการฝึกคอร์สนี้สำเร็จทั้งหมดแล้ว";
+"review_succesfully_and_waiting_for_trainer_confirm" = "รีวิวสำเร็จแล้วรอการยืนยันจากเทรนเนอร์";
+"review_and_schedule_next_time_training_successfully_and_waiting_for_trainer_confirm" = "รีวิวและทำการจองวันและเวลาการฝึกครั้งต่อไปสำเร็จแล้ว รอการยืนยันจากเทรนเนอร์";
+// Report page
+"report" = "รายงาน";
+"confirm_to_report" = "ยืนยันการรายงาน";
+"report_successfully" = "การรายงานสำเร็จ";
 
 /*
  Trainee zone

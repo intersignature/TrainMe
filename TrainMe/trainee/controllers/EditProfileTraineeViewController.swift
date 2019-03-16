@@ -330,6 +330,7 @@ class EditProfileTraineeViewController: UIViewController, UIImagePickerControlle
         self.nameLb.text = "full_name".localized()
         self.weightLb.text = "weight_edit_page".localized()
         self.heightLb.text = "height_edit_page".localized()
+        self.changePasswordBtn.setTitle("change_password".localized(), for: .normal)
         
         let saveBtn = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveBtnAction(_:)))
         saveBtn.tintColor = UIColor.white

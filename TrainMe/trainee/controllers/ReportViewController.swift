@@ -10,8 +10,9 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class ReportViewController: UIViewController {
+class ReportViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var reportLb: UILabel!
     @IBOutlet weak var reportTv: UITextView!
     @IBOutlet weak var confirmReportBtn: UIButton!
     
@@ -36,10 +37,10 @@ class ReportViewController: UIViewController {
     
     @IBAction func confirmReportBtnAction(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "Confirm to report", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-            if self.reportTv.text == "" {
-                self.createAlert(alertTitle: "Please fill in the blank", alertMessage: "")
+        let alert = UIAlertController(title: "confirm_to_report".localized(), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "confirm".localized(), style: .default, handler: { (action) in
+            if self.reportTv.text == "\("report".localized()) ..." {
+                self.createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
                 return
             } else {
                 self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -47,7 +48,7 @@ class ReportViewController: UIViewController {
                 self.addDataToReportDatabase()
             }
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -67,8 +68,8 @@ class ReportViewController: UIViewController {
             }
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.view.removeBluerLoader()
-            let alert = UIAlertController(title: "Add report successfully!", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "report_successfully".localized(), message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true, completion: nil)
@@ -80,8 +81,26 @@ class ReportViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "\("report".localized()) ..." {
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "\("report".localized()) ..."
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.reportTv.delegate = self
+        
+        self.title = "report".localized()
+        self.reportLb.text = "report".localized()
+        self.reportTv.text = "\("report".localized()) ..."
         
         self.setupNavigationStyle()
     }
