@@ -135,28 +135,11 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
     func addProgressData(transactionId: String) {
         print("transactionId: \(transactionId)")
         
-        let mainData = ["course_id": pendingData.course_id,
+        var mainData: [String: Any] = ["course_id": pendingData.course_id,
                         "place_id": pendingData.place_id,
                         "transaction_to_admin": transactionId,
                         "transaction_to_trainer": "-1"]
         
-        // TODO: Bug add "progress_schedule_detail" key
-        self.ref.child("progress_schedule_details").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).setValue(mainData) { (err, progressRef) in
-            if let err = err {
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.view.removeBluerLoader()
-                print(err.localizedDescription)
-                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
-                return
-            } else {
-                self.addScheduleData(ref: progressRef)
-            }
-        }
-    }
-    
-    func addScheduleData(ref progressRef: DatabaseReference) {
-        
-        var subData: [String: Any] = [:]
         for i in 1...Int(self.selectedCourse.timeOfCourse)! {
             
             if i == 1 {
@@ -169,7 +152,7 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                                     "rate_point": "-1",
                                     "review": "-1",
                                     "note": "-1"]
-                subData["\(i)"] = timeSchedule
+                mainData["\(i)"] = timeSchedule
             } else {
                 
                 let timeSchedule = ["start_train_date": "-1",
@@ -180,27 +163,26 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                                     "rate_point": "-1",
                                     "review": "-1",
                                     "note": "-1"]
-                subData["\(i)"] = timeSchedule
+                mainData["\(i)"] = timeSchedule
             }
         }
         
-        print(subData)
-        
-        progressRef.updateChildValues(subData, withCompletionBlock: { (err1, subRef) in
-            if let err1 = err1 {
+        self.ref.child("progress_schedule_detail").child(pendingData.trainer_id).child(pendingData.trainee_id).child(pendingData.schedule_key).setValue(mainData) { (err, progressRef) in
+            if let err = err {
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.view.removeBluerLoader()
-                print(err1.localizedDescription)
-                self.createAlert(alertTitle: err1.localizedDescription, alertMessage: "")
+                print(err.localizedDescription)
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
+            } else {
+//              self.deletePendingData()
+                
+                // delete code below when uncomment deletePendingData() call method
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.view.removeBluerLoader()
+                self.dismiss(animated: true, completion: nil)
             }
-//            self.deletePendingData()
-            
-            // delete code below when uncomment deletePendingData() call method
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.view.removeBluerLoader()
-            self.dismiss(animated: true, completion: nil)
-        })
+        }
     }
     
     func deletePendingData() {
