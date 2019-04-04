@@ -41,6 +41,7 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
     
     func getCustInfo(omiseCustId: String) {
         
+        // TODO: Use Alamofire instead
         let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -107,9 +108,9 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
                     if statusCode == 200 {
                         let jsonData = try! JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
                         if jsonData["object"] as! String == "card" {
-                            self.createAlert(alertTitle: "Delete credit card successful", alertMessage: "")
+                            self.createAlert(alertTitle: "delete_credit_card_successful".localized(), alertMessage: "")
                         } else if jsonData["object"] as! String == "error"{
-                            self.createAlert(alertTitle: "Failed to delete credit card", alertMessage: "")
+                            self.createAlert(alertTitle: "failed_to_delete_credit_card".localized(), alertMessage: "")
                         }
                     }
                 }
@@ -155,22 +156,22 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (deleteRowAction, deleteRowIndexPath) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "delete".localized()) { (deleteRowAction, deleteRowIndexPath) in
             print(deleteRowIndexPath)
             
-            let alert = UIAlertController(title: "", message: "Would you like to delete this credit card?", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action1) in
+            let alert = UIAlertController(title: "", message: "would_you_like_to_delete_this_credit_card".localized(), preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "delete".localized(), style: .destructive, handler: { (action1) in
                 self.deleteOmiseCard(deleteCardIndexPath: deleteRowIndexPath)
                 self.deleteCardFromData(deleteDataIndexPath: deleteRowIndexPath)
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [deleteRowIndexPath], with: .automatic)
                 tableView.endUpdates()
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         
-        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (editRowAction, editRowIndexPath) in
+        let editAction = UITableViewRowAction(style: .normal, title: "edit".localized()) { (editRowAction, editRowIndexPath) in
             print(editRowIndexPath)
             self.performSegue(withIdentifier: "ViewCreditCardToEditCreditCard", sender: editRowIndexPath)
         }
@@ -197,6 +198,8 @@ class ViewCreditCardViewController: UIViewController, UITableViewDataSource, UIT
         super.viewWillAppear(animated)
         
 //        self.setupNavigationStyle()
+        
+        self.title = "credit_card_paypal".localized()
         
         self.creditCardTableView.tableFooterView = UIView()
         

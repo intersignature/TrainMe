@@ -239,3 +239,22 @@
 "confirm_to_request_change_schedule" = "ยืนยันการเปลี่ยนเวลานัด?";
 "from" = "จาก";
 "request_change_schedule_successful" = "ร้องขอการเปลี่ยนเวลาสำเร็จ";
+// Credit card trainee
+"delete_credit_card_successful" = "การลบข้อมูลบัตรเครดิตสำเร็จ";
+"failed_to_delete_credit_card" = "การลบข้อมูลบัตรเครดิตล้มเหลว";
+"would_you_like_to_delete_this_credit_card" = "คุณต้องการที่จะลบข้อมูลบัตรเครดิตหรือไม่?";
+// Add credit card trainee
+"add_credit_card" = "เพิ่มข้อมูลบัตรเครดิต";
+"card_holder" = "ชื่อเจ้าของบัตรเครดิต";
+"add_credit_card" = "เพิ่มบัตรเครดิต";
+"card_information_is_not_valid" = "ข้อมูลของบัตรเครดิตไม่ถูกต้อง";
+"add_credit_card_successful" = "เพิ่มบัตรเครดิตสำเร็จ!";
+// Edit credit card trainee
+"confirm_to_change_card_data" = "ยืนยันการเปลี่ยนข้อมูลบัตร";
+"card_expiry" = "วันหมดอายุบัตร";
+"invalid_expire" = "ข้อมูลวันหมดอายุบัตรผิดพลาด";
+"invalid_card_holder" = "ชื่อเจ้าของบัตรเครดิตผิดพลาด";
+"expire_format_must_be_in_mm/YYYY_Ex_05/2018" = "วันหมดอายุจะต้องอยู่ในรูปแบบ เดือน/ปี\nเช่น 05/2018";
+"successful_change_card_information" = "การเปลี่ยนข้อมูลบัตรเครดิตสำเร็จ";
+"error_change_card_information" = "การเปลี่ยนข้อมูลบัตรเครดิตล้มเหลว";
+"edit_credit_card" = "แก้ไขข้อมูลบัตรเครดิต";

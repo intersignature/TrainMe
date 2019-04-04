@@ -51,11 +51,11 @@ class SidebarTraineeViewController: UIViewController {
     }
     
     func setLocalizeText() {
-        self.creditCardBtn.setTitle("credit_card_paypal".localized(), for: .normal)
-        self.helpBtn.setTitle("help".localized(), for: .normal)
-        self.settingBtn.setTitle("settings".localized(), for: .normal)
-        self.becomeATrainerBtn.setTitle("become_a_trainer".localized(), for: .normal)
-        self.logoutBtn.setTitle("logout".localized(), for: .normal)
+        self.creditCardBtn.setTitle("     \("credit_card_paypal".localized())", for: .normal)
+        self.helpBtn.setTitle("     \("help".localized())", for: .normal)
+        self.settingBtn.setTitle("     \("settings".localized())", for: .normal)
+        self.becomeATrainerBtn.setTitle("     \("become_a_trainer".localized())", for: .normal)
+        self.logoutBtn.setTitle("     \("logout".localized())", for: .normal)
     }
 
     override func didReceiveMemoryWarning() {

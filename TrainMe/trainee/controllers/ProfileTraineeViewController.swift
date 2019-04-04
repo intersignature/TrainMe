@@ -21,8 +21,12 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var emailLb: UILabel!
     @IBOutlet weak var bioLb: UILabel!
     @IBOutlet weak var heightLb: UILabel!
+    @IBOutlet weak var heightTagLb: UILabel!
     @IBOutlet weak var birthdayLb: UILabel!
+    @IBOutlet weak var birthdayTagLb: UILabel!
     @IBOutlet weak var weightLb: UILabel!
+    @IBOutlet weak var weightTagLb: UILabel!
+    @IBOutlet weak var reviewLb: UILabel!
     
     var traineeProfileUid: String!
     var isBlurProfile: Bool!
@@ -188,6 +192,12 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.editProfileBtn.setTitle("edit".localized(), for: .normal)
+        self.heightTagLb.text = "height".localized()
+        self.birthdayTagLb.text = "birthday".localized()
+        self.weightTagLb.text = "weight".localized()
+        self.reviewLb.text = "review".localized()
         
         self.reviewProfileTraineeTableView.tableFooterView = UIView()
         

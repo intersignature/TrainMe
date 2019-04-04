@@ -35,8 +35,8 @@ class EditCreditCardViewController: UIViewController {
     
     @IBAction func editCreditCardAction(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "Confirm to change card data", message: "Card holder: \(self.cardHolderLb.text!)\n Card expiration: \(self.cardExpiryLb.text!)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (yesAction) in
+        let alert = UIAlertController(title: "confirm_to_change_card_data".localized(), message: "\("card_holder".localized()): \(self.cardHolderLb.text!)\n \("card_expiry".localized()): \(self.cardExpiryLb.text!)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "confirm".localized(), style: .default, handler: { (yesAction) in
             
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.view.showBlurLoader()
@@ -60,20 +60,20 @@ class EditCreditCardViewController: UIViewController {
                     } else {
                         self.view.removeBluerLoader()
                         self.navigationController?.setNavigationBarHidden(false, animated: true)
-                        self.createAlert(alertTitle: "Invalid expire", alertMessage: "")
+                        self.createAlert(alertTitle: "invalid_expire".localized(), alertMessage: "")
                     }
                 } else {
                     self.view.removeBluerLoader()
                     self.navigationController?.setNavigationBarHidden(false, animated: true)
-                    self.createAlert(alertTitle: "Invalid expire", alertMessage: "")
+                    self.createAlert(alertTitle: "invalid_expire".localized(), alertMessage: "")
                 }
             } else {
                 self.view.removeBluerLoader()
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.createAlert(alertTitle: "Invalid card holder", alertMessage: "")
+                self.createAlert(alertTitle: "invalid_card_holder".localized(), alertMessage: "")
             }
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -124,7 +124,7 @@ class EditCreditCardViewController: UIViewController {
         if expiry.count != 2 || expiry[0] == "" || expiry[1] == "" {
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.createAlert(alertTitle: "Invalid expire", alertMessage: "Expire format must be in mm/YYYY\nEx. 05/2018")
+            self.createAlert(alertTitle: "invalid_expire".localized(), alertMessage: "expire_format_must_be_in_mm/YYYY_Ex_05/2018".localized())
             return
         }
         if monthRange.contains(expiry[0]) {
@@ -159,20 +159,20 @@ class EditCreditCardViewController: UIViewController {
                         if jsonData["object"] as! String == "card" {
                             self.view.removeBluerLoader()
                             self.navigationController?.setNavigationBarHidden(false, animated: true)
-                            let alert = UIAlertController(title: "Successful change card information", message: "", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (okAction) in
+                            let alert = UIAlertController(title: "successful_change_card_information".localized(), message: "", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (okAction) in
                                 self.dismiss(animated: true, completion: nil)
                             }))
                             self.present(alert, animated: true, completion: nil)
                         } else {
                             self.view.removeBluerLoader()
                             self.navigationController?.setNavigationBarHidden(false, animated: true)
-                            self.createAlert(alertTitle: "Error change card information", alertMessage: "")
+                            self.createAlert(alertTitle: "error_change_card_information".localized(), alertMessage: "")
                         }
                     } else {
                         self.view.removeBluerLoader()
                         self.navigationController?.setNavigationBarHidden(false, animated: true)
-                        self.createAlert(alertTitle: "Error change card information", alertMessage: "")
+                        self.createAlert(alertTitle: "error_change_card_information".localized(), alertMessage: "")
                     }
                 } else {
                     self.view.removeBluerLoader()
@@ -191,8 +191,11 @@ class EditCreditCardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.cardHolderLb.attributedPlaceholder = NSAttributedString(string: "Card holder", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        self.cardExpiryLb.attributedPlaceholder = NSAttributedString(string: "Card expiry", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.title = "edit_credit_card".localized()
+        
+        self.cardHolderLb.attributedPlaceholder = NSAttributedString(string: "card_holder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.cardExpiryLb.attributedPlaceholder = NSAttributedString(string: "card_expiry".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.editCardBtn.setTitle("edit_credit_card".localized(), for: .normal)
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

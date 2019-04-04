@@ -5344,14 +5344,18 @@ detail</string>
                     </navigationItem>
                     <connections>
                         <outlet property="birthdayLb" destination="VSE-L2-xdU" id="QDg-6q-EEJ"/>
+                        <outlet property="birthdayTagLb" destination="6Ly-el-Meq" id="jtD-Hd-1io"/>
                         <outlet property="editProfileBtn" destination="Mae-uO-sxR" id="799-IA-L4L"/>
                         <outlet property="emailLb" destination="a8m-XO-nx3" id="jmn-rN-JUD"/>
                         <outlet property="genderImageView" destination="CgS-av-P1M" id="EKX-UW-StC"/>
                         <outlet property="heightLb" destination="mYv-7o-Cp6" id="Ty2-7Z-bPx"/>
+                        <outlet property="heightTagLb" destination="pU4-Um-6B7" id="fnj-Ok-1XP"/>
                         <outlet property="nameLb" destination="R1y-ez-Ax7" id="gPs-RI-Ww2"/>
                         <outlet property="profileImageView" destination="vVJ-dy-9UO" id="esz-V2-hJX"/>
+                        <outlet property="reviewLb" destination="au2-BA-slh" id="zur-yO-NfL"/>
                         <outlet property="reviewProfileTraineeTableView" destination="7GR-fL-ubp" id="0K9-Bq-Z9k"/>
                         <outlet property="weightLb" destination="2Pl-e5-UdX" id="mHa-1s-bMk"/>
+                        <outlet property="weightTagLb" destination="IZs-Tw-XeF" id="1a3-Hg-Ab3"/>
                         <segue destination="DTj-KS-HCf" kind="presentation" identifier="ProfileTraineeToEditProfileTrainee" id="lwg-sn-Rgh"/>
                         <segue destination="9Ow-Pv-dqI" kind="presentation" identifier="ProfileToEachReview" id="L1Y-Q7-OXJ"/>
                         <segue destination="R5F-9y-Tmg" kind="presentation" identifier="ProfileTraineeToProfileTrainer" id="khC-N6-INE"/>
@@ -7726,10 +7730,10 @@ detail</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KSr-1B-W7B"/>
-        <segue reference="dSZ-fv-Sp2"/>
-        <segue reference="dM1-HA-QSq"/>
+        <segue reference="L1Y-Q7-OXJ"/>
+        <segue reference="lwg-sn-Rgh"/>
         <segue reference="JV0-af-7oo"/>
-        <segue reference="aj2-aV-Jgc"/>
+        <segue reference="khC-N6-INE"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>
         <segue reference="EnY-te-5kK"/>

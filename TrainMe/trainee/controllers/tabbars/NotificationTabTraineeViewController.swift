@@ -37,7 +37,6 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
         self.currentUser = Auth.auth().currentUser
         
         initSideMenu()
-        self.title = NSLocalizedString("notification", comment: "")
         self.notificationTraineeTableView.delegate = self
         self.notificationTraineeTableView.dataSource = self
     }
@@ -166,6 +165,8 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.title = "notification".localized()
+        
         self.notificationTraineeTableView.tableFooterView = UIView()
         
         setupNavigationStyle()
@@ -177,7 +178,6 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
     }
 
 
-    
     func initSideMenu() {
         if revealViewController() != nil {
             

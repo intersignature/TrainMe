@@ -68,7 +68,6 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
     
     func setupCardHolderTextField() {
         
-        cardHolderTextField.placeholder = "Name on card"
         cardHolderTextField.frame = CGRect(x: 15, y: 199, width: self.view.frame.size.width - 30, height: 44)
         cardHolderTextField.translatesAutoresizingMaskIntoConstraints = false
         cardHolderTextField.layer.borderWidth = 0
@@ -78,7 +77,7 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
         cardHolderTextField.backgroundColor = UIColor.clear
         cardHolderTextField.textColor = UIColor.white
         cardHolderTextField.tintColor = UIColor.white
-        cardHolderTextField.attributedPlaceholder = NSAttributedString(string: "Name on card", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        cardHolderTextField.attributedPlaceholder = NSAttributedString(string: "card_holder".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         let border = CALayer()
         let width = CGFloat(1.0)
@@ -111,7 +110,7 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
         confirmBtn.layer.shadowColor = UIColor.clear.cgColor
         confirmBtn.backgroundColor = UIColor(red: 0/255.0, green: 207/255.0, blue: 207/255.0, alpha: 1)
         confirmBtn.titleLabel?.font = UIFont(name: "Noto Sans", size: CGFloat(15.0))
-        confirmBtn.setTitle("ADD CREDIT CARD", for: .normal)
+        confirmBtn.setTitle("add_credit_card".localized(), for: .normal)
         
         let border = CALayer()
         let width = CGFloat(1.0)
@@ -157,7 +156,7 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
         } else {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.view.removeBluerLoader()
-            self.createAlert(alertTitle: "Card information is not valid", alertMessage: "")
+            self.createAlert(alertTitle: "card_information_is_not_valid".localized(), alertMessage: "")
         }
     }
     
@@ -240,8 +239,8 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
                 
                 if statusCode == 200 {
                     print(jsonData)
-                    let alert = UIAlertController(title: "Add credit card successful!", message: "", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    let alert = UIAlertController(title: "add_credit_card_successful".localized(), message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                         self.dismiss(animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)
@@ -308,8 +307,8 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.view.removeBluerLoader()
 
-            let alert = UIAlertController(title: "Add credit card successful!", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "add_credit_card_successful".localized(), message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true, completion: nil)
@@ -336,6 +335,8 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
         super.viewWillAppear(animated)
         
 //        self.setupNavigationStyle()
+        
+        self.title = "add_credit_card".localized()
         
         self.setupStripTextField()
         self.setupCardHolderTextField()

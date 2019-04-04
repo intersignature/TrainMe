@@ -239,3 +239,22 @@
 "confirm_to_request_change_schedule" = "Confirm to request change schedule?";
 "from" = "From";
 "request_change_schedule_successful" = "Request change schedule successful";
+// Credit card trainee
+"delete_credit_card_successful" = "Delete credit card successful";
+"failed_to_delete_credit_card" = "Failed to delete credit card";
+"would_you_like_to_delete_this_credit_card" = "Would you like to delete this credit card?";
+// Add credit card trainee
+"add_credit_card" = "Add credit card";
+"card_holder" = "Card Holder";
+"add_credit_card" = "Add credit card";
+"card_information_is_not_valid" = "Card information is not valid";
+"add_credit_card_successful" = "Add credit card successful!";
+// Edit credit card trainee
+"confirm_to_change_card_data" = "Confirm to change card data";
+"card_expiry" = "Card expiry";
+"invalid_expire" = "Invalid expire";
+"invalid_card_holder" = "Invalid card holder";
+"expire_format_must_be_in_mm/YYYY_Ex_05/2018" = "Expire format must be in mm/YYYY\nEx. 05/2018";
+"successful_change_card_information" = "Successful change card information";
+"error_change_card_information" = "Error change card information";
+"edit_credit_card" = "Edit credit card";
