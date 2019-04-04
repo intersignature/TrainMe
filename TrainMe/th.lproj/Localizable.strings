@@ -235,3 +235,7 @@
 "error_request" = "การส่งข้อมูลผิดพลาด";
 "confirm_to_pay" = "ยืนยันการจ่ายเงิน?";
 "your_payment_successful" = "การจ่ายเงินสำเร็จ";
+// Each ongoing trainee
+"confirm_to_request_change_schedule" = "ยืนยันการเปลี่ยนเวลานัด?";
+"from" = "จาก";
+"request_change_schedule_successful" = "ร้องขอการเปลี่ยนเวลาสำเร็จ";

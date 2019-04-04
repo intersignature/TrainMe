@@ -235,3 +235,7 @@
 "error_request" = "Error request";
 "confirm_to_pay" = "Confirm to pay?";
 "your_payment_successful" = "Your payment successful";
+// Each ongoing trainee
+"confirm_to_request_change_schedule" = "Confirm to request change schedule?";
+"from" = "From";
+"request_change_schedule_successful" = "Request change schedule successful";

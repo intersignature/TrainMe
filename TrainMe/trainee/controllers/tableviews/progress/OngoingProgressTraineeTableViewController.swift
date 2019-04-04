@@ -45,8 +45,8 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
         self.trainerNameLb.addGestureRecognizer(UITapGestureRecognizer (target: self, action: #selector(trainerImgTapAction(tapGesture:))))
         
         self.coureNameLb.text = self.selectedCourse.course
-        self.courseDetailLb.text = "\(self.selectedCourse.courseLevel), \(self.selectedCourse.courseType), \(self.selectedCourse.courseLanguage), \(self.selectedCourse.timeOfCourse) times"
-        self.coursePrice.text = "\(self.selectedCourse.coursePrice) Bath"
+        self.courseDetailLb.text = "\(self.selectedCourse.courseLevel), \(self.selectedCourse.courseType), \(self.selectedCourse.courseLanguage), \(self.selectedCourse.timeOfCourse) \("times".localized())"
+        self.coursePrice.text = "\("price".localized()): \(self.selectedCourse.coursePrice) \("bath".localized())"
         self.courseDescLb.text = self.selectedCourse.courseContent
         self.placeNameLb.text = self.selectedPlace.name
         self.setMapView()
@@ -134,5 +134,20 @@ class OngoingProgressTraineeTableViewController: UITableViewController {
         
         self.tableView.tableFooterView = UIView()
         self.setupNavigationStyle()
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "trainer_profile".localized()
+        case 1:
+            return "course_detail".localized()
+        case 2:
+            return "place".localized()
+        case 3:
+            return "schedule".localized()
+        default:
+            return ""
+        }
     }
 }

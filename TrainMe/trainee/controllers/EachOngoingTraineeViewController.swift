@@ -82,7 +82,9 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EachOngoingTableViewCell") as! EachOngoingTraineeTableViewCell
         cell.selectedOngoing = self.selectedOngoing.eachOngoingDetails[indexPath.row]
+        cell.changeScheduleBtn.setTitle("change_schedule".localized(), for: .normal)
         cell.changeScheduleBtn.tag = indexPath.row
+        cell.reviewBtn.setTitle("review".localized(), for: .normal)
         cell.reviewBtn.tag = indexPath.row
         cell.changeScheduleBtn.addTarget(self, action: #selector(self.requestScheduleBtnAction(sender:)), for: .touchUpInside)
         cell.reviewBtn.addTarget(self, action: #selector(self.reviewBtnAction(sender:)), for: .touchUpInside)
@@ -91,7 +93,7 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
         if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "-1" {
             cell.changeScheduleBtn.isEnabled = false
             cell.reviewBtn.isEnabled = false
-            cell.statusLb.text = "Pending"
+            cell.statusLb.text = "pending".localized()
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "1" {
             cell.changeScheduleBtn.isEnabled = true
             cell.reviewBtn.isEnabled = true
@@ -103,30 +105,30 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
                 cell.changeScheduleBtn.isEnabled = false
                 cell.reviewBtn.isEnabled = false
             }
-            cell.statusLb.text = "Ongoing"
+            cell.statusLb.text = "ongoing".localized()
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "2" {
             cell.changeScheduleBtn.isEnabled = false
             cell.reviewBtn.isEnabled = false
-            cell.statusLb.text = "Successful"
+            cell.statusLb.text = "successful".localized()
         } else if self.selectedOngoing.eachOngoingDetails[indexPath.row].status == "3" {
             cell.changeScheduleBtn.isEnabled = false
             cell.reviewBtn.isEnabled = false
-            cell.statusLb.text = "Change schedule requested"
+            cell.statusLb.text = "change_schedule_requested".localized()
         }
         return cell
     }
     
     @objc func requestScheduleBtnAction(sender: UIButton) {
         
-        let alert = UIAlertController(title: "Confirm to request change schedule?", message: "from \(self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_date) \(self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_time)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "confirm_to_request_change_schedule".localized(), message: "\("from".localized()) \(self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_date) \(self.selectedOngoing.eachOngoingDetails[sender.tag].start_train_time)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "confirm".localized(), style: .default, handler: { (action) in
             
             print("Confirm to request")
             self.view.showBlurLoader()
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.changeStatusToRequestChangeSchedule(changeIndex: sender.tag)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -178,7 +180,7 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
             }
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.createAlert(alertTitle: "Request change schedule successful", alertMessage: "")
+            self.createAlert(alertTitle: "request_change_schedule_successful".localized(), alertMessage: "")
         }
     }
     
