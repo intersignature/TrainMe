@@ -39,12 +39,8 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.helpArr.append(help1)
             self.helpArr.append(help2)
         } else if userRole == "trainee" {
-            let help1 = Help(topic: "ข้อตกลงในการใช้ซอฟต์แวร์", desc: "ซอฟต์แวร์นี้เป็นผลงานที่พัฒนาขึ้นโดย นาย ศิริชัย บินชัย จาก สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง และ นาย ธนยศ สุจิภิญโญ จาก สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง ภายใต้การดูแลของ ดร.อนันตพัฒน์ อนันตชัย ภายใต้โครงการ ระบบค้นหาผู้ฝึกสอนออกกําลังกายส่วนบุคคลบริเวณใกล้เคียงด้วยแอพพลิเคชั่นมือถือ ซึ่งสนับสนุนโดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ โดยมีวัตถุประสงค์เพื่อส่งเสริมให้นักเรียนและนักศึกษาได้เรียนรู้และฝึกฝนในการพัฒนาซอฟต์แวร์ ลิขสิทธิ์ของซอฟต์แวร์นี้จึงเป็นของผู้พัฒนา ซึ่งผู้พพัฒนาได้อนุญาตให้ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ เผยแพร่ซอฟต์แวร์นี้ตาม \"ต้นฉบับ\" โดยไม่มีการแก้ไขดัดแปลงใด ๆ ทั้งสิ้น ให้แก่บุคคลทั่วไปได้ใช้เพื่อประโยชน์ส่วนบุคคลหรือประโยชน์ทางการศึกษาที่ไม่มีวัตถุประสงค์ในเชิงพาณิชย์ โดยไม่คิดค่าตอบแทนการใช้ซอฟต์แวร์ ดังนั้น ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ จึงไม่มีหน้าที่ในการดูแล บำรุงรักษา จัดการอบรมการใช้งาน หรือพัฒนาประสิทธิภาพซอฟต์แวร์ รวมทั้งไม่รับรองความถูกต้องหรือประสิทธิภาพการทำงานของซอฟต์แวร์ ตลอดจนไม่รับประกันความเสียหายต่าง ๆ อันเกิดจากการใช้ซอฟต์แวร์นี้ทั้งสิ้น", imageSource: nil)
-            let help2 = Help(topic: "d", desc: "ASD", imageSource: nil)
+            let help1 = Help(topic: "What is training process?", desc: "Training process is process when trainee booked trainer already. Training process have 4 processes that is Confirm, Payment, Ongoing, Successful. First is Confirm, Confirm is when trainee booked trainer already and trainer must decide one of trainees to accept to train. Second is Payment, Payment is when trainer is accept to train trainee then trainee must transfer money to admin. Third is Ongoing, Ongoing is when trainee transfer money already trainer must train selected trainer. Fourth is Successful, Successful is when trainer train trainee completely money that trainee was transfered to admin will transfer to trainer. And all of these are 4 process.", imageSource: nil)
             self.helpArr.append(help1)
-            self.helpArr.append(help2)
-            self.helpArr.append(help2)
-            self.helpArr.append(help2)
         }
         self.helpTableView.reloadData()
     }
