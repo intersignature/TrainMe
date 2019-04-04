@@ -8,8 +8,6 @@
 
 import UIKit
 import FirebaseDatabase
-import FirebaseStorage
-import FirebaseAuth
 import CropViewController
 
 class AddCertificateViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, CropViewControllerDelegate {
@@ -26,15 +24,10 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     var citizenImg: UIImage!
     var selectedCerts: [Certificate] = []
     var selectCertImg = UIImage()
-    var dbRef: DatabaseReference!
-    var storeRef: StorageReference!
-    var successfulTask: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.dbRef = Database.database().reference()
-        self.storeRef = Storage.storage().reference()
+
         self.cerificateTableView.delegate = self
         self.cerificateTableView.dataSource = self
         self.certificateDetailTv.delegate = self
@@ -220,6 +213,7 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         
         self.certificateImg.layer.cornerRadius = 5
         self.addCertificateToListBtn.layer.cornerRadius = 17
+        self.cerificateTableView.tableFooterView = UIView()
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -239,121 +233,20 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveBtnAction(_ sender: UIBarButtonItem) {
-
+    @IBAction func nextBtnAction(_ sender: UIBarButtonItem) {
+        
         if self.selectedCerts.count > 0 {
-            self.view.showBlurLoader()
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            self.uploadFileToStorage()
+            performSegue(withIdentifier: "AddCertToAddCitizen", sender: selectedCerts)
         } else {
             self.createAlert(alertTitle: "Please select certificate image", alertMessage: "")
         }
     }
     
-    func uploadFileToStorage() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/png"
-        
-        if let uploadImg = UIImagePNGRepresentation(self.citizenImg) {
-            let uploadCitizenTask = self.storeRef.child("BecomeToATrainer").child(uid).child("citizen.png").putData(uploadImg, metadata: metadata) { (metadata, err) in
-                if let err = err {
-                    self.view.removeBluerLoader()
-                    self.navigationController?.setNavigationBarHidden(false, animated: true)
-                    self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
-                    print(err.localizedDescription)
-                    return
-                }
-                print(metadata)
-            }
-            uploadCitizenTask.observe(.progress) { (snapshot) in
-                let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
-                    / Double(snapshot.progress!.totalUnitCount)
-                print("uploadtask: \(snapshot.reference.name)")
-                print("uploadtask: \(percentComplete)")
-            }
-            uploadCitizenTask.observe(.success) { (snapshot) in
-                print("uploadsuccesstask: \(snapshot.reference.name)")
-                self.successfulTask.append(snapshot.reference.name)
-                print("successfulTask: \(self.successfulTask)")
-                self.checkSuccesfulUploadImageFileToStorage()
-            }
-        }
-        
-        var countCertFilename = 1
-        let strRef = self.storeRef.child("BecomeToATrainer").child(uid).child("certificate")
-        self.selectedCerts.forEach { (cert) in
-            if let uploadCert = UIImagePNGRepresentation(cert.certImg) {
-                let uploadCertTask = strRef.child("cert_\(countCertFilename).png").putData(uploadCert, metadata: metadata, completion: { (metadata, err) in
-                    if let err = err {
-                        self.view.removeBluerLoader()
-                        self.navigationController?.setNavigationBarHidden(false, animated: true)
-                        self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
-                        print(err)
-                        return
-                    }
-                })
-                uploadCertTask.observe(.progress, handler: { (snapshot) in
-                    let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
-                        / Double(snapshot.progress!.totalUnitCount)
-                    print("uploadtask: \(snapshot.reference.name)")
-                    print("uploadtask: \(percentComplete)")
-                })
-                uploadCertTask.observe(.success, handler: { (snapshot) in
-                    print("uploadsuccesstask: \(snapshot.reference.name)")
-                    self.successfulTask.append(snapshot.reference.name)
-                    print("successfulTask: \(self.successfulTask)")
-                    self.checkSuccesfulUploadImageFileToStorage()
-                })
-            }
-            countCertFilename += 1
-        }
-    }
-    
-    func checkSuccesfulUploadImageFileToStorage() {
-        var checkFile = true
-        for i in 1...self.selectedCerts.count {
-            if !self.successfulTask.contains("cert_\(i).png") || !self.successfulTask.contains("citizen.png") {
-                checkFile = false
-                break
-            }
-        }
-        if checkFile {
-            self.uploadDataToDatabase()
-        }
-    }
-    
-    func uploadDataToDatabase() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        var countCertDb = 1
-        var certDic: [String: String] = [:]
-        self.selectedCerts.forEach { (cert) in
-            certDic["cert\(countCertDb)"] = cert.certDetail
-            countCertDb += 1
-        }
-        certDic["status"] = "pending"
-        
-        self.dbRef.child("become_to_a_trainer").child(uid).updateChildValues(certDic) { (err, ref) in
-            if let err = err {
-                self.view.removeBluerLoader()
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
-                print(err.localizedDescription)
-                return
-            }
-            self.view.removeBluerLoader()
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            let alert = UIAlertController(title: "Successful add trainer request", message: "Please wait for admin approve", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                self.performSegue(withIdentifier: "AddCertificateToMain", sender: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
-            print("successfully add BecomeToATrainer to database")
-        }
-        
-        certDic.forEach { (key, value) in
-            print("\(key)------------\(value)")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddCertToAddCitizen" {
+            let vc = segue.destination as! UINavigationController
+            let containVc = vc.topViewController as! AddCitizencardViewController
+            containVc.selectedCertificates = sender as! [Certificate]
         }
     }
 }

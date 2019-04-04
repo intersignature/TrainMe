@@ -4586,23 +4586,23 @@ detail</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign certified true copy and upload to admin for consider to be our trainer." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDV-6G-nIZ">
-                                <rect key="frame" x="20" y="297" width="280" height="52.5"/>
+                                <rect key="frame" x="20" y="297" width="280" height="61.5"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbk-rJ-Y9Z">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbk-rJ-Y9Z" userLabel="Save Btn">
                                 <rect key="frame" x="45" y="498" width="230" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="weq-GL-21L"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextBtnAction:" destination="a8h-Qh-6xb" eventType="touchUpInside" id="7FP-bx-HxK"/>
+                                    <action selector="saveBtnAction:" destination="a8h-Qh-6xb" eventType="touchUpInside" id="S9d-Qc-oaV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -4635,7 +4635,7 @@ detail</string>
                     <connections>
                         <outlet property="citizencardImg" destination="gho-sY-JBL" id="Z26-kl-488"/>
                         <outlet property="nextBtn" destination="Bbk-rJ-Y9Z" id="qm9-ac-fQy"/>
-                        <segue destination="I4i-Sw-MQE" kind="presentation" identifier="AddCitizencardToAddCertificate" id="LmN-ai-YPs"/>
+                        <segue destination="frG-QR-vnD" kind="presentation" identifier="AddCitizenToMain" id="zkA-3h-6QM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jao-MZ-c2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4774,10 +4774,10 @@ detail</string>
                                 <action selector="backBtnAction:" destination="o31-L2-kzr" id="jeE-6D-inr"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="SWG-Ey-x1Z">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="SWG-Ey-x1Z">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="saveBtnAction:" destination="o31-L2-kzr" id="6xV-gs-Yd3"/>
+                                <action selector="nextBtnAction:" destination="o31-L2-kzr" id="hd1-T8-zGa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -4786,12 +4786,12 @@ detail</string>
                         <outlet property="cerificateTableView" destination="34E-A9-hPr" id="oa5-k1-akz"/>
                         <outlet property="certificateDetailTv" destination="DIW-mM-PAT" id="uVY-H9-Khp"/>
                         <outlet property="certificateImg" destination="cbv-FM-Dug" id="SNk-n3-Go9"/>
-                        <segue destination="frG-QR-vnD" kind="presentation" identifier="AddCertificateToMain" id="xuk-C4-Ezf"/>
+                        <segue destination="gQH-Ot-cQz" kind="presentation" identifier="AddCertToAddCitizen" id="Hak-Ej-Fgs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51I-QA-YMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10203.75" y="-507.04225352112678"/>
+            <point key="canvasLocation" x="10202" y="-570"/>
         </scene>
         <!--Sidebar Trainee View Controller-->
         <scene sceneID="z6T-Bh-XvK">
@@ -4837,9 +4837,6 @@ detail</string>
                                 <rect key="frame" x="27" y="256" width="87" height="17"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="     Settings" image="settings"/>
-                                <connections>
-                                    <segue destination="wlF-mg-vdv" kind="presentation" id="gs5-uw-laZ"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep5-Oc-a8J">
                                 <rect key="frame" x="27" y="360" width="80" height="17"/>
@@ -4935,7 +4932,7 @@ detail</string>
                         <segue destination="BYZ-38-t0r" kind="custom" identifier="LogoutTraineeSeg" customClass="SWRevealViewControllerSeguePushController" id="CFy-02-wCg"/>
                         <segue destination="4f9-ny-Mp3" kind="presentation" identifier="SidebarTraineeToProfileTrainee" id="p7p-h3-dr6"/>
                         <segue destination="gbW-uY-edR" kind="presentation" identifier="SidebarToCreditcardView" id="sbZ-Vf-ldz"/>
-                        <segue destination="gQH-Ot-cQz" kind="presentation" identifier="SidebarTraineeToBecomeToATrainer" id="AUW-t0-weW"/>
+                        <segue destination="I4i-Sw-MQE" kind="presentation" identifier="SidebarTraineeToBecomeToATrainer" id="sOq-w1-Tmg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cpr-bN-lFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6016,7 +6013,7 @@ detail</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZ5-TB-uCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9133.125" y="-507.04225352112678"/>
+            <point key="canvasLocation" x="9214" y="-482"/>
         </scene>
         <!--Course detail-->
         <scene sceneID="gdB-uz-87s">
@@ -7732,7 +7729,6 @@ detail</string>
         <image name="weight" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gs5-uw-laZ"/>
         <segue reference="8je-Rt-v1G"/>
         <segue reference="L1Y-Q7-OXJ"/>
         <segue reference="lwg-sn-Rgh"/>
@@ -7740,7 +7736,7 @@ detail</string>
         <segue reference="khC-N6-INE"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="hNW-x5-lZ1"/>
-        <segue reference="EnY-te-5kK"/>
+        <segue reference="zkA-3h-6QM"/>
         <segue reference="yaD-9q-IZ0"/>
         <segue reference="5EB-bI-2rw"/>
         <segue reference="GhO-HN-2gJ"/>
