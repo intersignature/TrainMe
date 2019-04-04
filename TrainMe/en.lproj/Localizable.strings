@@ -176,6 +176,8 @@
 "birthday" = "Birthday";
 "reviews" = "Reviews";
 "rating" = "Rating";
+"help1_topic_trainee" = "What is training process?";
+"help1_trainee" = "Training process is process when trainee booked trainer already. Training process have 4 processes that is Confirm, Payment, Ongoing, Successful. First is Confirm, Confirm is when trainee booked trainer already and trainer must decide one of trainees to accept to train. Second is Payment, Payment is when trainer is accept to train trainee then trainee must transfer money to admin. Third is Ongoing, Ongoing is when trainee transfer money already trainer must train selected trainer. Fourth is Successful, Successful is when trainer train trainee completely money that trainee was transfered to admin will transfer to trainer. And all of these are 4 process.";
 // Edit page
 "edit_profile" = "Edit profile";
 "save" = "Save";
