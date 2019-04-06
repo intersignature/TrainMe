@@ -260,3 +260,10 @@
 "successful_change_card_information" = "การเปลี่ยนข้อมูลบัตรเครดิตสำเร็จ";
 "error_change_card_information" = "การเปลี่ยนข้อมูลบัตรเครดิตล้มเหลว";
 "edit_credit_card" = "แก้ไขข้อมูลบัตรเครดิต";
+// Add certificate
+"add_certificate" = "เพิ่มใบรับรอง";
+"certificate_detail" = "รายละเอียดใบรับรอง";
+"add_certificate_to_list" = "เพิ่มใบรับรองเข้าไปในตาราง";
+"would_you_like_to_delete_this_certificate" = "คุณต้องการลบใบรับรองนี้ใช่หรือไม่?";
+"certificate_detail" = "รายละเอียดของใบรับรอง";
+"please_select_certificate_image" = "กรุณาเลือกรูปของใบรับรอง";

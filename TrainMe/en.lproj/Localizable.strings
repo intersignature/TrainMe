@@ -260,3 +260,10 @@
 "successful_change_card_information" = "Successful change card information";
 "error_change_card_information" = "Error change card information";
 "edit_credit_card" = "Edit credit card";
+// Add certificate
+"add_certificate" = "Add certificate";
+"certificate_detail" = "Certificate detail";
+"add_certificate_to_list" = "Add certificate to list";
+"would_you_like_to_delete_this_certificate" = "Would you like to delete this certificate?";
+"certificate_detail" = "Certificate detail";
+"please_select_certificate_image" = "Please select certificate image";

@@ -43,21 +43,21 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     @objc func handleSelectCitizenImg() {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "From camera", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "from_camera".localized(), style: .default, handler: { (action) in
             let imgPicker = UIImagePickerController()
             imgPicker.delegate = self
             imgPicker.sourceType = .camera
             imgPicker.allowsEditing = false
             self.present(imgPicker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "From photo library", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "from_photo_library".localized(), style: .default, handler: { (action) in
             let imgPicker = UIImagePickerController()
             imgPicker.delegate = self
             imgPicker.sourceType = .photoLibrary
             imgPicker.allowsEditing = false
             self.present(imgPicker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -169,10 +169,10 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteBtn = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            let chooseAlert = UIAlertController(title: "", message: "Would you like to delete this certificate?", preferredStyle: .actionSheet)
-            chooseAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            chooseAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+        let deleteBtn = UITableViewRowAction(style: .destructive, title: "delete".localized()) { (action, indexPath) in
+            let chooseAlert = UIAlertController(title: "", message: "would_you_like_to_delete_this_certificate".localized(), preferredStyle: .actionSheet)
+            chooseAlert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
+            chooseAlert.addAction(UIAlertAction(title: "delete".localized(), style: .destructive, handler: { (action) in
                 self.selectedCerts.remove(at: indexPath.row)
                 self.cerificateTableView.beginUpdates()
                 self.cerificateTableView.deleteRows(at: [indexPath], with: .automatic)
@@ -196,10 +196,10 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
             self.selectedCerts.append(addCert)
             self.cerificateTableView.reloadData()
             self.certificateImg.image = nil // Clear image
-            self.certificateDetailTv.text = "Certificate detail"
+            self.certificateDetailTv.text = "certificate_detail".localized()
             self.selectedCerts.forEach { print($0.getData()) }
         } else {
-            self.createAlert(alertTitle: "Please select certificate image", alertMessage: "")
+            self.createAlert(alertTitle: "please_select_certificate_image".localized(), alertMessage: "")
         }
     }
     override func didReceiveMemoryWarning() {
@@ -215,12 +215,19 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         self.addCertificateToListBtn.layer.cornerRadius = 17
         self.cerificateTableView.tableFooterView = UIView()
         
+        self.title = "add_certificate".localized()
+        self.certificateDetailTv.text = "certificate_detail".localized()
+        self.addCertificateToListBtn.setTitle("add_certificate_to_list".localized(), for: .normal)
+        let rightBarBtn = UIBarButtonItem(title: "next".localized(), style: .done, target: self, action: #selector(nextBtnAction(_:)))
+        rightBarBtn.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = rightBarBtn
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
-        self.navigationItem.leftBarButtonItem?.title = "Back"
+//        self.navigationItem.leftBarButtonItem?.title = "Back"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -233,12 +240,12 @@ class AddCertificateViewController: UIViewController, UITableViewDataSource, UIT
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func nextBtnAction(_ sender: UIBarButtonItem) {
+    @objc func nextBtnAction(_ sender: UIBarButtonItem) {
         
         if self.selectedCerts.count > 0 {
             performSegue(withIdentifier: "AddCertToAddCitizen", sender: selectedCerts)
         } else {
-            self.createAlert(alertTitle: "Please select certificate image", alertMessage: "")
+            self.createAlert(alertTitle: "please_select_certificate_image".localized(), alertMessage: "")
         }
     }
     
