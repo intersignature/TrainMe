@@ -267,3 +267,9 @@
 "would_you_like_to_delete_this_certificate" = "คุณต้องการลบใบรับรองนี้ใช่หรือไม่?";
 "certificate_detail" = "รายละเอียดของใบรับรอง";
 "please_select_certificate_image" = "กรุณาเลือกรูปของใบรับรอง";
+// Add citizen card
+"add_citizencard" = "เพิ่มบัตรประจำตัวประชาชน";
+"citizen_card_true_copy_detail" = "กรุณาเซ็นสำเนาถูกต้องและอัพโหลดเข้าสู่ระบบเพือให้ผู้ดูแลตัดสินใจในการเป็นผู้ฝึกสอน";
+"please_select_citizen_card_image" = "กรุณาเลือกรูปของบัตรประจำตัวประชาชน";
+"successful_add_trainer_request" = "การร้องขอเป็นผู้ฝึกสอนสำเร็จ";
+"please_wait_for_admin_approve" = "กรุณารอการอนุมัติจากผู้ดูแลระบบ";

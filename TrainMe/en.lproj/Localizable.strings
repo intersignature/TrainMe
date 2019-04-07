@@ -267,3 +267,9 @@
 "would_you_like_to_delete_this_certificate" = "Would you like to delete this certificate?";
 "certificate_detail" = "Certificate detail";
 "please_select_certificate_image" = "Please select certificate image";
+// Add citizen card
+"add_citizencard" = "Add citizen card";
+"citizen_card_true_copy_detail" = "Please sign certified true copy and upload to admin for consider to be our trainer.";
+"please_select_citizen_card_image" = "Please select citizen card image";
+"successful_add_trainer_request" = "Successful add trainer request";
+"please_wait_for_admin_approve" = "Please wait for admin approve";

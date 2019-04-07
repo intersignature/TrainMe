@@ -4633,8 +4633,9 @@ detail</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="citizenTrueCopyLb" destination="YDV-6G-nIZ" id="ApM-2c-kAS"/>
                         <outlet property="citizencardImg" destination="gho-sY-JBL" id="Z26-kl-488"/>
-                        <outlet property="nextBtn" destination="Bbk-rJ-Y9Z" id="qm9-ac-fQy"/>
+                        <outlet property="saveBtn" destination="Bbk-rJ-Y9Z" id="iy0-ok-PVI"/>
                         <segue destination="frG-QR-vnD" kind="presentation" identifier="AddCitizenToMain" id="zkA-3h-6QM"/>
                     </connections>
                 </viewController>
@@ -7723,7 +7724,6 @@ detail</string>
         <image name="weight" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hak-Ej-Fgs"/>
         <segue reference="8je-Rt-v1G"/>
         <segue reference="L1Y-Q7-OXJ"/>
         <segue reference="lwg-sn-Rgh"/>

@@ -15,7 +15,8 @@ import FirebaseStorage
 class AddCitizencardViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
 
     @IBOutlet weak var citizencardImg: UIImageView!
-    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var citizenTrueCopyLb: UILabel!
+    @IBOutlet weak var saveBtn: UIButton!
     
     private var croppingStyle = CropViewCroppingStyle.default
     private var croppedRect = CGRect.zero
@@ -33,7 +34,7 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
         self.dbRef = Database.database().reference()
         self.storeRef = Storage.storage().reference()
         
-        nextBtn.layer.cornerRadius = 17
+        saveBtn.layer.cornerRadius = 17
         
         print("---\(String(describing: Auth.auth().currentUser?.displayName))---\(String(describing: Auth.auth().currentUser?.email))---\(String(describing: Auth.auth().currentUser?.uid))")
         
@@ -44,21 +45,21 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
     @objc func handleSelectCitizenImg() {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "From camera", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "from_camera".localized(), style: .default, handler: { (action) in
             let imgPicker = UIImagePickerController()
             imgPicker.delegate = self
             imgPicker.sourceType = .camera
             imgPicker.allowsEditing = false
             self.present(imgPicker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "From photo library", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "from_photo_library".localized(), style: .default, handler: { (action) in
             let imgPicker = UIImagePickerController()
             imgPicker.delegate = self
             imgPicker.sourceType = .photoLibrary
             imgPicker.allowsEditing = false
             self.present(imgPicker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -166,7 +167,7 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.uploadFileToStorage()
         } else {
-            self.createAlert(alertTitle: "Please select citizen image", alertMessage: "")
+            self.createAlert(alertTitle: "please_select_citizen_card_image".localized(), alertMessage: "")
         }
     }
     
@@ -264,8 +265,8 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
             }
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            let alert = UIAlertController(title: "Successful add trainer request", message: "Please wait for admin approve", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "successful_add_trainer_request".localized(), message: "please_wait_for_admin_approve".localized(), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized(), style: .default, handler: { (action) in
                 self.performSegue(withIdentifier: "AddCitizenToMain", sender: nil)
             }))
             self.present(alert, animated: true, completion: nil)
@@ -289,6 +290,10 @@ class AddCitizencardViewController: UIViewController, UIImagePickerControllerDel
         super.viewWillAppear(animated)
         
 //        self.setupNavigationStyle()
+        
+        self.title = "add_citizencard".localized()
+        self.citizenTrueCopyLb.text = "citizen_card_true_copy_detail".localized()
+        self.saveBtn.setTitle("save".localized(), for: .normal)
         
         self.citizencardImg.layer.cornerRadius = 5
         
