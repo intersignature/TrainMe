@@ -78,6 +78,7 @@
 "course" = "Course";
 "notification" = "Notification";
 // Book tab trainer
+"please_add_bank_information" = "Please add bank information";
 // Add schedule place trainer
 "add_schedule" = "Add schedule";
 "fill_in_start_date" = "Fill in start date";
@@ -218,6 +219,7 @@
 
 // Find your trainer trainee
 "find_your_trainer" = "Find your trainer";
+"no_place_details_for" = "No place details for";
 // Select trainer trainee
 "select_your_trainer" = "Select your trainer";
 // Select course trainee

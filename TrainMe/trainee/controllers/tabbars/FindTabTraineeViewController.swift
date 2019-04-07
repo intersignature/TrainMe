@@ -77,7 +77,7 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
             
             guard let place = place else {
                 print("No place details for \(placeId)")
-                self.createAlert(alertTitle: "No place details for \(placeId)", alertMessage: "")
+                self.createAlert(alertTitle: "\("no_place_details_for".localized()) \(placeId)", alertMessage: "")
                 return
             }
             

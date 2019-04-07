@@ -100,7 +100,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
             
             guard let place = place else {
                 print("No place details for \(placeId)")
-                self.createAlert(alertTitle: "No place details for \(placeId)", alertMessage: "")
+                self.createAlert(alertTitle: "\("no_place_details_for".localized()) \(placeId)", alertMessage: "")
                 return
             }
             
@@ -144,7 +144,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     @IBAction func bookPlaceTrainerBtnAction(_ sender: UIBarButtonItem) {
         
         if self.recpId == "-1" {
-            self.createAlert(alertTitle: "Please add bank information", alertMessage: "")
+            self.createAlert(alertTitle: "please_add_bank_information".localized(), alertMessage: "")
             return
         }
         let config = GMSPlacePickerConfig(viewport: nil)
