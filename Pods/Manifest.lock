@@ -158,6 +158,7 @@ PODS:
   - Stripe (14.0.0)
   - SwiftyJSON (4.2.0)
   - SWRevealViewController (2.3.0)
+  - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -184,6 +185,7 @@ DEPENDENCIES:
   - Stripe
   - SwiftyJSON
   - SWRevealViewController
+  - YouTubePlayer
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -225,6 +227,7 @@ SPEC REPOS:
     - Stripe
     - SwiftyJSON
     - SWRevealViewController
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -265,7 +268,8 @@ SPEC CHECKSUMS:
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: cab358377f96ef8c32414859906f7dc1785cc7b0
+PODFILE CHECKSUM: 6fdfe794684e01048eb7931ae13b779dd41663bf
 
 COCOAPODS: 1.5.3

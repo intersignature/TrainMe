@@ -83,6 +83,7 @@
 		B279BFB021E12170007BA390 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279BFAF21E12170007BA390 /* Notification.swift */; };
 		B27F7E51219AE13400AA9520 /* PaymentTrainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F7E50219AE13400AA9520 /* PaymentTrainerTableViewCell.swift */; };
 		B280D84D21387FDD00A59DB0 /* AddCourseTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */; };
+		B28311412268EF53003493E8 /* CourseVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28311402268EF53003493E8 /* CourseVideoTableViewCell.swift */; };
 		B285F3EC21ED1162003055D4 /* HelpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B285F3EB21ED1162003055D4 /* HelpTableViewCell.swift */; };
 		B28986AB21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */; };
 		B2901ECC21D3F958005ED68D /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2901ECB21D3F958005ED68D /* Review.swift */; };
@@ -230,6 +231,7 @@
 		B279BFAF21E12170007BA390 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B27F7E50219AE13400AA9520 /* PaymentTrainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTrainerTableViewCell.swift; sourceTree = "<group>"; };
 		B280D84C21387FDD00A59DB0 /* AddCourseTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseTrainerViewController.swift; sourceTree = "<group>"; };
+		B28311402268EF53003493E8 /* CourseVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseVideoTableViewCell.swift; sourceTree = "<group>"; };
 		B285F3EB21ED1162003055D4 /* HelpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpTableViewCell.swift; sourceTree = "<group>"; };
 		B28986AA21B6F2B500244FB5 /* OngoingProgressTraineeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingProgressTraineeTableViewController.swift; sourceTree = "<group>"; };
 		B2901ECB21D3F958005ED68D /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				B2B62D2421A60F200002B0E6 /* SuccessfulTrainerTableViewCell.swift */,
 				B236E7E321CA1D9B00FDFB0C /* EachOngoingTrainerTableViewCell.swift */,
 				B279BFAD21E11EBC007BA390 /* NotificationTrainerTableViewCell.swift */,
+				B28311402268EF53003493E8 /* CourseVideoTableViewCell.swift */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -836,6 +840,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -913,6 +918,7 @@
 				B202BD2F2150B7C300DE0790 /* Certificate.swift in Sources */,
 				B23E796C2132CA650082FD1E /* ProgressTabTrainerViewController.swift in Sources */,
 				B202BD2C21502AC400DE0790 /* CertificateTableViewCell.swift in Sources */,
+				B28311412268EF53003493E8 /* CourseVideoTableViewCell.swift in Sources */,
 				B2AB110921455EB900E84321 /* CourseDetailTableViewCell.swift in Sources */,
 				B2F198B2222D368F004274F0 /* SettingTableViewController.swift in Sources */,
 				B2AD810021D68E2B0077B802 /* ChangePasswordViewController.swift in Sources */,

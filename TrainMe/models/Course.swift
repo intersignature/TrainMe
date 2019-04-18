@@ -14,6 +14,7 @@ struct Course {
     var course: String = "-1"
     var courseContent: String = "-1"
     var courseType: String = "-1"
+    var courseVideoUrl: String = "FcAjc3MbkI0"
     var timeOfCourse: String = "-1"
     var courseDuration: String = "-1"
     var courseLevel: String = "-1"
