@@ -215,10 +215,10 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         let dictionaryValues = ["course_name": courseName,
                                 "course_content": courseContent,
-                                "course_type": courseType,
+                                "course_type": encryptedCourseType(courseType: courseType!),
                                 "time_of_course": timeOfCourse,
                                 "course_duration": courseDuration,
-                                "course_level": courseLevel,
+                                "course_level": encryptedCourseLevel(courseLevel: courseLevel!),
                                 "course_price": coursePrice,
                                 "course_language": courseLanguage]
         
@@ -238,6 +238,18 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
             self.present(alert, animated: true, completion: nil)
     
         }
+    }
+    
+    func encryptedCourseType(courseType: String) -> String {
+        
+        let courseTypeCode = ["healthy".localized(), "fit_and_firm".localized(), "competition".localized()]
+        return String(courseTypeCode.firstIndex(of: courseType.localized())!+1)
+    }
+    
+    func encryptedCourseLevel(courseLevel: String) -> String {
+        
+        let courseLevelCode = ["all_level".localized(), "intermediate".localized(), "beginner".localized(), "expert".localized()]
+        return String(courseLevelCode.firstIndex(of: courseLevel.localized())!+1)
     }
     
     func checkTextfield(course_name: String, course_content: String, course_type: String, time_of_course: String,

@@ -28,14 +28,26 @@ struct Course {
         self.key = key
         self.course = course
         self.courseContent = courseContent
-        self.courseType = courseType
+        self.courseType = decryptedCourseType(courseTypeCode: courseType)
         self.timeOfCourse = timeOfCourse
         self.courseDuration = courseDuration
-        self.courseLevel = courseLevel
+        self.courseLevel = decryptedCourseLevel(courseLevelCode: courseLevel)
         self.coursePrice = coursePrice
         self.courseLanguage = courseLanguage
     }
-
+    
+    func decryptedCourseType(courseTypeCode: String) -> String {
+        
+        let courseType = ["1": "healthy".localized(), "2": "fit_and_firm".localized(), "3": "competition".localized()]
+        return courseType[courseTypeCode]!
+    }
+    
+    func decryptedCourseLevel(courseLevelCode: String) -> String {
+        
+        let courseLevel = ["1": "all_level".localized(), "2": "intermediate".localized(), "3": "beginner".localized(), "4": "expert".localized()]
+        return courseLevel[courseLevelCode]!
+    }
+    
     func getData() -> String{
         
         return "key: \(self.key)\ncourse: \(self.course)\ncourseContent: \(self.courseContent)\ncourseType: \(self.courseType)\ntimeOfCourse: \(self.timeOfCourse)\ncourseDuration: \(self.courseDuration)\ncourseLevel: \(self.courseLevel)\ncoursePrice: \(self.coursePrice)\ncourseLanguage: \(self.courseLanguage)\n------------------"
