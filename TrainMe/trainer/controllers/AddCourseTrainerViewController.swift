@@ -15,6 +15,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
 
     @IBOutlet weak var courseTf: DTTextField!
     @IBOutlet weak var courseDetailTv: UITextView!
+    @IBOutlet weak var courseVideoUrlTf: DTTextField!
     @IBOutlet weak var courseTypeTf: DTTextField!
     @IBOutlet weak var timeOfCourseTf: DTTextField!
     @IBOutlet weak var courseDurationTf: DTTextField!
@@ -42,6 +43,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         courseTf.delegate = self
         courseDetailTv.delegate = self
+        courseVideoUrlTf.delegate = self
         courseTypeTf.delegate = self
         timeOfCourseTf.delegate = self
         courseDurationTf.delegate = self
@@ -81,6 +83,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         courseTf.resignFirstResponder()
+        courseVideoUrlTf.resignFirstResponder()
         courseTypeTf.resignFirstResponder()
         timeOfCourseTf.resignFirstResponder()
         courseDurationTf.resignFirstResponder()
@@ -117,6 +120,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         self.courseTf.placeholder = "course".localized()
         self.courseContentLb.text = "course_content".localized()
+        self.courseVideoUrlTf.placeholder = "course_video_id".localized()
         self.courseDetailTv.text = "course_detail".localized()
         self.courseTypeTf.placeholder = "course_type".localized()
         self.timeOfCourseTf.placeholder = "time_of_course".localized()
@@ -197,6 +201,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         let courseName = courseTf.text
         let courseContent = courseDetailTv.text
+        let courseVideoId = courseVideoUrlTf.text
         let courseType = courseTypeTf.text
         let timeOfCourse = timeOfCourseTf.text
         let courseDuration = courseDurationTf.text
@@ -204,7 +209,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         let coursePrice = coursePriceTf.text
         let courseLanguage = courseLanguageTf.text
         
-        if !checkTextfield(course_name: courseName!, course_content: courseContent!, course_type: courseType!, time_of_course: timeOfCourse!, course_duration: courseDuration!, course_level: courseLevel!, course_price: coursePrice!, course_language: courseLanguage!) {
+        if !checkTextfield(course_name: courseName!, course_content: courseContent!, courseVideoId: courseVideoId!, course_type: courseType!, time_of_course: timeOfCourse!, course_duration: courseDuration!, course_level: courseLevel!, course_price: coursePrice!, course_language: courseLanguage!) {
             self.view.removeBluerLoader()
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
@@ -215,6 +220,7 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         let dictionaryValues = ["course_name": courseName,
                                 "course_content": courseContent,
+                                "course_video_url": courseVideoId,
                                 "course_type": encryptedCourseType(courseType: courseType!),
                                 "time_of_course": timeOfCourse,
                                 "course_duration": courseDuration,
@@ -252,10 +258,10 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         return String(courseLevelCode.firstIndex(of: courseLevel.localized())!+1)
     }
     
-    func checkTextfield(course_name: String, course_content: String, course_type: String, time_of_course: String,
+    func checkTextfield(course_name: String, course_content: String, courseVideoId: String, course_type: String, time_of_course: String,
                         course_duration: String, course_level: String, course_price: String, course_language: String) -> Bool {
         
-        if course_name == "" || course_content == "" || course_type == "" || time_of_course == "" ||
+        if course_name == "" || course_content == "" || courseVideoId == "" || course_type == "" || time_of_course == "" ||
             course_duration == "" || course_level == "" || course_price == "" || course_language == "" {
             return false
         }

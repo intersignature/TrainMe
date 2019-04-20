@@ -132,6 +132,7 @@
 // Add course trainer
 "add_course" = "เพิ่มคอร์ส";
 "course_content" = "รายละเอียดของคอร์ส";
+"course_video_id" = "ไอดีวีดีโอของคอร์ส";
 "course_detail" = "รายละเอียดของคอร์ส ...";
 "course_type" = "ประเภทของคอร์ส";
 "time_of_course" = "จำนวนครั้งของคอร์ส";
