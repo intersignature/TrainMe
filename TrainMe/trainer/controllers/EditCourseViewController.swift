@@ -243,7 +243,15 @@ class EditCourseViewController: UIViewController, UITextViewDelegate, UITextFiel
         }))
         self.present(alert, animated: true, completion: nil)
         
-        self.course = Course(key: self.course.key, course: courseName!, courseContent: courseContent!, courseType: courseType!, timeOfCourse: timeOfCourse!, courseDuration: courseDuration!, courseLevel: courseLevel!, coursePrice: coursePrice!, courseLanguage: courseLanguage!)
+//        self.course = Course(key: self.course.key,
+//                             course: courseName!,
+//                             courseContent: courseContent!,
+//                             courseType: courseType!,
+//                             timeOfCourse: timeOfCourse!,
+//                             courseDuration: courseDuration!,
+//                             courseLevel: courseLevel!,
+//                             coursePrice: coursePrice!,
+//                             courseLanguage: courseLanguage!)
         }
     }
     

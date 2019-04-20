@@ -62,7 +62,16 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
                 for courseObjs in snapshot.children.allObjects as! [DataSnapshot] {
                     let courseObj = courseObjs.value as? [String: AnyObject]
                     
-                    let course = Course(key: courseObjs.key, course: courseObj?["course_name"] as! String, courseContent: courseObj?["course_content"] as! String, courseType: courseObj?["course_type"] as! String, timeOfCourse: courseObj?["time_of_course"] as! String, courseDuration: courseObj?["course_duration"] as! String, courseLevel: courseObj?["course_level"] as! String, coursePrice: courseObj?["course_price"] as! String, courseLanguage: courseObj?["course_language"] as! String)
+                    let course = Course(key: courseObjs.key,
+                                        course: courseObj?["course_name"] as! String,
+                                        courseContent: courseObj?["course_content"] as! String,
+                                        courseVideoUrl: courseObj?["course_video_url"] as! String,
+                                        courseType: courseObj?["course_type"] as! String,
+                                        timeOfCourse: courseObj?["time_of_course"] as! String,
+                                        courseDuration: courseObj?["course_duration"] as! String,
+                                        courseLevel: courseObj?["course_level"] as! String,
+                                        coursePrice: courseObj?["course_price"] as! String,
+                                        courseLanguage: courseObj?["course_language"] as! String)
                     self.courses.insert(course, at: 0)
                 }
                 self.tableView.reloadData()

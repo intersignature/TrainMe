@@ -18,9 +18,9 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
     var course:Course = Course()
     var titleList: [String] = ["name_course".localized(),
                                "course_content".localized(),
+                               "sadasdasdasd",
                                "course_type".localized(),
                                "time_of_course".localized(),
-                               "sadasdasdasd",
                                "course_duration".localized(),
                                "course_level".localized(),
                                "course_price".localized(),
@@ -56,9 +56,9 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
         descriptionList = []
         descriptionList.append(course.course)
         descriptionList.append(course.courseContent)
+        descriptionList.append(course.courseVideoUrl)
         descriptionList.append(course.courseType)
         descriptionList.append(course.timeOfCourse)
-        descriptionList.append(course.courseVideoUrl)
         descriptionList.append(course.courseDuration)
         descriptionList.append(course.courseLevel)
         descriptionList.append(course.coursePrice)
@@ -85,7 +85,7 @@ class ViewCourseTrainerViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row != 4 {
+        if indexPath.row != 2 {
             let currentSource = courseDescArray[indexPath.row]
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "CourseDetailTableViewCell") as! CourseDetailTableViewCell

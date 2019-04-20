@@ -6091,6 +6091,34 @@ detail</string>
                                             <outlet property="titleLb" destination="Slw-dn-eep" id="NsQ-1K-l2Q"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CourseVideoCell" rowHeight="162" id="1No-6c-mGd" customClass="CourseVideoTableViewCell" customModule="TrainMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="137" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1No-6c-mGd" id="ONE-f8-9kg">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="161.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzd-RG-8V5" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                                    <rect key="frame" x="40" y="17" width="240" height="128"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="240" id="IAn-8A-p6F"/>
+                                                        <constraint firstAttribute="height" constant="128" id="cbc-Wc-EPV"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pzd-RG-8V5" secondAttribute="bottom" constant="6" id="HU5-uI-mBy"/>
+                                                <constraint firstItem="pzd-RG-8V5" firstAttribute="leading" secondItem="ONE-f8-9kg" secondAttribute="leadingMargin" constant="25" id="Q35-bp-CQb"/>
+                                                <constraint firstItem="pzd-RG-8V5" firstAttribute="top" secondItem="ONE-f8-9kg" secondAttribute="topMargin" constant="6" id="q11-j8-RvB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pzd-RG-8V5" secondAttribute="trailing" constant="25" id="s4F-hy-NwC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="courseVideoView" destination="pzd-RG-8V5" id="5Gb-7z-P0C"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUX-Ai-Lsh">

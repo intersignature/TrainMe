@@ -26,6 +26,7 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     
     var titleList: [String] = ["name_course".localized(),
                                "course_detail".localized(),
+                               "dsfsdfSDF",
                                "course_type".localized(),
                                "time_of_course".localized(),
                                "course_duration".localized(),
@@ -59,6 +60,7 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
         self.descriptionList = []
         self.descriptionList.append(course.course)
         self.descriptionList.append(course.courseContent)
+        self.descriptionList.append(course.courseVideoUrl)
         self.descriptionList.append(course.courseType)
         self.descriptionList.append(course.timeOfCourse)
         self.descriptionList.append(course.courseDuration)
@@ -79,28 +81,35 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return self.titleList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let currentSource = courseDescArray[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseDetailByTraineeTableViewCell") as! CourseDetailTableViewCell
-        
-//        cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
-        cell.titleLb.text = titleList[indexPath.row]
-        cell.descriptionLb.delegate = self
-        cell.descriptionLb.setLessLinkWith(lessLink: "close".localized(), attributes: [.foregroundColor:UIColor.red], position: nil)
-        cell.layoutIfNeeded()
-        cell.descriptionLb.shouldCollapse = true
-        cell.descriptionLb.textReplacementType = currentSource.textReplacementType
-        cell.descriptionLb.numberOfLines = currentSource.numberOfLines
-        cell.descriptionLb.collapsed = states[indexPath.row]
-        cell.descriptionLb.text = currentSource.text
-        cell.descriptionLb.collapsedAttributedLink = NSAttributedString(string: "more".localized())
-        
-        return cell
+        if indexPath.row != 2 {
+            let currentSource = courseDescArray[indexPath.row]
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CourseDetailByTraineeTableViewCell") as! CourseDetailTableViewCell
+            
+            //        cell.setCourseDetail(title: titleList[indexPath.row], description: descriptionList[indexPath.row])
+            cell.titleLb.text = titleList[indexPath.row]
+            cell.descriptionLb.delegate = self
+            cell.descriptionLb.setLessLinkWith(lessLink: "close".localized(), attributes: [.foregroundColor:UIColor.red], position: nil)
+            cell.layoutIfNeeded()
+            cell.descriptionLb.shouldCollapse = true
+            cell.descriptionLb.textReplacementType = currentSource.textReplacementType
+            cell.descriptionLb.numberOfLines = currentSource.numberOfLines
+            cell.descriptionLb.collapsed = states[indexPath.row]
+            cell.descriptionLb.text = currentSource.text
+            cell.descriptionLb.collapsedAttributedLink = NSAttributedString(string: "more".localized())
+            
+            return cell
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CourseVideoCell") as! CourseVideoTableViewCell
+            cell.getVideo(videoCode: descriptionList[indexPath.row])
+            return cell
+        }
     }
     
     func preparedSources() {

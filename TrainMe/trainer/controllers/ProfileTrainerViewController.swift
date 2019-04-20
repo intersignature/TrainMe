@@ -261,6 +261,7 @@ class ProfileTrainerViewController: UIViewController, UITableViewDelegate, UITab
             self.courseObj[courseId] = Course(key: snapshot.key,
                                               course: value["course_name"] as! String,
                                               courseContent: value["course_content"] as! String,
+                                              courseVideoUrl: value["course_video_url"] as! String,
                                               courseType: value["course_type"] as! String,
                                               timeOfCourse: value["time_of_course"] as! String,
                                               courseDuration: value["course_duration"] as! String,
