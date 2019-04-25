@@ -633,16 +633,26 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         let alert = UIAlertController(title: "confirm_to_decline".localized(), message: "", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: { (action) in
             
-            self.view.showBlurLoader()
-            self.tabBarController?.tabBar.isHidden = true
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            
-            print("Decline OK at pos: section: \(declineIndexPath.section) row: \(declineIndexPath.row)")
-            self.deletePendingData(indexPath: declineIndexPath, from: "decline")
+            if self.checkReason(reasonTf: alert.textFields![0]) {
+                self.view.showBlurLoader()
+                self.tabBarController?.tabBar.isHidden = true
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                
+                print("Decline OK at pos: section: \(declineIndexPath.section) row: \(declineIndexPath.row)")
+                print("eeeee \(alert.textFields![0].text!)")
+                //            self.deletePendingData(indexPath: declineIndexPath, from: "decline")
+            } else {
+                self.createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
+            }
         }))
+        alert.addTextField { (reasonTf) in
+            reasonTf.placeholder = "why_you_decline".localized()
+        }
         alert.addAction(UIAlertAction(title: "cancel".localized(), style: UIAlertAction.Style.destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func checkReason(reasonTf: UITextField) -> Bool { return reasonTf.text! != "" ? true : false }
     
     func changeTrainerAcceptStatus(indexPath: IndexPath) {
         

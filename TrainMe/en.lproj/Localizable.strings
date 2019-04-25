@@ -107,6 +107,7 @@
 "price" = "Price";
 "bath" = "Bath";
 "times" = "times";
+"why_you_decline" = "Why you decline?";
 // ongoing and successful progress page trainer (Use from confirmation amd payment progress page)
 "schedule" = "SCHEDULE";
 "pending" = "Pending";

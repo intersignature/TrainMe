@@ -107,6 +107,7 @@
 "price" = "ราคา";
 "bath" = "บาท";
 "times" = "ครั้ง";
+"why_you_decline" = "ทำไมคุณถึงยกเลิก?";
 // ongoing and successful progress page trainer (Use from confirmation amd payment progress page)
 "schedule" = "ตารางการฝึก";
 "pending" = "รอ";
