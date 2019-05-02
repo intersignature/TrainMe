@@ -277,3 +277,6 @@
 "please_select_citizen_card_image" = "กรุณาเลือกรูปของบัตรประจำตัวประชาชน";
 "successful_add_trainer_request" = "การร้องขอเป็นผู้ฝึกสอนสำเร็จ";
 "please_wait_for_admin_approve" = "กรุณารอการอนุมัติจากผู้ดูแลระบบ";
+// Notification trainee
+"report_trainer_decline" = "รายงานการยกเลิกจากเทรนเนอร์";
+"report_trainer" = "รายงานเทรนเนอร์";

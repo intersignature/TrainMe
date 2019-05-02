@@ -277,3 +277,6 @@
 "please_select_citizen_card_image" = "Please select citizen card image";
 "successful_add_trainer_request" = "Successful add trainer request";
 "please_wait_for_admin_approve" = "Please wait for admin approve";
+// Notification trainee
+"report_trainer_decline" = "Report trainer decline";
+"report_trainer" = "Report trainer";

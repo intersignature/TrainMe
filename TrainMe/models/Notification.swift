@@ -17,10 +17,11 @@ class Notification {
     var isRead: String = "-1"
     var timeStamp: String = "-1"
     var canReport: String = "-1"
+    var isReport: String = "-1"
     
     init() {}
     
-    init(id: String, toUid: String, fromUid: String, description: String, isRead: String, timeStamp: String) {
+    init(id: String, toUid: String, fromUid: String, description: String, isRead: String, timeStamp: String, isReport: String) {
         
         self.id = id
         self.toUid = toUid
@@ -29,6 +30,7 @@ class Notification {
         self.isRead = isRead
         self.timeStamp = timeStamp
         self.checkReport(description: self.description)
+        self.isReport = isReport
     }
     
     func checkReport(description: String) {
@@ -43,3 +45,4 @@ class Notification {
         return "id: \(self.id)\ntoUid: \(self.toUid)\nfromUid: \(self.fromUid)\ndescription: \(self.description)\nisRead: \(self.isRead)\ntimeStamp: \(self.timeStamp)\ncanReport: \(self.canReport)"
     }
 }
+// 0 1

@@ -67,7 +67,8 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
                                                 fromUid: notificationVal["from_uid"] as! String,
                                                 description: notificationVal["description"] as! String,
                                                 isRead: notificationVal["is_read"] as! String,
-                                                timeStamp: notificationVal["timestamp"] as! String)
+                                                timeStamp: notificationVal["timestamp"] as! String,
+                                                isReport: notificationVal["is_report"] as! String)
                 
                 if notification.canReport == "1" { self.getReport(notificationCanReport: notification) }
                 self.notificationArr.append(notification)
@@ -169,8 +170,9 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
         cell.timeAgoLb.text = Date().getDiffToCurentTime(from: self.notificationArrSort[indexPath.row].timeStamp)
         cell.descriptionLb.text = self.notificationArrSort[indexPath.row].description
         cell.reportBtn.accessibilityLabel = "\(notificationArrSort[indexPath.row].id) \(notificationArrSort[indexPath.row].fromUid) \(notificationArrSort[indexPath.row].toUid)" // NotificationId, trainerId, traineeId
+        cell.reportBtn.setTitle("report".localized(), for: .normal)
         cell.reportBtn.addTarget(self, action: #selector(reportButtonAction(reportBtn:)), for: .touchUpInside)
-        if notificationArrSort[indexPath.row].canReport == "0" {
+        if notificationArrSort[indexPath.row].canReport == "0" || notificationArrSort[indexPath.row].isReport == "1" {
             cell.reportBtn.isHidden = true
         }
         return cell
@@ -181,9 +183,9 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
         print(reportBtn.accessibilityLabel! as String)
         let reportInfo = reportBtn.accessibilityLabel?.components(separatedBy: " ")
         
-        let reportAlert = UIAlertController(title: "Report trainer decline", message: "", preferredStyle: .alert)
+        let reportAlert = UIAlertController(title: "report_trainer_decline".localized(), message: "", preferredStyle: .alert)
         reportAlert.addTextField { (reportTf) in
-            reportTf.placeholder = "Report trainer"
+            reportTf.placeholder = "report_trainer".localized()
         }
         reportAlert.addAction(UIAlertAction(title: "confirm".localized(), style: .default, handler: { (action) in
             print(reportAlert.textFields![0].text! as String)
@@ -201,7 +203,19 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
     func addReportTrainer(notificationId notiId: String, trainerId: String, traineeId: String, reportMessage: String) {
         
         let reportData = ["report_message": reportMessage, "notification_id": notiId]
-        self.ref.child("report_from_decline").child(trainerId).child(traineeId).updateChildValues(reportData) { (err, ref) in
+        self.ref.child("report_from_decline").child(trainerId).child(traineeId).childByAutoId().updateChildValues(reportData) { (err, ref) in
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            self.changeIsReportStatus(traineeId: traineeId, notificationId: notiId)
+        }
+    }
+    
+    func changeIsReportStatus(traineeId: String, notificationId notiId: String) {
+        
+        let reportStatusData = ["is_report": "1"]
+        self.ref.child("notifications").child(traineeId).child(notiId).updateChildValues(reportStatusData) { (err, ref) in
             if let err = err {
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return

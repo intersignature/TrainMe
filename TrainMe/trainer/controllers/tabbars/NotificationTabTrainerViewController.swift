@@ -65,7 +65,8 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
                                                 fromUid: notificationVal["from_uid"] as! String,
                                                 description: notificationVal["description"] as! String,
                                                 isRead: notificationVal["is_read"] as! String,
-                                                timeStamp: notificationVal["timestamp"] as! String)
+                                                timeStamp: notificationVal["timestamp"] as! String,
+                                                isReport: notificationVal["is_report"] as! String)
                 self.notificationArr.append(notification)
             })
             
