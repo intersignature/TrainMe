@@ -60,7 +60,8 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
                     self.getProfileObj(uid: notificationVal["from_uid"] as! String)
                 }
                 
-                let notification = Notification(toUid: self.currentUser.uid,
+                let notification = Notification(id: notificationKey,
+                                                toUid: self.currentUser.uid,
                                                 fromUid: notificationVal["from_uid"] as! String,
                                                 description: notificationVal["description"] as! String,
                                                 isRead: notificationVal["is_read"] as! String,

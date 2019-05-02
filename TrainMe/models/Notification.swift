@@ -10,24 +10,36 @@ import Foundation
 
 class Notification {
     
+    var id: String = "-1"
     var toUid: String = "-1"
     var fromUid: String = "-1"
     var description: String = "-1"
     var isRead: String = "-1"
     var timeStamp: String = "-1"
+    var canReport: String = "-1"
     
     init() {}
     
-    init(toUid: String, fromUid: String, description: String, isRead: String, timeStamp: String) {
+    init(id: String, toUid: String, fromUid: String, description: String, isRead: String, timeStamp: String) {
         
+        self.id = id
         self.toUid = toUid
         self.fromUid = fromUid
         self.description = description
         self.isRead = isRead
         self.timeStamp = timeStamp
+        self.checkReport(description: self.description)
+    }
+    
+    func checkReport(description: String) {
+        if description.contains("Trainer was declined your booking because") {
+            canReport = "1"
+        } else {
+            canReport = "0"
+        }
     }
     
     func getData() -> String {
-        return "toUid: \(self.toUid)\nfromUid: \(self.fromUid)\ndescription: \(self.description)\nisRead: \(self.isRead)\ntimeStamp: \(self.timeStamp)\n"
+        return "id: \(self.id)\ntoUid: \(self.toUid)\nfromUid: \(self.fromUid)\ndescription: \(self.description)\nisRead: \(self.isRead)\ntimeStamp: \(self.timeStamp)\ncanReport: \(self.canReport)"
     }
 }

@@ -62,11 +62,14 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
                     self.getProfileObj(uid: notificationVal["from_uid"] as! String)
                 }
                 
-                let notification = Notification(toUid: self.currentUser.uid,
+                let notification = Notification(id: notificationKey,
+                                                toUid: self.currentUser.uid,
                                                 fromUid: notificationVal["from_uid"] as! String,
                                                 description: notificationVal["description"] as! String,
                                                 isRead: notificationVal["is_read"] as! String,
                                                 timeStamp: notificationVal["timestamp"] as! String)
+                
+                if notification.canReport == "1" { self.getReport(notificationCanReport: notification) }
                 self.notificationArr.append(notification)
             })
             
@@ -81,6 +84,11 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
             self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
             return
         }
+    }
+    
+    func getReport(notificationCanReport noti: Notification) {
+        
+        
     }
     
     func getProfileObj(uid: String) {
@@ -153,13 +161,52 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationTraineeTableCell") as! NotificationTrainerTableViewCell
+        print(notificationArrSort[indexPath.row].getData())
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationTraineeTableCell") as! NotificationTraineeTableViewCell
         cell.isReadView.isHidden = notificationArrSort[indexPath.row].isRead == "1" ? true : false
         cell.profileImg.downloaded(from: (self.userProfileObj[self.notificationArrSort[indexPath.row].fromUid]?.profileImageUrl)!)
         cell.nameLb.text = self.userProfileObj[self.notificationArrSort[indexPath.row].fromUid]?.fullName
         cell.timeAgoLb.text = Date().getDiffToCurentTime(from: self.notificationArrSort[indexPath.row].timeStamp)
         cell.descriptionLb.text = self.notificationArrSort[indexPath.row].description
+        cell.reportBtn.accessibilityLabel = "\(notificationArrSort[indexPath.row].id) \(notificationArrSort[indexPath.row].fromUid) \(notificationArrSort[indexPath.row].toUid)" // NotificationId, trainerId, traineeId
+        cell.reportBtn.addTarget(self, action: #selector(reportButtonAction(reportBtn:)), for: .touchUpInside)
+        if notificationArrSort[indexPath.row].canReport == "0" {
+            cell.reportBtn.isHidden = true
+        }
         return cell
+    }
+    
+    @objc func reportButtonAction(reportBtn: UIButton) {
+        
+        print(reportBtn.accessibilityLabel! as String)
+        let reportInfo = reportBtn.accessibilityLabel?.components(separatedBy: " ")
+        
+        let reportAlert = UIAlertController(title: "Report trainer decline", message: "", preferredStyle: .alert)
+        reportAlert.addTextField { (reportTf) in
+            reportTf.placeholder = "Report trainer"
+        }
+        reportAlert.addAction(UIAlertAction(title: "confirm".localized(), style: .default, handler: { (action) in
+            print(reportAlert.textFields![0].text! as String)
+            if reportAlert.textFields![0].text! == "" {
+                self.createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
+            } else {
+                self.addReportTrainer(notificationId: reportInfo![0], trainerId: reportInfo![1], traineeId: reportInfo![2], reportMessage: reportAlert.textFields![0].text!)
+            }
+        }))
+        reportAlert.addAction(UIAlertAction(title: "cancel".localized(), style: .destructive, handler: nil))
+            
+        present(reportAlert, animated: true, completion: nil)
+    }
+    
+    func addReportTrainer(notificationId notiId: String, trainerId: String, traineeId: String, reportMessage: String) {
+        
+        let reportData = ["report_message": reportMessage, "notification_id": notiId]
+        self.ref.child("report_from_decline").child(trainerId).child(traineeId).updateChildValues(reportData) { (err, ref) in
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

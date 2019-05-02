@@ -640,7 +640,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 
                 print("Decline OK at pos: section: \(declineIndexPath.section) row: \(declineIndexPath.row)")
                 print("eeeee \(alert.textFields![0].text!)")
-                //            self.deletePendingData(indexPath: declineIndexPath, from: "decline")
+                self.deletePendingData(indexPath: declineIndexPath, from: "decline", why: alert.textFields![0].text)
             } else {
                 self.createAlert(alertTitle: "please_fill_in_the_blank".localized(), alertMessage: "")
             }
@@ -668,12 +668,14 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 return
             }
             self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
-            self.addNotificationDatabase(toUid: changeTrainerPending.trainee_id, description: "Trainer was accepted your booking")
+            self.addNotificationDatabase(toUid: changeTrainerPending.trainee_id, description: "Trainer was accepted your booking", reason: nil)
+            //TODO: RECHECK
+            self.deletePendingData(indexPath: indexPath, from: "accept", why: nil)
             
 //            if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
 //                self.pendingDataListsMatch.remove(at: indexPath.section)
 //            } else {
-//                self.deletePendingData(indexPath: indexPath, from: "accept")
+//                self.deletePendingData(indexPath: indexPath, from: "accept", why: nil)
 //            }
 //            self.progressTableView.reloadData()
         }
@@ -734,7 +736,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         }
     }
     
-    func deletePendingData(indexPath: IndexPath, from: String) {
+    func deletePendingData(indexPath: IndexPath, from: String, why: String?) {
         
         if from == "decline" {
             
@@ -746,8 +748,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                     self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                     return
                 }
-                
-                self.addNotificationDatabase(toUid: pendingData.trainee_id, description: "Trainer was declined your booking")
+                self.addNotificationDatabase(toUid: pendingData.trainee_id, description: "Trainer was declined your booking because \(why!)", reason: why)
 //                self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
 //                if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
 //                    self.pendingDataListsMatch.remove(at: indexPath.section)
@@ -758,12 +759,14 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
             
             for (index, eachPendingDetail) in self.pendingDataListsMatch[indexPath.section].pendingDetail.enumerated() {
                 self.ref.child("pending_schedule_detail").child(eachPendingDetail.trainer_id).child(eachPendingDetail.schedule_key).child(eachPendingDetail.trainee_id).removeValue(completionBlock: { (err, ref) in
-
+                    
                     if let err = err {
                         print(err.localizedDescription)
                         self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                         return
                     }
+                    
+                    self.addNotificationDatabase(toUid: eachPendingDetail.trainee_id, description: "Your request was declined because trainer is accept another trainee", reason: nil)
 //
 //                    if index == self.pendingDataListsMatch[indexPath.section].pendingDetail.count-1 {
 //                        self.pendingDataListsMatch.remove(at: indexPath.section)
@@ -773,6 +776,21 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 })
                 print("###\(index): \(eachPendingDetail.getData())")
             }
+        }
+    }
+    
+    func addDeclineReason(trainerId: String, traineeId: String, notiId:String, reason: String) {
+        
+        let reasonData = ["reason": reason]
+        
+        self.ref.child("decline_reason").child(trainerId).child(traineeId).child(notiId).updateChildValues(reasonData) { (err, ref) in
+            if let err = err {
+                self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
+                return
+            }
+            self.view.removeBluerLoader()
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.tabBarController?.tabBar.isHidden = false
         }
     }
     
@@ -1010,7 +1028,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         }
     }
     
-    func addNotificationDatabase(toUid: String, description: String) {
+    func addNotificationDatabase(toUid: String, description: String, reason: String?) {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -1022,15 +1040,20 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                                 "timestamp": currentStringOfDate,
                                 "is_read": "0"]
         
-        self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
+        self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref2) in
             if let err = err {
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 print(err.localizedDescription)
                 return
             }
-            self.view.removeBluerLoader()
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.tabBarController?.tabBar.isHidden = false
+            if reason == nil {
+                self.view.removeBluerLoader()
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.tabBarController?.tabBar.isHidden = false
+            } else {
+                let notiId = ref2.key?.components(separatedBy: "/")
+                self.addDeclineReason(trainerId: self.currentUser.uid, traineeId: toUid, notiId: notiId!.last!, reason: reason!)
+            }
         }
     }
     

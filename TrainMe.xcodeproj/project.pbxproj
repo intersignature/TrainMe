@@ -111,6 +111,7 @@
 		B2CE11A621BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */; };
 		B2CE11A821BC26730042E4A6 /* EachOngoingTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE11A721BC26730042E4A6 /* EachOngoingTraineeViewController.swift */; };
 		B2CFF0F8212D4BF9003BF174 /* Register3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */; };
+		B2D6545F227AF90B005D335F /* NotificationTraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6545E227AF90B005D335F /* NotificationTraineeTableViewCell.swift */; };
 		B2EB023E21D90B4E00CE586D /* FullReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EB023D21D90B4E00CE586D /* FullReviewTableViewCell.swift */; };
 		B2EEE32C21B1AF0200E2AEB0 /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */; };
 		B2F198B2222D368F004274F0 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F198B1222D368F004274F0 /* SettingTableViewController.swift */; };
@@ -265,6 +266,7 @@
 		B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachOngoingTraineeTableViewCell.swift; sourceTree = "<group>"; };
 		B2CE11A721BC26730042E4A6 /* EachOngoingTraineeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachOngoingTraineeViewController.swift; sourceTree = "<group>"; };
 		B2CFF0F7212D4BF9003BF174 /* Register3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register3ViewController.swift; sourceTree = "<group>"; };
+		B2D6545E227AF90B005D335F /* NotificationTraineeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTraineeTableViewCell.swift; sourceTree = "<group>"; };
 		B2EB023D21D90B4E00CE586D /* FullReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullReviewTableViewCell.swift; sourceTree = "<group>"; };
 		B2EEE32B21B1AF0200E2AEB0 /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
 		B2F198B1222D368F004274F0 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				B2CE11A521BB27170042E4A6 /* EachOngoingTraineeTableViewCell.swift */,
 				B293FACC21CFE59100ED792D /* ReviewProfileTraineeTableViewCell.swift */,
 				B2EB023D21D90B4E00CE586D /* FullReviewTableViewCell.swift */,
+				B2D6545E227AF90B005D335F /* NotificationTraineeTableViewCell.swift */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				B2CE11A821BC26730042E4A6 /* EachOngoingTraineeViewController.swift in Sources */,
 				B2168B9A21D91BF100211223 /* HelpViewController.swift in Sources */,
 				B236E7DA21C8FFC400FDFB0C /* RatingController.swift in Sources */,
+				B2D6545F227AF90B005D335F /* NotificationTraineeTableViewCell.swift in Sources */,
 				B20E30C8212C1B42001B43B1 /* RegisterViewController.swift in Sources */,
 				B2115E1C21D561AC0074C02A /* EditProfileTraineeViewController.swift in Sources */,
 				B23E7DB9213FB5E7005E7F7F /* CustomSegmentedControl.swift in Sources */,
