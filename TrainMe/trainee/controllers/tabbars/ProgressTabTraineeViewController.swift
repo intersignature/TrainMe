@@ -916,7 +916,8 @@ class ProgressTabTraineeViewController: UIViewController, UITableViewDelegate, U
         let notificationData = ["from_uid": self.currentUser.uid,
                                 "description": description,
                                 "timestamp": Date().getCurrentTime(),
-                                "is_read": "0"]
+                                "is_read": "0",
+                                "is_report": "0"]
         
         self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref) in
             if let err = err {

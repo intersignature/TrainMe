@@ -667,7 +667,7 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-            self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
+//            self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
             self.addNotificationDatabase(toUid: changeTrainerPending.trainee_id, description: "Trainer was accepted your booking", reason: nil)
             //TODO: RECHECK
             self.deletePendingData(indexPath: indexPath, from: "accept", why: nil)
@@ -1038,7 +1038,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         let notificationData = ["from_uid": self.currentUser.uid,
                                 "description": description,
                                 "timestamp": currentStringOfDate,
-                                "is_read": "0"]
+                                "is_read": "0",
+                                "is_report": "0"]
         
         self.ref.child("notifications").child(toUid).childByAutoId().updateChildValues(notificationData) { (err, ref2) in
             if let err = err {
