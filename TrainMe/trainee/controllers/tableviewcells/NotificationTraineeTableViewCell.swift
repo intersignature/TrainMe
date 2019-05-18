@@ -10,7 +10,6 @@ import UIKit
 
 class NotificationTraineeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var isReadView: UIView!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var timeAgoLb: UILabel!
@@ -22,7 +21,6 @@ class NotificationTraineeTableViewCell: UITableViewCell {
         // Initialization code
         
         self.setProfileImageRound()
-        self.setIsReadViewRound()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,12 +34,5 @@ class NotificationTraineeTableViewCell: UITableViewCell {
         self.profileImg.layer.masksToBounds = false
         self.profileImg.layer.cornerRadius = self.profileImg.frame.height/2
         self.profileImg.clipsToBounds = true
-    }
-    
-    func setIsReadViewRound() {
-        
-        self.isReadView.layer.masksToBounds = false
-        self.isReadView.layer.cornerRadius = self.isReadView.frame.height/2
-        self.isReadView.clipsToBounds = true
     }
 }

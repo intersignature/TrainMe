@@ -218,9 +218,11 @@ class AddCourseTrainerViewController: UIViewController, UITextViewDelegate, UITe
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
+        guard let courseVideoIdSplited = courseVideoId?.components(separatedBy: "/").last else { return }
+        
         let dictionaryValues = ["course_name": courseName,
                                 "course_content": courseContent,
-                                "course_video_url": courseVideoId,
+                                "course_video_url": courseVideoIdSplited,
                                 "course_type": encryptedCourseType(courseType: courseType!),
                                 "time_of_course": timeOfCourse,
                                 "course_duration": courseDuration,

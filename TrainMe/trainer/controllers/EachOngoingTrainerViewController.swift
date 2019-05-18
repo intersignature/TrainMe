@@ -89,7 +89,13 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "EachOngoingTrainerTableViewCell") as! EachOngoingTrainerTableViewCell
         cell.countLb.text = self.selectedOngoing.eachOngoingDetails[indexPath.row].count
-        cell.dateAndTimeScheduleLb.text = "\(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_date) \(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_time)"
+        
+        if self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_date == "-1" || self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_time == "-1" {
+            cell.dateAndTimeScheduleLb.text = "-"
+        } else {
+            cell.dateAndTimeScheduleLb.text = "\(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_date) \(self.selectedOngoing.eachOngoingDetails[indexPath.row].start_train_time)"
+        }
+        
         cell.changeScheduleBtn.setTitle("change_schedule".localized(), for: .normal)
         cell.confirmSuccessTrainBtn.setTitle("confirm".localized(), for: .normal)
         cell.changeScheduleBtn.tag = indexPath.row

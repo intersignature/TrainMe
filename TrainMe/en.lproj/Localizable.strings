@@ -227,7 +227,7 @@
 // Select course trainee
 "select_course" = "Select course";
 // View course by trainee
-"book" = "ิBook";
+"book" = "Book";
 "booking_trainer" = "Booking trainer";
 "trainer" = "Trainer";
 "booking_successful" = "Booking successful";

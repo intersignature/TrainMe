@@ -189,7 +189,8 @@ class ViewController: UIViewController {
                                         "height": "-1",
                                         "gender": self.gender,
                                         "profileImageUrl": url?.absoluteString,
-                                        "omise_cus_id": "-1"]
+                                        "omise_cus_id": "-1",
+                                        "ban": false] as [String : Any]
                 let values = [uid: dictionaryValues]
                 
                 let profileChangeRequest = Auth.auth().currentUser?.createProfileChangeRequest()

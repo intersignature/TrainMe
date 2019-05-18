@@ -154,7 +154,6 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationTrainerTableCell") as! NotificationTrainerTableViewCell
-        cell.isReadView.isHidden = notificationArrSort[indexPath.row].isRead == "1" ? true : false
         cell.profileImg.downloaded(from: (self.userProfileObj[self.notificationArrSort[indexPath.row].fromUid]?.profileImageUrl)!)
         cell.nameLb.text = self.userProfileObj[self.notificationArrSort[indexPath.row].fromUid]?.fullName
         cell.timeAgoLb.text = Date().getDiffToCurentTime(from: self.notificationArrSort[indexPath.row].timeStamp)

@@ -227,6 +227,10 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.accountNameTf.text = recpData.bankAccount.name
         self.accountNumberTf.text = "xxxxxx\(recpData.bankAccount.lastDigits)"
         self.bankNameTf.text = self.allBankName[self.allBankAbbreviation.firstIndex(of: recpData.bankAccount.brand)!]
+        self.accountNameTf.attributedPlaceholder = NSAttributedString(string: "account_name".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.accountNumberTf.attributedPlaceholder = NSAttributedString(string: "account_number".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.bankNameTf.attributedPlaceholder = NSAttributedString(string: "bank_name".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
         if recpData.verified! {
             self.bankNameTf.isEnabled = false
             self.confirmBtn.setTitle("edit".localized(), for: .normal)
