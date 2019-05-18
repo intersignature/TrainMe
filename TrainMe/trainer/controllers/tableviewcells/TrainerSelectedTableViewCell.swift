@@ -29,6 +29,8 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDataSource,
     
     var time: [BookPlaceDetail] = []
     
+    var isTrainer: Bool = false
+    
     func setDataToCell(trainerProfile: UserProfile, tag: Int, time: [BookPlaceDetail], buttonIdPendingAlready: [String]) {
         
         self.trainerNo = tag
@@ -97,7 +99,8 @@ class TrainerSelectedTableViewCell: UITableViewCell, UICollectionViewDataSource,
         }
         cell.delegate = self
         cell.setDataToButton(bookPlaceDetail: time[indexPath.row])
-
+        cell.timeBtn.isEnabled = !isTrainer
+        
         return cell
     }
 

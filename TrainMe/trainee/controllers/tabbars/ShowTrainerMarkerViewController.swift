@@ -96,6 +96,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
             print("temptime: \(tempTimes)")
         }
         
+        cell.isTrainer = true
         cell.setDataToCell(trainerProfile: trainerProfiles[trainerIdList.firstIndex(of: trainerObjects[indexPath.section].trainerList[indexPath.row])!], tag: indexPath.row, time: tempTimes, buttonIdPendingAlready: self.buttonIdPendingAlready)
         return cell
     }
