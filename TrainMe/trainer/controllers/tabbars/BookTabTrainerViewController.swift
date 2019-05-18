@@ -57,9 +57,6 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
-//        getBookPlaceDict()
-        
     }
     
     func getRecpData() {
@@ -194,7 +191,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
             print("selected place")
             performSegue(withIdentifier: "PickYourPlaceToAddSchedulePlace", sender: self)
         } else if checkDidSelectPlace == 0 {
-//            getBookPlaceDict()
+            getBookPlaceDict()
             print("not selected place")
         }
 //        checkDidSelectPlace ?? 0 {print("seleect place")} else {print("not select place")}
@@ -229,12 +226,12 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
     
     override func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
-//        googleMapsView.clear()
-//        let marker = GMSMarker(position: place.coordinate)
-//        marker.title = place.name
-//        marker.snippet = place.formattedAddress
-//        marker.map = googleMapsView
-//        self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: place.name, snippet: place.formattedAddress!)
+        googleMapsView.clear()
+        let marker = GMSMarker(position: place.coordinate)
+        marker.title = place.name
+        marker.snippet = place.formattedAddress
+        marker.map = googleMapsView
+        self.createMarkerOnMapView(lat: place.coordinate.latitude, long: place.coordinate.longitude, title: place.name, snippet: place.formattedAddress!)
         googleMapsView.animate(toLocation: place.coordinate)
         googleMapsView.animate(toZoom: 15.0)
         self.dismiss(animated: true, completion: nil)

@@ -172,8 +172,10 @@ class NotificationTabTraineeViewController: UIViewController, UITableViewDelegat
         cell.reportBtn.accessibilityLabel = "\(notificationArrSort[indexPath.row].id) \(notificationArrSort[indexPath.row].fromUid) \(notificationArrSort[indexPath.row].toUid)" // NotificationId, trainerId, traineeId
         cell.reportBtn.setTitle("report".localized(), for: .normal)
         cell.reportBtn.addTarget(self, action: #selector(reportButtonAction(reportBtn:)), for: .touchUpInside)
-        if notificationArrSort[indexPath.row].canReport == "0" || notificationArrSort[indexPath.row].isReport == "1" {
+        if notificationArrSort[indexPath.row].canReport == "0" || notificationArrSort[indexPath.row].isReport == "1" || notificationArrSort[indexPath.row].isReport == "-1" {
             cell.reportBtn.isHidden = true
+        } else {
+            cell.reportBtn.isHidden = false
         }
         return cell
     }
