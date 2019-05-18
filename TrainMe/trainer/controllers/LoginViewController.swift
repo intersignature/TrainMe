@@ -84,17 +84,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.createAlert(alertTitle:err.localizedDescription, alertMessage: "")
                 return
             }
-            self.getRole()
-            
-            // Remark: Get verify email
-//            if (Auth.auth().currentUser?.isEmailVerified)! {
-//                self.getRole()
-//            }
-//            else {
-//                try! Auth.auth().signOut()
-//                self.view.removeBluerLoader()
-//                self.createAlert(alertTitle: "please_verify_email".localized(), alertMessage: "")
-//            }
+
+            if (Auth.auth().currentUser?.isEmailVerified)! {
+                self.getRole()
+            }
+            else {
+                try! Auth.auth().signOut()
+                self.view.removeBluerLoader()
+                self.createAlert(alertTitle: "please_verify_email".localized(), alertMessage: "")
+            }
         }
     }
     
