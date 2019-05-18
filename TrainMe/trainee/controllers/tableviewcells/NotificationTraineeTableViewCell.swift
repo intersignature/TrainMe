@@ -21,6 +21,7 @@ class NotificationTraineeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        self.setProfileImageRound()
         self.setIsReadViewRound()
     }
 
@@ -28,6 +29,13 @@ class NotificationTraineeTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setProfileImageRound() {
+        
+        self.profileImg.layer.masksToBounds = false
+        self.profileImg.layer.cornerRadius = self.profileImg.frame.height/2
+        self.profileImg.clipsToBounds = true
     }
     
     func setIsReadViewRound() {

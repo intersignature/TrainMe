@@ -48,7 +48,7 @@ class NotificationTabTrainerViewController: UIViewController, UITableViewDelegat
             self.notificationArrSort.removeAll()
             self.timeList.removeAll()
             self.timeListSorted.removeAll()
-            let values = snapshot.value as! [String: NSDictionary]
+            guard let values = snapshot.value as? [String: NSDictionary] else { return }
             values.forEach({ (notificationKey, notificationVal) in
                 
                 if !self.timeList.contains(notificationVal["timestamp"] as! String) {
