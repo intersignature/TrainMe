@@ -102,7 +102,7 @@ class FindTabTraineeViewController: UIViewController, CLLocationManagerDelegate 
             let  vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ShowTrainerMarkerViewController
             containVc.placeId = self.selectedPlaceId
-            
+            containVc.isTrainer = false
         }
     }
     

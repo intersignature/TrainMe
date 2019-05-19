@@ -48,6 +48,8 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
     var trainerObjects: [trainerObject] = []
     var buttonIdPendingAlready: [String] = []
     
+    var isTrainer: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,7 +98,7 @@ class ShowTrainerMarkerViewController: UIViewController, UITableViewDataSource, 
             print("temptime: \(tempTimes)")
         }
         
-        cell.isTrainer = true
+        cell.isTrainer = self.isTrainer
         cell.setDataToCell(trainerProfile: trainerProfiles[trainerIdList.firstIndex(of: trainerObjects[indexPath.section].trainerList[indexPath.row])!], tag: indexPath.row, time: tempTimes, buttonIdPendingAlready: self.buttonIdPendingAlready)
         return cell
     }

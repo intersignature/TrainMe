@@ -135,6 +135,7 @@ class BookTabTrainerViewController: UIViewController, UISearchBarDelegate, GMSPl
             let vc = segue.destination as! UINavigationController
             let containVc = vc.topViewController as! ShowTrainerMarkerViewController
             containVc.placeId = self.selectedPlaceId
+            containVc.isTrainer = true
         }
     }
     
