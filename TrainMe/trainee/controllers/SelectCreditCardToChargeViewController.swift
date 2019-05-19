@@ -175,12 +175,12 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             } else {
-//              self.deletePendingData()
+              self.deletePendingData()
                 
                 // delete code below when uncomment deletePendingData() call method
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.view.removeBluerLoader()
-                self.dismiss(animated: true, completion: nil)
+//                self.navigationController?.setNavigationBarHidden(false, animated: true)
+//                self.view.removeBluerLoader()
+//                self.dismiss(animated: true, completion: nil)
             }
         }
     }

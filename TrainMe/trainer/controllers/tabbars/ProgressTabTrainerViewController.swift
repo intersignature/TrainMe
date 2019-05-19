@@ -660,6 +660,14 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
         
         let changeData = ["is_trainer_accept": "1"]
         
+        var canDelete: Bool!
+        
+        if self.pendingDataListsMatch[indexPath.section].pendingDetail.count > 1 {
+            canDelete = true
+        } else {
+            canDelete = false
+        }
+        
         self.ref.child("pending_schedule_detail").child(changeTrainerPending.trainer_id).child(changeTrainerPending.schedule_key).child(changeTrainerPending.trainee_id).updateChildValues(changeData) { (err, ref) in
             
             if let err = err {
@@ -667,17 +675,13 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
                 return
             }
-//            self.pendingDataListsMatch[indexPath.section].pendingDetail.remove(at: indexPath.row)
+
             self.addNotificationDatabase(toUid: changeTrainerPending.trainee_id, description: "Trainer was accepted your booking", reason: nil)
-            //TODO: RECHECK
-            self.deletePendingData(indexPath: indexPath, from: "accept", why: nil)
             
-//            if self.pendingDataListsMatch[indexPath.section].pendingDetail.count == 0 {
-//                self.pendingDataListsMatch.remove(at: indexPath.section)
-//            } else {
-//                self.deletePendingData(indexPath: indexPath, from: "accept", why: nil)
-//            }
-//            self.progressTableView.reloadData()
+            if canDelete {
+                
+                self.deletePendingData(indexPath: indexPath, from: "accept", why: nil)
+            }
         }
     }
     
