@@ -178,7 +178,8 @@ class ProfileTraineeViewController: UIViewController, UITableViewDelegate, UITab
                                               courseDuration: value["course_duration"] as! String,
                                               courseLevel: value["course_level"] as! String,
                                               coursePrice: value["course_price"] as! String,
-                                              courseLanguage: value["course_language"] as! String)
+                                              courseLanguage: value["course_language"] as! String,
+                                              isDelete: value["is_delete"] as! String)
             self.reviewProfileTraineeTableView.reloadData()
         }) { (err) in
             print(err.localizedDescription)

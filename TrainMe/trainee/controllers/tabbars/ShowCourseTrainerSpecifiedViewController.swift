@@ -50,8 +50,12 @@ class ShowCourseTrainerSpecifiedViewController: UIViewController, UITableViewDel
                                         courseDuration: courseObj?["course_duration"] as! String,
                                         courseLevel: courseObj?["course_level"] as! String,
                                         coursePrice: courseObj?["course_price"] as! String,
-                                        courseLanguage: courseObj?["course_language"] as! String)
-                    self.selectedCourses.append(course)
+                                        courseLanguage: courseObj?["course_language"] as! String,
+                                        isDelete: courseObj?["is_delete"] as! String)
+                    
+                    if course.isDelete == "0" {
+                        self.selectedCourses.append(course)
+                    }
                 }
                 self.selectedTrainerCourseTv.reloadData()
             }

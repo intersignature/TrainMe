@@ -154,7 +154,7 @@ class ViewCourseTrainerByTraineeViewController: UIViewController, UITableViewDel
     }
     
     @IBAction func bookBtnAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: "booking_trainer".localized(), message: "\("trainer".localized()): \(self.selectedBookDetail.trainerId)\n\("course".localized()): \(self.course.course)\n\("price".localized()): \(self.course.coursePrice)", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "booking_trainer".localized(), message: "\("course".localized()): \(self.course.course)\n\("price".localized()): \(self.course.coursePrice)", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "ok".localized(), style: UIAlertAction.Style.default, handler: { (action) in
             self.view.showBlurLoader()
             self.navigationController?.setNavigationBarHidden(true, animated: true)

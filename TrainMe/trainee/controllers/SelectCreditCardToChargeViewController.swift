@@ -89,6 +89,7 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
     
     func chargeWithCusAndPrice(selectedIndexPath: IndexPath) {
         
+        let calculatedCoursePrice = Int(Double(self.selectedCourse.coursePrice)!*0.75)*100
         let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -100,7 +101,7 @@ class SelectCreditCardToChargeViewController: UIViewController, UITableViewDeleg
         request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         
-        let params = "amount=\(Int(self.selectedCourse.coursePrice)!*100)&currency=thb&customer=\(self.allData.id)&card=\(self.allData.cards.data[selectedIndexPath.row].id)"
+        let params = "amount=\(calculatedCoursePrice)&currency=thb&customer=\(self.allData.id)&card=\(self.allData.cards.data[selectedIndexPath.row].id)"
         request.httpBody = params.data(using: .utf8, allowLossyConversion: true)
         
         let _ = session.dataTask(with: request) { (data, response, err) in

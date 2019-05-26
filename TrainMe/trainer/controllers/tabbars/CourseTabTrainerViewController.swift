@@ -71,8 +71,12 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
                                         courseDuration: courseObj?["course_duration"] as! String,
                                         courseLevel: courseObj?["course_level"] as! String,
                                         coursePrice: courseObj?["course_price"] as! String,
-                                        courseLanguage: courseObj?["course_language"] as! String)
-                    self.courses.insert(course, at: 0)
+                                        courseLanguage: courseObj?["course_language"] as! String,
+                                        isDelete: courseObj?["is_delete"] as! String)
+                    
+                    if course.isDelete == "0" {
+                        self.courses.insert(course, at: 0)
+                    }
                 }
                 self.tableView.reloadData()
             }
@@ -173,8 +177,9 @@ class CourseTabTrainerViewController: UIViewController, UITableViewDataSource, U
     func deleteCourseInFirebase(indexPath: IndexPath) {
         print("deleteCourseInFirebase")
         let uid = currentUser?.uid
+        let changeVal = ["is_delete": "1"]
         
-        self.ref.child("courses").child(uid!).child(courses[indexPath.row].key).removeValue { (err, ref) in
+        self.ref.child("courses").child(uid!).child(courses[indexPath.row].key).updateChildValues(changeVal) { (err, ref) in
             if let err = err {
                 self.createAlert(alertTitle: err.localizedDescription, alertMessage: "")
             }

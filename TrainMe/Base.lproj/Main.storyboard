@@ -1734,7 +1734,7 @@ TrainMe’s Privacy Policy</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R40-dy-cOH">
-                                <rect key="frame" x="0.0" y="114" width="320" height="405"/>
+                                <rect key="frame" x="0.0" y="103" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProgressCell" rowHeight="110" id="LCw-tt-cS7" customClass="ProgressTableViewCell" customModule="TrainMe" customModuleProvider="target">
@@ -2026,7 +2026,7 @@ TrainMe’s Privacy Policy</string>
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="q4q-7k-Xgg">
-                                <rect key="frame" x="0.0" y="75" width="320" height="29"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="29"/>
                                 <segments>
                                     <segment title="Confirm"/>
                                     <segment title="Payment"/>
@@ -2044,7 +2044,7 @@ TrainMe’s Privacy Policy</string>
                             <constraint firstItem="R40-dy-cOH" firstAttribute="leading" secondItem="pD9-WT-s8i" secondAttribute="leading" id="RPL-dl-KKH"/>
                             <constraint firstItem="pD9-WT-s8i" firstAttribute="trailing" secondItem="q4q-7k-Xgg" secondAttribute="trailing" id="Vqx-ps-p3R"/>
                             <constraint firstItem="pD9-WT-s8i" firstAttribute="bottom" secondItem="R40-dy-cOH" secondAttribute="bottom" id="dWf-Xv-w3j"/>
-                            <constraint firstItem="q4q-7k-Xgg" firstAttribute="top" secondItem="pD9-WT-s8i" secondAttribute="top" constant="11" id="jlh-he-rb6"/>
+                            <constraint firstItem="q4q-7k-Xgg" firstAttribute="top" secondItem="pD9-WT-s8i" secondAttribute="top" id="jlh-he-rb6"/>
                             <constraint firstItem="R40-dy-cOH" firstAttribute="top" secondItem="q4q-7k-Xgg" secondAttribute="bottom" constant="11" id="w9a-zW-ixA"/>
                             <constraint firstItem="q4q-7k-Xgg" firstAttribute="leading" secondItem="pD9-WT-s8i" secondAttribute="leading" id="wrA-gj-wv2"/>
                         </constraints>
@@ -2856,19 +2856,19 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Sirichai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="686-9O-WRn">
-                                                    <rect key="frame" x="85" y="11" width="170.5" height="22"/>
+                                                    <rect key="frame" x="85" y="11" width="172" height="19"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="a b c" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KU-jX-3xA">
-                                                    <rect key="frame" x="85" y="37" width="220" height="57"/>
+                                                    <rect key="frame" x="85" y="34" width="220" height="60"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byo-bW-afk">
-                                                    <rect key="frame" x="255.5" y="16" width="49.5" height="12.5"/>
+                                                    <rect key="frame" x="257" y="16" width="48" height="10.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="9"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3855,7 +3855,7 @@ detail</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IMg-9l-be6">
-                                <rect key="frame" x="0.0" y="114" width="320" height="405"/>
+                                <rect key="frame" x="0.0" y="103" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TraineeConfirmationTableViewCell" rowHeight="110" id="fTe-hG-bxC" customClass="ConfirmationTableViewCell" customModule="TrainMe" customModuleProvider="target">
@@ -4146,7 +4146,7 @@ detail</string>
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-vK-fMV">
-                                <rect key="frame" x="0.0" y="75" width="320" height="29"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="29"/>
                                 <segments>
                                     <segment title="Confirm"/>
                                     <segment title="Payment"/>
@@ -4164,7 +4164,7 @@ detail</string>
                             <constraint firstItem="Glc-PL-6Yi" firstAttribute="trailing" secondItem="7Jh-vK-fMV" secondAttribute="trailing" id="Abx-7I-IEz"/>
                             <constraint firstItem="Glc-PL-6Yi" firstAttribute="bottom" secondItem="IMg-9l-be6" secondAttribute="bottom" id="LTt-S6-jTg"/>
                             <constraint firstItem="7Jh-vK-fMV" firstAttribute="leading" secondItem="Glc-PL-6Yi" secondAttribute="leading" id="baP-9X-h62"/>
-                            <constraint firstItem="7Jh-vK-fMV" firstAttribute="top" secondItem="Glc-PL-6Yi" secondAttribute="top" constant="11" id="kO7-0j-gPa"/>
+                            <constraint firstItem="7Jh-vK-fMV" firstAttribute="top" secondItem="Glc-PL-6Yi" secondAttribute="top" id="kO7-0j-gPa"/>
                             <constraint firstItem="IMg-9l-be6" firstAttribute="top" secondItem="7Jh-vK-fMV" secondAttribute="bottom" constant="11" id="odF-jz-A00"/>
                             <constraint firstItem="Glc-PL-6Yi" firstAttribute="trailing" secondItem="IMg-9l-be6" secondAttribute="trailing" id="phP-ge-7rA"/>
                         </constraints>
@@ -4215,25 +4215,25 @@ detail</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Sirichai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYH-iC-ndT">
-                                                    <rect key="frame" x="85" y="11" width="170.5" height="22"/>
+                                                    <rect key="frame" x="85" y="11" width="172" height="19"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="a b c" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfQ-Rd-BPB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="a b c" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfQ-Rd-BPB">
                                                     <rect key="frame" x="85" y="37" width="220" height="53.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8l-t7-6Ka">
-                                                    <rect key="frame" x="255.5" y="16" width="49.5" height="12.5"/>
+                                                    <rect key="frame" x="257" y="16" width="48" height="10.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="9"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ow1-Tr-EcO">
-                                                    <rect key="frame" x="262" y="94.5" width="43" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ow1-Tr-EcO">
+                                                    <rect key="frame" x="265" y="94.5" width="40" height="30"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="13"/>
                                                     <state key="normal" title="Report"/>
                                                 </button>
@@ -6343,21 +6343,21 @@ detail</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-R3-NP7">
-                                <rect key="frame" x="20" y="116" width="300" height="21"/>
+                                <rect key="frame" x="20" y="113" width="300" height="18"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SeP-G1-x3D">
-                                <rect key="frame" x="20" y="181" width="300" height="21"/>
+                                <rect key="frame" x="20" y="172" width="300" height="18"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vd9-m6-7iN">
-                                <rect key="frame" x="45" y="291" width="230" height="30"/>
+                                <rect key="frame" x="45" y="273" width="230" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ODb-qG-cS6"/>
@@ -6369,25 +6369,25 @@ detail</string>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ss0-hL-GkB">
-                                <rect key="frame" x="16" y="88" width="304" height="22"/>
+                                <rect key="frame" x="16" y="88" width="304" height="19"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQl-Mt-Cwn">
-                                <rect key="frame" x="16" y="153" width="304" height="22"/>
+                                <rect key="frame" x="16" y="147" width="304" height="19"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz7-sa-Fiq">
-                                <rect key="frame" x="16" y="218" width="304" height="22"/>
+                                <rect key="frame" x="16" y="206" width="304" height="19"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2b-4d-SE3">
-                                <rect key="frame" x="20" y="248" width="300" height="21"/>
+                                <rect key="frame" x="20" y="233" width="300" height="18"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Light" family="Noto Sans" pointSize="15"/>
@@ -7504,13 +7504,13 @@ detail</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOr-on-hqN">
-                                                    <rect key="frame" x="5" y="33.5" width="15" height="21"/>
+                                                    <rect key="frame" x="-2" y="30.5" width="22" height="26.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14/11/2018 16:05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlI-u5-2dT">
-                                                    <rect key="frame" x="25" y="15" width="126" height="20.5"/>
+                                                    <rect key="frame" x="25" y="12" width="126" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -7524,17 +7524,17 @@ detail</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Successful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Cr-mC-6xZ">
-                                                    <rect key="frame" x="168" y="15" width="133" height="20.5"/>
+                                                    <rect key="frame" x="168" y="12" width="140" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Medium" family="Noto Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frs-20-bLT">
-                                                    <rect key="frame" x="28" y="39.5" width="120" height="30"/>
+                                                    <rect key="frame" x="28" y="33.5" width="120" height="30"/>
                                                     <state key="normal" title="Change schedule"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4U-aU-CVK">
-                                                    <rect key="frame" x="172" y="39.5" width="125" height="30"/>
+                                                    <rect key="frame" x="172" y="33.5" width="132" height="30"/>
                                                     <state key="normal" title="Confirm"/>
                                                 </button>
                                             </subviews>
@@ -7784,8 +7784,8 @@ detail</string>
         <segue reference="8je-Rt-v1G"/>
         <segue reference="L1Y-Q7-OXJ"/>
         <segue reference="lwg-sn-Rgh"/>
-        <segue reference="wZT-TI-L7O"/>
-        <segue reference="aj2-aV-Jgc"/>
+        <segue reference="QBL-zq-jxZ"/>
+        <segue reference="uBq-3a-KCf"/>
         <segue reference="CFl-Dl-pmF"/>
         <segue reference="IRS-Ta-5Mo"/>
         <segue reference="QeP-9l-n5x"/>

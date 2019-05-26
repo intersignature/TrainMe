@@ -20,11 +20,12 @@ struct Course {
     var courseLevel: String = "-1"
     var coursePrice: String = "-1"
     var courseLanguage: String = "-1"
+    var isDelete: String = "0"
     
     init() {}
     
     init(key: String, course: String, courseContent: String, courseVideoUrl:String, courseType: String, timeOfCourse: String,
-         courseDuration: String, courseLevel: String, coursePrice: String, courseLanguage: String) {
+         courseDuration: String, courseLevel: String, coursePrice: String, courseLanguage: String, isDelete: String) {
         
         self.key = key
         self.course = course
@@ -36,6 +37,7 @@ struct Course {
         self.courseLevel = decryptedCourseLevel(courseLevelCode: courseLevel)
         self.coursePrice = coursePrice
         self.courseLanguage = courseLanguage
+        self.isDelete = isDelete
     }
     
     func decryptedCourseType(courseTypeCode: String) -> String {
@@ -52,6 +54,6 @@ struct Course {
     
     func getData() -> String{
         
-        return "key: \(self.key)\ncourse: \(self.course)\ncourseContent: \(self.courseContent)\ncourseVideoUrl: \(self.courseVideoUrl)\ncourseType: \(self.courseType)\ntimeOfCourse: \(self.timeOfCourse)\ncourseDuration: \(self.courseDuration)\ncourseLevel: \(self.courseLevel)\ncoursePrice: \(self.coursePrice)\ncourseLanguage: \(self.courseLanguage)\n------------------"
+        return "key: \(self.key)\ncourse: \(self.course)\ncourseContent: \(self.courseContent)\ncourseVideoUrl: \(self.courseVideoUrl)\ncourseType: \(self.courseType)\ntimeOfCourse: \(self.timeOfCourse)\ncourseDuration: \(self.courseDuration)\ncourseLevel: \(self.courseLevel)\ncoursePrice: \(self.coursePrice)\ncourseLanguage: \(self.courseLanguage)\nIsDelete: \(self.isDelete)------------------"
     }
 }

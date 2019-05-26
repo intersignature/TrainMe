@@ -370,7 +370,8 @@ class ProgressTabTrainerViewController: UIViewController, UITableViewDataSource,
                                 courseDuration: (value["course_duration"] as! String),
                                 courseLevel: (value["course_level"] as! String),
                                 coursePrice: (value["course_price"] as! String),
-                                courseLanguage: (value["course_language"] as! String))
+                                courseLanguage: (value["course_language"] as! String),
+                                isDelete: value["is_delete"] as! String)
             self.courseObj[courseId] = course
             if self.traineeObj.count == self.traineeIds.count && self.traineeObj.count != 0 &&
                 self.courseObj.count == self.courseIds.count && self.courseObj.count != 0 &&

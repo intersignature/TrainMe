@@ -309,6 +309,8 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
     }
     
     func transferMoney(recpId: String) {
+        
+        let calculatedCoursePrice = Int(Double(coursePrice)!*0.75)*100
         let skey = String(format: "%@:", "skey_test_5dm3tm6pj69glowba1n").data(using: String.Encoding.utf8)!.base64EncodedString()
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -320,7 +322,7 @@ class EachOngoingTrainerViewController: UIViewController, UITableViewDataSource,
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.addValue("Basic \(String(describing: skey))", forHTTPHeaderField: "Authorization")
         
-        let params = "amount=\(Int(self.coursePrice)!*100)&recipient=\(recpId)"
+        let params = "amount=\(calculatedCoursePrice)&recipient=\(recpId)"
         request.httpBody = params.data(using: .utf8, allowLossyConversion: true)
         
         let task = session.dataTask(with: request) { (data, response, err) in
