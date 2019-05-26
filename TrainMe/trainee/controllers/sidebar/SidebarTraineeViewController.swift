@@ -45,6 +45,7 @@ class SidebarTraineeViewController: UIViewController {
         emailLb.text = currentUser?.email
         if currentUser?.photoURL != nil {
             profileImg.downloaded(from: (currentUser?.photoURL?.absoluteString)!)
+            self.setProfileImageRound()
         } else {
             // profileImg.downloaded(from: (Auth.auth().currentUser?.photoURL)!) -> use default image link
         }
@@ -88,5 +89,12 @@ class SidebarTraineeViewController: UIViewController {
             containVc.isBlurProfile = false
             containVc.traineeProfileUid = self.currentUser?.uid
         }
+    }
+    
+    func setProfileImageRound() {
+        
+        self.profileImg.layer.masksToBounds = false
+        self.profileImg.layer.cornerRadius = self.profileImg.frame.height/2
+        self.profileImg.clipsToBounds = true
     }
 }

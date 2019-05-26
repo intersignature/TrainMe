@@ -81,6 +81,7 @@ class EachOngoingTraineeViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EachOngoingTableViewCell") as! EachOngoingTraineeTableViewCell
+        
         cell.selectedOngoing = self.selectedOngoing.eachOngoingDetails[indexPath.row]
         cell.changeScheduleBtn.setTitle("change_schedule".localized(), for: .normal)
         cell.changeScheduleBtn.tag = indexPath.row

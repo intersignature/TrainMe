@@ -21,7 +21,12 @@ class EachOngoingTraineeTableViewCell: UITableViewCell {
     func setDataToCell() {
         
         self.countLb.text = selectedOngoing.count
-        self.dateAndTimeLb.text = "\(selectedOngoing.start_train_date) \(selectedOngoing.start_train_time)"
+        
+        if selectedOngoing.start_train_date == "-1" || selectedOngoing.start_train_time == "-1" {
+            self.dateAndTimeLb.text = "-"
+        } else {
+            self.dateAndTimeLb.text = "\(selectedOngoing.start_train_date) \(selectedOngoing.start_train_time)"
+        }
         self.statusLb.text = selectedOngoing.status
     }
     

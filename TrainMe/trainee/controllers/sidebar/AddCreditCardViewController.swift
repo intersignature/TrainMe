@@ -162,7 +162,7 @@ class AddCreditCardViewController: UIViewController, STPPaymentCardTextFieldDele
     
     func getCreditCardToken() {
         
-        let pkey = String(format: "%@:", "pkey_test_5e2xuwqwivt0h2npcje").data(using: String.Encoding.utf8)!.base64EncodedString()
+        let pkey = String(format: "%@:", "pkey_test_5fziab3ue9s2hzs7s43").data(using: String.Encoding.utf8)!.base64EncodedString()
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         guard let URL = URL(string: "https://vault.omise.co/tokens") else {return}

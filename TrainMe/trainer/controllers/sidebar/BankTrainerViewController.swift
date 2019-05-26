@@ -56,6 +56,9 @@ class BankTrainerViewController: UIViewController, UIPickerViewDataSource, UIPic
                 self.getRecpData(self.recpId)
             } else {
                 self.confirmBtn.addTarget(self, action: #selector(self.addRecpBtnAction), for: .touchUpInside)
+                self.accountNameTf.attributedPlaceholder = NSAttributedString(string: "account_name".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                self.accountNumberTf.attributedPlaceholder = NSAttributedString(string: "account_number".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                self.bankNameTf.attributedPlaceholder = NSAttributedString(string: "bank_name".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             }
             
         }) { (err) in
